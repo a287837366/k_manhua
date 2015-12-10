@@ -68,7 +68,7 @@
     if (!_levelLable) {
         
         _levelLable = [[UILabel alloc] init];
-        _levelLable.frame = CGRectMake( 45, 5, 20, 20);
+        _levelLable.frame = CGRectMake(45, 5, 20, 20);
         _levelLable.backgroundColor = [UIColor redColor];
         _levelLable.font = [UIFont systemFontOfSize:14];
         _levelLable.textAlignment = NSTextAlignmentCenter;

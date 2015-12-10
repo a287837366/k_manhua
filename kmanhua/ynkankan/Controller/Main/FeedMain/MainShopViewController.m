@@ -50,7 +50,7 @@
 #pragma mark - tableview 代理
 //返回数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 7;
 }
 
 //自定义Cell
@@ -103,6 +103,8 @@
         _mainTable.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         _mainTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _mainTable.delegate = self;
+        _mainTable.showsVerticalScrollIndicator = NO;
+        _mainTable.showsHorizontalScrollIndicator = NO;
         _mainTable.backgroundColor = [UIColor groupTableViewBackgroundColor];
         _mainTable.dataSource = self;
     }

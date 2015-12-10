@@ -24,12 +24,14 @@
     
     if(self){
         self.viewHeight = 0;
+
     }
     
     return self;
 }
 
 -(void)setDate{
+    
     [self addSubview:self.mainImageView];
     [self addSubview:self.imageListView];
     
@@ -40,11 +42,67 @@
 -(void)createImageList{
     
     for (int i = 0; i < 3; i++) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.frame = CGRectMake(10, self.viewHeight + 1 + i * (50), kScreenWidth, 70);
-        [self addSubview:imageView];
+        UIView *view = [[UIView alloc] init];
+        view.backgroundColor = [UIColor whiteColor];
+        view.frame = CGRectMake(10, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth - 20, 70);
+        
+        [view addSubview:[self createSimpleImage:@""]];
+        [view addSubview:[self createLable:@"19"]];
+        [view addSubview:[self createTitleLable:@"지하철 자하철 지하철"]];
+        [view addSubview:[self createTimeLable:@"2015-01-01"]];
+        
+        [self addSubview:view];
     }
     
+    self.viewHeight += 71 *3 + 5;
+}
+
+#pragma mark 图片Image
+-(UIImageView *)createSimpleImage:(NSString *)imagUrl{
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.frame = CGRectMake(10, 10, 45, 45);
+    imageView.backgroundColor = [UIColor lightGrayColor];
+    return imageView;
+}
+
+#pragma mark 等级Level
+-(UILabel *)createLable:(NSString *)level{
+    
+    UILabel *lable = [[UILabel alloc] init];
+    lable.frame = CGRectMake(45, 5, 20, 20);
+    lable.backgroundColor = [UIColor redColor];
+    lable.font = [UIFont systemFontOfSize:14];
+    lable.textAlignment = NSTextAlignmentCenter;
+    lable.layer.cornerRadius = 10;
+    lable.layer.masksToBounds = YES;
+    lable.textColor = [UIColor whiteColor];
+    lable.text = level;
+    return lable;
+}
+
+#pragma mark 文本信息
+-(UILabel *)createTitleLable:(NSString *)title{
+
+    UILabel *titleLable = [[UILabel alloc] init];
+    titleLable.frame = CGRectMake(65, 10, kScreenWidth - 95, 45);
+    titleLable.tintColor = [UIColor grayColor];
+    titleLable.font = [UIFont systemFontOfSize:14];
+    titleLable.text = title;
+    return titleLable;
+}
+
+#pragma mark 时间文本
+-(UILabel *)createTimeLable:(NSString *)time{
+
+    
+    UILabel *timeLable = [[UILabel alloc] init];
+    timeLable.frame = CGRectMake(10, 50, kScreenWidth - 35, 15);
+    timeLable.font = [UIFont systemFontOfSize:12];
+    timeLable.textColor = [UIColor lightGrayColor];
+    timeLable.textAlignment = NSTextAlignmentRight;
+    timeLable.text = time;
+    
+    return timeLable;
 }
 
 #pragma - get set
@@ -61,10 +119,10 @@
         [self addSubview:titleLable];
         
         _mainImageView = [[UIImageView alloc] init];
-        _mainImageView.frame = CGRectMake(10, 20, kScreenWidth - 20, 100);
+        _mainImageView.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
         _mainImageView.backgroundColor = [UIColor lightGrayColor];
 
-        self.viewHeight += 120;
+        self.viewHeight += 170;
     }
     
     return _mainImageView;
