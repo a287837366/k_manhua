@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FC96B1C194FFB00E85317 /* MainHeaderView.m */; };
+		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
+		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
+		9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */; };
+		9BBBDDD41C19AAAE0000F312 /* test_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCF1C19AAAE0000F312 /* test_1.png */; };
+		9BBBDDD51C19AAAE0000F312 /* test_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD01C19AAAE0000F312 /* test_2.png */; };
+		9BBBDDD61C19AAAE0000F312 /* test_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD11C19AAAE0000F312 /* test_3.png */; };
+		9BBBDDD71C19AAAE0000F312 /* test_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD21C19AAAE0000F312 /* test_4.png */; };
+		9BBBDDD81C19AAAE0000F312 /* test_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD31C19AAAE0000F312 /* test_5.png */; };
 		9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF01BCAA62600F15A1E /* BaseTableViewCell.m */; };
 		9BBC3DF61BCAA8A800F15A1E /* lottery_blueball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF51BCAA8A800F15A1E /* lottery_blueball@2x.png */; };
 		9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF71BCAB86300F15A1E /* getIntegralBtn_selected@2x.png */; };
@@ -49,6 +57,14 @@
 /* Begin PBXFileReference section */
 		188FC96A1C194FFB00E85317 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHeaderView.h; path = Controller/Main/FeedMain/View/MainHeaderView.h; sourceTree = "<group>"; };
 		188FC96B1C194FFB00E85317 /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainHeaderView.m; path = Controller/Main/FeedMain/View/MainHeaderView.m; sourceTree = "<group>"; };
+		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
+		9BBBDDC91C19A2CC0000F312 /* tab_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_me.png; path = Res/Tab/tab_me.png; sourceTree = "<group>"; };
+		9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_weixin.png; path = Res/Tab/tab_weixin.png; sourceTree = "<group>"; };
+		9BBBDDCF1C19AAAE0000F312 /* test_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_1.png; path = Res/Test/test_1.png; sourceTree = "<group>"; };
+		9BBBDDD01C19AAAE0000F312 /* test_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_2.png; path = Res/Test/test_2.png; sourceTree = "<group>"; };
+		9BBBDDD11C19AAAE0000F312 /* test_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_3.png; path = Res/Test/test_3.png; sourceTree = "<group>"; };
+		9BBBDDD21C19AAAE0000F312 /* test_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_4.png; path = Res/Test/test_4.png; sourceTree = "<group>"; };
+		9BBBDDD31C19AAAE0000F312 /* test_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_5.png; path = Res/Test/test_5.png; sourceTree = "<group>"; };
 		9BBC3DED1BCAA51800F15A1E /* AppConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstant.h; path = Commom/Constant/AppConstant.h; sourceTree = "<group>"; };
 		9BBC3DEF1BCAA62600F15A1E /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTableViewCell.h; path = Commom/Views/BaseTableViewCell.h; sourceTree = "<group>"; };
 		9BBC3DF01BCAA62600F15A1E /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTableViewCell.m; path = Commom/Views/BaseTableViewCell.m; sourceTree = "<group>"; };
@@ -119,6 +135,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BBBDDC71C19A26C0000F312 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				9BBBDDC81C19A2CC0000F312 /* tab_home.png */,
+				9BBBDDC91C19A2CC0000F312 /* tab_me.png */,
+				9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */,
+			);
+			name = Tab;
+			sourceTree = "<group>";
+		};
+		9BBBDDCE1C19A5050000F312 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				9BBBDDCF1C19AAAE0000F312 /* test_1.png */,
+				9BBBDDD01C19AAAE0000F312 /* test_2.png */,
+				9BBBDDD11C19AAAE0000F312 /* test_3.png */,
+				9BBBDDD21C19AAAE0000F312 /* test_4.png */,
+				9BBBDDD31C19AAAE0000F312 /* test_5.png */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		9BBC3DE01BCA913300F15A1E /* Constant */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +168,8 @@
 		9BBC3DEC1BCAA4C500F15A1E /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				9BBBDDCE1C19A5050000F312 /* Test */,
+				9BBBDDC71C19A26C0000F312 /* Tab */,
 				9BBC3DF21BCAA84E00F15A1E /* Main */,
 			);
 			name = Res;
@@ -417,10 +457,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBBDDD71C19AAAE0000F312 /* test_4.png in Resources */,
+				9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */,
+				9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */,
 				9BCA70441BAB0BA60095D9BA /* Main.storyboard in Resources */,
+				9BBBDDD61C19AAAE0000F312 /* test_3.png in Resources */,
+				9BBBDDD41C19AAAE0000F312 /* test_1.png in Resources */,
+				9BBBDDD81C19AAAE0000F312 /* test_5.png in Resources */,
+				9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */,
 				9BCA70491BAB0BA60095D9BA /* LaunchScreen.xib in Resources */,
 				9BBC3DF61BCAA8A800F15A1E /* lottery_blueball@2x.png in Resources */,
 				9BCA70461BAB0BA60095D9BA /* Images.xcassets in Resources */,
+				9BBBDDD51C19AAAE0000F312 /* test_2.png in Resources */,
 				9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

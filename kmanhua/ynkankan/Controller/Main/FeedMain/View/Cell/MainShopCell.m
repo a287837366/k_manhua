@@ -34,7 +34,7 @@
     self.titleLable.text = @"지하철 지하철 지하철";
     self.levelLable.text = @"19";
     self.timeLable.text = @"2015-08-01";
-    
+    self.leftImage.image = [UIImage imageNamed:@"test_1"];
     return self;
 }
 
@@ -45,7 +45,6 @@
     if (!_leftImage) {
         _leftImage = [[UIImageView alloc] init];
         _leftImage.frame = CGRectMake(10, 10, 45, 45);
-        _leftImage.backgroundColor = [UIColor lightGrayColor];
     }
     
     return _leftImage;
@@ -64,12 +63,11 @@
 }
 
 -(UILabel *)levelLable{
-
+    
     if (!_levelLable) {
-        
         _levelLable = [[UILabel alloc] init];
         _levelLable.frame = CGRectMake(45, 5, 20, 20);
-        _levelLable.backgroundColor = [UIColor redColor];
+        _levelLable.backgroundColor = Color_Main;
         _levelLable.font = [UIFont systemFontOfSize:14];
         _levelLable.textAlignment = NSTextAlignmentCenter;
         _levelLable.layer.cornerRadius = 10;

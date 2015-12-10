@@ -12,4 +12,8 @@
 #define kScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define kScreenWidth  [[UIScreen mainScreen] bounds].size.width
 
+
+#define Color_Main [UIColor colorWithRed:252/255.0f green:21/255.0f blue:115/255.0f alpha:1];
+#define Color_Background [UIColor colorWithRed:248.0/255.0f green:227/255.0f blue:234/255.0f alpha:1];
+
 #endif

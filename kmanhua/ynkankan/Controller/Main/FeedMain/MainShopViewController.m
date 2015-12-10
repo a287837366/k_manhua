@@ -80,14 +80,13 @@
     
     UIView *view = [[UIView alloc] init];
     view.frame = CGRectMake(0, 0, kScreenWidth, 20);
-    view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    view.backgroundColor = Color_Background;
     
     UILabel *lable = [[UILabel alloc] init];
     lable.frame = CGRectMake(0, 0, kScreenWidth, 20);
-    lable.textColor = [UIColor grayColor];
+    lable.textColor = Color_Main;
     lable.font = [UIFont systemFontOfSize:13];
     lable.text = @"---  지난 이야기  ---";
-    lable.textColor = [UIColor grayColor];
     lable.textAlignment = NSTextAlignmentCenter;
     
     [view addSubview:lable];

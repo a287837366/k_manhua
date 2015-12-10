@@ -24,7 +24,7 @@
     
     if(self){
         self.viewHeight = 0;
-
+        self.backgroundColor = Color_Background;
     }
     
     return self;
@@ -46,9 +46,9 @@
         view.backgroundColor = [UIColor whiteColor];
         view.frame = CGRectMake(10, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth - 20, 70);
         
-        [view addSubview:[self createSimpleImage:@""]];
+        [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test_%d", i + 1]]];
         [view addSubview:[self createLable:@"19"]];
-        [view addSubview:[self createTitleLable:@"지하철 자하철 지하철"]];
+        [view addSubview:[self createTitleLable:[NSString stringWithFormat:@"자하철에서 당한 썰(%d)", i]]];
         [view addSubview:[self createTimeLable:@"2015-01-01"]];
         
         [self addSubview:view];
@@ -61,7 +61,8 @@
 -(UIImageView *)createSimpleImage:(NSString *)imagUrl{
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.frame = CGRectMake(10, 10, 45, 45);
-    imageView.backgroundColor = [UIColor lightGrayColor];
+    imageView.image = [UIImage imageNamed:imagUrl];
+    imageView.contentMode = UIViewContentModeRedraw;
     return imageView;
 }
 
@@ -70,7 +71,7 @@
     
     UILabel *lable = [[UILabel alloc] init];
     lable.frame = CGRectMake(45, 5, 20, 20);
-    lable.backgroundColor = [UIColor redColor];
+    lable.backgroundColor = Color_Main;
     lable.font = [UIFont systemFontOfSize:14];
     lable.textAlignment = NSTextAlignmentCenter;
     lable.layer.cornerRadius = 10;
@@ -113,15 +114,15 @@
         UILabel *titleLable = [[UILabel alloc] init];
         titleLable.frame = CGRectMake(0, 0, kScreenWidth, 20);
         titleLable.font = [UIFont systemFontOfSize:13];
-        titleLable.textColor = [UIColor grayColor];
+        titleLable.textColor = Color_Main;
         titleLable.text = @"---  오늘 이야기  ---";
         titleLable.textAlignment = NSTextAlignmentCenter;
         [self addSubview:titleLable];
         
         _mainImageView = [[UIImageView alloc] init];
         _mainImageView.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
-        _mainImageView.backgroundColor = [UIColor lightGrayColor];
-
+        _mainImageView.image = [UIImage imageNamed:@"test_5"];
+        _mainImageView.contentMode = UIViewContentModeRedraw;
         self.viewHeight += 170;
     }
     
