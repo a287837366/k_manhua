@@ -8,10 +8,12 @@
 
 #import "MainShopViewController.h"
 #import "MainShopCell.h"
+#import "MainHeaderView.h"
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *mainTable;
+@property (strong, nonatomic) MainHeaderView *headerView;
 
 @end
 
@@ -31,12 +33,21 @@
 
 -(void)initView{
     [self.view addSubview:self.mainTable];
+    self.headerView = [[MainHeaderView alloc] init];
+    [self.headerView setDate];
+    self.headerView.frame = CGRectMake(0, 0, kScreenWidth, self.headerView.viewHeight);
+
+    
+    self.mainTable.tableHeaderView = self.headerView;
+
+}
+
+#pragma mark - 设置表头
+-(void)setTableHader{
     
 }
 
 #pragma mark - tableview 代理
-
-
 //返回数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 5;
@@ -98,4 +109,5 @@
 
     return _mainTable;
 }
+
 @end

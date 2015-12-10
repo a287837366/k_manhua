@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FC96B1C194FFB00E85317 /* MainHeaderView.m */; };
 		9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF01BCAA62600F15A1E /* BaseTableViewCell.m */; };
 		9BBC3DF61BCAA8A800F15A1E /* lottery_blueball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF51BCAA8A800F15A1E /* lottery_blueball@2x.png */; };
 		9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF71BCAB86300F15A1E /* getIntegralBtn_selected@2x.png */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		188FC96A1C194FFB00E85317 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHeaderView.h; path = Controller/Main/FeedMain/View/MainHeaderView.h; sourceTree = "<group>"; };
+		188FC96B1C194FFB00E85317 /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainHeaderView.m; path = Controller/Main/FeedMain/View/MainHeaderView.m; sourceTree = "<group>"; };
 		9BBC3DED1BCAA51800F15A1E /* AppConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstant.h; path = Commom/Constant/AppConstant.h; sourceTree = "<group>"; };
 		9BBC3DEF1BCAA62600F15A1E /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTableViewCell.h; path = Commom/Views/BaseTableViewCell.h; sourceTree = "<group>"; };
 		9BBC3DF01BCAA62600F15A1E /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTableViewCell.m; path = Commom/Views/BaseTableViewCell.m; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				9BEAB9A11BE78F0300AD5A20 /* Cell */,
+				188FC96A1C194FFB00E85317 /* MainHeaderView.h */,
+				188FC96B1C194FFB00E85317 /* MainHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -443,6 +448,7 @@
 				9BCA703E1BAB0BA60095D9BA /* ynkankan.xcdatamodeld in Sources */,
 				9BBC3E1C1BD14E5900F15A1E /* AFURLSessionManager.m in Sources */,
 				9BEAB9A41BE792A200AD5A20 /* MainShopCell.m in Sources */,
+				188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */,
 				9BBC3E1D1BD14E5900F15A1E /* UIImageView+AFNetworking.m in Sources */,
 				9BBC3E201BD14ED400F15A1E /* HttpClient.m in Sources */,
 				9BBC3E1B1BD14E5900F15A1E /* AFURLResponseSerialization.m in Sources */,
