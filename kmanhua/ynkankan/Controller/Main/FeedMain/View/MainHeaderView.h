@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MainHeaderDelegate;
+
 @interface MainHeaderView : UIView
 
 @property (nonatomic, assign) CGFloat viewHeight;
 
+@property (nonatomic, weak) id<MainHeaderDelegate> delegate;
 
 -(void)setDate;
+
+@end
+
+@protocol MainHeaderDelegate <NSObject>
+
 
 @end

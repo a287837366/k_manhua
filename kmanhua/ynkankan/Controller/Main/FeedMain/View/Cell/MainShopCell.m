@@ -34,7 +34,7 @@
     self.titleLable.text = @"지하철 지하철 지하철";
     self.levelLable.text = @"19";
     self.timeLable.text = @"2015-08-01";
-    self.leftImage.image = [UIImage imageNamed:@"test_1"];
+    self.leftImage.image = [UIImage imageNamed:@"test_12"];
     return self;
 }
 

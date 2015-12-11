@@ -25,6 +25,8 @@
     if(self){
         self.viewHeight = 0;
         self.backgroundColor = Color_Background;
+        self.layer.cornerRadius = 4;
+        self.layer.masksToBounds = YES;
     }
     
     return self;
@@ -45,8 +47,12 @@
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor whiteColor];
         view.frame = CGRectMake(10, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth - 20, 70);
+        view.tag = 100 + i + 1;
         
-        [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test_%d", i + 1]]];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick:)];
+        [view addGestureRecognizer:singleTap];
+        
+        [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test2_%d", i + 1]]];
         [view addSubview:[self createLable:@"19"]];
         [view addSubview:[self createTitleLable:[NSString stringWithFormat:@"자하철에서 당한 썰(%d)", i]]];
         [view addSubview:[self createTimeLable:@"2015-01-01"]];
@@ -63,7 +69,20 @@
     imageView.frame = CGRectMake(10, 10, 45, 45);
     imageView.image = [UIImage imageNamed:imagUrl];
     imageView.contentMode = UIViewContentModeRedraw;
+    
+
+    
     return imageView;
+}
+
+#pragma mark 图片点击事件
+- (void)imageClick:(UITapGestureRecognizer *)recognizer{
+    NSLog(@" tag -> %ld ",recognizer.view.tag);
+}
+
+#pragma mark 点击头部
+- (void)imageTitleClick{
+    NSLog(@" tag -> %d ", 100);
 }
 
 #pragma mark 等级Level
@@ -110,7 +129,7 @@
 -(UIImageView *)mainImageView{
 
     if (!_mainImageView) {
-     
+        
         UILabel *titleLable = [[UILabel alloc] init];
         titleLable.frame = CGRectMake(0, 0, kScreenWidth, 20);
         titleLable.font = [UIFont systemFontOfSize:13];
@@ -121,8 +140,14 @@
         
         _mainImageView = [[UIImageView alloc] init];
         _mainImageView.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
-        _mainImageView.image = [UIImage imageNamed:@"test_5"];
+        _mainImageView.image = [UIImage imageNamed:@"test_12"];
         _mainImageView.contentMode = UIViewContentModeRedraw;
+        _mainImageView.tag = 100;
+    
+        UIButton *tltleButton = [[UIButton alloc] init];
+        tltleButton.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
+        [tltleButton addTarget:self action:@selector(imageTitleClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:tltleButton];
         self.viewHeight += 170;
     }
     

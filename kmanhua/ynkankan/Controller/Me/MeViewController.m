@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initView];
 
+}
+
+- (void)initView{
+    [self setTitle:@"나의"];
 }
 
 - (void)didReceiveMemoryWarning {

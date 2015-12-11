@@ -7,6 +7,7 @@
 //
 
 #import "MainShopViewController.h"
+#import "LoiginPromptView.h"
 #import "MainShopCell.h"
 #import "MainHeaderView.h"
 
@@ -32,15 +33,34 @@
 }
 
 -(void)initView{
+    [self setTitle:@"야만"];
+    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
+    [self setRightButton];
+    self.view.backgroundColor = Color_Background;
+    
     [self.view addSubview:self.mainTable];
     self.headerView = [[MainHeaderView alloc] init];
     [self.headerView setDate];
     self.headerView.frame = CGRectMake(0, 0, kScreenWidth, self.headerView.viewHeight);
-
-    
     self.mainTable.tableHeaderView = self.headerView;
 
 }
+
+#pragma mark - 设置右侧
+- (void)setRightButton{
+    UIBarButtonItem *RightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_login"] style:UIBarButtonItemStylePlain target:self action:@selector(loginMethod)];
+    self.navigationItem.rightBarButtonItem = RightButton;
+}
+
+#pragma mark 返回
+-(void)loginMethod{
+    
+    LoiginPromptView *popView = [[LoiginPromptView alloc] init];
+    [popView showNavigation];
+    [self.view addSubview:popView];
+    
+}
+
 
 #pragma mark - 设置表头
 -(void)setTableHader{
@@ -99,12 +119,12 @@
     if (!_mainTable) {
         
         _mainTable = [[UITableView alloc] init];
-        _mainTable.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        _mainTable.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 114);
         _mainTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _mainTable.delegate = self;
         _mainTable.showsVerticalScrollIndicator = NO;
         _mainTable.showsHorizontalScrollIndicator = NO;
-        _mainTable.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        _mainTable.backgroundColor = Color_Background;
         _mainTable.dataSource = self;
     }
 

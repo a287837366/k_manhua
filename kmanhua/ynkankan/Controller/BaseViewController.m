@@ -20,13 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"%f", Screen_Weight);
+}
+
+- (void)initNavigation{
+    [self.navigationController.navigationBar setBarTintColor:Color_fcfcfc];
+    [self.navigationController.navigationBar setTintColor:Color_666666];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
