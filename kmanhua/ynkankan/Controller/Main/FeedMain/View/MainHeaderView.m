@@ -46,13 +46,13 @@
     for (int i = 0; i < 3; i++) {
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor whiteColor];
-        view.frame = CGRectMake(10, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth - 20, 70);
+        view.frame = CGRectMake(0, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth, 70);
         view.tag = 100 + i + 1;
         
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick:)];
         [view addGestureRecognizer:singleTap];
         
-        [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test2_%d", i + 1]]];
+        [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test_%d", i + 1]]];
         [view addSubview:[self createLable:@"19"]];
         [view addSubview:[self createTitleLable:[NSString stringWithFormat:@"자하철에서 당한 썰(%d)", i]]];
         [view addSubview:[self createTimeLable:@"2015-01-01"]];
@@ -104,7 +104,7 @@
 -(UILabel *)createTitleLable:(NSString *)title{
 
     UILabel *titleLable = [[UILabel alloc] init];
-    titleLable.frame = CGRectMake(65, 10, kScreenWidth - 95, 45);
+    titleLable.frame = CGRectMake(65, 10, kScreenWidth - 115, 45);
     titleLable.tintColor = [UIColor grayColor];
     titleLable.font = [UIFont systemFontOfSize:14];
     titleLable.text = title;
@@ -139,8 +139,8 @@
         [self addSubview:titleLable];
         
         _mainImageView = [[UIImageView alloc] init];
-        _mainImageView.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
-        _mainImageView.image = [UIImage imageNamed:@"test_12"];
+        _mainImageView.frame = CGRectMake(0, 20, kScreenWidth - 20, 150);
+        _mainImageView.image = [UIImage imageNamed:@"test_1"];
         _mainImageView.contentMode = UIViewContentModeRedraw;
         _mainImageView.tag = 100;
     

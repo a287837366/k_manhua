@@ -34,7 +34,7 @@
     self.titleLable.text = @"지하철 지하철 지하철";
     self.levelLable.text = @"19";
     self.timeLable.text = @"2015-08-01";
-    self.leftImage.image = [UIImage imageNamed:@"test_12"];
+    self.leftImage.image = [UIImage imageNamed:@"test_1"];
     return self;
 }
 
@@ -53,7 +53,7 @@
     
     if (!_titleLable) {
         _titleLable = [[UILabel alloc] init];
-        _titleLable.frame = CGRectMake(65, 10, kScreenWidth - 95, 45);
+        _titleLable.frame = CGRectMake(65, 10, kScreenWidth - 115, 45);
         _titleLable.tintColor = [UIColor grayColor];
         _titleLable.font = [UIFont systemFontOfSize:14];
         
@@ -83,7 +83,7 @@
     if (!_timeLable) {
         
         _timeLable = [[UILabel alloc] init];
-        _timeLable.frame = CGRectMake(10, 50, kScreenWidth - 15, 15);
+        _timeLable.frame = CGRectMake(10, 50, kScreenWidth - 35, 15);
         _timeLable.font = [UIFont systemFontOfSize:12];
         _timeLable.textColor = [UIColor lightGrayColor];
         _timeLable.textAlignment = NSTextAlignmentRight;

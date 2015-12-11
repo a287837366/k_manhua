@@ -11,6 +11,7 @@
 		189640ED1C1A790900657904 /* nav_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189640EB1C1A790900657904 /* nav_login@2x.png */; };
 		189640EE1C1A790900657904 /* nav_login@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189640EC1C1A790900657904 /* nav_login@3x.png */; };
 		189640F21C1A947500657904 /* LoiginPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189640F11C1A947500657904 /* LoiginPromptView.m */; };
+		189640F71C1AC75900657904 /* MeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189640F61C1AC75900657904 /* MeHeaderView.m */; };
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
 		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
 		9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */; };
@@ -64,6 +65,8 @@
 		189640EC1C1A790900657904 /* nav_login@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_login@3x.png"; path = "Res/Navigation/nav_login@3x.png"; sourceTree = "<group>"; };
 		189640F01C1A947500657904 /* LoiginPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoiginPromptView.h; path = Controller/Main/FeedMain/View/PopView/LoiginPromptView.h; sourceTree = "<group>"; };
 		189640F11C1A947500657904 /* LoiginPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoiginPromptView.m; path = Controller/Main/FeedMain/View/PopView/LoiginPromptView.m; sourceTree = "<group>"; };
+		189640F51C1AC75900657904 /* MeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeHeaderView.h; path = Controller/Me/View/MeHeaderView.h; sourceTree = "<group>"; };
+		189640F61C1AC75900657904 /* MeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeHeaderView.m; path = Controller/Me/View/MeHeaderView.m; sourceTree = "<group>"; };
 		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
 		9BBBDDC91C19A2CC0000F312 /* tab_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_me.png; path = Res/Tab/tab_me.png; sourceTree = "<group>"; };
 		9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_weixin.png; path = Res/Tab/tab_weixin.png; sourceTree = "<group>"; };
@@ -158,6 +161,15 @@
 				189640F11C1A947500657904 /* LoiginPromptView.m */,
 			);
 			name = PopView;
+			sourceTree = "<group>";
+		};
+		189640F31C1AC71C00657904 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				189640F51C1AC75900657904 /* MeHeaderView.h */,
+				189640F61C1AC75900657904 /* MeHeaderView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		9BBBDDC71C19A26C0000F312 /* Tab */ = {
@@ -368,6 +380,7 @@
 		9BCA70611BAB0E2B0095D9BA /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				189640F31C1AC71C00657904 /* View */,
 				9BCA70681BAB0EF20095D9BA /* MeViewController.h */,
 				9BCA70691BAB0EF20095D9BA /* MeViewController.m */,
 			);
@@ -518,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BBC3E191BD14E5900F15A1E /* AFURLConnectionOperation.m in Sources */,
+				189640F71C1AC75900657904 /* MeHeaderView.m in Sources */,
 				9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */,
 				9BBC3E181BD14E5900F15A1E /* AFSecurityPolicy.m in Sources */,
 				9BBC3E151BD14E5900F15A1E /* AFHTTPRequestOperationManager.m in Sources */,

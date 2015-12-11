@@ -34,9 +34,11 @@
 
 -(void)initView{
     [self setTitle:@"야만"];
-    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
+    UIView *backgoundView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 110)];
+    backgoundView.backgroundColor = Color_Background;
+    [self.view addSubview:backgoundView];
     [self setRightButton];
-    self.view.backgroundColor = Color_Background;
+    
     
     [self.view addSubview:self.mainTable];
     self.headerView = [[MainHeaderView alloc] init];
@@ -119,7 +121,7 @@
     if (!_mainTable) {
         
         _mainTable = [[UITableView alloc] init];
-        _mainTable.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 114);
+        _mainTable.frame = CGRectMake(10, 64, kScreenWidth - 20, kScreenHeight - 114);
         _mainTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _mainTable.delegate = self;
         _mainTable.showsVerticalScrollIndicator = NO;

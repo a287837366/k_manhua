@@ -23,6 +23,8 @@
 }
 
 - (void)initNavigation{
+    
+    
     [self.navigationController.navigationBar setBarTintColor:Color_fcfcfc];
     [self.navigationController.navigationBar setTintColor:Color_666666];
 }
