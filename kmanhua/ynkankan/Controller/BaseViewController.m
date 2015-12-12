@@ -20,10 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNavigation];
 }
 
 - (void)initNavigation{
-    
+    self.navigationItem.leftBarButtonItem.tintColor = Color_666666;
     
     [self.navigationController.navigationBar setBarTintColor:Color_fcfcfc];
     [self.navigationController.navigationBar setTintColor:Color_666666];

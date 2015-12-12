@@ -90,7 +90,7 @@
         
         _timeLable = [[UILabel alloc] init];
         _timeLable.frame = CGRectMake(10, 50, kScreenWidth - 35, 15);
-        _timeLable.font = [UIFont systemFontOfSize:12];
+        _timeLable.font = [UIFont systemFontOfSize:11];
         _timeLable.textColor = [UIColor lightGrayColor];
         _timeLable.textAlignment = NSTextAlignmentRight;
         

@@ -7,6 +7,7 @@
 //
 
 #import "NewsMainViewController.h"
+#import "NewsWebDetialViewController.h"
 #import "NewsMainViewCell.h"
 
 @interface NewsMainViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -66,6 +67,20 @@
 //返回高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 90;
+}
+//点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@" didSelectRowAtIndexPath ");
+    [self gotoNewsDetailView];
+}
+
+#pragma mark goto
+-(void)gotoNewsDetailView{
+    NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
+
+    detailVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark get set
