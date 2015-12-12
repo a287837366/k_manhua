@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "AppConstant.h"
-#define MeHeaderHeight 150
+#define MeHeaderHeight 100
 
 @interface MeHeaderView : UIView
 
 
-@property (strong, nonatomic) UILabel *personIcon;
+@property (strong, nonatomic) UIButton *iconButton;
 @property (strong, nonatomic) UILabel *nikeName;
+@property (strong, nonatomic) UILabel *contentLable;
+
 
 @end

@@ -12,6 +12,8 @@
 		189640EE1C1A790900657904 /* nav_login@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189640EC1C1A790900657904 /* nav_login@3x.png */; };
 		189640F21C1A947500657904 /* LoiginPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189640F11C1A947500657904 /* LoiginPromptView.m */; };
 		189640F71C1AC75900657904 /* MeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189640F61C1AC75900657904 /* MeHeaderView.m */; };
+		189640FF1C1BC1CB00657904 /* MeMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 189640FE1C1BC1CB00657904 /* MeMainTableViewCell.m */; };
+		189641021C1BC7AC00657904 /* me_right_arraw.png in Resources */ = {isa = PBXBuildFile; fileRef = 189641011C1BC7AC00657904 /* me_right_arraw.png */; };
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
 		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
 		9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */; };
@@ -67,6 +69,9 @@
 		189640F11C1A947500657904 /* LoiginPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoiginPromptView.m; path = Controller/Main/FeedMain/View/PopView/LoiginPromptView.m; sourceTree = "<group>"; };
 		189640F51C1AC75900657904 /* MeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeHeaderView.h; path = Controller/Me/View/MeHeaderView.h; sourceTree = "<group>"; };
 		189640F61C1AC75900657904 /* MeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeHeaderView.m; path = Controller/Me/View/MeHeaderView.m; sourceTree = "<group>"; };
+		189640FD1C1BC1CB00657904 /* MeMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeMainTableViewCell.h; path = Controller/Me/Cell/MeMainTableViewCell.h; sourceTree = "<group>"; };
+		189640FE1C1BC1CB00657904 /* MeMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeMainTableViewCell.m; path = Controller/Me/Cell/MeMainTableViewCell.m; sourceTree = "<group>"; };
+		189641011C1BC7AC00657904 /* me_right_arraw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = me_right_arraw.png; path = Res/Me/me_right_arraw.png; sourceTree = "<group>"; };
 		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
 		9BBBDDC91C19A2CC0000F312 /* tab_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_me.png; path = Res/Tab/tab_me.png; sourceTree = "<group>"; };
 		9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_weixin.png; path = Res/Tab/tab_weixin.png; sourceTree = "<group>"; };
@@ -172,6 +177,23 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		189640F81C1BC0D700657904 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				189640FD1C1BC1CB00657904 /* MeMainTableViewCell.h */,
+				189640FE1C1BC1CB00657904 /* MeMainTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		189641001C1BC6D300657904 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				189641011C1BC7AC00657904 /* me_right_arraw.png */,
+			);
+			name = Me;
+			sourceTree = "<group>";
+		};
 		9BBBDDC71C19A26C0000F312 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +227,7 @@
 		9BBC3DEC1BCAA4C500F15A1E /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				189641001C1BC6D300657904 /* Me */,
 				189640EA1C1A77A500657904 /* Navigation */,
 				9BBBDDCE1C19A5050000F312 /* Test */,
 				9BBBDDC71C19A26C0000F312 /* Tab */,
@@ -380,6 +403,7 @@
 		9BCA70611BAB0E2B0095D9BA /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				189640F81C1BC0D700657904 /* Cell */,
 				189640F31C1AC71C00657904 /* View */,
 				9BCA70681BAB0EF20095D9BA /* MeViewController.h */,
 				9BCA70691BAB0EF20095D9BA /* MeViewController.m */,
@@ -498,6 +522,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				189641021C1BC7AC00657904 /* me_right_arraw.png in Resources */,
 				9BBBDDD71C19AAAE0000F312 /* test_4.png in Resources */,
 				9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */,
 				9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */,
@@ -540,6 +565,7 @@
 				9BCA703E1BAB0BA60095D9BA /* ynkankan.xcdatamodeld in Sources */,
 				9BBC3E1C1BD14E5900F15A1E /* AFURLSessionManager.m in Sources */,
 				9BEAB9A41BE792A200AD5A20 /* MainShopCell.m in Sources */,
+				189640FF1C1BC1CB00657904 /* MeMainTableViewCell.m in Sources */,
 				188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */,
 				9BBC3E1D1BD14E5900F15A1E /* UIImageView+AFNetworking.m in Sources */,
 				9BBC3E201BD14ED400F15A1E /* HttpClient.m in Sources */,

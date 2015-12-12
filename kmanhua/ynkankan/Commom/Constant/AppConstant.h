@@ -18,5 +18,7 @@
 #define Color_Background [UIColor colorWithRed:248.0/255.0f green:227/255.0f blue:234/255.0f alpha:1];
 #define Color_fcfcfc [UIColor colorWithRed:252/255.0 green:252/255.0 blue:252/255.0 alpha:1.00f]
 #define Color_666666 [UIColor colorWithRed:101/255.0 green:101/255.0 blue:101/255.0 alpha:1.00f]
-
+#define Color_meheader [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.00f]
+#define Color_888888 [UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:1.0f]
+#define Color_f5f5f2 [UIColor colorWithRed:245/255.0 green:245/255.0 blue:242/255.0 alpha:1.0f]
 #endif

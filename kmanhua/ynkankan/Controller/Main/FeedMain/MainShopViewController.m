@@ -94,18 +94,26 @@
     return 70;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 20;
+    return 30;
 }
 
 //表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *view = [[UIView alloc] init];
-    view.frame = CGRectMake(0, 0, kScreenWidth, 20);
-    view.backgroundColor = Color_Background;
+    view.frame = CGRectMake(0, 0, kScreenWidth, 30);
+//    view.backgroundColor = Color_Background;
+    
+    UIView *cornorView = [[UIView alloc] init];
+    cornorView.frame = CGRectMake((kScreenWidth - 150) / 2, 5, 150, 20);
+    cornorView.backgroundColor = [UIColor whiteColor];
+    cornorView.layer.cornerRadius = 5;
+    cornorView.layer.masksToBounds = YES;
+    [view addSubview:cornorView];
+    
     
     UILabel *lable = [[UILabel alloc] init];
-    lable.frame = CGRectMake(0, 0, kScreenWidth, 20);
+    lable.frame = CGRectMake(0, 0, kScreenWidth, 30);
     lable.textColor = Color_Main;
     lable.font = [UIFont systemFontOfSize:13];
     lable.text = @"---  지난 이야기  ---";
@@ -126,6 +134,7 @@
         _mainTable.delegate = self;
         _mainTable.showsVerticalScrollIndicator = NO;
         _mainTable.showsHorizontalScrollIndicator = NO;
+        _mainTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTable.backgroundColor = Color_Background;
         _mainTable.dataSource = self;
     }

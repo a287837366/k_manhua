@@ -15,6 +15,8 @@
 @property (strong, nonatomic) UILabel *levelLable;
 @property (strong, nonatomic) UILabel *timeLable;
 
+@property (strong, nonatomic) UIView *conView;
+
 @end
 
 @implementation MainShopCell
@@ -24,17 +26,21 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self){
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self.contentView addSubview:self.leftImage];
-        [self.contentView addSubview:self.titleLable];
-        [self.contentView addSubview:self.levelLable];
-        [self.contentView addSubview:self.timeLable];
-
+        
+        [self.contentView addSubview:self.conView];
+        [self.conView addSubview:self.leftImage];
+        [self.conView addSubview:self.titleLable];
+        [self.conView addSubview:self.levelLable];
+        [self.conView addSubview:self.timeLable];
+        
+        self.backgroundColor = [UIColor clearColor];
+   
     }
     
     self.titleLable.text = @"지하철 지하철 지하철";
     self.levelLable.text = @"19";
     self.timeLable.text = @"2015-08-01";
-    self.leftImage.image = [UIImage imageNamed:@"test_1"];
+    self.leftImage.image = [UIImage imageNamed:@"test_5"];
     return self;
 }
 
@@ -91,6 +97,20 @@
     }
     
     return _timeLable;
+}
+
+-(UIView *)conView{
+    
+    if (!_conView) {
+        
+        _conView = [[UIView alloc] init];
+        _conView.frame = CGRectMake(0, 0, kScreenWidth - 20, 68);
+        _conView.backgroundColor = [UIColor whiteColor];
+        _conView.layer.cornerRadius = 4;
+        _conView.layer.masksToBounds = YES;
+    }
+
+    return _conView;
 }
 
 @end

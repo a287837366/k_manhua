@@ -25,7 +25,7 @@
     if(self){
         self.viewHeight = 0;
         self.backgroundColor = Color_Background;
-        self.layer.cornerRadius = 4;
+        self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
     }
     
@@ -131,24 +131,33 @@
     if (!_mainImageView) {
         
         UILabel *titleLable = [[UILabel alloc] init];
-        titleLable.frame = CGRectMake(0, 0, kScreenWidth, 20);
+        titleLable.frame = CGRectMake(0, 5, kScreenWidth, 20);
         titleLable.font = [UIFont systemFontOfSize:13];
         titleLable.textColor = Color_Main;
         titleLable.text = @"---  오늘 이야기  ---";
         titleLable.textAlignment = NSTextAlignmentCenter;
+
+        UIView *cornorView = [[UIView alloc] init];
+        cornorView.frame = CGRectMake((kScreenWidth - 150) / 2, 5, 150, 20);
+        cornorView.backgroundColor = [UIColor whiteColor];
+        cornorView.layer.cornerRadius = 5;
+        cornorView.layer.masksToBounds = YES;
+        [self addSubview:cornorView];
         [self addSubview:titleLable];
         
         _mainImageView = [[UIImageView alloc] init];
-        _mainImageView.frame = CGRectMake(0, 20, kScreenWidth - 20, 150);
+        _mainImageView.frame = CGRectMake(0, 30, kScreenWidth - 20, 150);
         _mainImageView.image = [UIImage imageNamed:@"test_1"];
         _mainImageView.contentMode = UIViewContentModeRedraw;
+        _mainImageView.layer.cornerRadius = 5;
+        _mainImageView.layer.masksToBounds = YES;
         _mainImageView.tag = 100;
     
         UIButton *tltleButton = [[UIButton alloc] init];
         tltleButton.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
         [tltleButton addTarget:self action:@selector(imageTitleClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:tltleButton];
-        self.viewHeight += 170;
+        self.viewHeight += 180;
     }
     
     return _mainImageView;
