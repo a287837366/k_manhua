@@ -71,7 +71,7 @@
         _titleLable = [[UILabel alloc] init];
         _titleLable.frame = CGRectMake(46, 9, kScreenWidth - 70, 26);
         _titleLable.font = [UIFont systemFontOfSize:14];
-        _titleLable.textColor = [UIColor grayColor];
+        _titleLable.textColor = [UIColor darkGrayColor];
     }
     
     return _titleLable;
