@@ -77,12 +77,12 @@
 
 #pragma mark 图片点击事件
 - (void)imageClick:(UITapGestureRecognizer *)recognizer{
-    NSLog(@" tag -> %ld ",recognizer.view.tag);
+    [self.delegate didClickHeader:recognizer.view.tag - 100];
 }
 
 #pragma mark 点击头部
 - (void)imageTitleClick{
-    NSLog(@" tag -> %d ", 100);
+    [self.delegate didClickHeader:0];
 }
 
 #pragma mark 等级Level

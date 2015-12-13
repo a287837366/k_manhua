@@ -10,8 +10,9 @@
 #import "LoiginPromptView.h"
 #import "MainShopCell.h"
 #import "MainHeaderView.h"
+#import "NewsWebDetialViewController.h"
 
-@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate>
 
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainHeaderView *headerView;
@@ -42,6 +43,7 @@
     
     [self.view addSubview:self.mainTable];
     self.headerView = [[MainHeaderView alloc] init];
+    self.headerView.delegate = self;
     [self.headerView setDate];
     self.headerView.frame = CGRectMake(0, 0, kScreenWidth, self.headerView.viewHeight);
     self.mainTable.tableHeaderView = self.headerView;
@@ -89,6 +91,14 @@
     return cell;
 
 }
+
+//点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@" didSelectRowAtIndexPath ");
+    [self gotoNewsDetailView];
+}
+
+
 //返回高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70;
@@ -102,7 +112,6 @@
     
     UIView *view = [[UIView alloc] init];
     view.frame = CGRectMake(0, 0, kScreenWidth, 30);
-//    view.backgroundColor = Color_Background;
     
     UIView *cornorView = [[UIView alloc] init];
     cornorView.frame = CGRectMake((kScreenWidth - 150) / 2, 5, 150, 20);
@@ -121,6 +130,20 @@
     
     [view addSubview:lable];
     return view;
+}
+
+#pragma mark headerDelegate
+-(void)didClickHeader:(NSInteger)index{
+    [self gotoNewsDetailView];
+}
+
+#pragma mark goto
+-(void)gotoNewsDetailView{
+    NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
+    
+    detailVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - get set

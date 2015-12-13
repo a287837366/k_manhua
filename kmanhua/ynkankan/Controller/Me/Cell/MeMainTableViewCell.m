@@ -69,7 +69,7 @@
 
     if (!_titleLable) {
         _titleLable = [[UILabel alloc] init];
-        _titleLable.frame = CGRectMake(46, 9, kScreenWidth - 70, 26);
+        _titleLable.frame = CGRectMake(15, 9, kScreenWidth - 70, 26);
         _titleLable.font = [UIFont systemFontOfSize:14];
         _titleLable.textColor = [UIColor darkGrayColor];
     }

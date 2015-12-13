@@ -62,7 +62,7 @@
      
         _nikeName = [[UILabel alloc] init];
         _nikeName.frame = CGRectMake(75, (MeHeaderHeight - 55) / 2 + 1, kScreenWidth - 88, 14);
-        _nikeName.font = [UIFont systemFontOfSize:13];
+        _nikeName.font = [UIFont systemFontOfSize:15];
         _nikeName.tintColor = Color_666666;
         _nikeName.text = @"닉넴: 미등록";
     }

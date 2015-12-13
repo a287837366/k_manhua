@@ -22,5 +22,6 @@
 
 @protocol MainHeaderDelegate <NSObject>
 
+-(void)didClickHeader:(NSInteger)index;
 
 @end
