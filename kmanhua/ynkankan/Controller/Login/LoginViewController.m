@@ -8,8 +8,11 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "LoginService.h"
 
 @interface LoginViewController ()<RegisterdDetailViewDelegate>
+
+@property (strong, nonatomic) LoginService *service;
 
 @end
 
@@ -22,7 +25,6 @@
 }
 
 -(void)initView{
-    self.loginButton.userInteractionEnabled = NO;
     
     [self.idTextFile addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.pwTextFile addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -35,10 +37,6 @@
 #pragma mark - textFileDelegte
 - (void)textFieldDidChange:(UITextField *)textField{
     
-    if (self.idTextFile.text.length > 0 && self.pwTextFile.text.length > 0) {
-        self.loginButton.userInteractionEnabled = YES;
-    }
-    self.loginButton.userInteractionEnabled = NO;
 }
 
 #pragma mark - resigerDelegate 
@@ -54,8 +52,11 @@
 
 #pragma mark - Action
 - (IBAction)clickLogin:(id)sender {
-    [self.delegate loginSuccess];
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+    [self.service requsetLogin:@"11" loginPw:@""
+                  response:^(NSMutableDictionary *returnDic, NSError *error){
+                      NSLog(@"  %@  ", error);
+                  }];
 }
 
 - (IBAction)clickRegister:(id)sender {
@@ -74,6 +75,16 @@
 #pragma mark - Action
 - (IBAction)click_dissMiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - get set
+-(LoginService *)service{
+
+    if (!_service) {
+        _service = [[LoginService alloc] init];
+    }
+
+    return _service;
 }
 
 

@@ -35,6 +35,7 @@
 		18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */; };
 		18EF5B001C1E882900A436C4 /* discover_choose_cancle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */; };
 		18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */; };
+		9B7B7E821C1F04F4007EFC22 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7B7E811C1F04F4007EFC22 /* LoginService.m */; };
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
 		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
 		9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */; };
@@ -71,6 +72,7 @@
 		9BEAB9A41BE792A200AD5A20 /* MainShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEAB9A31BE792A200AD5A20 /* MainShopCell.m */; };
 		9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDE49C1C1EEC4A00573468 /* RegisterdDetailView.m */; };
 		9BEDE4A01C1EEC9100573468 /* RegisterdDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */; };
+		9BEDE4A41C1EFFCB00573468 /* MainShopService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDE4A31C1EFFCB00573468 /* MainShopService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/Login/LoginViewController.xib; sourceTree = "<group>"; };
 		18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@2x.png"; path = "Res/Login/discover_choose_cancle@2x.png"; sourceTree = "<group>"; };
 		18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@3x.png"; path = "Res/Login/discover_choose_cancle@3x.png"; sourceTree = "<group>"; };
+		9B7B7E801C1F04F4007EFC22 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginService.h; path = Controller/Login/Serivice/LoginService.h; sourceTree = "<group>"; };
+		9B7B7E811C1F04F4007EFC22 /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginService.m; path = Controller/Login/Serivice/LoginService.m; sourceTree = "<group>"; };
 		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
 		9BBBDDC91C19A2CC0000F312 /* tab_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_me.png; path = Res/Tab/tab_me.png; sourceTree = "<group>"; };
 		9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_weixin.png; path = Res/Tab/tab_weixin.png; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 		9BEDE49B1C1EEC4A00573468 /* RegisterdDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterdDetailView.h; path = Controller/Login/View/RegisterdDetailView.h; sourceTree = "<group>"; };
 		9BEDE49C1C1EEC4A00573468 /* RegisterdDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterdDetailView.m; path = Controller/Login/View/RegisterdDetailView.m; sourceTree = "<group>"; };
 		9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterdDetailView.xib; path = Controller/Login/View/RegisterdDetailView.xib; sourceTree = "<group>"; };
+		9BEDE4A21C1EFFCB00573468 /* MainShopService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainShopService.h; path = Controller/Main/FeedMain/Service/MainShopService.h; sourceTree = "<group>"; };
+		9BEDE4A31C1EFFCB00573468 /* MainShopService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShopService.m; path = Controller/Main/FeedMain/Service/MainShopService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +317,7 @@
 		18EF5AF61C1E86C100A436C4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				9B7B7E7F1C1F04BC007EFC22 /* Serivice */,
 				186511D51C1EB6E300DD969C /* View */,
 				18EF5AF81C1E875200A436C4 /* LoginViewController.h */,
 				18EF5AF91C1E875200A436C4 /* LoginViewController.m */,
@@ -329,6 +336,15 @@
 				18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		9B7B7E7F1C1F04BC007EFC22 /* Serivice */ = {
+			isa = PBXGroup;
+			children = (
+				9B7B7E801C1F04F4007EFC22 /* LoginService.h */,
+				9B7B7E811C1F04F4007EFC22 /* LoginService.m */,
+			);
+			name = Serivice;
 			sourceTree = "<group>";
 		};
 		9BBBDDC71C19A26C0000F312 /* Tab */ = {
@@ -524,6 +540,7 @@
 		9BCA705F1BAB0E070095D9BA /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9BEDE4A11C1EFF8100573468 /* Service */,
 				9BEAB9A01BE78ED600AD5A20 /* View */,
 				9BEAB99D1BE78B3300AD5A20 /* MainShopViewController.h */,
 				9BEAB99E1BE78B3300AD5A20 /* MainShopViewController.m */,
@@ -594,6 +611,15 @@
 			children = (
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		9BEDE4A11C1EFF8100573468 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9BEDE4A21C1EFFCB00573468 /* MainShopService.h */,
+				9BEDE4A31C1EFFCB00573468 /* MainShopService.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -728,6 +754,7 @@
 				9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */,
 				9BBC3E181BD14E5900F15A1E /* AFSecurityPolicy.m in Sources */,
 				9BBC3E151BD14E5900F15A1E /* AFHTTPRequestOperationManager.m in Sources */,
+				9BEDE4A41C1EFFCB00573468 /* MainShopService.m in Sources */,
 				189641111C1BF82B00657904 /* NewsWebDetialViewController.m in Sources */,
 				9BCA703B1BAB0BA60095D9BA /* AppDelegate.m in Sources */,
 				9BCA706D1BAB0F0F0095D9BA /* BaseViewController.m in Sources */,
@@ -745,6 +772,7 @@
 				9BBC3E1B1BD14E5900F15A1E /* AFURLResponseSerialization.m in Sources */,
 				9BCA706A1BAB0EF20095D9BA /* MeViewController.m in Sources */,
 				9BCA70671BAB0ED80095D9BA /* NewsMainViewController.m in Sources */,
+				9B7B7E821C1F04F4007EFC22 /* LoginService.m in Sources */,
 				9BBC3E1A1BD14E5900F15A1E /* AFURLRequestSerialization.m in Sources */,
 				18EF5AEF1C1E674700A436C4 /* MJRefreshBaseView.m in Sources */,
 				9BBC3E171BD14E5900F15A1E /* AFNetworkReachabilityManager.m in Sources */,
