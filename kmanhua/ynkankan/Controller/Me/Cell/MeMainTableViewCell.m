@@ -46,7 +46,6 @@
         _conView.frame = CGRectMake(0, 2, kScreenWidth - 20, 46);
         _conView.backgroundColor = [UIColor whiteColor];
         _conView.layer.cornerRadius = 4;
-        _conView.layer.masksToBounds = YES;
         
     }
     
