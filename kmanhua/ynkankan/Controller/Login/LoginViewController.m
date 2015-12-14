@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<RegisterdDetailViewDelegate>
 
 @end
 
@@ -41,6 +41,15 @@
     self.loginButton.userInteractionEnabled = NO;
 }
 
+#pragma mark - resigerDelegate 
+-(void)registeSuccess{
+    NSLog(@" -- registeSuccess --");
+    [self performSelector:@selector(testRefreshEnd) withObject:nil afterDelay:1.0f];
+}
+
+-(void)testRefreshEnd{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 #pragma mark - Action
@@ -58,6 +67,7 @@
 #pragma mark goto
 -(void)gotoRegisterView{
     RegisterViewController *regisVC = [[RegisterViewController alloc] init];
+    regisVC.delegate = self;
     [self presentViewController:regisVC animated:YES completion:nil];
 }
 

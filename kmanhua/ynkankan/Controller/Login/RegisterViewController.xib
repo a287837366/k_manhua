@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
-                <outlet property="mainScollView" destination="6hJ-k7-wyA" id="SQv-k4-W93"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -117,34 +116,22 @@
                         </mask>
                     </variation>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hJ-k7-wyA">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="6hJ-k7-wyA" secondAttribute="bottom" id="0Y6-gF-1fw"/>
-                <constraint firstAttribute="trailing" secondItem="6hJ-k7-wyA" secondAttribute="trailing" id="8I4-ET-plp"/>
                 <constraint firstItem="ThF-PZ-6fx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="9JN-sK-eBh"/>
                 <constraint firstAttribute="trailing" secondItem="hiN-h1-B1M" secondAttribute="trailing" id="INz-aR-EyH"/>
                 <constraint firstAttribute="trailing" secondItem="ThF-PZ-6fx" secondAttribute="trailing" id="JyE-xC-sPx"/>
-                <constraint firstItem="6hJ-k7-wyA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rqz-Xm-7si"/>
                 <constraint firstItem="ThF-PZ-6fx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X97-tq-cTh"/>
                 <constraint firstItem="hiN-h1-B1M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mLD-bB-GkR"/>
                 <constraint firstItem="hiN-h1-B1M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xGS-CE-pz1"/>
-                <constraint firstItem="6hJ-k7-wyA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="yRk-pH-8Ll"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="hiN-h1-B1M"/>
                     <exclude reference="ThF-PZ-6fx"/>
-                    <exclude reference="6hJ-k7-wyA"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="0Y6-gF-1fw"/>
-                    <exclude reference="8I4-ET-plp"/>
-                    <exclude reference="Rqz-Xm-7si"/>
-                    <exclude reference="yRk-pH-8Ll"/>
                     <exclude reference="9JN-sK-eBh"/>
                     <exclude reference="JyE-xC-sPx"/>
                     <exclude reference="X97-tq-cTh"/>
@@ -157,13 +144,8 @@
                 <mask key="subviews">
                     <include reference="hiN-h1-B1M"/>
                     <include reference="ThF-PZ-6fx"/>
-                    <include reference="6hJ-k7-wyA"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="0Y6-gF-1fw"/>
-                    <include reference="8I4-ET-plp"/>
-                    <include reference="Rqz-Xm-7si"/>
-                    <include reference="yRk-pH-8Ll"/>
                     <include reference="9JN-sK-eBh"/>
                     <include reference="JyE-xC-sPx"/>
                     <include reference="X97-tq-cTh"/>

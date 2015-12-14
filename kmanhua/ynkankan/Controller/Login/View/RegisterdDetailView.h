@@ -10,6 +10,7 @@
 
 @interface RegisterdDetailView : UIView
 
-
+@property (weak, nonatomic) IBOutlet UIButton *btnCenter;
 
 @end
+

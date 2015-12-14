@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "AppConstant.h"
 
+@protocol RegisterdDetailViewDelegate;
+
 @interface RegisterViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIScrollView *mainScollView;
+@property (weak) id<RegisterdDetailViewDelegate> delegate;
 
 @end
+
+@protocol RegisterdDetailViewDelegate <NSObject>
+
+-(void)registeSuccess;
+
+@end
+
