@@ -147,7 +147,7 @@
         
         _mainImageView = [[UIImageView alloc] init];
         _mainImageView.frame = CGRectMake(0, 30, kScreenWidth - 20, 150);
-        _mainImageView.image = [UIImage imageNamed:@"test_1"];
+        _mainImageView.image = [UIImage imageNamed:@"test_10"];
         _mainImageView.contentMode = UIViewContentModeRedraw;
         _mainImageView.layer.cornerRadius = 5;
         _mainImageView.layer.masksToBounds = YES;

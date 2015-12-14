@@ -9,6 +9,7 @@
 #import "NewsMainViewController.h"
 #import "NewsWebDetialViewController.h"
 #import "NewsMainViewCell.h"
+#import "MJRefresh.h"
 
 @interface NewsMainViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -73,6 +74,14 @@
     NSLog(@" didSelectRowAtIndexPath ");
     [self gotoNewsDetailView];
 }
+//上啦刷新
+-(void)footerRereshing{
+    [self performSelector:@selector(testRefreshEnd) withObject:nil afterDelay:2.0f];
+}
+
+-(void)testRefreshEnd{
+    [self.mainTableView footerEndRefreshing];
+}
 
 #pragma mark goto
 -(void)gotoNewsDetailView{
@@ -98,6 +107,7 @@
         _mainTableView.showsHorizontalScrollIndicator = NO;
         _mainTableView.backgroundColor = [UIColor clearColor];
         
+        [_mainTableView addFooterWithTarget:self action:@selector(footerRereshing)];
     }
 
     return _mainTableView;

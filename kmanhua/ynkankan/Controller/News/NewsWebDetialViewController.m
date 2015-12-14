@@ -8,6 +8,7 @@
 
 #import "NewsWebDetialViewController.h"
 
+
 @interface NewsWebDetialViewController ()
 
 @property (strong, nonatomic) UIWebView *mainWebView;
@@ -20,7 +21,6 @@
     [super viewDidLoad];
     [self initView];
     // Do any additional setup after loading the view.
-
 }
 
 - (void)initView{

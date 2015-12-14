@@ -10,6 +10,7 @@
 #import "MeHeaderView.h"
 #import "MeMainTableViewCell.h"
 #import "AppConstant.h"
+#import "MeFeedBackController.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -76,7 +77,6 @@
     }
     
     cell.titleLable.text = [[dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    
     return cell;
 }
 
@@ -88,6 +88,54 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 10;
 }
+//点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0) {
+        
+        switch (indexPath.row) {
+            case 0:
+                NSLog(@"<< 방문기록 >>");
+                
+                break;
+                
+            case 1:
+                NSLog(@"<< 의견제출 하기 >>");
+                [self gotoFeedBackView];
+                break;
+                
+            case 2:
+                NSLog(@"<< 제휴 문의 >>");
+ 
+                break;
+                
+            case 3:
+                NSLog(@"<< 땐짠 하기 >>");
+                break;
+                
+            default:
+                break;
+        }
+        
+    } else if (indexPath.section == 1) {
+        
+        switch (indexPath.row) {
+            case 0:
+                NSLog(@"<< 웨이씬 공요하기  >>");
+                break;
+                
+            case 1:
+                NSLog(@"<<  About us >>");
+                
+                break;
+                
+            default:
+                break;
+        }
+    
+    }
+    
+}
 //表头
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] init];
@@ -96,6 +144,14 @@
     
     return view;
 }
+
+#pragma mark - goto
+-(void)gotoFeedBackView{
+    MeFeedBackController *feedBack = [[MeFeedBackController alloc] init];
+    feedBack.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:feedBack animated:YES];
+}
+
 
 #pragma mark get set
 -(UITableView *)mainTableView{
