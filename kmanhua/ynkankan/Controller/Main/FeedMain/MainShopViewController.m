@@ -11,8 +11,10 @@
 #import "MainShopCell.h"
 #import "MainHeaderView.h"
 #import "NewsWebDetialViewController.h"
+#import "MJRefresh.h"
+#import "LoginViewController.h"
 
-@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate>
+@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate>
 
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainHeaderView *headerView;
@@ -60,6 +62,7 @@
 -(void)loginMethod{
     
     LoiginPromptView *popView = [[LoiginPromptView alloc] init];
+    popView.delegate = self;
     [popView showNavigation];
     [self.view addSubview:popView];
     
@@ -69,6 +72,12 @@
 #pragma mark - 设置表头
 -(void)setTableHader{
     
+}
+
+#pragma mark - popDelegate
+-(void)didClickLogin{
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 #pragma mark - tableview 代理
@@ -132,6 +141,17 @@
     return view;
 }
 
+
+//上啦刷新
+-(void)footerRereshing{
+    [self performSelector:@selector(testRefreshEnd) withObject:nil afterDelay:2.0f];
+}
+
+-(void)testRefreshEnd{
+    [self.mainTable footerEndRefreshing];
+}
+
+
 #pragma mark headerDelegate
 -(void)didClickHeader:(NSInteger)index{
     [self gotoNewsDetailView];
@@ -160,6 +180,7 @@
         _mainTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTable.backgroundColor = Color_Background;
         _mainTable.dataSource = self;
+        [_mainTable addFooterWithTarget:self action:@selector(footerRereshing)];
     }
 
     return _mainTable;

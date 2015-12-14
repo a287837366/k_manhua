@@ -29,6 +29,10 @@
 		18EF5AF31C1E674700A436C4 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF5AE91C1E674700A436C4 /* UIScrollView+MJExtension.m */; };
 		18EF5AF41C1E674700A436C4 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF5AEB1C1E674700A436C4 /* UIScrollView+MJRefresh.m */; };
 		18EF5AF51C1E674700A436C4 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF5AED1C1E674700A436C4 /* UIView+MJExtension.m */; };
+		18EF5AFB1C1E875200A436C4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EF5AF91C1E875200A436C4 /* LoginViewController.m */; };
+		18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */; };
+		18EF5B001C1E882900A436C4 /* discover_choose_cancle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */; };
+		18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */; };
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
 		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
 		9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */; };
@@ -114,6 +118,11 @@
 		18EF5AEB1C1E674700A436C4 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJRefresh.m"; path = "ThirdPart/MJRefresh/UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		18EF5AEC1C1E674700A436C4 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "ThirdPart/MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
 		18EF5AED1C1E674700A436C4 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+MJExtension.m"; path = "ThirdPart/MJRefresh/UIView+MJExtension.m"; sourceTree = "<group>"; };
+		18EF5AF81C1E875200A436C4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controller/Login/LoginViewController.h; sourceTree = "<group>"; };
+		18EF5AF91C1E875200A436C4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/Login/LoginViewController.m; sourceTree = "<group>"; };
+		18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/Login/LoginViewController.xib; sourceTree = "<group>"; };
+		18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@2x.png"; path = "Res/Login/discover_choose_cancle@2x.png"; sourceTree = "<group>"; };
+		18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@3x.png"; path = "Res/Login/discover_choose_cancle@3x.png"; sourceTree = "<group>"; };
 		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
 		9BBBDDC91C19A2CC0000F312 /* tab_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_me.png; path = Res/Tab/tab_me.png; sourceTree = "<group>"; };
 		9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_weixin.png; path = Res/Tab/tab_weixin.png; sourceTree = "<group>"; };
@@ -278,6 +287,33 @@
 			name = MJRefresh;
 			sourceTree = "<group>";
 		};
+		18EF5AF61C1E86C100A436C4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				18EF5AF71C1E86EE00A436C4 /* New Group */,
+				18EF5AF81C1E875200A436C4 /* LoginViewController.h */,
+				18EF5AF91C1E875200A436C4 /* LoginViewController.m */,
+				18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		18EF5AF71C1E86EE00A436C4 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		18EF5AFD1C1E87A500A436C4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */,
+				18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		9BBBDDC71C19A26C0000F312 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +347,7 @@
 		9BBC3DEC1BCAA4C500F15A1E /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				18EF5AFD1C1E87A500A436C4 /* Login */,
 				189641001C1BC6D300657904 /* Me */,
 				189640EA1C1A77A500657904 /* Navigation */,
 				9BBBDDCE1C19A5050000F312 /* Test */,
@@ -457,6 +494,7 @@
 		9BCA705E1BAB0BD90095D9BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18EF5AF61C1E86C100A436C4 /* Login */,
 				9BCA70611BAB0E2B0095D9BA /* Me */,
 				9BCA70601BAB0E230095D9BA /* News */,
 				9BCA705F1BAB0E070095D9BA /* Main */,
@@ -620,6 +658,7 @@
 				9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */,
 				9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */,
 				9BCA70441BAB0BA60095D9BA /* Main.storyboard in Resources */,
+				18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */,
 				9BBBDDD61C19AAAE0000F312 /* test_3.png in Resources */,
 				9BBBDDD41C19AAAE0000F312 /* test_1.png in Resources */,
 				1896410A1C1BF7B600657904 /* nav_top_back@2x.png in Resources */,
@@ -630,8 +669,10 @@
 				9BBC3DF61BCAA8A800F15A1E /* lottery_blueball@2x.png in Resources */,
 				1896410B1C1BF7B600657904 /* nav_top_back@3x.png in Resources */,
 				9BCA70461BAB0BA60095D9BA /* Images.xcassets in Resources */,
+				18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */,
 				9BBBDDD51C19AAAE0000F312 /* test_2.png in Resources */,
 				189640ED1C1A790900657904 /* nav_login@2x.png in Resources */,
+				18EF5B001C1E882900A436C4 /* discover_choose_cancle@2x.png in Resources */,
 				189640EE1C1A790900657904 /* nav_login@3x.png in Resources */,
 				18EF5AEE1C1E674700A436C4 /* MJRefresh.bundle in Resources */,
 				9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */,
@@ -684,6 +725,7 @@
 				9BBC3E141BD14E5900F15A1E /* AFHTTPRequestOperation.m in Sources */,
 				189641071C1BE2BE00657904 /* NewsMainViewCell.m in Sources */,
 				18EF5AF51C1E674700A436C4 /* UIView+MJExtension.m in Sources */,
+				18EF5AFB1C1E875200A436C4 /* LoginViewController.m in Sources */,
 				18EF5AF31C1E674700A436C4 /* UIScrollView+MJExtension.m in Sources */,
 				9BEAB99F1BE78B3300AD5A20 /* MainShopViewController.m in Sources */,
 				9BBC3E161BD14E5900F15A1E /* AFHTTPSessionManager.m in Sources */,

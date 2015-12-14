@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LoiginPromptViewDelegate;
+
 @interface LoiginPromptView : UIView
 
+@property (weak) id<LoiginPromptViewDelegate> delegate;
+
 -(void)showNavigation;
+
+@end
+
+@protocol LoiginPromptViewDelegate <NSObject>
+
+-(void)didClickLogin;
 
 @end

@@ -78,7 +78,7 @@
                         titleLable.frame = CGRectMake(0, 10, popView_Weight, 30);
                       
                         self.contentView.alpha = 1;
-                        self.contentView.frame = CGRectMake(80 , (kScreenHeight - popView_Height) / 2 - 25, popView_Weight , popView_Height);
+                        self.contentView.frame = CGRectMake((kScreenWidth - popView_Weight) / 2, (kScreenHeight - popView_Height) / 2 - 25, popView_Weight , popView_Height);
                      }
                      completion:^(BOOL finised){
                          [self titleShowAnimation];
@@ -144,6 +144,16 @@
     
 }
 
+#pragma mark login
+-(void)clickLogin:(UIButton *)button{
+    [self titleDissMissAnimation];
+    [self performSelector:@selector(deleyLogin) withObject:nil afterDelay:0.5f];
+}
+
+-(void)deleyLogin{
+    [self.delegate didClickLogin];
+}
+
 -(UIView *)contentView {
 
     if(!_contentView){
@@ -183,6 +193,7 @@
         loginButton.titleLabel.font = [UIFont systemFontOfSize:14];
         loginButton.layer.masksToBounds = YES;
         [loginButton setTitle:@"로그인하기" forState:UIControlStateNormal];
+        [loginButton addTarget:self action:@selector(clickLogin:) forControlEvents:UIControlEventTouchUpInside];
         [loginButton setTitleColor:Color_fcfcfc forState:UIControlStateNormal];
         loginButton.frame = CGRectMake(10, popView_Height - 40, popView_Weight - 20, 30);
         loginButton.backgroundColor = Color_Main;

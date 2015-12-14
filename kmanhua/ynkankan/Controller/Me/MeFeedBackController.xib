@@ -129,13 +129,13 @@
                     <exclude reference="0Mm-ig-RiO"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="Vw0-MH-q8t"/>
+                    <exclude reference="YDU-5x-wS6"/>
+                    <exclude reference="fTO-8e-BrY"/>
                     <exclude reference="QFI-ph-JTB"/>
                     <exclude reference="ehg-AZ-TmD"/>
                     <exclude reference="peQ-hV-DPO"/>
                     <exclude reference="qq4-b0-u00"/>
-                    <exclude reference="Vw0-MH-q8t"/>
-                    <exclude reference="YDU-5x-wS6"/>
-                    <exclude reference="fTO-8e-BrY"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -144,13 +144,13 @@
                     <include reference="0Mm-ig-RiO"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="Vw0-MH-q8t"/>
+                    <include reference="YDU-5x-wS6"/>
+                    <include reference="fTO-8e-BrY"/>
                     <include reference="QFI-ph-JTB"/>
                     <include reference="ehg-AZ-TmD"/>
                     <include reference="peQ-hV-DPO"/>
                     <include reference="qq4-b0-u00"/>
-                    <include reference="Vw0-MH-q8t"/>
-                    <include reference="YDU-5x-wS6"/>
-                    <include reference="fTO-8e-BrY"/>
                 </mask>
             </variation>
         </view>
