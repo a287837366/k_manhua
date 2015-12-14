@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
             <connections>
-                <outlet property="mainScrollView" destination="6hJ-k7-wyA" id="O6z-lt-eaL"/>
+                <outlet property="mainScollView" destination="6hJ-k7-wyA" id="SQv-k4-W93"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -141,16 +141,16 @@
                     <exclude reference="6hJ-k7-wyA"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="INz-aR-EyH"/>
-                    <exclude reference="mLD-bB-GkR"/>
-                    <exclude reference="xGS-CE-pz1"/>
-                    <exclude reference="9JN-sK-eBh"/>
-                    <exclude reference="JyE-xC-sPx"/>
-                    <exclude reference="X97-tq-cTh"/>
                     <exclude reference="0Y6-gF-1fw"/>
                     <exclude reference="8I4-ET-plp"/>
                     <exclude reference="Rqz-Xm-7si"/>
                     <exclude reference="yRk-pH-8Ll"/>
+                    <exclude reference="9JN-sK-eBh"/>
+                    <exclude reference="JyE-xC-sPx"/>
+                    <exclude reference="X97-tq-cTh"/>
+                    <exclude reference="INz-aR-EyH"/>
+                    <exclude reference="mLD-bB-GkR"/>
+                    <exclude reference="xGS-CE-pz1"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -160,16 +160,16 @@
                     <include reference="6hJ-k7-wyA"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="INz-aR-EyH"/>
-                    <include reference="mLD-bB-GkR"/>
-                    <include reference="xGS-CE-pz1"/>
-                    <include reference="9JN-sK-eBh"/>
-                    <include reference="JyE-xC-sPx"/>
-                    <include reference="X97-tq-cTh"/>
                     <include reference="0Y6-gF-1fw"/>
                     <include reference="8I4-ET-plp"/>
                     <include reference="Rqz-Xm-7si"/>
                     <include reference="yRk-pH-8Ll"/>
+                    <include reference="9JN-sK-eBh"/>
+                    <include reference="JyE-xC-sPx"/>
+                    <include reference="X97-tq-cTh"/>
+                    <include reference="INz-aR-EyH"/>
+                    <include reference="mLD-bB-GkR"/>
+                    <include reference="xGS-CE-pz1"/>
                 </mask>
             </variation>
         </view>

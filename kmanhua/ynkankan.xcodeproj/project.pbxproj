@@ -69,6 +69,8 @@
 		9BCA706D1BAB0F0F0095D9BA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA706C1BAB0F0F0095D9BA /* BaseViewController.m */; };
 		9BEAB99F1BE78B3300AD5A20 /* MainShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEAB99E1BE78B3300AD5A20 /* MainShopViewController.m */; };
 		9BEAB9A41BE792A200AD5A20 /* MainShopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEAB9A31BE792A200AD5A20 /* MainShopCell.m */; };
+		9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDE49C1C1EEC4A00573468 /* RegisterdDetailView.m */; };
+		9BEDE4A01C1EEC9100573468 /* RegisterdDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,9 @@
 		9BEAB99E1BE78B3300AD5A20 /* MainShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShopViewController.m; path = Controller/Main/FeedMain/MainShopViewController.m; sourceTree = "<group>"; };
 		9BEAB9A21BE792A200AD5A20 /* MainShopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainShopCell.h; path = Controller/Main/FeedMain/View/Cell/MainShopCell.h; sourceTree = "<group>"; };
 		9BEAB9A31BE792A200AD5A20 /* MainShopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShopCell.m; path = Controller/Main/FeedMain/View/Cell/MainShopCell.m; sourceTree = "<group>"; };
+		9BEDE49B1C1EEC4A00573468 /* RegisterdDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterdDetailView.h; path = Controller/Login/View/RegisterdDetailView.h; sourceTree = "<group>"; };
+		9BEDE49C1C1EEC4A00573468 /* RegisterdDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterdDetailView.m; path = Controller/Login/View/RegisterdDetailView.m; sourceTree = "<group>"; };
+		9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterdDetailView.xib; path = Controller/Login/View/RegisterdDetailView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +214,10 @@
 		186511D51C1EB6E300DD969C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BEDE49E1C1EEC7D00573468 /* New Group */,
+				9BEDE49B1C1EEC4A00573468 /* RegisterdDetailView.h */,
+				9BEDE49C1C1EEC4A00573468 /* RegisterdDetailView.m */,
+				9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -580,6 +589,13 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		9BEDE49E1C1EEC7D00573468 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -663,6 +679,7 @@
 			files = (
 				189641021C1BC7AC00657904 /* me_right_arraw.png in Resources */,
 				9BBBDDD71C19AAAE0000F312 /* test_4.png in Resources */,
+				9BEDE4A01C1EEC9100573468 /* RegisterdDetailView.xib in Resources */,
 				9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */,
 				9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */,
 				9BCA70441BAB0BA60095D9BA /* Main.storyboard in Resources */,
@@ -703,6 +720,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EF5AF11C1E674700A436C4 /* MJRefreshFooterView.m in Sources */,
+				9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */,
 				9BBC3E191BD14E5900F15A1E /* AFURLConnectionOperation.m in Sources */,
 				186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */,
 				18EF5AD81C1E4A2100A436C4 /* MeFeedBackController.m in Sources */,

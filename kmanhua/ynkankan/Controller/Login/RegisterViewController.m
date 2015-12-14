@@ -7,8 +7,11 @@
 //
 
 #import "RegisterViewController.h"
+#import "RegisterdDetailView.h"
 
 @interface RegisterViewController ()
+
+@property (strong, nonatomic) RegisterdDetailView *detailView;
 
 @end
 
@@ -16,15 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    baseInfoView = [[[NSBundle mainBundle] loadNibNamed:@"MeOrderBaseInfoView" owner:self options:nil] lastObject];
-//    [baseInfoView createBuyerView:_orderModel delegate:self y:0];
-//    [_mainScrollView addSubview:baseInfoView];
-  
+    [self initView];
 }
 
 - (void)initView{
-
+    [self.view addSubview:self.detailView];
+//    [self.mainScollView addSubview:self.registerView];
+    [self createView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,14 +38,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - View
+-(void)createView{
+    self.detailView = [[RegisterdDetailView alloc] init];
+    self.detailView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64);
 }
-*/
 
 @end

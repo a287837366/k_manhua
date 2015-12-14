@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppConstant.h"
 
 @interface RegisterViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScollView;
 
 @end
