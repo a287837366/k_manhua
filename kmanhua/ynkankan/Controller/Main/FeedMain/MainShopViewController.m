@@ -14,7 +14,7 @@
 #import "MJRefresh.h"
 #import "LoginViewController.h"
 
-@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate>
+@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate, LoginViewControllerDelegate>
 
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainHeaderView *headerView;
@@ -77,7 +77,13 @@
 #pragma mark - popDelegate
 -(void)didClickLogin{
     LoginViewController *loginVC = [[LoginViewController alloc] init];
+    loginVC.delegate = self;
     [self presentViewController:loginVC animated:YES completion:nil];
+}
+
+#pragma mark - loginDelegate
+-(void)loginSuccess{
+    self.mainTable.hidden = YES;
 }
 
 #pragma mark - tableview 代理
@@ -126,7 +132,6 @@
     cornorView.frame = CGRectMake((kScreenWidth - 150) / 2, 5, 150, 20);
     cornorView.backgroundColor = [UIColor whiteColor];
     cornorView.layer.cornerRadius = 5;
-    cornorView.layer.masksToBounds = YES;
     [view addSubview:cornorView];
     
     

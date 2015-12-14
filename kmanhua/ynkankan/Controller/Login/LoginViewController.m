@@ -23,6 +23,14 @@
     [super didReceiveMemoryWarning];
 
 }
+- (IBAction)clickLogin:(id)sender {
+    [self.delegate loginSuccess];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)clickRegister:(id)sender {
+    NSLog(@"-- clickRegister --");
+}
+
 
 #pragma mark - Action
 - (IBAction)click_dissMiss:(id)sender {

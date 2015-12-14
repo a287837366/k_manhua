@@ -26,7 +26,6 @@
         view.frame = CGRectMake(0, 5, kScreenWidth - 20, MeHeaderHeight - 5);
         view.backgroundColor = Color_fcfcfc;
         view.layer.cornerRadius = 5;
-        view.layer.masksToBounds = YES;
         
         [self addSubview:view];
         [view addSubview:self.iconButton];
@@ -48,7 +47,6 @@
         _iconButton.frame = CGRectMake(15, (MeHeaderHeight - 55) / 2 - 10, 50, 50);
         _iconButton.backgroundColor = Color_Main;
         _iconButton.layer.cornerRadius = 25;
-        _iconButton.layer.masksToBounds = YES;
         _iconButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
         [_iconButton setTitle:@"17－" forState:UIControlStateNormal];
     }
@@ -78,7 +76,6 @@
         _contentLable.frame = CGRectMake(15, MeHeaderHeight - 34, kScreenWidth - 45, 20);
         _contentLable.backgroundColor = Color_f5f5f2;
         _contentLable.layer.cornerRadius = 2;
-        _contentLable.layer.masksToBounds = YES;
         _contentLable.text = @"   닉넴이 설정하면 하면 마음대로 볼수 있슴다";
         _contentLable.font = [UIFont systemFontOfSize:11];
         _contentLable.tintColor = Color_888888;

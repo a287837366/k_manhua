@@ -26,7 +26,6 @@
         self.viewHeight = 0;
         self.backgroundColor = Color_Background;
         self.layer.cornerRadius = 5;
-        self.layer.masksToBounds = YES;
     }
     
     return self;
@@ -141,7 +140,6 @@
         cornorView.frame = CGRectMake((kScreenWidth - 150) / 2, 5, 150, 20);
         cornorView.backgroundColor = [UIColor whiteColor];
         cornorView.layer.cornerRadius = 5;
-        cornorView.layer.masksToBounds = YES;
         [self addSubview:cornorView];
         [self addSubview:titleLable];
         
@@ -150,7 +148,6 @@
         _mainImageView.image = [UIImage imageNamed:@"test_10"];
         _mainImageView.contentMode = UIViewContentModeRedraw;
         _mainImageView.layer.cornerRadius = 5;
-        _mainImageView.layer.masksToBounds = YES;
         _mainImageView.tag = 100;
     
         UIButton *tltleButton = [[UIButton alloc] init];

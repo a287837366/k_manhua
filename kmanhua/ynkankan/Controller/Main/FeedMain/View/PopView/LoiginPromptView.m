@@ -167,7 +167,6 @@
         _contentView.layer.borderWidth = 3;
         
         _contentView.layer.cornerRadius = 10;
-        _contentView.layer.masksToBounds = YES;
         
         titleLable = [[UILabel alloc] init];
         titleLable.frame = CGRectMake(0, 10, popView_Weight, 30);
@@ -191,7 +190,6 @@
         loginButton.layer.cornerRadius = 5;
         loginButton.alpha = 0;
         loginButton.titleLabel.font = [UIFont systemFontOfSize:14];
-        loginButton.layer.masksToBounds = YES;
         [loginButton setTitle:@"로그인하기" forState:UIControlStateNormal];
         [loginButton addTarget:self action:@selector(clickLogin:) forControlEvents:UIControlEventTouchUpInside];
         [loginButton setTitleColor:Color_fcfcfc forState:UIControlStateNormal];

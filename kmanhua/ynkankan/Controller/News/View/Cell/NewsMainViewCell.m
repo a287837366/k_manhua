@@ -45,7 +45,6 @@
         _conView.frame = CGRectMake(0, 2, kScreenWidth - 20, 86);
         _conView.backgroundColor = [UIColor whiteColor];
         _conView.layer.cornerRadius = 4;
-        _conView.layer.masksToBounds = YES;
         
     }
     
@@ -58,7 +57,6 @@
         _rightImageView = [[UIImageView alloc] init];
         _rightImageView.frame = CGRectMake(5, 8, 70, 70);
         _rightImageView.layer.cornerRadius = 2;
-        _rightImageView.layer.masksToBounds = YES;
         _rightImageView.contentMode = UIViewContentModeRedraw;
     }
     

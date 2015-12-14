@@ -415,6 +415,9 @@
                             <include reference="Rlv-xk-KxC"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="clickLogin:" destination="-1" eventType="touchUpInside" id="8lu-ap-FAJ"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------주의사항-------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFa-sO-0S9">
                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -457,6 +460,9 @@
                             <include reference="QWD-qo-S3Q"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="clickRegister:" destination="-1" eventType="touchUpInside" id="6Ye-az-agm"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
