@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppConstant.h"
 @protocol LoginViewControllerDelegate;
 
 @interface LoginViewController : UIViewController
 
 @property (weak) id<LoginViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITextField *idTextFile;
+@property (weak, nonatomic) IBOutlet UITextField *pwTextFile;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
