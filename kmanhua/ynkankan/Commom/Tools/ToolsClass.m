@@ -42,5 +42,19 @@
     return result;
 }
 
+#pragma mark 根据内容拿到 控件宽度
++(CGSize) boundingRectWithSize:(NSString*) txt Font:(UIFont*) font size:(CGSize)size{
+    CGSize _size;
+    
+    NSDictionary *attribute = @{NSFontAttributeName: font};
+    NSStringDrawingOptions options =
+    NSStringDrawingUsesLineFragmentOrigin |
+    NSStringDrawingUsesFontLeading;
+    _size = [txt boundingRectWithSize:size options: options attributes:attribute context:nil].size;
+    
+    return _size;
+}
+
+
 
 @end

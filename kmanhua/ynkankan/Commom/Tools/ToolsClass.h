@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "AppConstant.h"
 
 @interface ToolsClass : NSObject
 
@@ -15,5 +17,8 @@
 
 #pragma mark 字符串转SHA1
 + (NSString *)stringToSHA1:(NSString *)once;
+
+#pragma mark 根据内容拿到 控件宽度
++ (CGSize)boundingRectWithSize:(NSString*) txt Font:(UIFont*) font size:(CGSize)size;
 
 @end

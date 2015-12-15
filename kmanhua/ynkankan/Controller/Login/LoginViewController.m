@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "LoginService.h"
+#import "ToastClass.h"
 
 @interface LoginViewController ()<RegisterdDetailViewDelegate>
 
@@ -52,7 +53,7 @@
 
 #pragma mark - Action
 - (IBAction)clickLogin:(id)sender {
-
+    [ToastClass showToastTo:0 msg:@""];
     [self.service requsetLogin:self.idTextFile.text loginPw:self.pwTextFile.text
                   response:^(NSMutableDictionary *returnDic, NSError *error){
                       NSLog(@" %@ ", [returnDic objectForKey:@"msg"]);
