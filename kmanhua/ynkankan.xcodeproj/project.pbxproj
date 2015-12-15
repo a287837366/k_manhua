@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511D71C1EB75B00DD969C /* RegisterViewController.m */; };
 		186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186511D81C1EB75B00DD969C /* RegisterViewController.xib */; };
+		186511DE1C1F9BD400DD969C /* ToolsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511DD1C1F9BD400DD969C /* ToolsClass.m */; };
 		188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188FC96B1C194FFB00E85317 /* MainHeaderView.m */; };
 		189640ED1C1A790900657904 /* nav_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189640EB1C1A790900657904 /* nav_login@2x.png */; };
 		189640EE1C1A790900657904 /* nav_login@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189640EC1C1A790900657904 /* nav_login@3x.png */; };
@@ -89,6 +90,8 @@
 		186511D61C1EB75B00DD969C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/Login/RegisterViewController.h; sourceTree = "<group>"; };
 		186511D71C1EB75B00DD969C /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Controller/Login/RegisterViewController.m; sourceTree = "<group>"; };
 		186511D81C1EB75B00DD969C /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterViewController.xib; path = Controller/Login/RegisterViewController.xib; sourceTree = "<group>"; };
+		186511DC1C1F9BD400DD969C /* ToolsClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToolsClass.h; path = Commom/Tools/ToolsClass.h; sourceTree = "<group>"; };
+		186511DD1C1F9BD400DD969C /* ToolsClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToolsClass.m; path = Commom/Tools/ToolsClass.m; sourceTree = "<group>"; };
 		188FC96A1C194FFB00E85317 /* MainHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHeaderView.h; path = Controller/Main/FeedMain/View/MainHeaderView.h; sourceTree = "<group>"; };
 		188FC96B1C194FFB00E85317 /* MainHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainHeaderView.m; path = Controller/Main/FeedMain/View/MainHeaderView.m; sourceTree = "<group>"; };
 		189640EB1C1A790900657904 /* nav_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_login@2x.png"; path = "Res/Navigation/nav_login@2x.png"; sourceTree = "<group>"; };
@@ -226,6 +229,15 @@
 				9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		186511DB1C1F9B9B00DD969C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				186511DC1C1F9BD400DD969C /* ToolsClass.h */,
+				186511DD1C1F9BD400DD969C /* ToolsClass.m */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 		189640EA1C1A77A500657904 /* Navigation */ = {
@@ -599,6 +611,7 @@
 		9BECFBFE1BB0519900108935 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				186511DB1C1F9B9B00DD969C /* Tools */,
 				9BBC3DFC1BD14D2E00F15A1E /* Http */,
 				9BBC3DEE1BCAA5F000F15A1E /* Views */,
 				9BBC3DE01BCA913300F15A1E /* Constant */,
@@ -746,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EF5AF11C1E674700A436C4 /* MJRefreshFooterView.m in Sources */,
+				186511DE1C1F9BD400DD969C /* ToolsClass.m in Sources */,
 				9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */,
 				9BBC3E191BD14E5900F15A1E /* AFURLConnectionOperation.m in Sources */,
 				186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */,

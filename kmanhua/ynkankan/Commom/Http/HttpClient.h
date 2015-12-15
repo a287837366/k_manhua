@@ -7,6 +7,9 @@
 //
 
 #import "AFHTTPSessionManager.h"
+#import "ToolsClass.h"
+
+#define kankanAppId @"dca70580006271475a9d6c04c8219d3c"
 
 @interface HttpClient : AFHTTPSessionManager
 

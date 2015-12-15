@@ -7,14 +7,18 @@
 //
 
 #import "LoginService.h"
+#import "ToolsClass.h"
 
 @implementation LoginService
 
 -(void)requsetLogin:(NSString *)loginId loginPw:(NSString *)loginPw response:(void (^)(NSMutableDictionary *returnDic, NSError *error))response{
-
-    [[HttpClient sharedClient] GET:@"" parameters:nil
+    
+    NSDictionary *paramDic = @{@"username" : loginId , @"password" : [ToolsClass stringToMd5:loginPw]};
+//    NSLog(@" %@ " , paramDic);
+    [[HttpClient sharedClient] POST:@"login" parameters:paramDic
         success:^(NSURLSessionTask *task, id responseObject){
-
+            NSLog(@" %@ ", responseObject);
+          
             response(responseObject, nil);
         } failure:^(NSURLSessionTask *task, NSError *error){
 
@@ -22,4 +26,6 @@
         }];
 
 }
+
+
 @end

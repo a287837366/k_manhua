@@ -53,9 +53,9 @@
 #pragma mark - Action
 - (IBAction)clickLogin:(id)sender {
 
-    [self.service requsetLogin:@"11" loginPw:@""
+    [self.service requsetLogin:self.idTextFile.text loginPw:self.pwTextFile.text
                   response:^(NSMutableDictionary *returnDic, NSError *error){
-                      NSLog(@"  %@  ", error);
+                      NSLog(@" %@ ", [returnDic objectForKey:@"msg"]);
                   }];
 }
 
