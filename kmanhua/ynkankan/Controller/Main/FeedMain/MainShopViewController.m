@@ -13,6 +13,7 @@
 #import "NewsWebDetialViewController.h"
 #import "MJRefresh.h"
 #import "LoginViewController.h"
+#import "CustomProgressHUD.h"
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate, LoginViewControllerDelegate>
 
