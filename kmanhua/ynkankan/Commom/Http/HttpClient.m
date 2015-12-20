@@ -8,7 +8,7 @@
 
 #import "HttpClient.h"
 
-#define KANKAN_HTTP_BASEURL @"http://beta.uniposts.com/"
+#define KANKAN_HTTP_BASEURL @"http://1.85kankan.sinaapp.com/"
 //#define KANKAN_HTTP_BASEURL @"https://api.app.net/"
 
 @implementation HttpClient
@@ -25,11 +25,7 @@
         
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        
-        //----有米了Hedaer
-        [_sharedClient.requestSerializer setValue:[ToolsClass stringToSHA1:@"1"] forHTTPHeaderField:@"TOKEN"];
-        [_sharedClient.requestSerializer setValue:kankanAppId forHTTPHeaderField:@"APPID"];
-        [_sharedClient.requestSerializer setValue:@"IOS" forHTTPHeaderField:@"OS"];
+
         
     });
     

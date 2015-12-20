@@ -11,4 +11,9 @@
 
 @interface MainShopCell : UITableViewCell
 
+@property (strong, nonatomic) UIImageView *leftImage;
+@property (strong, nonatomic) UILabel *titleLable;
+@property (strong, nonatomic) UILabel *levelLable;
+@property (strong, nonatomic) UILabel *timeLable;
+
 @end

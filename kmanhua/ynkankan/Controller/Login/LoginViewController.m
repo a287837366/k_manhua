@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "LoginService.h"
+#import "MBProgressHUD.h"
+#import "CustomProgressHUD.h"
 
 @interface LoginViewController ()<RegisterdDetailViewDelegate>
 
@@ -52,10 +54,17 @@
 
 #pragma mark - Action
 - (IBAction)clickLogin:(id)sender {
-    
+    [CustomProgressHUD showHUD:self.view];
     [self.service requsetLogin:self.idTextFile.text loginPw:self.pwTextFile.text
                   response:^(NSMutableDictionary *returnDic, NSError *error){
-                      NSLog(@" %@ ", [returnDic objectForKey:@"msg"]);
+                      
+                      [CustomProgressHUD hideHUD:self.view];
+                      
+                      if (error == nil) {
+                          [self loginSuccess:(NSMutableDictionary *)returnDic];
+                      }
+                    
+
                   }];
 }
 
@@ -75,6 +84,19 @@
 #pragma mark - Action
 - (IBAction)click_dissMiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - other
+-(void)loginSuccess:(NSMutableDictionary *)returnDic{
+    if (returnDic == nil) {
+        NSLog(@" 密码错误 ");
+        return;
+    }
+    NSLog(@">>>> %@", returnDic);
+    
+    [self.delegate loginSuccess];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 #pragma mark - get set

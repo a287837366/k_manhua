@@ -13,4 +13,6 @@
 
 -(void)requsetLogin:(NSString *)loginId loginPw:(NSString *)loginPw response:(void (^)(NSMutableDictionary *returnDic, NSError *error))response;
 
+-(void)registerUser:(NSMutableDictionary *)paramDic response:(void (^)(NSString *success, NSError *error))response;
+
 @end

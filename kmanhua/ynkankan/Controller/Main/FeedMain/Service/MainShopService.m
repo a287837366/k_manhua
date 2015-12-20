@@ -12,9 +12,25 @@
 
 @implementation MainShopService
 
--(void)getMainList:(NSInteger)page{
-
+-(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response{
     
+    [[HttpClient sharedClient] POST:@"/manhua/getManhuaList.php" parameters:nil
+                            success:^(NSURLSessionTask *task, id responseObject){
+                                
+                                if ([[responseObject objectForKey:@"error"] intValue] != 0) {
+
+                                    response(nil, nil, nil);
+                                
+                                } else {
+                                   
+                                    response([responseObject objectForKey:@"newdata"], [responseObject objectForKey:@"freedata"], nil);
+                                }
+
+                                
+                            } failure:^(NSURLSessionTask *task, NSError *error){
+                                response(nil, nil, error);
+                            }];
+
 }
 
 @end

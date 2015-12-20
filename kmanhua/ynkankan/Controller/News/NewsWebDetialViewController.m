@@ -35,7 +35,7 @@
 }
 
 -(void)loadWebView{
-    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mp.weixin.qq.com/s?__biz=MzA3ODM5NDI2Mw==&mid=400894297&idx=3&sn=f59eba13766667b47339ef33b422504f#rd"]];
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:self.openUrl]];
     [self.mainWebView loadRequest:request];
 }
 

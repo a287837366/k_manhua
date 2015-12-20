@@ -10,4 +10,6 @@
 
 @interface NewsWebDetialViewController : BaseViewController
 
+@property (strong, nonatomic) NSString *openUrl;
+
 @end

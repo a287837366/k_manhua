@@ -10,7 +10,15 @@
 
 @interface RegisterdDetailView : UIView
 
+@property (weak, nonatomic) IBOutlet UITextField *usernameText;
+@property (weak, nonatomic) IBOutlet UITextField *nikeNameText;
+@property (weak, nonatomic) IBOutlet UITextField *pwText;
+@property (weak, nonatomic) IBOutlet UITextField *pwConfirmText;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *btnCenter;
+
+-(NSMutableDictionary *)getUserInfo;
 
 @end
 

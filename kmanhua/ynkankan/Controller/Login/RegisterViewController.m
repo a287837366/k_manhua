@@ -8,11 +8,15 @@
 
 #import "RegisterViewController.h"
 #import "RegisterdDetailView.h"
+#import "LoginService.h"
+#import "CustomProgressHUD.h"
 
 @interface RegisterViewController ()
 
 @property (strong, nonatomic) RegisterdDetailView *detailView;
 @property (strong, nonatomic) UIScrollView *mainScollView;
+
+@property (strong, nonatomic) LoginService *service;
 
 @end
 
@@ -40,8 +44,17 @@
 }
 
 - (void)clickResiger{
-    [self.delegate registeSuccess];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"  %@ ", [self.detailView getUserInfo]);
+    [CustomProgressHUD showHUD:self.view];
+    [self.service registerUser:[self.detailView getUserInfo]
+                      response:^(NSString *success, NSError *error){
+                         
+                          [CustomProgressHUD hideHUD:self.view];
+                          
+                      }];
+    
+//    [self.delegate registeSuccess];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - View
@@ -62,6 +75,16 @@
     }
 
     return _mainScollView;
+}
+
+#pragma mark - get set
+-(LoginService *)service{
+    
+    if (!_service) {
+        _service = [[LoginService alloc] init];
+    }
+    
+    return _service;
 }
 
 @end

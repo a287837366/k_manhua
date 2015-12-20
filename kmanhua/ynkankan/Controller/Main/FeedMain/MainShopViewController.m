@@ -14,11 +14,19 @@
 #import "MJRefresh.h"
 #import "LoginViewController.h"
 #import "CustomProgressHUD.h"
+#import "MainShopService.h"
 
-@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate, LoginViewControllerDelegate>
+@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate, LoginViewControllerDelegate>{
+    
+    NSMutableArray *freeDataArray;
+
+
+}
 
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainHeaderView *headerView;
+
+@property (strong, nonatomic) MainShopService *service;
 
 @end
 
@@ -32,7 +40,21 @@
 }
 
 -(void)initData{
-
+    freeDataArray = [[NSMutableArray alloc] init];
+    
+    [CustomProgressHUD showHUD:self.view];
+    [self.service getManhuaList:0 response:^(NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
+        [CustomProgressHUD hideHUD:self.view];
+       
+        if (error) {
+            NSLog(@" 返回错误 ");
+            return ;
+        }
+        NSLog(@">>>>> %@", freedata);
+        [freeDataArray addObjectsFromArray:freedata];
+        [self.mainTable reloadData];
+    
+    }];
 }
 
 -(void)initView{
@@ -89,7 +111,7 @@
 #pragma mark - tableview 代理
 //返回数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 7;
+    return freeDataArray.count;
 }
 
 //自定义Cell
@@ -103,6 +125,9 @@
 
     }
     
+    cell.titleLable.text = [[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_name"];
+    cell.timeLable.text = [[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_createTime"];
+    
     return cell;
 
 }
@@ -110,7 +135,7 @@
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@" didSelectRowAtIndexPath ");
-    [self gotoNewsDetailView];
+    [self gotoNewsDetailView:[[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_url"]];
 }
 
 
@@ -159,15 +184,14 @@
 
 #pragma mark headerDelegate
 -(void)didClickHeader:(NSInteger)index{
-    [self gotoNewsDetailView];
+    [self gotoNewsDetailView:[[freeDataArray objectAtIndex:index] objectForKey:@"m_url"]];
 }
 
 #pragma mark goto
--(void)gotoNewsDetailView{
+-(void)gotoNewsDetailView:(NSString *)openUrl{
     NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
-    
+    detailVC.openUrl = openUrl;
     detailVC.hidesBottomBarWhenPushed = YES;
-    
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -190,5 +214,23 @@
 
     return _mainTable;
 }
+
+-(MainShopService *)service{
+
+    if (!_service) {
+        _service = [[MainShopService alloc] init];
+    }
+    
+    return _service;
+}
+
+//-(MainHeaderView *)headerView{
+//
+//    if (!_headerView) {
+//        
+//    }
+//
+//    return _headerView;
+//}
 
 @end
