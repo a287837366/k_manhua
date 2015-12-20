@@ -27,7 +27,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.mainWebView];
     [self setLeftButton];
-    [self setTitle:@" 남자 남자 "];
+    [self setTitle:self.title];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

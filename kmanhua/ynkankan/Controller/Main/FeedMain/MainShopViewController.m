@@ -19,6 +19,7 @@
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate, LoginViewControllerDelegate>{
     
     NSMutableArray *freeDataArray;
+    NSMutableArray *newDataArray;
 
 
 }
@@ -41,6 +42,7 @@
 
 -(void)initData{
     freeDataArray = [[NSMutableArray alloc] init];
+    newDataArray = [[NSMutableArray alloc] init];
     
     [CustomProgressHUD showHUD:self.view];
     [self.service getManhuaList:0 response:^(NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
@@ -50,8 +52,11 @@
             NSLog(@" 返回错误 ");
             return ;
         }
-        NSLog(@">>>>> %@", freedata);
+        
+        
         [freeDataArray addObjectsFromArray:freedata];
+        [newDataArray addObjectsFromArray:newdata];
+        [self setTableHader];
         [self.mainTable reloadData];
     
     }];
@@ -64,14 +69,7 @@
     [self.view addSubview:backgoundView];
     [self setRightButton];
     
-    
     [self.view addSubview:self.mainTable];
-    self.headerView = [[MainHeaderView alloc] init];
-    self.headerView.delegate = self;
-    [self.headerView setDate];
-    self.headerView.frame = CGRectMake(0, 0, kScreenWidth, self.headerView.viewHeight);
-    self.mainTable.tableHeaderView = self.headerView;
-
 }
 
 #pragma mark - 设置右侧
@@ -93,7 +91,12 @@
 
 #pragma mark - 设置表头
 -(void)setTableHader{
-    
+    self.headerView = [[MainHeaderView alloc] init];
+    self.headerView.delegate = self;
+    [self.headerView setDate:newDataArray];
+    self.headerView.frame = CGRectMake(0, 0, kScreenWidth, self.headerView.viewHeight);
+    self.mainTable.tableHeaderView = self.headerView;
+
 }
 
 #pragma mark - popDelegate
@@ -135,7 +138,7 @@
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@" didSelectRowAtIndexPath ");
-    [self gotoNewsDetailView:[[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_url"]];
+    [self gotoNewsDetailView:[[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_url"] title:[[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_name"]];
 }
 
 
@@ -184,14 +187,16 @@
 
 #pragma mark headerDelegate
 -(void)didClickHeader:(NSInteger)index{
-    [self gotoNewsDetailView:[[freeDataArray objectAtIndex:index] objectForKey:@"m_url"]];
+    [self gotoNewsDetailView:[[newDataArray objectAtIndex:index] objectForKey:@"m_url"] title:[[newDataArray objectAtIndex:index] objectForKey:@"m_name"]];
 }
 
 #pragma mark goto
--(void)gotoNewsDetailView:(NSString *)openUrl{
+-(void)gotoNewsDetailView:(NSString *)openUrl title:(NSString *)title{
     NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
+    detailVC.title = title;
     detailVC.openUrl = openUrl;
     detailVC.hidesBottomBarWhenPushed = YES;
+    
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -223,14 +228,5 @@
     
     return _service;
 }
-
-//-(MainHeaderView *)headerView{
-//
-//    if (!_headerView) {
-//        
-//    }
-//
-//    return _headerView;
-//}
 
 @end

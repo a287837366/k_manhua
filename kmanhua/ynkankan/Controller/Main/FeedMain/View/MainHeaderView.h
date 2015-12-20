@@ -16,7 +16,7 @@
 
 @property (nonatomic, weak) id<MainHeaderDelegate> delegate;
 
--(void)setDate;
+-(void)setDate:(NSMutableArray *)newDataArray;
 
 @end
 

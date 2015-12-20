@@ -31,16 +31,16 @@
     return self;
 }
 
--(void)setDate{
+-(void)setDate:(NSMutableArray *)newDataArray{
     
     [self addSubview:self.mainImageView];
     [self addSubview:self.imageListView];
     
-    [self createImageList];
+    [self createImageList:newDataArray];
 }
 
 #pragma mark - private
--(void)createImageList{
+-(void)createImageList:(NSMutableArray *)newDataArray{
     
     for (int i = 0; i < 3; i++) {
         UIView *view = [[UIView alloc] init];
@@ -53,8 +53,8 @@
         
         [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test_%d", i + 1]]];
         [view addSubview:[self createLable:@"19"]];
-        [view addSubview:[self createTitleLable:[NSString stringWithFormat:@"자하철에서 당한 썰(%d)", i]]];
-        [view addSubview:[self createTimeLable:@"2015-01-01"]];
+        [view addSubview:[self createTitleLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_name"]]];
+        [view addSubview:[self createTimeLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_createTime"]]];
         
         [self addSubview:view];
     }
