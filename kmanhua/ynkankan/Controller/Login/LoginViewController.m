@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "LoginService.h"
-#import "MBProgressHUD.h"
+#import "MBProgressHUD+ToastDialog.h"
 #import "CustomProgressHUD.h"
 
 @interface LoginViewController ()<RegisterdDetailViewDelegate>
@@ -62,6 +62,8 @@
                       
                       if (error == nil) {
                           [self loginSuccess:(NSMutableDictionary *)returnDic];
+                      } else {
+                          [MBProgressHUD Toast:self.view withText:@"账号不存在"];
                       }
                     
 
