@@ -20,6 +20,8 @@
     
     NSMutableArray *freeDataArray;
     NSMutableArray *newDataArray;
+    
+    NSInteger page;
 
 
 }
@@ -38,28 +40,16 @@
     [self initData];
     [self initView];
     
+    
+    [self getManhuaList];
 }
 
 -(void)initData{
+    page = 0;
+    
     freeDataArray = [[NSMutableArray alloc] init];
     newDataArray = [[NSMutableArray alloc] init];
-    
-    [CustomProgressHUD showHUD:self.view];
-   
-    [self.service getManhuaList:0 response:^(NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
-        [CustomProgressHUD hideHUD:self.view];
-       
-        if (error) {
-            NSLog(@" 返回错误 ");
-            return ;
-        }
-        
-        [freeDataArray addObjectsFromArray:freedata];
-        [newDataArray addObjectsFromArray:newdata];
-        [self setTableHader];
-        [self.mainTable reloadData];
-    
-    }];
+
 }
 
 -(void)initView{
@@ -96,6 +86,36 @@
     [self.headerView setDate:newDataArray];
     self.headerView.frame = CGRectMake(0, 0, kScreenWidth, self.headerView.viewHeight);
     self.mainTable.tableHeaderView = self.headerView;
+
+}
+
+#pragma mark - 网络请求
+-(void)getManhuaList{
+    [self.service getManhuaList:page response:^(NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
+        
+        if (error) {
+            NSLog(@" 返回错误 ");
+            return ;
+        }
+        
+        if (freedata == nil) {
+            [self.mainTable footerEndRefreshing];
+            return;
+        }
+        
+        [freeDataArray addObjectsFromArray:freedata];
+        [newDataArray addObjectsFromArray:newdata];
+        
+        if (page == 0) {
+            [self delayRefreshEnd];
+            return;
+        }
+        
+        
+        [self performSelector:@selector(delayRefreshEnd) withObject:nil afterDelay:2.0f];
+
+        
+    }];
 
 }
 
@@ -177,10 +197,19 @@
 
 //上啦刷新
 -(void)footerRereshing{
-    [self performSelector:@selector(testRefreshEnd) withObject:nil afterDelay:2.0f];
+    [self getManhuaList];
+
 }
 
--(void)testRefreshEnd{
+-(void)delayRefreshEnd{
+    
+    if (page == 0) {
+        [self setTableHader];
+    }
+    page++;
+    
+    [self.mainTable reloadData];
+    
     [self.mainTable footerEndRefreshing];
 }
 

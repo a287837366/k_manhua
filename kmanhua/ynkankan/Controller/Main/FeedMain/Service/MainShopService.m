@@ -25,7 +25,13 @@
                                 
                                 } else {
                                    
-                                    response([responseObject objectForKey:@"newdata"], [responseObject objectForKey:@"freedata"], nil);
+                                    if ([[responseObject objectForKey:@"freedata"] isEqual:[NSNull null]]) {
+                                        response(nil, nil, nil);
+                                    } else {
+                                        response([responseObject objectForKey:@"newdata"], [responseObject objectForKey:@"freedata"], nil);
+                                    }
+                                    
+
                                 }
 
                                 
