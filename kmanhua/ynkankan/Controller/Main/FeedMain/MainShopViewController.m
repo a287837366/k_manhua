@@ -45,6 +45,7 @@
     newDataArray = [[NSMutableArray alloc] init];
     
     [CustomProgressHUD showHUD:self.view];
+   
     [self.service getManhuaList:0 response:^(NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
         [CustomProgressHUD hideHUD:self.view];
        
@@ -52,7 +53,6 @@
             NSLog(@" 返回错误 ");
             return ;
         }
-        
         
         [freeDataArray addObjectsFromArray:freedata];
         [newDataArray addObjectsFromArray:newdata];

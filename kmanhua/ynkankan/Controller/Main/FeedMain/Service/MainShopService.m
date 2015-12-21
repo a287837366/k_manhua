@@ -13,8 +13,10 @@
 @implementation MainShopService
 
 -(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response{
+  
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld", @"/manhua/getManhuaList.php", (long)page];
     
-    [[HttpClient sharedClient] POST:@"/manhua/getManhuaList.php" parameters:nil
+    [[HttpClient sharedClient] POST:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
                                 
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
