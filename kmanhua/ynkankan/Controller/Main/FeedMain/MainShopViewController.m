@@ -22,7 +22,8 @@
     NSMutableArray *newDataArray;
     
     NSInteger page;
-
+    
+    BOOL isNoPage;
 
 }
 
@@ -45,6 +46,7 @@
 }
 
 -(void)initData{
+    isNoPage = NO;
     page = 0;
     
     freeDataArray = [[NSMutableArray alloc] init];
@@ -55,10 +57,9 @@
 -(void)initView{
     [self setTitle:@"야만"];
     UIView *backgoundView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 110)];
-    backgoundView.backgroundColor = Color_Background;
     [self.view addSubview:backgoundView];
     [self setRightButton];
-    
+    self.view.backgroundColor = Color_Background;
     [self.view addSubview:self.mainTable];
 }
 
@@ -110,8 +111,7 @@
             [self delayRefreshEnd];
             return;
         }
-        
-        
+
         [self performSelector:@selector(delayRefreshEnd) withObject:nil afterDelay:2.0f];
 
         
@@ -206,6 +206,7 @@
     if (page == 0) {
         [self setTableHader];
     }
+    
     page++;
     
     [self.mainTable reloadData];
@@ -241,8 +242,8 @@
         _mainTable.showsVerticalScrollIndicator = NO;
         _mainTable.showsHorizontalScrollIndicator = NO;
         _mainTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _mainTable.backgroundColor = Color_Background;
         _mainTable.dataSource = self;
+        _mainTable.backgroundColor = Color_Background;
         [_mainTable addFooterWithTarget:self action:@selector(footerRereshing)];
     }
 

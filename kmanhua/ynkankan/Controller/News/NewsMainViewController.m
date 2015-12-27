@@ -9,9 +9,15 @@
 #import "NewsMainViewController.h"
 #import "NewsWebDetialViewController.h"
 #import "NewsMainViewCell.h"
+#import "NewsService.h"
 #import "MJRefresh.h"
 
-@interface NewsMainViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface NewsMainViewController ()<UITableViewDataSource, UITableViewDelegate>{
+    NewsService *service;
+    
+    NSMutableArray *dataArray;
+
+}
 
 @property (strong, nonatomic) UITableView *mainTableView;
 
@@ -22,7 +28,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
+    [self initData];
     [self initView];
+}
+
+-(void)initData{
+    service = [[NewsService alloc] init];
+    dataArray = [[NSMutableArray alloc] init];;
+    [self getNewList];
+    
 }
 
 - (void)initView{
@@ -40,11 +54,23 @@
     [super didReceiveMemoryWarning];
 
 }
+#pragma mark - 网路请求
+-(void)getNewList{
+    
+    [service getWeixinList:0 response:^(NSMutableArray *weixinList, NSError *error){
+        NSLog(@" %@ ",weixinList);
+        [dataArray addObjectsFromArray:weixinList];
+        [self performSelector:@selector(refreshEnd) withObject:nil afterDelay:0.2f];
+    }];
+    
+    
+    
+}
 
 #pragma mark - tableview 代理
 //返回数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 7;
+    return dataArray.count;
 }
 
 //自定义Cell
@@ -57,10 +83,11 @@
         cell = [[NewsMainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
     }
     
+    cell.titleLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_name"];
+    cell.timeLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_createData"];
+    cell.fromLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_fromdata"];
     cell.rightImageView.image = [UIImage imageNamed:@"test_3"];
-    cell.titleLable.text = @"남자가 성공 할수 이유는 자기가 멋있느것이 아니라";
-    cell.fromLable.text = @"심심풀이 땅콩으로 부터";
-    cell.timeLable.text = @"1일전";
+
     
     return cell;
 }
@@ -71,27 +98,29 @@
 }
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@" didSelectRowAtIndexPath ");
-    [self gotoNewsDetailView];
+
+    [self gotoNewsDetailView:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_url"] title:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_name"]];
 }
 //上啦刷新
 -(void)footerRereshing{
-    [self performSelector:@selector(testRefreshEnd) withObject:nil afterDelay:2.0f];
+    [self getNewList];
+    
 }
 
--(void)testRefreshEnd{
+-(void)refreshEnd{
+    [self.mainTableView reloadData];
     [self.mainTableView footerEndRefreshing];
 }
 
 #pragma mark goto
--(void)gotoNewsDetailView{
+-(void)gotoNewsDetailView:(NSString *)openUrl title:(NSString *)title{
     NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
-
+    detailVC.title = title;
+    detailVC.openUrl = openUrl;
     detailVC.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-
 #pragma mark get set
 -(UITableView *)mainTableView{
 

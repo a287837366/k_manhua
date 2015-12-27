@@ -11,6 +11,7 @@
 @interface MainShopCell()
 
 @property (strong, nonatomic) UIView *conView;
+@property (strong, nonatomic) UIView *lineView;
 
 @end
 
@@ -101,10 +102,13 @@
         _conView = [[UIView alloc] init];
         _conView.frame = CGRectMake(0, 0, kScreenWidth - 20, 68);
         _conView.backgroundColor = [UIColor whiteColor];
+        _conView.layer.borderWidth = 0.5;
+        _conView.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];
         _conView.layer.cornerRadius = 4;
     }
 
     return _conView;
 }
+
 
 @end

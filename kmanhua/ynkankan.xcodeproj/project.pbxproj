@@ -53,6 +53,7 @@
 		18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */; };
 		18EF5B001C1E882900A436C4 /* discover_choose_cancle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */; };
 		18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */; };
+		9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E969A1C2FF4D7008736CB /* NewsService.m */; };
 		9B7B7E821C1F04F4007EFC22 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7B7E811C1F04F4007EFC22 /* LoginService.m */; };
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
 		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
@@ -173,6 +174,8 @@
 		18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/Login/LoginViewController.xib; sourceTree = "<group>"; };
 		18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@2x.png"; path = "Res/Login/discover_choose_cancle@2x.png"; sourceTree = "<group>"; };
 		18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@3x.png"; path = "Res/Login/discover_choose_cancle@3x.png"; sourceTree = "<group>"; };
+		9B6E96991C2FF4D7008736CB /* NewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsService.h; path = Controller/News/Service/NewsService.h; sourceTree = "<group>"; };
+		9B6E969A1C2FF4D7008736CB /* NewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsService.m; path = Controller/News/Service/NewsService.m; sourceTree = "<group>"; };
 		9B7B7E801C1F04F4007EFC22 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginService.h; path = Controller/Login/Serivice/LoginService.h; sourceTree = "<group>"; };
 		9B7B7E811C1F04F4007EFC22 /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginService.m; path = Controller/Login/Serivice/LoginService.m; sourceTree = "<group>"; };
 		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
@@ -423,6 +426,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		9B6E96981C2FF499008736CB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9B6E96991C2FF4D7008736CB /* NewsService.h */,
+				9B6E969A1C2FF4D7008736CB /* NewsService.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		9B7B7E7F1C1F04BC007EFC22 /* Serivice */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +650,7 @@
 		9BCA70601BAB0E230095D9BA /* News */ = {
 			isa = PBXGroup;
 			children = (
+				9B6E96981C2FF499008736CB /* Service */,
 				189641031C1BCF6A00657904 /* View */,
 				1896410F1C1BF82B00657904 /* NewsWebDetialViewController.h */,
 				189641101C1BF82B00657904 /* NewsWebDetialViewController.m */,
@@ -846,6 +859,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */,
 				18EF5AF11C1E674700A436C4 /* MJRefreshFooterView.m in Sources */,
 				186511DE1C1F9BD400DD969C /* ToolsClass.m in Sources */,
 				9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */,
