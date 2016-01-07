@@ -11,6 +11,7 @@
 #import "MeMainTableViewCell.h"
 #import "AppConstant.h"
 #import "MeFeedBackController.h"
+#import "MeContectUsViewController.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -106,7 +107,7 @@
                 
             case 2:
                 NSLog(@"<< 제휴 문의 >>");
- 
+                
                 break;
                 
             case 3:
@@ -146,10 +147,17 @@
 }
 
 #pragma mark - goto
+//의견제출하기
 -(void)gotoFeedBackView{
     MeFeedBackController *feedBack = [[MeFeedBackController alloc] init];
     feedBack.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:feedBack animated:YES];
+}
+
+//제휴문의
+-(void)gotoContactView{
+    MeContectUsViewController *contectUsVC = [[MeContectUsViewController alloc] init];
+    contectUsVC.hidesBottomBarWhenPushed = YES;
 }
 
 

@@ -22,6 +22,8 @@
 		1896410A1C1BF7B600657904 /* nav_top_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189641081C1BF7B500657904 /* nav_top_back@2x.png */; };
 		1896410B1C1BF7B600657904 /* nav_top_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189641091C1BF7B500657904 /* nav_top_back@3x.png */; };
 		189641111C1BF82B00657904 /* NewsWebDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189641101C1BF82B00657904 /* NewsWebDetialViewController.m */; };
+		18E4A6251C3E4D0100609722 /* MeContectUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */; };
+		18E4A6261C3E4D0100609722 /* MeContectUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */; };
 		18E933B61C213A1600155F9C /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18E933B11C213A1600155F9C /* MBProgressHUD.bundle */; };
 		18E933B71C213A1600155F9C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E933B31C213A1600155F9C /* MBProgressHUD.m */; };
 		18E933B81C213A1600155F9C /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E933B51C213A1600155F9C /* MBProgressHUD+Add.m */; };
@@ -124,6 +126,9 @@
 		189641091C1BF7B500657904 /* nav_top_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_top_back@3x.png"; path = "Res/Navigation/nav_top_back@3x.png"; sourceTree = "<group>"; };
 		1896410F1C1BF82B00657904 /* NewsWebDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsWebDetialViewController.h; path = Controller/News/NewsWebDetialViewController.h; sourceTree = "<group>"; };
 		189641101C1BF82B00657904 /* NewsWebDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsWebDetialViewController.m; path = Controller/News/NewsWebDetialViewController.m; sourceTree = "<group>"; };
+		18E4A6221C3E4D0100609722 /* MeContectUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeContectUsViewController.h; path = Controller/Me/MeContectUsViewController.h; sourceTree = "<group>"; };
+		18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeContectUsViewController.m; path = Controller/Me/MeContectUsViewController.m; sourceTree = "<group>"; };
+		18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeContectUsViewController.xib; path = Controller/Me/MeContectUsViewController.xib; sourceTree = "<group>"; };
 		18E933B11C213A1600155F9C /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MBProgressHUD.bundle; path = ThirdPart/MBProgressHUD/MBProgressHUD.bundle; sourceTree = "<group>"; };
 		18E933B21C213A1600155F9C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ThirdPart/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		18E933B31C213A1600155F9C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ThirdPart/MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
@@ -657,6 +662,9 @@
 				18EF5AD71C1E4A2100A436C4 /* MeFeedBackController.xib */,
 				18EF5ADA1C1E5F7E00A436C4 /* MeHistoryViewController.h */,
 				18EF5ADB1C1E5F7E00A436C4 /* MeHistoryViewController.m */,
+				18E4A6221C3E4D0100609722 /* MeContectUsViewController.h */,
+				18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */,
+				18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -802,6 +810,7 @@
 				1896410A1C1BF7B600657904 /* nav_top_back@2x.png in Resources */,
 				18E933D01C213DF800155F9C /* loading_8@2x.png in Resources */,
 				9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */,
+				18E4A6261C3E4D0100609722 /* MeContectUsViewController.xib in Resources */,
 				18E933CF1C213DF800155F9C /* loading_7@2x.png in Resources */,
 				18E933CB1C213DF800155F9C /* loading_3@2x.png in Resources */,
 				9BCA70491BAB0BA60095D9BA /* LaunchScreen.xib in Resources */,
@@ -861,6 +870,7 @@
 				9BBC3E1C1BD14E5900F15A1E /* AFURLSessionManager.m in Sources */,
 				9BEAB9A41BE792A200AD5A20 /* MainShopCell.m in Sources */,
 				189640FF1C1BC1CB00657904 /* MeMainTableViewCell.m in Sources */,
+				18E4A6251C3E4D0100609722 /* MeContectUsViewController.m in Sources */,
 				188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */,
 				18EF5AF01C1E674700A436C4 /* MJRefreshConst.m in Sources */,
 				9BBC3E1D1BD14E5900F15A1E /* UIImageView+AFNetworking.m in Sources */,

@@ -20,6 +20,7 @@
 }
 
 - (void)initView{
+    self.view.backgroundColor = Color_Background;
     [self setTitle:@"의견제출"];
     [self setLeftButton];
     [self setRigthButton];
