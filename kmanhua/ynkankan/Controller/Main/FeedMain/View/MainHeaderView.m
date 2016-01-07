@@ -8,10 +8,12 @@
 
 #import "MainHeaderView.h"
 #import "AppConstant.h"
+#import "UIImageView+WebCache.h"
 
 @interface MainHeaderView()
 
 @property (strong, nonatomic) UIImageView *mainImageView;
+@property (strong, nonatomic) UILabel *mainLable;
 @property (strong, nonatomic) UIView *imageListView;
 
 @end
@@ -34,6 +36,9 @@
 -(void)setDate:(NSMutableArray *)newDataArray{
     
     [self addSubview:self.mainImageView];
+    [self addSubview:self.mainLable];
+    self.mainLable.text = [[newDataArray objectAtIndex:0] objectForKey:@"m_name"];
+    [self.mainImageView sd_setImageWithURL:[[newDataArray objectAtIndex:0] objectForKey:@"m_icon"]];
     [self addSubview:self.imageListView];
     
     [self createImageList:newDataArray];
@@ -52,7 +57,6 @@
         [view addGestureRecognizer:singleTap];
         
         [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test_%d", i + 1]]];
-        [view addSubview:[self createLable:@"19"]];
         [view addSubview:[self createTitleLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_name"]]];
         [view addSubview:[self createTimeLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_createTime"]]];
         
@@ -149,7 +153,8 @@
         _mainImageView.contentMode = UIViewContentModeRedraw;
         _mainImageView.layer.cornerRadius = 5;
         _mainImageView.tag = 100;
-    
+
+        
         UIButton *tltleButton = [[UIButton alloc] init];
         tltleButton.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
         [tltleButton addTarget:self action:@selector(imageTitleClick) forControlEvents:UIControlEventTouchUpInside];
@@ -158,6 +163,23 @@
     }
     
     return _mainImageView;
+}
+
+-(UILabel *)mainLable{
+
+    if (!_mainLable) {
+        
+        _mainLable = [[UILabel alloc] init];
+        _mainLable.backgroundColor = [UIColor colorWithRed:60/255.0 green:60/255.0 blue:60/255.0 alpha:0.5f];
+        _mainLable.font = [UIFont systemFontOfSize:17];
+        _mainLable.textAlignment = NSTextAlignmentCenter;
+        _mainLable.textColor = [UIColor whiteColor];
+        _mainLable.frame = CGRectMake(0, 150, kScreenWidth - 20, 30);
+        _mainImageView.frame = CGRectMake(0, 30, kScreenWidth - 20, 150);
+        
+    }
+
+    return _mainLable;
 }
 
 -(UIView *)imageListView{
