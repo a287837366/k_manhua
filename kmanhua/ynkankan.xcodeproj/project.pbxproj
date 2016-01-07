@@ -58,11 +58,6 @@
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
 		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
 		9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */; };
-		9BBBDDD41C19AAAE0000F312 /* test_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCF1C19AAAE0000F312 /* test_1.png */; };
-		9BBBDDD51C19AAAE0000F312 /* test_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD01C19AAAE0000F312 /* test_2.png */; };
-		9BBBDDD61C19AAAE0000F312 /* test_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD11C19AAAE0000F312 /* test_3.png */; };
-		9BBBDDD71C19AAAE0000F312 /* test_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD21C19AAAE0000F312 /* test_4.png */; };
-		9BBBDDD81C19AAAE0000F312 /* test_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDD31C19AAAE0000F312 /* test_5.png */; };
 		9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF01BCAA62600F15A1E /* BaseTableViewCell.m */; };
 		9BBC3DF61BCAA8A800F15A1E /* lottery_blueball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF51BCAA8A800F15A1E /* lottery_blueball@2x.png */; };
 		9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBC3DF71BCAB86300F15A1E /* getIntegralBtn_selected@2x.png */; };
@@ -181,11 +176,6 @@
 		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
 		9BBBDDC91C19A2CC0000F312 /* tab_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_me.png; path = Res/Tab/tab_me.png; sourceTree = "<group>"; };
 		9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_weixin.png; path = Res/Tab/tab_weixin.png; sourceTree = "<group>"; };
-		9BBBDDCF1C19AAAE0000F312 /* test_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_1.png; path = Res/Test/test_1.png; sourceTree = "<group>"; };
-		9BBBDDD01C19AAAE0000F312 /* test_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_2.png; path = Res/Test/test_2.png; sourceTree = "<group>"; };
-		9BBBDDD11C19AAAE0000F312 /* test_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_3.png; path = Res/Test/test_3.png; sourceTree = "<group>"; };
-		9BBBDDD21C19AAAE0000F312 /* test_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_4.png; path = Res/Test/test_4.png; sourceTree = "<group>"; };
-		9BBBDDD31C19AAAE0000F312 /* test_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test_5.png; path = Res/Test/test_5.png; sourceTree = "<group>"; };
 		9BBC3DED1BCAA51800F15A1E /* AppConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstant.h; path = Commom/Constant/AppConstant.h; sourceTree = "<group>"; };
 		9BBC3DEF1BCAA62600F15A1E /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTableViewCell.h; path = Commom/Views/BaseTableViewCell.h; sourceTree = "<group>"; };
 		9BBC3DF01BCAA62600F15A1E /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTableViewCell.m; path = Commom/Views/BaseTableViewCell.m; sourceTree = "<group>"; };
@@ -457,11 +447,6 @@
 		9BBBDDCE1C19A5050000F312 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				9BBBDDCF1C19AAAE0000F312 /* test_1.png */,
-				9BBBDDD01C19AAAE0000F312 /* test_2.png */,
-				9BBBDDD11C19AAAE0000F312 /* test_3.png */,
-				9BBBDDD21C19AAAE0000F312 /* test_4.png */,
-				9BBBDDD31C19AAAE0000F312 /* test_5.png */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -807,19 +792,15 @@
 				18E933D21C213DF800155F9C /* loading_10@2x.png in Resources */,
 				18E933CE1C213DF800155F9C /* loading_6@2x.png in Resources */,
 				189641021C1BC7AC00657904 /* me_right_arraw.png in Resources */,
-				9BBBDDD71C19AAAE0000F312 /* test_4.png in Resources */,
 				9BEDE4A01C1EEC9100573468 /* RegisterdDetailView.xib in Resources */,
 				9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */,
 				9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */,
 				9BCA70441BAB0BA60095D9BA /* Main.storyboard in Resources */,
 				18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */,
-				9BBBDDD61C19AAAE0000F312 /* test_3.png in Resources */,
 				18E933C91C213DF800155F9C /* loading_1@2x.png in Resources */,
 				18E933D11C213DF800155F9C /* loading_9@2x.png in Resources */,
-				9BBBDDD41C19AAAE0000F312 /* test_1.png in Resources */,
 				1896410A1C1BF7B600657904 /* nav_top_back@2x.png in Resources */,
 				18E933D01C213DF800155F9C /* loading_8@2x.png in Resources */,
-				9BBBDDD81C19AAAE0000F312 /* test_5.png in Resources */,
 				9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */,
 				18E933CF1C213DF800155F9C /* loading_7@2x.png in Resources */,
 				18E933CB1C213DF800155F9C /* loading_3@2x.png in Resources */,
@@ -832,7 +813,6 @@
 				9BCA70461BAB0BA60095D9BA /* Images.xcassets in Resources */,
 				18E933CC1C213DF800155F9C /* loading_4@2x.png in Resources */,
 				18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */,
-				9BBBDDD51C19AAAE0000F312 /* test_2.png in Resources */,
 				189640ED1C1A790900657904 /* nav_login@2x.png in Resources */,
 				18EF5B001C1E882900A436C4 /* discover_choose_cancle@2x.png in Resources */,
 				189640EE1C1A790900657904 /* nav_login@3x.png in Resources */,

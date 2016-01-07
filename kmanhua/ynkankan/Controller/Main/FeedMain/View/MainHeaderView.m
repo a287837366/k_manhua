@@ -133,7 +133,7 @@
         titleLable.frame = CGRectMake(0, 5, kScreenWidth, 20);
         titleLable.font = [UIFont systemFontOfSize:13];
         titleLable.textColor = Color_Main;
-        titleLable.text = @"---  오늘 이야기  ---";
+        titleLable.text = @"---  최신 이야기  ---";
         titleLable.textAlignment = NSTextAlignmentCenter;
 
         UIView *cornorView = [[UIView alloc] init];

@@ -58,7 +58,7 @@
     [self setTitle:@"야만"];
     UIView *backgoundView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 110)];
     [self.view addSubview:backgoundView];
-    [self setRightButton];
+//    [self setRightButton];
     self.view.backgroundColor = Color_Background;
     [self.view addSubview:self.mainTable];
 }

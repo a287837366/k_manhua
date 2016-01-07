@@ -26,17 +26,13 @@
         [self.contentView addSubview:self.conView];
         [self.conView addSubview:self.leftImage];
         [self.conView addSubview:self.titleLable];
-        [self.conView addSubview:self.levelLable];
+//        [self.conView addSubview:self.levelLable];
         [self.conView addSubview:self.timeLable];
         
         self.backgroundColor = [UIColor clearColor];
    
     }
     
-    self.titleLable.text = @"지하철 지하철 지하철";
-    self.levelLable.text = @"19";
-    self.timeLable.text = @"2015-08-01";
-    self.leftImage.image = [UIImage imageNamed:@"test_5"];
     return self;
 }
 
