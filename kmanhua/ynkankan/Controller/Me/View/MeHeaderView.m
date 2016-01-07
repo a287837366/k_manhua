@@ -48,7 +48,6 @@
         _iconButton.backgroundColor = Color_Main;
         _iconButton.layer.cornerRadius = 25;
         _iconButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-        [_iconButton setTitle:@"17－" forState:UIControlStateNormal];
     }
 
     return _iconButton;
@@ -62,7 +61,7 @@
         _nikeName.frame = CGRectMake(75, (MeHeaderHeight - 55) / 2 + 1, kScreenWidth - 88, 14);
         _nikeName.font = [UIFont systemFontOfSize:15];
         _nikeName.tintColor = Color_666666;
-        _nikeName.text = @"닉넴: 미등록";
+        _nikeName.text = @"닉넴: 쨈쨈1호";
     }
 
     return _nikeName;
@@ -76,7 +75,7 @@
         _contentLable.frame = CGRectMake(15, MeHeaderHeight - 34, kScreenWidth - 45, 20);
         _contentLable.backgroundColor = Color_f5f5f2;
         _contentLable.layer.cornerRadius = 2;
-        _contentLable.text = @"   닉넴이 설정하면 하면 마음대로 볼수 있슴다";
+        _contentLable.text = @" 쨈쨈에 오신것을 환영합니다.";
         _contentLable.font = [UIFont systemFontOfSize:11];
         _contentLable.tintColor = Color_888888;
         

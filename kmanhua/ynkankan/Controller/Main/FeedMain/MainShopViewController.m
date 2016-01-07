@@ -15,6 +15,7 @@
 #import "LoginViewController.h"
 #import "CustomProgressHUD.h"
 #import "MainShopService.h"
+#import "UIImageView+WebCache.h"
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate, LoginViewControllerDelegate>{
     
@@ -150,6 +151,8 @@
     
     cell.titleLable.text = [[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_name"];
     cell.timeLable.text = [[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_createTime"];
+    [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:[[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_icon"]]];
+
     
     return cell;
 

@@ -34,7 +34,7 @@
 }
 
 - (void)initDate{
-    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"방문기록", @"의견제출 하기 ", @"제휴문의", @"땐짠 하기", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", @"About Us", nil], nil];
+    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"방문기록", @"의견제출 하기 ", @"제휴문의", @"땐짠 하기", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", nil], nil];
 }
 
 - (void)initView{
@@ -107,7 +107,7 @@
                 
             case 2:
                 NSLog(@"<< 제휴 문의 >>");
-                
+                [self gotoContactView];
                 break;
                 
             case 3:
@@ -158,6 +158,7 @@
 -(void)gotoContactView{
     MeContectUsViewController *contectUsVC = [[MeContectUsViewController alloc] init];
     contectUsVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:contectUsVC animated:YES];
 }
 
 
