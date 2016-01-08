@@ -55,8 +55,7 @@
         
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick:)];
         [view addGestureRecognizer:singleTap];
-        
-        [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test_%d", i + 1]]];
+        [view addSubview:[self createSimpleImage:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_icon"]]];
         [view addSubview:[self createTitleLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_name"]]];
         [view addSubview:[self createTimeLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_createTime"]]];
         
@@ -70,7 +69,8 @@
 -(UIImageView *)createSimpleImage:(NSString *)imagUrl{
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.frame = CGRectMake(10, 10, 45, 45);
-    imageView.image = [UIImage imageNamed:imagUrl];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:imagUrl]];
+//    imageView.image = [UIImage imageNamed:imagUrl];
     imageView.contentMode = UIViewContentModeRedraw;
     
 

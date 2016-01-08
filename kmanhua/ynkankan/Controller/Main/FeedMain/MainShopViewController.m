@@ -104,7 +104,7 @@
             [self.mainTable footerEndRefreshing];
             return;
         }
-        
+
         [freeDataArray addObjectsFromArray:freedata];
         [newDataArray addObjectsFromArray:newdata];
         
