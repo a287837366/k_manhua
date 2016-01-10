@@ -12,6 +12,11 @@
 
 #pragma mark 文字提示信息方法
 +(void)Toast:(UIView *)view withText:(NSString *)str{
+    
+    if (view == nil) {
+        view = [UIApplication sharedApplication].keyWindow;
+    }
+    
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
     [view addSubview:hud];
    // hud.labelText = NSLocalizedString(str,nil);

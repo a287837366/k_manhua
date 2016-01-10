@@ -16,6 +16,7 @@
 #import "CustomProgressHUD.h"
 #import "MainShopService.h"
 #import "UIImageView+WebCache.h"
+#import "MainShiopDetailVC.h"
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate, LoiginPromptViewDelegate, LoginViewControllerDelegate>{
     
@@ -161,7 +162,7 @@
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@" didSelectRowAtIndexPath ");
-    [self gotoNewsDetailView:[[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_url"] title:[[freeDataArray objectAtIndex:indexPath.row] objectForKey:@"m_name"]];
+    [self gotoNewsDetailView:[freeDataArray objectAtIndex:indexPath.row]];
 }
 
 
@@ -220,17 +221,21 @@
 
 #pragma mark headerDelegate
 -(void)didClickHeader:(NSInteger)index{
-    [self gotoNewsDetailView:[[newDataArray objectAtIndex:index] objectForKey:@"m_url"] title:[[newDataArray objectAtIndex:index] objectForKey:@"m_name"]];
+    [self gotoNewsDetailView:[newDataArray objectAtIndex:index]];
 }
 
-#pragma mark goto
--(void)gotoNewsDetailView:(NSString *)openUrl title:(NSString *)title{
-    NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
-    detailVC.title = title;
-    detailVC.openUrl = openUrl;
+#pragma mark - goto
+-(void)gotoNewsDetailView:(NSMutableDictionary *)dic{
+    MainShiopDetailVC *detailVC = [[MainShiopDetailVC alloc] init];
     detailVC.hidesBottomBarWhenPushed = YES;
-    
+    detailVC.detailModel = dic;
     [self.navigationController pushViewController:detailVC animated:YES];
+//    NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
+//    detailVC.title = title;
+//    detailVC.openUrl = openUrl;
+//    detailVC.hidesBottomBarWhenPushed = YES;
+//    
+//    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - get set

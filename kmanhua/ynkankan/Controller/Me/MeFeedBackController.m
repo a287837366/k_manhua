@@ -48,7 +48,18 @@
 
 #pragma mark 右侧action
 -(void)clickRightButton{
-
+    
+    if (self.feedBackText.text.length == 0) {
+        
+        [MBProgressHUD Toast:nil withText:@"의견을 입력 해주세요."];
+        return;
+    }
+    
+    self.feedBackText.text = @"";
+    self.hintLable.hidden = NO;
+    
+    [MBProgressHUD Toast:nil withText:@"좋은 의견 감사합니다."];
+    [self closeMethod];
 }
 
 -(void)textViewDidChange:(UITextView *)textView{

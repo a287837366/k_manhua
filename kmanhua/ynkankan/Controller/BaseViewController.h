@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppConstant.h"
+#import "MBProgressHUD+ToastDialog.h"
 
 @interface BaseViewController : UIViewController
 

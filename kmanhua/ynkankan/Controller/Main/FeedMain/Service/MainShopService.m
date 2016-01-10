@@ -12,6 +12,28 @@
 
 @implementation MainShopService
 
+-(void)getManhuaById:(NSString *)manhuaId response:(void (^)(NSArray *viewArray, NSError *error))response{
+
+
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@?manhuaid=%@", @"/manhua/getManhuaById.php", manhuaId];
+    
+    [[HttpClient sharedClient] POST:requsetUrl parameters:nil
+                            success:^(NSURLSessionTask *task, id responseObject){
+                         
+                                    NSData *tempData = [[[[responseObject objectForKey:@"data"] valueForKey:@"viewdetail"] objectAtIndex:0] dataUsingEncoding:NSUTF8StringEncoding];
+                                
+                                    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:tempData options:NSJSONReadingMutableLeaves error:nil];
+
+                                response(jsonArray , nil);
+                                
+                                
+                            } failure:^(NSURLSessionTask *task, NSError *error){
+                                response(nil, error);
+                            }];
+
+
+}
+
 -(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response{
   
     NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld", @"/manhua/getManhuaList.php", (long)page];
