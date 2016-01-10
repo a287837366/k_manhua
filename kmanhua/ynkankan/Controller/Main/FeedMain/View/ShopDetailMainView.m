@@ -81,6 +81,23 @@
         [self addSubview:imageView];
         
         self.viewHeight += height;
+    } else if ([[viewDic objectForKey:@"type"] isEqualToString:@"lable"]){
+       
+        self.viewHeight += 10;
+        
+        NSString *title = [viewDic objectForKey:@"content"];
+        
+        CGSize lableSize = [self boundingRectWithSize:title Font:[UIFont systemFontOfSize:13] size:CGSizeMake(kScreenWidth - 20, MAXFLOAT)];
+        
+        UILabel *lable = [[UILabel alloc] init];
+        lable.frame = CGRectMake(10, self.viewHeight, kScreenWidth - 20, lableSize.height);
+        lable.numberOfLines = 0;
+        lable.font = [UIFont systemFontOfSize:13];
+        lable.textColor = Color_666666;
+        lable.text = title;
+        
+        [self addSubview:lable];
+        self.viewHeight += 10 + lableSize.height;
     }
     
 }

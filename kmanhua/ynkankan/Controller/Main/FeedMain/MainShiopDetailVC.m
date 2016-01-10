@@ -71,7 +71,7 @@
     __weak ShopDetailMainView *weakView = detailView;
     __weak UIScrollView *weakScroll = mainScroll;
     
-    [self.service getManhuaById:@"0000005" response:^(NSArray *viewArray, NSError *error){
+    [self.service getManhuaById:@"0000010" response:^(NSArray *viewArray, NSError *error){
 
         [weakView createViewByArray:viewArray];
         weakView.frame = CGRectMake(0, 0, kScreenWidth, weakView.viewHeight);
