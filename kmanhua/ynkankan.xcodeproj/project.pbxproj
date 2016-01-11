@@ -56,6 +56,10 @@
 		18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */; };
 		18EF5B001C1E882900A436C4 /* discover_choose_cancle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */; };
 		18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */; };
+		9B5476201C412F7F00F1F02A /* MeComeonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B54761F1C412F7F00F1F02A /* MeComeonViewController.m */; };
+		9B5476241C413BB500F1F02A /* slidingicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5476231C413BB500F1F02A /* slidingicon.png */; };
+		9B5476291C4252EA00F1F02A /* MainShiopDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5476281C4252EA00F1F02A /* MainShiopDetailVC.m */; };
+		9B54762C1C427BB600F1F02A /* ShopDetailMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B54762B1C427BB600F1F02A /* ShopDetailMainView.m */; };
 		9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E969A1C2FF4D7008736CB /* NewsService.m */; };
 		9B7B7E821C1F04F4007EFC22 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7B7E811C1F04F4007EFC22 /* LoginService.m */; };
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
@@ -193,6 +197,13 @@
 		18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/Login/LoginViewController.xib; sourceTree = "<group>"; };
 		18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@2x.png"; path = "Res/Login/discover_choose_cancle@2x.png"; sourceTree = "<group>"; };
 		18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@3x.png"; path = "Res/Login/discover_choose_cancle@3x.png"; sourceTree = "<group>"; };
+		9B54761E1C412F7F00F1F02A /* MeComeonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeComeonViewController.h; path = Controller/Me/MeComeonViewController.h; sourceTree = "<group>"; };
+		9B54761F1C412F7F00F1F02A /* MeComeonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeComeonViewController.m; path = Controller/Me/MeComeonViewController.m; sourceTree = "<group>"; };
+		9B5476231C413BB500F1F02A /* slidingicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = slidingicon.png; path = Res/Main/slidingicon.png; sourceTree = "<group>"; };
+		9B5476271C4252EA00F1F02A /* MainShiopDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainShiopDetailVC.h; path = Controller/Main/FeedMain/MainShiopDetailVC.h; sourceTree = "<group>"; };
+		9B5476281C4252EA00F1F02A /* MainShiopDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShiopDetailVC.m; path = Controller/Main/FeedMain/MainShiopDetailVC.m; sourceTree = "<group>"; };
+		9B54762A1C427BB600F1F02A /* ShopDetailMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShopDetailMainView.h; path = Controller/Main/FeedMain/View/ShopDetailMainView.h; sourceTree = "<group>"; };
+		9B54762B1C427BB600F1F02A /* ShopDetailMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShopDetailMainView.m; path = Controller/Main/FeedMain/View/ShopDetailMainView.m; sourceTree = "<group>"; };
 		9B6E96991C2FF4D7008736CB /* NewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsService.h; path = Controller/News/Service/NewsService.h; sourceTree = "<group>"; };
 		9B6E969A1C2FF4D7008736CB /* NewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsService.m; path = Controller/News/Service/NewsService.m; sourceTree = "<group>"; };
 		9B7B7E801C1F04F4007EFC22 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginService.h; path = Controller/Login/Serivice/LoginService.h; sourceTree = "<group>"; };
@@ -541,6 +552,7 @@
 		9BBC3DF21BCAA84E00F15A1E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9B5476231C413BB500F1F02A /* slidingicon.png */,
 				9BBC3DF71BCAB86300F15A1E /* getIntegralBtn_selected@2x.png */,
 				9BBC3DF51BCAA8A800F15A1E /* lottery_blueball@2x.png */,
 			);
@@ -720,6 +732,8 @@
 				9BEAB9A01BE78ED600AD5A20 /* View */,
 				9BEAB99D1BE78B3300AD5A20 /* MainShopViewController.h */,
 				9BEAB99E1BE78B3300AD5A20 /* MainShopViewController.m */,
+				9B5476271C4252EA00F1F02A /* MainShiopDetailVC.h */,
+				9B5476281C4252EA00F1F02A /* MainShiopDetailVC.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -752,6 +766,8 @@
 				18E4A6221C3E4D0100609722 /* MeContectUsViewController.h */,
 				18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */,
 				18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */,
+				9B54761E1C412F7F00F1F02A /* MeComeonViewController.h */,
+				9B54761F1C412F7F00F1F02A /* MeComeonViewController.m */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -763,6 +779,8 @@
 				9BEAB9A11BE78F0300AD5A20 /* Cell */,
 				188FC96A1C194FFB00E85317 /* MainHeaderView.h */,
 				188FC96B1C194FFB00E85317 /* MainHeaderView.m */,
+				9B54762A1C427BB600F1F02A /* ShopDetailMainView.h */,
+				9B54762B1C427BB600F1F02A /* ShopDetailMainView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -916,6 +934,7 @@
 				18E933CA1C213DF800155F9C /* loading_2@2x.png in Resources */,
 				18EF5AEE1C1E674700A436C4 /* MJRefresh.bundle in Resources */,
 				9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */,
+				9B5476241C413BB500F1F02A /* slidingicon.png in Resources */,
 				18E933D31C213DF800155F9C /* loading_11@2x.png in Resources */,
 				186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */,
 			);
@@ -940,6 +959,7 @@
 				9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */,
 				9BDD3C761C3EAC96009CEC3D /* UIImageView+HighlightedWebCache.m in Sources */,
 				18EF5AF11C1E674700A436C4 /* MJRefreshFooterView.m in Sources */,
+				9B5476201C412F7F00F1F02A /* MeComeonViewController.m in Sources */,
 				186511DE1C1F9BD400DD969C /* ToolsClass.m in Sources */,
 				9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */,
 				9BBC3E191BD14E5900F15A1E /* AFURLConnectionOperation.m in Sources */,
@@ -987,9 +1007,11 @@
 				18E933B81C213A1600155F9C /* MBProgressHUD+Add.m in Sources */,
 				9BDD3C6F1C3EAC96009CEC3D /* SDWebImageDownloaderOperation.m in Sources */,
 				9BBC3E171BD14E5900F15A1E /* AFNetworkReachabilityManager.m in Sources */,
+				9B5476291C4252EA00F1F02A /* MainShiopDetailVC.m in Sources */,
 				9BDD3C741C3EAC96009CEC3D /* UIImage+MultiFormat.m in Sources */,
 				9BDD3C781C3EAC96009CEC3D /* UIView+WebCacheOperation.m in Sources */,
 				18EF5AF21C1E674700A436C4 /* MJRefreshHeaderView.m in Sources */,
+				9B54762C1C427BB600F1F02A /* ShopDetailMainView.m in Sources */,
 				9BCA70381BAB0BA60095D9BA /* main.m in Sources */,
 				9BBC3E141BD14E5900F15A1E /* AFHTTPRequestOperation.m in Sources */,
 				189641071C1BE2BE00657904 /* NewsMainViewCell.m in Sources */,

@@ -17,6 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyC-Vz-9Vt">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mm-ig-RiO">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <subviews>
@@ -104,9 +107,6 @@
                         </mask>
                     </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyC-Vz-9Vt">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -124,8 +124,8 @@
             </constraints>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="0Mm-ig-RiO"/>
                     <exclude reference="RyC-Vz-9Vt"/>
+                    <exclude reference="0Mm-ig-RiO"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="Vw0-MH-q8t"/>
@@ -139,8 +139,8 @@
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
-                    <include reference="0Mm-ig-RiO"/>
                     <include reference="RyC-Vz-9Vt"/>
+                    <include reference="0Mm-ig-RiO"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="Vw0-MH-q8t"/>

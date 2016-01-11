@@ -12,6 +12,7 @@
 #import "AppConstant.h"
 #import "MeFeedBackController.h"
 #import "MeContectUsViewController.h"
+#import "MeComeonViewController.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -108,6 +109,7 @@
                 
             case 2:
                 NSLog(@"<< 땐짠 하기 >>");
+                [self gotoComeonVC];
                 break;
                 
             default:
@@ -150,6 +152,12 @@
     MeContectUsViewController *contectUsVC = [[MeContectUsViewController alloc] init];
     contectUsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:contectUsVC animated:YES];
+}
+//땐짠하기
+-(void)gotoComeonVC{
+    MeComeonViewController *comeVC = [[MeComeonViewController alloc] init];
+    comeVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:comeVC animated:YES];
 }
 
 
