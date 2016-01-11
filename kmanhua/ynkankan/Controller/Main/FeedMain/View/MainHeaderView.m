@@ -8,7 +8,7 @@
 
 #import "MainHeaderView.h"
 #import "AppConstant.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+YmCache.h"
 
 @interface MainHeaderView()
 
@@ -38,7 +38,7 @@
     [self addSubview:self.mainImageView];
     [self addSubview:self.mainLable];
     self.mainLable.text = [[newDataArray objectAtIndex:0] objectForKey:@"m_name"];
-    [self.mainImageView sd_setImageWithURL:[[newDataArray objectAtIndex:0] objectForKey:@"m_icon"]];
+    [self.mainImageView ym_setImageWithURL:[[newDataArray objectAtIndex:0] objectForKey:@"m_icon"] placeholderImage:nil];
     [self addSubview:self.imageListView];
     
     [self createImageList:newDataArray];
@@ -69,11 +69,8 @@
 -(UIImageView *)createSimpleImage:(NSString *)imagUrl{
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.frame = CGRectMake(10, 10, 45, 45);
-    [imageView sd_setImageWithURL:[NSURL URLWithString:imagUrl]];
-//    imageView.image = [UIImage imageNamed:imagUrl];
+    [imageView ym_setImageWithURL:[NSURL URLWithString:imagUrl] placeholderImage:nil];
     imageView.contentMode = UIViewContentModeRedraw;
-    
-
     
     return imageView;
 }

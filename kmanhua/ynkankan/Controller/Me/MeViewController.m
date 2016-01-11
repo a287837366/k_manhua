@@ -34,7 +34,7 @@
 }
 
 - (void)initDate{
-    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"방문기록", @"의견제출 하기 ", @"제휴문의", @"땐짠 하기", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", nil], nil];
+    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"의견제출 하기 ", @"제휴문의", @"땐짠 하기", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", nil], nil];
 }
 
 - (void)initView{
@@ -95,22 +95,18 @@
     if (indexPath.section == 0) {
         
         switch (indexPath.row) {
+                
             case 0:
-                NSLog(@"<< 방문기록 >>");
-                
-                break;
-                
-            case 1:
                 NSLog(@"<< 의견제출 하기 >>");
                 [self gotoFeedBackView];
                 break;
                 
-            case 2:
+            case 1:
                 NSLog(@"<< 제휴 문의 >>");
                 [self gotoContactView];
                 break;
                 
-            case 3:
+            case 2:
                 NSLog(@"<< 땐짠 하기 >>");
                 break;
                 
@@ -123,11 +119,6 @@
         switch (indexPath.row) {
             case 0:
                 NSLog(@"<< 웨이씬 공요하기  >>");
-                break;
-                
-            case 1:
-                NSLog(@"<<  About us >>");
-                
                 break;
                 
             default:
