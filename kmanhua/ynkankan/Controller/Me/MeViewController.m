@@ -13,6 +13,7 @@
 #import "MeFeedBackController.h"
 #import "MeContectUsViewController.h"
 #import "MeComeonViewController.h"
+#import "MeSharePopView.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -121,6 +122,7 @@
         switch (indexPath.row) {
             case 0:
                 NSLog(@"<< 웨이씬 공요하기  >>");
+                [self showShareView];
                 break;
                 
             default:
@@ -137,6 +139,13 @@
     view.backgroundColor = Color_Background;
     
     return view;
+}
+
+#pragma mark - Action
+-(void)showShareView{
+    MeSharePopView *popView = [[MeSharePopView alloc] init];
+    [popView show];
+    
 }
 
 #pragma mark - goto
