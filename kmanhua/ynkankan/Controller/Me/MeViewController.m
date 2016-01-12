@@ -145,7 +145,7 @@
 -(void)showShareView{
     MeSharePopView *popView = [[MeSharePopView alloc] init];
     [popView show];
-    
+    [self.view addSubview:popView];
 }
 
 #pragma mark - goto
