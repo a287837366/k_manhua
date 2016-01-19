@@ -13,8 +13,8 @@
 #import "MJRefresh.h"
 
 @interface NewsMainViewController ()<UITableViewDataSource, UITableViewDelegate>{
+ 
     NewsService *service;
-    
     NSMutableArray *dataArray;
 
 }
@@ -35,12 +35,20 @@
 -(void)initData{
     service = [[NewsService alloc] init];
     dataArray = [[NSMutableArray alloc] init];;
-    [self getNewList];
+    
+    
+    [dataArray addObject:@"1"];
+    [dataArray addObject:@"1"];
+    [dataArray addObject:@"1"];
+    [dataArray addObject:@"1"];
+    [dataArray addObject:@"1"];
+    [dataArray addObject:@"1"];
+    [dataArray addObject:@"1"];
     
 }
 
 - (void)initView{
-    [self setTitle:@"위쳇"];
+    [self setTitle:@"방문"];
     
     UIView *backgoundView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 110)];
     backgoundView.backgroundColor = Color_Background;
@@ -53,18 +61,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
-}
-#pragma mark - 网路请求
--(void)getNewList{
-    
-    [service getWeixinList:0 response:^(NSMutableArray *weixinList, NSError *error){
-        NSLog(@" %@ ",weixinList);
-        [dataArray addObjectsFromArray:weixinList];
-        [self performSelector:@selector(refreshEnd) withObject:nil afterDelay:0.2f];
-    }];
-    
-    
-    
 }
 
 #pragma mark - tableview 代理
@@ -83,9 +79,9 @@
         cell = [[NewsMainViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
     }
     
-    cell.titleLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_name"];
-    cell.timeLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_createData"];
-    cell.fromLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_fromdata"];
+//    cell.titleLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_name"];
+//    cell.timeLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_createData"];
+//    cell.fromLable.text = [[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_fromdata"];
     cell.rightImageView.image = [UIImage imageNamed:@"test_3"];
 
     
@@ -96,15 +92,36 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 90;
 }
+
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    [self gotoNewsDetailView:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_url"] title:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_name"]];
+//    [self gotoNewsDetailView:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_url"] title:[[dataArray objectAtIndex:indexPath.row] objectForKey:@"w_name"]];
 }
-//上啦刷新
--(void)footerRereshing{
-    [self getNewList];
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  UITableViewCellEditingStyleDelete;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [dataArray removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source.
+        [self.mainTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+    
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @" 삭 제 ";
 }
 
 -(void)refreshEnd{
@@ -135,8 +152,6 @@
         _mainTableView.dataSource = self;
         _mainTableView.showsHorizontalScrollIndicator = NO;
         _mainTableView.backgroundColor = [UIColor clearColor];
-        
-        [_mainTableView addFooterWithTarget:self action:@selector(footerRereshing)];
     }
 
     return _mainTableView;
