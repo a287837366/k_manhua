@@ -37,17 +37,20 @@
     
     [self addSubview:self.mainImageView];
     [self addSubview:self.mainLable];
+  
+    
     self.mainLable.text = [[newDataArray objectAtIndex:0] objectForKey:@"m_name"];
     [self.mainImageView ym_setImageWithURL:[[newDataArray objectAtIndex:0] objectForKey:@"m_icon"] placeholderImage:nil];
-    [self addSubview:self.imageListView];
     
+    
+    [self addSubview:self.imageListView];
     [self createImageList:newDataArray];
 }
 
 #pragma mark - private
 -(void)createImageList:(NSMutableArray *)newDataArray{
     
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < newDataArray.count - 1; i++) {
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor whiteColor];
         view.frame = CGRectMake(0, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth, 70);
@@ -60,9 +63,11 @@
         [view addSubview:[self createTimeLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_createTime"]]];
         
         [self addSubview:view];
+        
+        self.viewHeight += 71;
     }
     
-    self.viewHeight += 71 *3 + 5;
+    self.viewHeight += 5;
 }
 
 #pragma mark 图片Image

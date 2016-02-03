@@ -22,13 +22,6 @@
 		1896410A1C1BF7B600657904 /* nav_top_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189641081C1BF7B500657904 /* nav_top_back@2x.png */; };
 		1896410B1C1BF7B600657904 /* nav_top_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189641091C1BF7B500657904 /* nav_top_back@3x.png */; };
 		189641111C1BF82B00657904 /* NewsWebDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 189641101C1BF82B00657904 /* NewsWebDetialViewController.m */; };
-		18E33DEB1C4E23470004075C /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E33DDF1C4E23470004075C /* DBHelper.m */; };
-		18E33DEC1C4E23470004075C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E33DE11C4E23470004075C /* FMDatabase.m */; };
-		18E33DED1C4E23470004075C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E33DE31C4E23470004075C /* FMDatabaseAdditions.m */; };
-		18E33DEE1C4E23470004075C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E33DE51C4E23470004075C /* FMDatabasePool.m */; };
-		18E33DEF1C4E23470004075C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E33DE71C4E23470004075C /* FMDatabaseQueue.m */; };
-		18E33DF01C4E23470004075C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E33DEA1C4E23470004075C /* FMResultSet.m */; };
-		18E33DF41C4E27DA0004075C /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E33DF31C4E27DA0004075C /* DataBaseManager.m */; };
 		18E4A6251C3E4D0100609722 /* MeContectUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */; };
 		18E4A6261C3E4D0100609722 /* MeContectUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */; };
 		18E4A6291C40E14B00609722 /* UIImageView+YmCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4A6281C40E14B00609722 /* UIImageView+YmCache.m */; };
@@ -157,21 +150,6 @@
 		189641091C1BF7B500657904 /* nav_top_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_top_back@3x.png"; path = "Res/Navigation/nav_top_back@3x.png"; sourceTree = "<group>"; };
 		1896410F1C1BF82B00657904 /* NewsWebDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsWebDetialViewController.h; path = Controller/News/NewsWebDetialViewController.h; sourceTree = "<group>"; };
 		189641101C1BF82B00657904 /* NewsWebDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsWebDetialViewController.m; path = Controller/News/NewsWebDetialViewController.m; sourceTree = "<group>"; };
-		18E33DDE1C4E23470004075C /* DBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBHelper.h; path = ThirdPart/DB/DBHelper.h; sourceTree = "<group>"; };
-		18E33DDF1C4E23470004075C /* DBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBHelper.m; path = ThirdPart/DB/DBHelper.m; sourceTree = "<group>"; };
-		18E33DE01C4E23470004075C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ThirdPart/DB/FMDatabase.h; sourceTree = "<group>"; };
-		18E33DE11C4E23470004075C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ThirdPart/DB/FMDatabase.m; sourceTree = "<group>"; };
-		18E33DE21C4E23470004075C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ThirdPart/DB/FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		18E33DE31C4E23470004075C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ThirdPart/DB/FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		18E33DE41C4E23470004075C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ThirdPart/DB/FMDatabasePool.h; sourceTree = "<group>"; };
-		18E33DE51C4E23470004075C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ThirdPart/DB/FMDatabasePool.m; sourceTree = "<group>"; };
-		18E33DE61C4E23470004075C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = ThirdPart/DB/FMDatabaseQueue.h; sourceTree = "<group>"; };
-		18E33DE71C4E23470004075C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = ThirdPart/DB/FMDatabaseQueue.m; sourceTree = "<group>"; };
-		18E33DE81C4E23470004075C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = ThirdPart/DB/FMDB.h; sourceTree = "<group>"; };
-		18E33DE91C4E23470004075C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ThirdPart/DB/FMResultSet.h; sourceTree = "<group>"; };
-		18E33DEA1C4E23470004075C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ThirdPart/DB/FMResultSet.m; sourceTree = "<group>"; };
-		18E33DF21C4E27DA0004075C /* DataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataBaseManager.h; path = Lib/DataBaseManager.h; sourceTree = "<group>"; };
-		18E33DF31C4E27DA0004075C /* DataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataBaseManager.m; path = Lib/DataBaseManager.m; sourceTree = "<group>"; };
 		18E4A6221C3E4D0100609722 /* MeContectUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeContectUsViewController.h; path = Controller/Me/MeContectUsViewController.h; sourceTree = "<group>"; };
 		18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeContectUsViewController.m; path = Controller/Me/MeContectUsViewController.m; sourceTree = "<group>"; };
 		18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeContectUsViewController.xib; path = Controller/Me/MeContectUsViewController.xib; sourceTree = "<group>"; };
@@ -438,19 +416,6 @@
 		18E33DDD1C4DE1B00004075C /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				18E33DDE1C4E23470004075C /* DBHelper.h */,
-				18E33DDF1C4E23470004075C /* DBHelper.m */,
-				18E33DE01C4E23470004075C /* FMDatabase.h */,
-				18E33DE11C4E23470004075C /* FMDatabase.m */,
-				18E33DE21C4E23470004075C /* FMDatabaseAdditions.h */,
-				18E33DE31C4E23470004075C /* FMDatabaseAdditions.m */,
-				18E33DE41C4E23470004075C /* FMDatabasePool.h */,
-				18E33DE51C4E23470004075C /* FMDatabasePool.m */,
-				18E33DE61C4E23470004075C /* FMDatabaseQueue.h */,
-				18E33DE71C4E23470004075C /* FMDatabaseQueue.m */,
-				18E33DE81C4E23470004075C /* FMDB.h */,
-				18E33DE91C4E23470004075C /* FMResultSet.h */,
-				18E33DEA1C4E23470004075C /* FMResultSet.m */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -458,8 +423,6 @@
 		18E33DF11C4E26C60004075C /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				18E33DF21C4E27DA0004075C /* DataBaseManager.h */,
-				18E33DF31C4E27DA0004075C /* DataBaseManager.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -1023,7 +986,6 @@
 				9BDD3C6D1C3EAC96009CEC3D /* SDWebImageDecoder.m in Sources */,
 				9BDD3C711C3EAC96009CEC3D /* SDWebImagePrefetcher.m in Sources */,
 				9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */,
-				18E33DEC1C4E23470004075C /* FMDatabase.m in Sources */,
 				9BDD3C761C3EAC96009CEC3D /* UIImageView+HighlightedWebCache.m in Sources */,
 				18EF5AF11C1E674700A436C4 /* MJRefreshFooterView.m in Sources */,
 				9B5476201C412F7F00F1F02A /* MeComeonViewController.m in Sources */,
@@ -1033,7 +995,6 @@
 				9BDD3C751C3EAC96009CEC3D /* UIImage+WebP.m in Sources */,
 				186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */,
 				18EF5AD81C1E4A2100A436C4 /* MeFeedBackController.m in Sources */,
-				18E33DEE1C4E23470004075C /* FMDatabasePool.m in Sources */,
 				189640F71C1AC75900657904 /* MeHeaderView.m in Sources */,
 				9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */,
 				18F7C1DC1C433B4F0050854A /* MeSharePopView.m in Sources */,
@@ -1048,7 +1009,6 @@
 				9BCA703B1BAB0BA60095D9BA /* AppDelegate.m in Sources */,
 				18E933B71C213A1600155F9C /* MBProgressHUD.m in Sources */,
 				184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */,
-				18E33DEB1C4E23470004075C /* DBHelper.m in Sources */,
 				9BCA706D1BAB0F0F0095D9BA /* BaseViewController.m in Sources */,
 				9BDD3C691C3EAC96009CEC3D /* MKAnnotationView+WebCache.m in Sources */,
 				18EF5AF41C1E674700A436C4 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1064,9 +1024,7 @@
 				9BDD3C6C1C3EAC96009CEC3D /* SDWebImageCompat.m in Sources */,
 				18EF5ADC1C1E5F7E00A436C4 /* MeHistoryViewController.m in Sources */,
 				9BBC3E201BD14ED400F15A1E /* HttpClient.m in Sources */,
-				18E33DF41C4E27DA0004075C /* DataBaseManager.m in Sources */,
 				189640F21C1A947500657904 /* LoiginPromptView.m in Sources */,
-				18E33DED1C4E23470004075C /* FMDatabaseAdditions.m in Sources */,
 				9BBC3E1B1BD14E5900F15A1E /* AFURLResponseSerialization.m in Sources */,
 				9BCA706A1BAB0EF20095D9BA /* MeViewController.m in Sources */,
 				9BCA70671BAB0ED80095D9BA /* NewsMainViewController.m in Sources */,
@@ -1075,8 +1033,6 @@
 				9BBC3E1A1BD14E5900F15A1E /* AFURLRequestSerialization.m in Sources */,
 				9BDD3C731C3EAC96009CEC3D /* UIImage+GIF.m in Sources */,
 				18E933BB1C213B5400155F9C /* CustomProgressHUD.m in Sources */,
-				18E33DF01C4E23470004075C /* FMResultSet.m in Sources */,
-				18E33DEF1C4E23470004075C /* FMDatabaseQueue.m in Sources */,
 				18EF5AEF1C1E674700A436C4 /* MJRefreshBaseView.m in Sources */,
 				18E933B81C213A1600155F9C /* MBProgressHUD+Add.m in Sources */,
 				9BDD3C6F1C3EAC96009CEC3D /* SDWebImageDownloaderOperation.m in Sources */,
