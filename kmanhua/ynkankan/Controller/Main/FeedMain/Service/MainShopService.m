@@ -34,23 +34,30 @@
 
 }
 
--(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response{
-  
+-(void)getManhuaList:(NSInteger)page response:(void (^)(NSInteger pageSize, NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response{
+
     NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld", @"/manhua/getManhuaList.php", (long)page];
     
     [[HttpClient sharedClient] POST:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
                                 
+                                
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
 
-                                    response(nil, nil, nil);
+                                    response([[responseObject objectForKey:@"count"] intValue], nil, nil, nil);
                                 
                                 } else {
                                    
                                     if ([[responseObject objectForKey:@"freedata"] isEqual:[NSNull null]]) {
-                                        response(nil, nil, nil);
+                                    
+                                        response([[responseObject objectForKey:@"count"] intValue], nil, nil, nil);
+                                    
                                     } else {
-                                        response([responseObject objectForKey:@"newdata"], [responseObject objectForKey:@"freedata"], nil);
+                                       
+                                        NSLog(@" >>>>>> %@ ", [responseObject objectForKey:@"newdata"]);
+                                        
+                                        response([[responseObject objectForKey:@"count"] intValue], [responseObject objectForKey:@"newdata"], [responseObject objectForKey:@"freedata"], nil);
+                                    
                                     }
                                     
 
@@ -58,7 +65,7 @@
 
                                 
                             } failure:^(NSURLSessionTask *task, NSError *error){
-                                response(nil, nil, error);
+                                response(0, nil, nil, error);
                             }];
 
 }

@@ -39,7 +39,9 @@
 
 - (void)initView{
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setTitle:@"상세페이지"];
+    
+    
+    [self setTitle:[self.detailModel objectForKey:@"m_name"]];
     [self setLeftButton];
     
     mainScroll = [[UIScrollView alloc] init];
@@ -71,7 +73,7 @@
     __weak ShopDetailMainView *weakView = detailView;
     __weak UIScrollView *weakScroll = mainScroll;
     
-    [self.service getManhuaById:@"0000010" response:^(NSArray *viewArray, NSError *error){
+    [self.service getManhuaById:[self.detailModel objectForKey:@"m_uid"] response:^(NSArray *viewArray, NSError *error){
 
         [weakView createViewByArray:viewArray];
         weakView.frame = CGRectMake(0, 0, kScreenWidth, weakView.viewHeight);

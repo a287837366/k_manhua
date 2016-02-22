@@ -51,9 +51,10 @@
 -(void)createImageList:(NSMutableArray *)newDataArray{
     
     for (int i = 0; i < newDataArray.count - 1; i++) {
+        
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor whiteColor];
-        view.frame = CGRectMake(0, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth, 70);
+        view.frame = CGRectMake(0, 5 + self.viewHeight, kScreenWidth, 70);
         view.tag = 100 + i + 1;
         
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick:)];

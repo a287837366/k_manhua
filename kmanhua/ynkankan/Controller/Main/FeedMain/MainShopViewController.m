@@ -24,15 +24,17 @@
     NSMutableArray *newDataArray;
     
     NSInteger page;
-    
     BOOL isNoPage;
+    
+    BOOL isLoading;
 
 }
 
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainHeaderView *headerView;
-
 @property (strong, nonatomic) MainShopService *service;
+
+@property (strong, nonatomic) UIButton *footerButton;
 
 @end
 
@@ -43,7 +45,7 @@
     [self initData];
     [self initView];
     
-    
+    [CustomProgressHUD showHUD:self.view];
     [self getManhuaList];
 }
 
@@ -58,9 +60,9 @@
 
 -(void)initView{
     [self setTitle:@"야만"];
+  
     UIView *backgoundView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 110)];
     [self.view addSubview:backgoundView];
-//    [self setRightButton];
     self.view.backgroundColor = Color_Background;
     [self.view addSubview:self.mainTable];
 }
@@ -89,12 +91,32 @@
     [self.headerView setDate:newDataArray];
     self.headerView.frame = CGRectMake(0, 0, kScreenWidth, self.headerView.viewHeight);
     self.mainTable.tableHeaderView = self.headerView;
+    
+    //表 下面
+    UIView *footerView = [[UIView alloc] init];
+    footerView.frame = CGRectMake(0, 0, kScreenWidth, 50);
 
+    self.mainTable.tableFooterView = footerView;
+    
+    self.footerButton = [[UIButton alloc] init];
+    [self.footerButton setTitleColor:Color_888888 forState:UIControlStateNormal];
+    [self.footerButton addTarget:self action:@selector(clickMoreData:) forControlEvents:UIControlEventTouchUpInside];
+    self.footerButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    self.footerButton.frame = CGRectMake(0, 2, kScreenWidth, 46);
+    self.footerButton.backgroundColor = [UIColor whiteColor];
+    [footerView addSubview:self.footerButton];
+    
 }
 
 #pragma mark - 网络请求
 -(void)getManhuaList{
-    [self.service getManhuaList:page response:^(NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
+    isLoading = YES;
+    
+    [self.service getManhuaList:page response:^(NSInteger pageSize, NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
+        
+        isLoading = NO;
+        
+        NSLog(@"pageSize   ===   %ld", (long)pageSize);
         
         if (error) {
             NSLog(@" 返回错误 ");
@@ -103,15 +125,19 @@
         
         if (freedata == nil) {
             [self.mainTable footerEndRefreshing];
+            
             return;
         }
+        
+        if (pageSize <= page + 1) {
+            isNoPage = YES;
+        }
+        
 
         [freeDataArray addObjectsFromArray:freedata];
-        [newDataArray addObjectsFromArray:newdata];
         
-        if (page == 0) {
-            [self delayRefreshEnd];
-            return;
+        if (![newdata isEqual:[NSNull null]]) {
+            [newDataArray addObjectsFromArray:newdata];
         }
 
         [self performSelector:@selector(delayRefreshEnd) withObject:nil afterDelay:2.0f];
@@ -131,6 +157,18 @@
 #pragma mark - loginDelegate
 -(void)loginSuccess{
     self.mainTable.hidden = YES;
+}
+
+#pragma mark - clickMoreData
+-(void)clickMoreData:(UIButton *)button{
+    
+    if (isNoPage) return;
+    
+    if (isLoading) return;
+    
+    [self.footerButton setTitle:@"불러 오는중..." forState:UIControlStateNormal];
+    
+    [self getManhuaList];
 }
 
 #pragma mark - tableview 代理
@@ -198,14 +236,9 @@
     return view;
 }
 
-
-//上啦刷新
--(void)footerRereshing{
-    [self getManhuaList];
-
-}
-
 -(void)delayRefreshEnd{
+    
+    [CustomProgressHUD hideHUD:self.view];
     
     if (page == 0) {
         [self setTableHader];
@@ -213,9 +246,15 @@
     
     page++;
     
-    [self.mainTable reloadData];
     
-    [self.mainTable footerEndRefreshing];
+    if (isNoPage) {
+        [self.footerButton setTitle:@"더는 없습니당." forState:UIControlStateNormal];
+    } else {
+        [self.footerButton setTitle:@"더 불러오기." forState:UIControlStateNormal];
+    }
+    
+    
+    [self.mainTable reloadData];
 }
 
 
@@ -230,12 +269,6 @@
     detailVC.hidesBottomBarWhenPushed = YES;
     detailVC.detailModel = dic;
     [self.navigationController pushViewController:detailVC animated:YES];
-//    NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
-//    detailVC.title = title;
-//    detailVC.openUrl = openUrl;
-//    detailVC.hidesBottomBarWhenPushed = YES;
-//    
-//    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - get set
@@ -252,7 +285,6 @@
         _mainTable.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTable.dataSource = self;
         _mainTable.backgroundColor = Color_Background;
-        [_mainTable addFooterWithTarget:self action:@selector(footerRereshing)];
     }
 
     return _mainTable;

@@ -80,7 +80,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="4Nl-bW-IRC" kind="relationship" relationship="viewControllers" id="Z0f-xp-ICl"/>
-                        <segue destination="6NP-a0-6DJ" kind="relationship" relationship="viewControllers" id="GhN-xm-MvH"/>
                         <segue destination="6Kt-RW-yyo" kind="relationship" relationship="viewControllers" id="AoP-qw-owY"/>
                     </connections>
                 </tabBarController>
