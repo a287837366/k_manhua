@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183C86721C7EC93300F2E62D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 183C86711C7EC93300F2E62D /* Default-568h@2x.png */; };
 		184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */; };
 		186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511D71C1EB75B00DD969C /* RegisterViewController.m */; };
 		186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186511D81C1EB75B00DD969C /* RegisterViewController.xib */; };
@@ -126,6 +127,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183C86711C7EC93300F2E62D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Res/Main/Default-568h@2x.png"; sourceTree = "<group>"; };
 		184FAC7E1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+ToastDialog.h"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.h"; sourceTree = "<group>"; };
 		184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+ToastDialog.m"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.m"; sourceTree = "<group>"; };
 		186511D61C1EB75B00DD969C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/Login/RegisterViewController.h; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 		9BBC3DF21BCAA84E00F15A1E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				183C86711C7EC93300F2E62D /* Default-568h@2x.png */,
 				9B5476231C413BB500F1F02A /* slidingicon.png */,
 				9BBC3DF71BCAB86300F15A1E /* getIntegralBtn_selected@2x.png */,
 				9BBC3DF51BCAA8A800F15A1E /* lottery_blueball@2x.png */,
@@ -960,6 +963,7 @@
 				189640EE1C1A790900657904 /* nav_login@3x.png in Resources */,
 				18E933CD1C213DF800155F9C /* loading_5@2x.png in Resources */,
 				18E933CA1C213DF800155F9C /* loading_2@2x.png in Resources */,
+				183C86721C7EC93300F2E62D /* Default-568h@2x.png in Resources */,
 				18EF5AEE1C1E674700A436C4 /* MJRefresh.bundle in Resources */,
 				18F7C1D81C433A490050854A /* me_weixin_group.png in Resources */,
 				9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */,

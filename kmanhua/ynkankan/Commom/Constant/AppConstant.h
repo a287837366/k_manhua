@@ -22,4 +22,9 @@
 #define Color_888888 [UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:1.0f]
 #define Color_f5f5f2 [UIColor colorWithRed:245/255.0 green:245/255.0 blue:242/255.0 alpha:1.0f]
 #define Color_eeeeee [UIColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1.0f]
+
+//------ AppInfo ------
+#define AppType             @"IOS"
+#define AppVersion          @"4"
+
 #endif

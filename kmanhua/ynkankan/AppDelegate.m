@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "HttpClient.h"
+#import "AppConstant.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UIAlertViewDelegate>
 
 @end
 
@@ -18,6 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //[TestCommit]
+    
+    [self checkUpdate];
     return YES;
 }
 
@@ -43,6 +47,40 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+
+#pragma mark - 版本更新判断
+-(void)checkUpdate{
+    
+    NSString *urlStr = [NSString stringWithFormat:@"/version/checkVersion.php?device=%@&versionCode=%@", AppType, AppVersion];
+    
+    [[HttpClient sharedClient] GET:urlStr parameters:nil
+                           success:^(NSURLSessionTask *task, id responseObject){
+                               
+                               if ([[responseObject objectForKey:@"updataType"] isEqualToString:@"1"] ||
+                                   [[responseObject objectForKey:@"updataType"] isEqualToString:@"2"]) {
+                                   [self showAlert:[responseObject objectForKey:@"msg"]];
+                               }
+                           } failure:^(NSURLSessionTask *task, NSError *error){
+                           
+                               
+                           }];
+
+}
+
+-(void)showAlert:(NSString *)msg{
+    
+    UIAlertView *aletView = [[UIAlertView alloc] initWithTitle:@"새로운 버전 발견" message:msg delegate:self cancelButtonTitle:@"닫기" otherButtonTitles: @"업데이트", nil];
+
+    
+    [aletView show];
+    
+}
+
+#pragma mark - AlertView Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
 }
 
 #pragma mark - Core Data stack

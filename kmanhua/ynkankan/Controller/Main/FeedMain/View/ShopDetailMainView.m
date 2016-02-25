@@ -27,44 +27,11 @@
 -(void)createViewByArray:(NSArray *)viewArray{
 
     
-    //[[-----------标题--------------
-    self.titleLable.frame = CGRectMake(10, 19, kScreenWidth - 20, 18);
-    self.titleLable.text = [self.dataModel objectForKey:@"m_name"];
-    [self addSubview:self.titleLable];
-    //-----------标题--------------]]
-    
-    self.viewHeight += 52;
-   
-    //[[-----------创建日期--------------
-    self.createLable.frame = CGRectMake(10, self.viewHeight, kScreenWidth - 20, 12);
-    self.createLable.text = [NSString stringWithFormat:@"%@  %@",[self.dataModel objectForKey:@"m_createTime"], @"쨈쨈"];
-    [self addSubview:self.createLable];
-    //-----------创建日期--------------]]
-    
-    self.viewHeight += 22;
-    
-    //[[--------横线---------
-    self.lineView.frame = CGRectMake(0, self.viewHeight, kScreenWidth, 1);
-    [self addSubview:self.lineView];
-    //--------横线---------]]
-    
-    self.viewHeight += 10;
-    
     for (NSDictionary *viewDic in viewArray) {
        
         [self createViewByType:viewDic];
     }
 
-    self.viewHeight += 10;
-    
-    //[[--------横线---------
-    self.underLine.frame = CGRectMake(0, self.viewHeight, kScreenWidth, 1);
-    [self addSubview:self.underLine];
-    //--------横线---------]]
-    
-    self.bottomView.frame = CGRectMake(0, self.viewHeight, kScreenWidth, 100);
-    [self addSubview:self.bottomView];
-    self.viewHeight += 100;
     
 }
 

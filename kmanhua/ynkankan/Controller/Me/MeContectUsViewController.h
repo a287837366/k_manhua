@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface MeContectUsViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet UITextView *textmsg;
 
 @end
