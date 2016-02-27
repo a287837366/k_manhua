@@ -129,17 +129,17 @@
                     <exclude reference="mDI-gJ-7I7"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="DpP-nn-bWX"/>
-                    <exclude reference="d4g-nd-ALt"/>
-                    <exclude reference="JAS-iT-Irp"/>
-                    <exclude reference="KhX-Zz-rXM"/>
-                    <exclude reference="WAD-p2-6zc"/>
-                    <exclude reference="3Jx-Bu-M15"/>
-                    <exclude reference="aiy-Dh-yQf"/>
-                    <exclude reference="dT3-hN-DWd"/>
                     <exclude reference="6PS-NU-PC6"/>
                     <exclude reference="G0h-7F-HV8"/>
                     <exclude reference="SMb-5a-XOW"/>
+                    <exclude reference="DpP-nn-bWX"/>
+                    <exclude reference="d4g-nd-ALt"/>
+                    <exclude reference="3Jx-Bu-M15"/>
+                    <exclude reference="aiy-Dh-yQf"/>
+                    <exclude reference="dT3-hN-DWd"/>
+                    <exclude reference="JAS-iT-Irp"/>
+                    <exclude reference="KhX-Zz-rXM"/>
+                    <exclude reference="WAD-p2-6zc"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -150,17 +150,17 @@
                     <include reference="mDI-gJ-7I7"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="DpP-nn-bWX"/>
-                    <include reference="d4g-nd-ALt"/>
-                    <include reference="JAS-iT-Irp"/>
-                    <include reference="KhX-Zz-rXM"/>
-                    <include reference="WAD-p2-6zc"/>
-                    <include reference="3Jx-Bu-M15"/>
-                    <include reference="aiy-Dh-yQf"/>
-                    <include reference="dT3-hN-DWd"/>
                     <include reference="6PS-NU-PC6"/>
                     <include reference="G0h-7F-HV8"/>
                     <include reference="SMb-5a-XOW"/>
+                    <include reference="DpP-nn-bWX"/>
+                    <include reference="d4g-nd-ALt"/>
+                    <include reference="3Jx-Bu-M15"/>
+                    <include reference="aiy-Dh-yQf"/>
+                    <include reference="dT3-hN-DWd"/>
+                    <include reference="JAS-iT-Irp"/>
+                    <include reference="KhX-Zz-rXM"/>
+                    <include reference="WAD-p2-6zc"/>
                 </mask>
             </variation>
         </view>
