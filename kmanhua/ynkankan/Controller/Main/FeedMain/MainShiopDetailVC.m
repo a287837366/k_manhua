@@ -14,6 +14,7 @@
 
     ShopDetailMainView *detailView;
     UIScrollView *mainScroll;
+    UIButton *favBtn;
 
 }
 
@@ -43,6 +44,7 @@
     
     [self setTitle:[self.detailModel objectForKey:@"m_name"]];
     [self setLeftButton];
+    [self setRightButton];
     
     mainScroll = [[UIScrollView alloc] init];
     mainScroll.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
@@ -59,6 +61,14 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_top_back"] style:UIBarButtonItemStylePlain target:self action:@selector(closeMethod)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
+}
+
+-(void)setRightButton {
+    favBtn = [[UIButton alloc] init];
+    favBtn.frame = CGRectMake(0, 5, 54, 30);
+    favBtn.backgroundColor = [UIColor blackColor];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc ] initWithCustomView:favBtn];
+    self.navigationItem.rightBarButtonItem = backItem;
 }
 
 #pragma mark 返回

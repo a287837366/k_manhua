@@ -61,9 +61,7 @@
 }
 
 -(void)clickBtn:(UIButton *)button{
-
-    NSLog(@">>>>>  %ld", button.tag);
-    
+    [self.delegate didClickItem:(button.tag / 10) position:(button.tag % 10)];
 }
 
 -(void)setTypeView{

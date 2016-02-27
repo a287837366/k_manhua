@@ -19,7 +19,7 @@
 #import "MainShiopDetailVC.h"
 #import "MainHotManhuaCell.h"
 
-@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate >{
+@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHotManhuaDelegate>{
     
     NSMutableArray *hotDataArray;
     NSMutableArray *newDataArray;
@@ -82,8 +82,8 @@
 #pragma mark - 网络请求
 -(void)getManhuaList{
     
-    __weak NSMutableArray *weakHots = hotDataArray;
-    __weak NSMutableArray *weakNews = newDataArray;
+//    __weak NSMutableArray *weakHots = hotDataArray;
+//    __weak NSMutableArray *weakNews = newDataArray;
     
     __weak UITableView *weakTable = self.mainTable;
     
@@ -92,11 +92,11 @@
         if (error == nil) {
             
             if (hotManhuas != nil) {
-                [weakHots addObjectsFromArray:hotManhuas];
+                [hotDataArray addObjectsFromArray:hotManhuas];
             }
             
             if (newManhuas != nil) {
-                [weakNews addObjectsFromArray:newManhuas];
+                [newDataArray addObjectsFromArray:newManhuas];
             }
             
             [weakTable reloadData];
@@ -106,9 +106,11 @@
     }];
 }
 
-#pragma mark - loginDelegate
--(void)loginSuccess{
-    self.mainTable.hidden = YES;
+#pragma mark - HeaderDelegate
+-(void)didClickItem:(NSInteger)pathRow position:(NSInteger)position{
+
+    NSMutableArray *array = [[hotDataArray objectAtIndex:pathRow] objectForKey:@"manhuas"];
+    [self gotoNewsDetailView:[array objectAtIndex:position]];
 }
 
 #pragma mark - tableview 代理
@@ -127,8 +129,10 @@
         
         if (cell == nil) {
             cell = [[MainHotManhuaCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+            
+            
         }
-        
+        cell.delegate = self;
         [cell setManhuaModel:[hotDataArray objectAtIndex:indexPath.row] pathRow:indexPath.row];
         
         return cell;
@@ -156,6 +160,7 @@
         return;
     
     [self gotoNewsDetailView:[newDataArray objectAtIndex:indexPath.row - [hotDataArray count]]];
+
     
 }
 
