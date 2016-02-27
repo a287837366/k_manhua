@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIView *lineView;
 
--(void)setData:(NSMutableDictionary *)model;
+@property (strong, nonatomic) UIButton *clickBtn;
+
+-(void)setData:(NSMutableDictionary *)model pathRow:(NSInteger)pathRow postion:(NSInteger)positon;
 
 @end

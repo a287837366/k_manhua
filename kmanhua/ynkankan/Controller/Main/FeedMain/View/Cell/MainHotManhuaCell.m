@@ -44,12 +44,25 @@
     return self;
 }
 
--(void)setManhuaModel:(NSMutableDictionary *)hotDic{
+-(void)setManhuaModel:(NSMutableDictionary *)hotDic pathRow:(NSInteger)pathRow{
     
     self.typeName.text = [hotDic objectForKey:@"type_name"];
-    [self.ItemView1 setData:[[hotDic objectForKey:@"manhuas"] objectAtIndex:0]];
-    [self.ItemView2 setData:[[hotDic objectForKey:@"manhuas"] objectAtIndex:1]];
-    [self.ItemView3 setData:[[hotDic objectForKey:@"manhuas"] objectAtIndex:2]];
+    
+    [self.ItemView1 setData:[[hotDic objectForKey:@"manhuas"] objectAtIndex:0] pathRow:pathRow postion:0];
+    
+    [self.ItemView2 setData:[[hotDic objectForKey:@"manhuas"] objectAtIndex:1] pathRow:pathRow postion:1];
+    
+    [self.ItemView3 setData:[[hotDic objectForKey:@"manhuas"] objectAtIndex:2] pathRow:pathRow postion:2];
+    
+    [self.ItemView1.clickBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.ItemView2.clickBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.ItemView3.clickBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)clickBtn:(UIButton *)button{
+
+    NSLog(@">>>>>  %ld", button.tag);
     
 }
 

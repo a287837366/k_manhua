@@ -68,7 +68,15 @@
 
 #pragma mark - 设置表头
 -(void)setTableHader{
+    UIView *headerView = [[UIView alloc] init];
+    headerView.frame = CGRectMake(0, 0, kScreenWidth - 20, (kScreenWidth - 20) / 5 + 15);
     
+    UIImageView *advImage = [[UIImageView alloc] init];
+    advImage.frame = CGRectMake(0, 5, kScreenWidth - 20, (kScreenWidth - 20) / 5);
+    [advImage ym_setImageWithURL:[NSURL URLWithString:@"http://i12.tietuku.com/72e06ccec3434887.png"] placeholderImage:nil];
+    [headerView addSubview:advImage];
+    
+    self.mainTable.tableHeaderView = headerView;
 }
 
 #pragma mark - 网络请求
@@ -92,6 +100,7 @@
             }
             
             [weakTable reloadData];
+            [self setTableHader];
         }
     
     }];
@@ -120,7 +129,7 @@
             cell = [[MainHotManhuaCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
         }
         
-        [cell setManhuaModel:[hotDataArray objectAtIndex:indexPath.row]];
+        [cell setManhuaModel:[hotDataArray objectAtIndex:indexPath.row] pathRow:indexPath.row];
         
         return cell;
         
@@ -142,6 +151,12 @@
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@" didSelectRowAtIndexPath ");
+
+    if (indexPath.row < hotDataArray.count)
+        return;
+    
+    [self gotoNewsDetailView:[newDataArray objectAtIndex:indexPath.row - [hotDataArray count]]];
+    
 }
 
 
@@ -170,7 +185,7 @@
     if (!_mainTable) {
         
         _mainTable = [[UITableView alloc] init];
-        _mainTable.frame = CGRectMake(10, 64, kScreenWidth - 20, kScreenHeight - 114);
+        _mainTable.frame = CGRectMake(10, 66, kScreenWidth - 20, kScreenHeight - 116);
         _mainTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _mainTable.delegate = self;
         _mainTable.showsVerticalScrollIndicator = NO;

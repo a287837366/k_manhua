@@ -11,6 +11,6 @@
 
 @interface MainHotManhuaCell : UITableViewCell
 
--(void)setManhuaModel:(NSMutableDictionary *)hotDic;
+-(void)setManhuaModel:(NSMutableDictionary *)hotDic pathRow:(NSInteger)pathRow;
 
 @end

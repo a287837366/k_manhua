@@ -30,17 +30,19 @@
         [self addSubview:self.lineView];
         [self addSubview:self.titleLable];
         [self addSubview:self.timeLable];
+        [self addSubview:self.clickBtn];
         
     }
     
     return self;
 }
 
--(void)setData:(NSMutableDictionary *)model{
+-(void)setData:(NSMutableDictionary *)model pathRow:(NSInteger)pathRow postion:(NSInteger)positon{
 
     self.titleLable.text = [model objectForKey:@"m_name"];
     self.timeLable.text = [model objectForKey:@"m_createTime"];
     [self.manhuaIcon ym_setImageWithURL:[NSURL URLWithString:[model objectForKey:@"m_icon"]] placeholderImage:nil];
+    self.clickBtn.tag = pathRow * 10 + positon;
     
 }
 
@@ -101,6 +103,17 @@
     
     return _timeLable;
 }
+
+-(UIButton *)clickBtn{
+
+    if (!_clickBtn) {
+        _clickBtn = [[UIButton alloc] init];
+        _clickBtn.frame = CGRectMake(0, 0, kScreenWidth - 20, 68);
+    }
+    
+    return _clickBtn;
+}
+
 
 
 @end
