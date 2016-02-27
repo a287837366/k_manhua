@@ -16,4 +16,6 @@
 @property (strong, nonatomic) UILabel *levelLable;
 @property (strong, nonatomic) UILabel *timeLable;
 
+-(void)setData:(NSMutableDictionary *)modle;
+
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1801C4721C812C5E00904E54 /* MainHotManhuaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801C4711C812C5E00904E54 /* MainHotManhuaCell.m */; };
+		1801C4751C8138CA00904E54 /* MainBaseManhuaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1801C4741C8138CA00904E54 /* MainBaseManhuaView.m */; };
 		183C86721C7EC93300F2E62D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 183C86711C7EC93300F2E62D /* Default-568h@2x.png */; };
 		184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */; };
 		186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511D71C1EB75B00DD969C /* RegisterViewController.m */; };
@@ -127,6 +129,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1801C4701C812C5E00904E54 /* MainHotManhuaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHotManhuaCell.h; path = Controller/Main/FeedMain/View/Cell/MainHotManhuaCell.h; sourceTree = "<group>"; };
+		1801C4711C812C5E00904E54 /* MainHotManhuaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainHotManhuaCell.m; path = Controller/Main/FeedMain/View/Cell/MainHotManhuaCell.m; sourceTree = "<group>"; };
+		1801C4731C8138CA00904E54 /* MainBaseManhuaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainBaseManhuaView.h; path = Controller/Main/FeedMain/View/MainBaseManhuaView.h; sourceTree = "<group>"; };
+		1801C4741C8138CA00904E54 /* MainBaseManhuaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainBaseManhuaView.m; path = Controller/Main/FeedMain/View/MainBaseManhuaView.m; sourceTree = "<group>"; };
 		183C86711C7EC93300F2E62D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Res/Main/Default-568h@2x.png"; sourceTree = "<group>"; };
 		184FAC7E1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+ToastDialog.h"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.h"; sourceTree = "<group>"; };
 		184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+ToastDialog.m"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.m"; sourceTree = "<group>"; };
@@ -811,6 +817,8 @@
 				188FC96B1C194FFB00E85317 /* MainHeaderView.m */,
 				9B54762A1C427BB600F1F02A /* ShopDetailMainView.h */,
 				9B54762B1C427BB600F1F02A /* ShopDetailMainView.m */,
+				1801C4731C8138CA00904E54 /* MainBaseManhuaView.h */,
+				1801C4741C8138CA00904E54 /* MainBaseManhuaView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -820,6 +828,8 @@
 			children = (
 				9BEAB9A21BE792A200AD5A20 /* MainShopCell.h */,
 				9BEAB9A31BE792A200AD5A20 /* MainShopCell.m */,
+				1801C4701C812C5E00904E54 /* MainHotManhuaCell.h */,
+				1801C4711C812C5E00904E54 /* MainHotManhuaCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1009,11 +1019,13 @@
 				18E4A6291C40E14B00609722 /* UIImageView+YmCache.m in Sources */,
 				9BDD3C6A1C3EAC96009CEC3D /* NSData+ImageContentType.m in Sources */,
 				9BEDE4A41C1EFFCB00573468 /* MainShopService.m in Sources */,
+				1801C4751C8138CA00904E54 /* MainBaseManhuaView.m in Sources */,
 				189641111C1BF82B00657904 /* NewsWebDetialViewController.m in Sources */,
 				9BCA703B1BAB0BA60095D9BA /* AppDelegate.m in Sources */,
 				18E933B71C213A1600155F9C /* MBProgressHUD.m in Sources */,
 				184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */,
 				9BCA706D1BAB0F0F0095D9BA /* BaseViewController.m in Sources */,
+				1801C4721C812C5E00904E54 /* MainHotManhuaCell.m in Sources */,
 				9BDD3C691C3EAC96009CEC3D /* MKAnnotationView+WebCache.m in Sources */,
 				18EF5AF41C1E674700A436C4 /* UIScrollView+MJRefresh.m in Sources */,
 				9BCA703E1BAB0BA60095D9BA /* ynkankan.xcdatamodeld in Sources */,

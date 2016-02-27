@@ -34,6 +34,45 @@
 
 }
 
+-(void)getHotManhuaLists:(void (^)(NSArray *hotManhuas, NSArray *newManhuas, NSError *error))response{
+    
+    NSString *requsetUrl = @"/manhua/getHotManhuaList.php";
+    NSLog(@"getHotManhuaLists>>>>>  %@", requsetUrl);
+ 
+    
+    [[HttpClient sharedClient] GET:requsetUrl parameters:nil
+                            success:^(NSURLSessionTask *task, id responseObject){
+                                
+                                
+                                if ([[responseObject objectForKey:@"error"] intValue] != 0) {
+                                    
+                                    response(nil, nil, nil);
+                                    
+                                } else {
+                                    
+                                    if ([[responseObject objectForKey:@"data"] isEqual:[NSNull null]]) {
+                                        
+                                        response(nil, nil, nil);
+                                        
+                                    } else {
+                                        
+                                        response([responseObject objectForKey:@"data"], [responseObject objectForKey:@"newdata"], nil);
+                                        
+                                    }
+                                    
+                                    
+                                }
+
+                                
+                            } failure:^(NSURLSessionTask *task, NSError *error){
+        
+                                response(nil, nil, error);
+                                
+                            }];
+
+}
+
+
 -(void)getManhuaList:(NSInteger)page response:(void (^)(NSInteger pageSize, NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response{
 
     NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld", @"/manhua/getManhuaList.php", (long)page];

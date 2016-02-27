@@ -7,6 +7,7 @@
 //
 
 #import "MainShopCell.h"
+#import "UIImageView+YmCache.h"
 
 @interface MainShopCell()
 
@@ -36,6 +37,13 @@
     return self;
 }
 
+-(void)setData:(NSMutableDictionary *)modle{
+
+    [self.leftImage ym_setImageWithURL:[modle objectForKey:@"m_icon"] placeholderImage:nil];
+    self.timeLable.text = [modle objectForKey:@"m_createTime"];
+    self.titleLable.text = [modle objectForKey:@"m_name"];
+    
+}
 
 #pragma mark - get set
 -(UIImageView *)leftImage{
