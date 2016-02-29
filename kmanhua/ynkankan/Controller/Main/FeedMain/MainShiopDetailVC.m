@@ -9,12 +9,15 @@
 #import "MainShiopDetailVC.h"
 #import "MainShopService.h"
 #import "ShopDetailMainView.h"
+#import "DataBaseManager.h"
 
 @interface MainShiopDetailVC (){
 
     ShopDetailMainView *detailView;
     UIScrollView *mainScroll;
     UIButton *favBtn;
+    
+    BOOL isFav;
 
 }
 
@@ -31,6 +34,7 @@
     [self initView];
     
     [self getManById];
+    [self checkFav];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +60,19 @@
     
 }
 
+#pragma mark - 判断是否已加入收藏
+-(void)checkFav{
+
+    isFav = [[DataBaseManager shareInstance] isFav:[self.detailModel objectForKey:@"m_uid"]];
+    
+    if (isFav) {
+        NSLog(@" 已收藏 ");
+    } else {
+        NSLog(@" 未收藏 ");
+    }
+    
+}
+
 #pragma mark 返回
 -(void)setLeftButton {
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_top_back"] style:UIBarButtonItemStylePlain target:self action:@selector(closeMethod)];
@@ -67,6 +84,7 @@
     favBtn = [[UIButton alloc] init];
     favBtn.frame = CGRectMake(0, 5, 54, 30);
     favBtn.backgroundColor = [UIColor blackColor];
+    [favBtn addTarget:self action:@selector(addToFav:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc ] initWithCustomView:favBtn];
     self.navigationItem.rightBarButtonItem = backItem;
 }
@@ -91,6 +109,21 @@
 
     }];
     
+}
+
+#pragma mark - Action
+-(void)addToFav:(UIButton *)button{
+   
+    
+    if (isFav) {
+         NSLog(@" 删除  ");
+        [[DataBaseManager shareInstance] deleteManhua:[self.detailModel objectForKey:@"m_uid"]];
+    } else {
+         NSLog(@" 添加  ");
+        [[DataBaseManager shareInstance] insertManhua:[self.detailModel objectForKey:@"m_uid"] manhuaName:[self.detailModel objectForKey:@"m_name"]];
+    }
+
+    isFav = !isFav;
 }
 
 -(MainShopService *)service{
