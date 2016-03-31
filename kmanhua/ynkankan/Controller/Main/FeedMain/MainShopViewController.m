@@ -20,7 +20,6 @@
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
     NSInteger page;
-    
     BOOL isNoPage;
 
 }
@@ -46,17 +45,35 @@
 }
 
 -(void)initView{
+    [self setTitle:@"看看"];
+    
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
     self.view.backgroundColor = Color_Background;
     
     [self.view addSubview:self.mainTable];
+    
+    [self setLeftButton];
+    [self setRightButton];
 }
 
-#pragma mark - 设置右侧
-- (void)setRightButton{
-    UIBarButtonItem *RightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_login"] style:UIBarButtonItemStylePlain target:self action:@selector(loginMethod)];
-    self.navigationItem.rightBarButtonItem = RightButton;
+-(void)setLeftButton{
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"shop_title_left_menu"] style:UIBarButtonItemStylePlain target:self action:@selector(clickMenu:)];
+    leftButton.tag = 100;
+    self.navigationItem.leftBarButtonItem = leftButton;
+}
+
+#pragma mark 导航条右侧侧
+-(void)setRightButton{
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"friend_setting"] style:UIBarButtonItemStylePlain target:self action:@selector(clickMenu:)];
+    rightButton.tag = 200;
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
+
+- (void)clickMenu:(UIButton *)btn{
+    
+
+
 }
 
 #pragma mark 返回
@@ -68,11 +85,6 @@
     
 }
 
-
-#pragma mark - 设置表头
--(void)setTableHader{
-
-}
 
 #pragma mark - 网络请求
 -(void)getManhuaList{
@@ -136,16 +148,12 @@
 
 //上啦刷新
 -(void)footerRereshing{
-//    [self getManhuaList];
+    
 
 }
 
 -(void)delayRefreshEnd{
-    
-    if (page == 0) {
-        [self setTableHader];
-    }
-    
+   
     page++;
     
     [self.mainTable reloadData];

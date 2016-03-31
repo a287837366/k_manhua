@@ -27,7 +27,6 @@
         [self.contentView addSubview:self.conView];
         [self.conView addSubview:self.leftImage];
         [self.conView addSubview:self.titleLable];
-//        [self.conView addSubview:self.levelLable];
         [self.conView addSubview:self.timeLable];
         
         self.backgroundColor = [UIColor clearColor];
@@ -43,7 +42,8 @@
 
     if (!_leftImage) {
         _leftImage = [[UIImageView alloc] init];
-        _leftImage.frame = CGRectMake(10, 10, 45, 45);
+        _leftImage.frame = CGRectMake(10, 10, MainCell_Height - 20, MainCell_Height - 20);
+        _leftImage.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }
     
     return _leftImage;
@@ -52,8 +52,11 @@
     
     if (!_titleLable) {
         _titleLable = [[UILabel alloc] init];
-        _titleLable.frame = CGRectMake(65, 10, kScreenWidth - 115, 45);
+        _titleLable.frame = CGRectMake(MainCell_Height, 30, kScreenWidth - MainCell_Height - 20, MainCell_Height - 60);
+        _titleLable.text = @"123123123123123123123123123123121231231231231231231231231231231231233123123123123123123123123123123";
         _titleLable.tintColor = [UIColor grayColor];
+        _titleLable.numberOfLines = 2;
+        
         _titleLable.font = [UIFont systemFontOfSize:14];
         
     }
@@ -82,8 +85,9 @@
     if (!_timeLable) {
         
         _timeLable = [[UILabel alloc] init];
-        _timeLable.frame = CGRectMake(10, 50, kScreenWidth - 35, 15);
+        _timeLable.frame = CGRectMake(kScreenWidth - 85, MainCell_Height - 22, 75, 12);
         _timeLable.font = [UIFont systemFontOfSize:11];
+        _timeLable.text = @"2012-01-01";
         _timeLable.textColor = [UIColor lightGrayColor];
         _timeLable.textAlignment = NSTextAlignmentRight;
         

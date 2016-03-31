@@ -40,6 +40,10 @@
     UIGraphicsEndImageContext();
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.clipsToBounds = NO;
+    
+    NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:dict];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main Shop View Controller-->
@@ -17,7 +18,57 @@
                     <view key="view" contentMode="scaleToFill" id="LFH-Dg-Ty8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3t-vL-3n8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.88697886432533546" green="0.0" blue="0.2326086211622807" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="Ag5-wS-Bcb"/>
+                                    <constraint firstAttribute="width" constant="46" id="hb4-YH-bsi"/>
+                                </constraints>
+                                <state key="normal" image="manage_edit_item.png"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ag5-wS-Bcb"/>
+                                        <exclude reference="hb4-YH-bsi"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Ag5-wS-Bcb"/>
+                                        <include reference="hb4-YH-bsi"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dKr-2c-bsK" firstAttribute="top" secondItem="h3t-vL-3n8" secondAttribute="bottom" constant="20" id="nuZ-Ne-8Tf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h3t-vL-3n8" secondAttribute="trailing" id="wk0-j6-5og"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="h3t-vL-3n8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="nuZ-Ne-8Tf"/>
+                                <exclude reference="wk0-j6-5og"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="h3t-vL-3n8"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="nuZ-Ne-8Tf"/>
+                                <include reference="wk0-j6-5og"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="EFs-Pe-LXt"/>
                 </viewController>
@@ -43,4 +94,7 @@
             <point key="canvasLocation" x="-639" y="1897.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="manage_edit_item.png" width="23" height="23"/>
+    </resources>
 </document>
