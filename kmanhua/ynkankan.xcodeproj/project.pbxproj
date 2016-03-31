@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182A9F901CACF80D00A3643F /* nav_top_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A9F8C1CACF80D00A3643F /* nav_top_background.png */; };
+		182A9F911CACF80D00A3643F /* nav_top_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A9F8D1CACF80D00A3643F /* nav_top_background@2x.png */; };
+		182A9F921CACF80D00A3643F /* nav_top_background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A9F8E1CACF80D00A3643F /* nav_top_background@3x.png */; };
+		182A9F931CACF80D00A3643F /* nav_top_background1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A9F8F1CACF80D00A3643F /* nav_top_background1@3x.png */; };
 		184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */; };
 		186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511D71C1EB75B00DD969C /* RegisterViewController.m */; };
 		186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186511D81C1EB75B00DD969C /* RegisterViewController.xib */; };
@@ -118,6 +122,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182A9F8C1CACF80D00A3643F /* nav_top_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nav_top_background.png; path = Res/Navigation/nav_top_background.png; sourceTree = "<group>"; };
+		182A9F8D1CACF80D00A3643F /* nav_top_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_top_background@2x.png"; path = "Res/Navigation/nav_top_background@2x.png"; sourceTree = "<group>"; };
+		182A9F8E1CACF80D00A3643F /* nav_top_background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_top_background@3x.png"; path = "Res/Navigation/nav_top_background@3x.png"; sourceTree = "<group>"; };
+		182A9F8F1CACF80D00A3643F /* nav_top_background1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav_top_background1@3x.png"; path = "Res/Navigation/nav_top_background1@3x.png"; sourceTree = "<group>"; };
 		184FAC7E1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+ToastDialog.h"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.h"; sourceTree = "<group>"; };
 		184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+ToastDialog.m"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.m"; sourceTree = "<group>"; };
 		186511D61C1EB75B00DD969C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/Login/RegisterViewController.h; sourceTree = "<group>"; };
@@ -328,6 +336,10 @@
 		189640EA1C1A77A500657904 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				182A9F8C1CACF80D00A3643F /* nav_top_background.png */,
+				182A9F8D1CACF80D00A3643F /* nav_top_background@2x.png */,
+				182A9F8E1CACF80D00A3643F /* nav_top_background@3x.png */,
+				182A9F8F1CACF80D00A3643F /* nav_top_background1@3x.png */,
 				189641081C1BF7B500657904 /* nav_top_back@2x.png */,
 				189641091C1BF7B500657904 /* nav_top_back@3x.png */,
 				189640EB1C1A790900657904 /* nav_login@2x.png */,
@@ -886,12 +898,14 @@
 				9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */,
 				9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */,
 				9BCA70441BAB0BA60095D9BA /* Main.storyboard in Resources */,
+				182A9F931CACF80D00A3643F /* nav_top_background1@3x.png in Resources */,
 				18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */,
 				18E933C91C213DF800155F9C /* loading_1@2x.png in Resources */,
 				18E933D11C213DF800155F9C /* loading_9@2x.png in Resources */,
 				1896410A1C1BF7B600657904 /* nav_top_back@2x.png in Resources */,
 				18E933D01C213DF800155F9C /* loading_8@2x.png in Resources */,
 				9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */,
+				182A9F901CACF80D00A3643F /* nav_top_background.png in Resources */,
 				18E4A6261C3E4D0100609722 /* MeContectUsViewController.xib in Resources */,
 				18E933CF1C213DF800155F9C /* loading_7@2x.png in Resources */,
 				18E933CB1C213DF800155F9C /* loading_3@2x.png in Resources */,
@@ -910,6 +924,8 @@
 				18E933CD1C213DF800155F9C /* loading_5@2x.png in Resources */,
 				18E933CA1C213DF800155F9C /* loading_2@2x.png in Resources */,
 				18EF5AEE1C1E674700A436C4 /* MJRefresh.bundle in Resources */,
+				182A9F921CACF80D00A3643F /* nav_top_background@3x.png in Resources */,
+				182A9F911CACF80D00A3643F /* nav_top_background@2x.png in Resources */,
 				9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */,
 				18E933D31C213DF800155F9C /* loading_11@2x.png in Resources */,
 				186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */,

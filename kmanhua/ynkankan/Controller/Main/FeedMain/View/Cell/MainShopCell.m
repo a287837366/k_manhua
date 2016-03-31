@@ -8,6 +8,7 @@
 
 #import "MainShopCell.h"
 
+
 @interface MainShopCell()
 
 @property (strong, nonatomic) UIView *conView;
@@ -96,7 +97,7 @@
     if (!_conView) {
         
         _conView = [[UIView alloc] init];
-        _conView.frame = CGRectMake(0, 0, kScreenWidth - 20, 68);
+        _conView.frame = CGRectMake(0, 0, kScreenWidth - 2, MainCell_Height);
         _conView.backgroundColor = [UIColor whiteColor];
         _conView.layer.borderWidth = 0.5;
         _conView.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];

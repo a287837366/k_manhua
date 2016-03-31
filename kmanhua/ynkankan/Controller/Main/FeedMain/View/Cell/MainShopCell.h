@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AppConstant.h"
 
+#define MainCell_Height 100
+
 @interface MainShopCell : UITableViewCell
 
 @property (strong, nonatomic) UIImageView *leftImage;
