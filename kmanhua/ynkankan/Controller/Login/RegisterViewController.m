@@ -10,6 +10,7 @@
 #import "RegisterdDetailView.h"
 #import "LoginService.h"
 #import "CustomProgressHUD.h"
+#import "UserSharePrefre.h"
 
 @interface RegisterViewController ()
 
@@ -45,16 +46,25 @@
 
 - (void)clickResiger{
     NSLog(@"  %@ ", [self.detailView getUserInfo]);
+    
+    __weak typeof(self) weakSelf = self;
+    
     [CustomProgressHUD showHUD:self.view];
     [self.service registerUser:[self.detailView getUserInfo]
                       response:^(NSString *success, NSError *error){
                          
-                          [CustomProgressHUD hideHUD:self.view];
+                          [CustomProgressHUD hideHUD:weakSelf.view];
+                          
+                          
+                          [[UserSharePrefre sharedInstance] refreshUserByDic:
+                           [@{@"username" : weakSelf.detailView.usernameText.text,
+                              @"userpw" : weakSelf.detailView.pwText.text} copy]];
+                        
+                          [weakSelf.delegate registeSuccess];
+                          [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                          
                           
                       }];
-    
-//    [self.delegate registeSuccess];
-//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - View

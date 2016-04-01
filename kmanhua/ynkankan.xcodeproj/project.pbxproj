@@ -16,6 +16,8 @@
 		182A9F991CAD084E00A3643F /* shop_title_left_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A9F981CAD084E00A3643F /* shop_title_left_menu@2x.png */; };
 		182A9F9C1CAD089500A3643F /* friend_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A9F9A1CAD089500A3643F /* friend_setting@2x.png */; };
 		182A9F9D1CAD089500A3643F /* friend_setting@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182A9F9B1CAD089500A3643F /* friend_setting@3x.png */; };
+		182D5AB71CAE14F300F8D6E8 /* UserSharePrefre.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D5AB61CAE14F300F8D6E8 /* UserSharePrefre.m */; };
+		182D5ABA1CAE4E5200F8D6E8 /* MeNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D5AB91CAE4E5200F8D6E8 /* MeNavigationView.m */; };
 		184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */; };
 		186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511D71C1EB75B00DD969C /* RegisterViewController.m */; };
 		186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186511D81C1EB75B00DD969C /* RegisterViewController.xib */; };
@@ -136,6 +138,10 @@
 		182A9F981CAD084E00A3643F /* shop_title_left_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shop_title_left_menu@2x.png"; path = "Res/Navigation/shop_title_left_menu@2x.png"; sourceTree = "<group>"; };
 		182A9F9A1CAD089500A3643F /* friend_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "friend_setting@2x.png"; path = "Res/Navigation/friend_setting@2x.png"; sourceTree = "<group>"; };
 		182A9F9B1CAD089500A3643F /* friend_setting@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "friend_setting@3x.png"; path = "Res/Navigation/friend_setting@3x.png"; sourceTree = "<group>"; };
+		182D5AB51CAE14F300F8D6E8 /* UserSharePrefre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserSharePrefre.h; path = Lib/ShareUtils/UserSharePrefre.h; sourceTree = "<group>"; };
+		182D5AB61CAE14F300F8D6E8 /* UserSharePrefre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserSharePrefre.m; path = Lib/ShareUtils/UserSharePrefre.m; sourceTree = "<group>"; };
+		182D5AB81CAE4E5200F8D6E8 /* MeNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeNavigationView.h; path = Controller/Me/View/MeNavigationView.h; sourceTree = "<group>"; };
+		182D5AB91CAE4E5200F8D6E8 /* MeNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeNavigationView.m; path = Controller/Me/View/MeNavigationView.m; sourceTree = "<group>"; };
 		184FAC7E1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+ToastDialog.h"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.h"; sourceTree = "<group>"; };
 		184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+ToastDialog.m"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.m"; sourceTree = "<group>"; };
 		186511D61C1EB75B00DD969C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/Login/RegisterViewController.h; sourceTree = "<group>"; };
@@ -323,6 +329,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182D5AB31CAE138600F8D6E8 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				182D5AB41CAE140B00F8D6E8 /* ShareUtils */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		182D5AB41CAE140B00F8D6E8 /* ShareUtils */ = {
+			isa = PBXGroup;
+			children = (
+				182D5AB51CAE14F300F8D6E8 /* UserSharePrefre.h */,
+				182D5AB61CAE14F300F8D6E8 /* UserSharePrefre.m */,
+			);
+			name = ShareUtils;
+			sourceTree = "<group>";
+		};
 		186511D51C1EB6E300DD969C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +398,8 @@
 			children = (
 				189640F51C1AC75900657904 /* MeHeaderView.h */,
 				189640F61C1AC75900657904 /* MeHeaderView.m */,
+				182D5AB81CAE4E5200F8D6E8 /* MeNavigationView.h */,
+				182D5AB91CAE4E5200F8D6E8 /* MeNavigationView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -681,6 +706,7 @@
 		9BCA70341BAB0BA60095D9BA /* ynkankan */ = {
 			isa = PBXGroup;
 			children = (
+				182D5AB31CAE138600F8D6E8 /* Lib */,
 				9BBC3DFD1BD14D5400F15A1E /* ThirdPart */,
 				9BBC3DEC1BCAA4C500F15A1E /* Res */,
 				9BECFBFE1BB0519900108935 /* Common */,
@@ -978,6 +1004,7 @@
 				186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */,
 				18EF5AD81C1E4A2100A436C4 /* MeFeedBackController.m in Sources */,
 				189640F71C1AC75900657904 /* MeHeaderView.m in Sources */,
+				182D5ABA1CAE4E5200F8D6E8 /* MeNavigationView.m in Sources */,
 				9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */,
 				9BBC3E181BD14E5900F15A1E /* AFSecurityPolicy.m in Sources */,
 				9BDD3C771C3EAC96009CEC3D /* UIImageView+WebCache.m in Sources */,
@@ -1000,6 +1027,7 @@
 				188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */,
 				18EF5AF01C1E674700A436C4 /* MJRefreshConst.m in Sources */,
 				9BBC3E1D1BD14E5900F15A1E /* UIImageView+AFNetworking.m in Sources */,
+				182D5AB71CAE14F300F8D6E8 /* UserSharePrefre.m in Sources */,
 				9BDD3C721C3EAC96009CEC3D /* UIButton+WebCache.m in Sources */,
 				9BDD3C6C1C3EAC96009CEC3D /* SDWebImageCompat.m in Sources */,
 				18EF5ADC1C1E5F7E00A436C4 /* MeHistoryViewController.m in Sources */,

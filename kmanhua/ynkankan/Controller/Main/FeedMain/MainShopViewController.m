@@ -16,6 +16,8 @@
 #import "CustomProgressHUD.h"
 #import "MainShopService.h"
 #import "UIImageView+WebCache.h"
+#import "UserSharePrefre.h"
+#import "MeViewController.h"
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -73,9 +75,21 @@
 - (void)clickMenu:(UIButton *)btn{
     
     if (btn.tag == 200) {
+
+        if ([[UserSharePrefre sharedInstance] isLogin]) {
+           
+            MeViewController *meVC = [[MeViewController alloc] init];
+            [self.navigationController pushViewController:meVC animated:YES];
+            
+            
+        } else {
+         
+            LoginViewController *loginVC = [[LoginViewController alloc] init];
+            [self presentViewController:loginVC animated:YES completion:nil];
         
-        LoginViewController *loginVC = [[LoginViewController alloc] init];
-        [self presentViewController:loginVC animated:YES completion:nil];
+        }
+        
+
         
     } else {
     

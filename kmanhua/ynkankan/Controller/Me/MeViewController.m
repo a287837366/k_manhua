@@ -12,10 +12,12 @@
 #import "AppConstant.h"
 #import "MeFeedBackController.h"
 #import "MeContectUsViewController.h"
+#import "MeNavigationView.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
     NSMutableArray *dataArray;
+    MeNavigationView *navigation;
 
 }
 
@@ -38,16 +40,35 @@
 }
 
 - (void)initView{
-    UIView *backgoundView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 110)];
-    backgoundView.backgroundColor = Color_Background;
-    [self.view addSubview:backgoundView];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    self.navigationController.navigationBar.alpha = 0;
+    UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
+    
+    UIButton *button = [[UIButton alloc] init];
+    button.frame = background.bounds;
+    [button setBackgroundImage:[UIImage imageNamed:@"nav_top_background@3x"] forState:UIControlStateNormal];
+    [background addSubview:button];
+    button.userInteractionEnabled = NO;
+    
+    [self.view setBackgroundColor:Color_Background];
+    [self.view addSubview:background];
     
     [self settingTableHeader];
+    
+    navigation = [[MeNavigationView alloc] init];
+    navigation.titleLable.text = @"닉넴";
+    [navigation.backButton addTarget:self action:@selector(clickBack:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:navigation];
     [self.view addSubview:self.mainTableView];
-    [self setTitle:@"나의"];
     
     
 }
+
+-(void)clickBack:(UIButton *)button{
+    self.navigationController.navigationBar.alpha = 1;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)settingTableHeader{
     self.mainTableView.tableHeaderView = self.meHeader;
@@ -141,7 +162,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *view = [[UIView alloc] init];
     view.frame = CGRectMake(0, 0, kScreenWidth, 10);
-    view.backgroundColor = Color_Background;
+    view.backgroundColor = [UIColor clearColor];
     
     return view;
 }
@@ -167,7 +188,7 @@
     
     if (!_mainTableView) {
         _mainTableView = [[UITableView alloc] init];
-        _mainTableView.frame = CGRectMake(10, 64, kScreenWidth - 20, kScreenHeight - 114);
+        _mainTableView.frame = CGRectMake(10, 64, kScreenWidth - 20, kScreenHeight - 64);
         _mainTableView.backgroundColor = [UIColor clearColor];
         _mainTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
