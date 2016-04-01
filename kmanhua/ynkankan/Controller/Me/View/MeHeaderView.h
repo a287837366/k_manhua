@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AppConstant.h"
-#define MeHeaderHeight 100
+#define MeHeaderHeight 120
 
 @interface MeHeaderView : UIView
 

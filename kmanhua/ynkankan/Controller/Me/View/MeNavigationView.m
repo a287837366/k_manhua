@@ -29,9 +29,16 @@
 {
     if (!_backButton) {
         
+        UIButton *button = [[UIButton alloc] init];
+        button.frame = CGRectMake(10, 10, 22, 22);
+        [button setBackgroundImage:[UIImage imageNamed:@"nav_top_back"] forState:UIControlStateNormal];
+        button.userInteractionEnabled = NO;
+        
+        
+        [self addSubview:button];
         _backButton = [[UIButton alloc] init];
-        _backButton.frame = CGRectMake(10, 10, 22, 22);
-        [_backButton setBackgroundImage:[UIImage imageNamed:@"nav_top_back"] forState:UIControlStateNormal];
+        _backButton.frame = CGRectMake(0, 0, 42, 50);
+        
     }
 
     return _backButton;

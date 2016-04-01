@@ -41,9 +41,9 @@
 
     if (!_iconButton) {
         _iconButton = [[UIButton alloc] init];
-        _iconButton.frame = CGRectMake((kScreenWidth - 70 - 20) / 2, (MeHeaderHeight - 75) / 2, 70, 70);
+        _iconButton.frame = CGRectMake((kScreenWidth - 90 - 20) / 2, (MeHeaderHeight - 95) / 2, 90, 90);
         _iconButton.backgroundColor = [UIColor whiteColor];
-        _iconButton.layer.cornerRadius = 35;
+        _iconButton.layer.cornerRadius = 45;
     }
 
     return _iconButton;

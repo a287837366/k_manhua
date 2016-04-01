@@ -44,8 +44,10 @@
         
         _conView = [[UIView alloc] init];
         _conView.frame = CGRectMake(0, 2, kScreenWidth - 20, 46);
-        _conView.backgroundColor = [UIColor whiteColor];
-        _conView.layer.cornerRadius = 4;
+        _conView.backgroundColor = [UIColor clearColor];
+        _conView.layer.borderColor = [[UIColor whiteColor] CGColor];
+        _conView.layer.borderWidth = 1;
+        _conView.layer.cornerRadius = 6;
         
     }
     
@@ -56,7 +58,7 @@
 
     if (!_rightImage) {
         _rightImage = [[UIImageView alloc] init];
-        _rightImage.frame = CGRectMake(kScreenWidth - 47, 12, 22, 22);
+        _rightImage.frame = CGRectMake(kScreenWidth - 47, 15, 15, 15);
         _rightImage.image = [UIImage imageNamed:@"me_right_arraw"];
         _rightImage.alpha = 0.4;
     }
@@ -70,7 +72,7 @@
         _titleLable = [[UILabel alloc] init];
         _titleLable.frame = CGRectMake(15, 9, kScreenWidth - 70, 26);
         _titleLable.font = [UIFont systemFontOfSize:14];
-        _titleLable.textColor = [UIColor darkGrayColor];
+        _titleLable.textColor = [UIColor whiteColor];
     }
     
     return _titleLable;

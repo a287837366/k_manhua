@@ -39,9 +39,13 @@
     dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"방문기록", @"의견제출 하기 ", @"제휴문의", @"땐짠 하기", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", nil], nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+     self.navigationController.navigationBar.alpha = 0;
+}
+
 - (void)initView{
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
-    self.navigationController.navigationBar.alpha = 0;
+   
     UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
     
     UIButton *button = [[UIButton alloc] init];

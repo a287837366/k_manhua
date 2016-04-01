@@ -18,16 +18,20 @@
 #import "UIImageView+WebCache.h"
 #import "UserSharePrefre.h"
 #import "MeViewController.h"
+#import "MainNavigationView.h"
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
     NSInteger page;
     BOOL isNoPage;
+    
+    MainNavigationView *navigationView;
 
 }
 
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainShopService *service;
+@property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 
 @end
 
@@ -54,9 +58,13 @@
     self.view.backgroundColor = Color_Background;
     
     [self.view addSubview:self.mainTable];
+    [self.view bringSubviewToFront:self.btnCreate];
     
     [self setLeftButton];
     [self setRightButton];
+    
+    navigationView = [[MainNavigationView alloc] init];
+
 }
 
 -(void)setLeftButton{
@@ -92,7 +100,8 @@
 
         
     } else {
-    
+        
+        [navigationView showNavigation:self.view];
     }
 
 
