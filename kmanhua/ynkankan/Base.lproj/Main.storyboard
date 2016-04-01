@@ -3,13 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main Shop View Controller-->
         <scene sceneID="z1F-5E-ZBW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZlI-7J-VcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="YDa-tg-1ye" customClass="MainShopViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tga-xp-5A4"/>
@@ -21,7 +21,7 @@
                         <subviews>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3t-vL-3n8">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.88697886432533546" green="0.0" blue="0.2326086211622807" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.0" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="Ag5-wS-Bcb"/>
                                     <constraint firstAttribute="width" constant="46" id="hb4-YH-bsi"/>
@@ -72,6 +72,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="EFs-Pe-LXt"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZlI-7J-VcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="279" y="1897.5"/>
         </scene>

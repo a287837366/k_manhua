@@ -72,6 +72,14 @@
 
 - (void)clickMenu:(UIButton *)btn{
     
+    if (btn.tag == 200) {
+        
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        [self presentViewController:loginVC animated:YES completion:nil];
+        
+    } else {
+    
+    }
 
 
 }

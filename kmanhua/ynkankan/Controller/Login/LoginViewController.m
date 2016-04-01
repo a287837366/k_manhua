@@ -54,6 +54,8 @@
 
 #pragma mark - Action
 - (IBAction)clickLogin:(id)sender {
+    
+    
     [CustomProgressHUD showHUD:self.view];
     [self.service requsetLogin:self.idTextFile.text loginPw:self.pwTextFile.text
                   response:^(NSMutableDictionary *returnDic, NSError *error){
