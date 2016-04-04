@@ -19,6 +19,7 @@
 #import "UserSharePrefre.h"
 #import "MeViewController.h"
 #import "MainNavigationView.h"
+#import "MainCreateNewsVC.h"
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -79,7 +80,7 @@
     rightButton.tag = 200;
     self.navigationItem.rightBarButtonItem = rightButton;
 }
-
+#pragma mark - Action
 - (void)clickMenu:(UIButton *)btn{
     
     if (btn.tag == 200) {
@@ -104,6 +105,12 @@
         [navigationView showNavigation:self.view];
     }
 
+
+}
+- (IBAction)clickCreate:(id)sender {
+    
+    MainCreateNewsVC *createVC = [[MainCreateNewsVC alloc] init];
+    [self presentViewController:createVC animated:YES completion:nil];
 
 }
 
