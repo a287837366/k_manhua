@@ -10,6 +10,8 @@
 #import "YMnineImageView.h"
 #import "AppConstant.h"
 
+#define viewTotal 289
+
 @interface MainCreateMainView()<YMnineIamgeViewDelegate>{
 
     UIScrollView *mainScroll;
@@ -110,7 +112,7 @@
         //[[[[[---------选择图片
         chooseView = [[YMnineImageView alloc] init];
         chooseView.delegate = self;
-        chooseView.frame = CGRectMake(30, 289, kScreenWidth - 60, Screen_Width / 3);
+        chooseView.frame = CGRectMake(30, 289, kScreenWidth - 60, (Screen_Width - 60 ) / 3);
         
         
         [mainScroll addSubview:lineView];
@@ -130,12 +132,26 @@
         
         [mainScroll addSubview:chooseView];
         
-        mainScroll.contentSize = CGSizeMake(0, Screen_Height - 63);
+        [self refreshContent:(Screen_Width - 60) / 3];
         
         [self addSubview:mainScroll];
     }
 
     return self;
+}
+
+#pragma mark 刷新可滚动位置
+-(void)refreshContent:(CGFloat)height{
+
+//    NSLog(@"  %f  ", Screen_Width - 64);
+//    NSLog(@"  %f  ", viewTotal + height);
+    if (Screen_Height - 64 > viewTotal + height) {
+       mainScroll.contentSize = CGSizeMake(0, Screen_Height - 63);
+    } else {
+        mainScroll.contentSize = CGSizeMake(0, viewTotal + height);
+    }
+    
+    
 }
 
 #pragma mark - YMnineIamgeViewDelegate
@@ -147,7 +163,7 @@
 }
 
 -(void)heightIsChange:(CGFloat)height{
-    
+    [self refreshContent:height];
     NSLog(@">>>>>>>>>> %f ", height);
     
 }
