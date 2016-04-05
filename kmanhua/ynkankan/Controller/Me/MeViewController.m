@@ -13,6 +13,7 @@
 #import "MeFeedBackController.h"
 #import "MeContectUsViewController.h"
 #import "MeNavigationView.h"
+#import "UserSharePrefre.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -36,7 +37,7 @@
 }
 
 - (void)initDate{
-    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"방문기록", @"의견제출 하기 ", @"제휴문의", @"땐짠 하기", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", nil], nil];
+    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"닉넴 수정", @"내가 쓴 글 ", @"제휴문의", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", nil], nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -58,6 +59,7 @@
     [self.view addSubview:background];
     
     [self settingTableHeader];
+    [self setFooterView];
     
     navigation = [[MeNavigationView alloc] init];
     navigation.titleLable.text = @"닉넴";
@@ -68,6 +70,8 @@
     
 }
 
+
+
 -(void)clickBack:(UIButton *)button{
     self.navigationController.navigationBar.alpha = 1;
     [self.navigationController popViewControllerAnimated:YES];
@@ -77,14 +81,34 @@
 - (void)settingTableHeader{
     self.mainTableView.tableHeaderView = self.meHeader;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
+- (void)setFooterView{
+    
+    UIView *footerView = [[UIView alloc] init];
+    footerView.frame = CGRectMake(0, 0, kScreenWidth, 75);
+    
+    UIButton *button = [[UIButton alloc] init];
+    button.frame = CGRectMake(30, 15, kScreenWidth - 80, 35);
+    button.backgroundColor = [UIColor whiteColor];
+    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    button.layer.cornerRadius = 5;
+    [button addTarget:self action:@selector(clickLogout:) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"注销" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    button.alpha = 0.7;
+    [footerView addSubview:button];
+    
+    self.mainTableView.tableFooterView = footerView;
+    
 }
 
-#pragma mark tableView Delegate
+#pragma mark - 点击注销按钮
+-(void)clickLogout:(UIButton *)button{
+    [[UserSharePrefre sharedInstance] clearUser];
+    self.navigationController.navigationBar.alpha = 1;
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+#pragma mark - tableView Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
     return dataArray.count;
@@ -105,6 +129,7 @@
     cell.titleLable.text = [[dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     return cell;
 }
+
 
 //返回高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

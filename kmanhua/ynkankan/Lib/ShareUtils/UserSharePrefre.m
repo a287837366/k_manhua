@@ -91,6 +91,17 @@ static UserSharePrefre *sharedObj = nil;
 
 }
 
+-(void)clearUser{
+
+    
+    userId = nil;
+    userPw = nil;
+
+    NSUserDefaults *defualts = [NSUserDefaults standardUserDefaults];
+    [defualts setObject:nil forKey:ShareUserId];
+    [defualts setObject:nil forKey:ShareUserPw];
+}
+
 
 
 @end

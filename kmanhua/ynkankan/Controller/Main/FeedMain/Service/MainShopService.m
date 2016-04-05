@@ -12,7 +12,7 @@
 
 @implementation MainShopService
 
--(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response{
+-(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *freeManhua,  NSInteger pageCount, NSError *error))response{
   
     NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld", @"/manhua/getManhuaList.php", (long)page];
     
@@ -21,14 +21,14 @@
                                 
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
 
-                                    response(nil, nil, nil);
+                                    response(nil, 0, nil);
                                 
                                 } else {
                                    
-                                    if ([[responseObject objectForKey:@"freedata"] isEqual:[NSNull null]]) {
-                                        response(nil, nil, nil);
+                                    if ([[responseObject objectForKey:@"data"] isEqual:[NSNull null]]) {
+                                        response(nil, 0, nil);
                                     } else {
-                                        response([responseObject objectForKey:@"newdata"], [responseObject objectForKey:@"freedata"], nil);
+                                        response([responseObject objectForKey:@"data"], [[responseObject objectForKey:@"count"] intValue], nil);
                                     }
                                     
 
@@ -36,7 +36,7 @@
 
                                 
                             } failure:^(NSURLSessionTask *task, NSError *error){
-                                response(nil, nil, error);
+                                response(nil, 0, error);
                             }];
 
 }

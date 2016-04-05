@@ -16,12 +16,14 @@
 #import "CustomProgressHUD.h"
 #import "MainShopService.h"
 #import "UIImageView+WebCache.h"
+#import "MBProgressHUD+ToastDialog.h"
 #import "UserSharePrefre.h"
 #import "MeViewController.h"
 #import "MainNavigationView.h"
 #import "MainCreateNewsVC.h"
 
-@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate>{
+
+@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainNavigationViewDelegate>{
 
     NSInteger page;
     BOOL isNoPage;
@@ -34,6 +36,8 @@
 @property (strong, nonatomic) MainShopService *service;
 @property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 
+@property (strong, nonatomic) NSMutableArray *dataArray;
+
 @end
 
 @implementation MainShopViewController
@@ -42,13 +46,14 @@
     [super viewDidLoad];
     [self initData];
     [self initView];
-//    [self getManhuaList];
+    [self getManhuaList];
 }
 
 -(void)initData{
     isNoPage = NO;
     page = 0;
 
+    self.dataArray = [[NSMutableArray alloc] init];
 }
 
 -(void)initView{
@@ -65,7 +70,7 @@
     [self setRightButton];
     
     navigationView = [[MainNavigationView alloc] init];
-
+    navigationView.delegate = self;
 }
 
 -(void)setLeftButton{
@@ -109,6 +114,11 @@
 }
 - (IBAction)clickCreate:(id)sender {
     
+    if (![[UserSharePrefre sharedInstance] isLogin]) {
+        [MBProgressHUD Toast:self.view withText:@"请登入"];
+        return;
+    }
+    
     MainCreateNewsVC *createVC = [[MainCreateNewsVC alloc] init];
     [self presentViewController:createVC animated:YES completion:nil];
 
@@ -126,7 +136,10 @@
 
 #pragma mark - 网络请求
 -(void)getManhuaList{
-    [self.service getManhuaList:page response:^(NSMutableArray *newdata, NSMutableArray *freedata, NSError *error){
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [self.service getManhuaList:page response:^(NSMutableArray *freedata, NSInteger pageCount, NSError *error){
         
         if (error) {
             NSLog(@" 返回错误 ");
@@ -134,26 +147,31 @@
         }
         
         if (freedata == nil) {
-            [self.mainTable footerEndRefreshing];
+            [weakSelf.mainTable footerEndRefreshing];
             return;
         }
         
-        if (page == 0) {
-            [self delayRefreshEnd];
-            return;
+        if (page + 1 >= pageCount) {
+            isNoPage = YES;
         }
 
-        [self performSelector:@selector(delayRefreshEnd) withObject:nil afterDelay:2.0f];
+        [weakSelf.dataArray addObjectsFromArray:freedata];
+        
+        [self performSelector:@selector(delayRefreshEnd) withObject:nil afterDelay:0.5f];
 
         
     }];
 
 }
+#pragma mark - MainNavigationViewDelegate
+-(void)didClickTypeByType:(NSInteger)type{
+    NSLog(@"type >>>> %ld", (long)type);
+}
 
 #pragma mark - tableview 代理
 //返回数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.dataArray.count;
 }
 
 //自定义Cell
@@ -166,6 +184,9 @@
         cell = [[MainShopCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
 
     }
+    
+    cell.titleLable.text = [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"m_title"];
+    cell.timeLable.text = [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"m_createTime"];
     
     return cell;
 
@@ -187,7 +208,13 @@
 //上啦刷新
 -(void)footerRereshing{
     
-
+    if (isNoPage)
+    {
+        [self.mainTable footerEndRefreshing];
+        return;
+    }
+    
+    [self getManhuaList];
 }
 
 -(void)delayRefreshEnd{

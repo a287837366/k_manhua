@@ -21,4 +21,6 @@
 
 -(void)refreshUserByDic:(NSMutableDictionary *)dic;
 
+-(void)clearUser;
+
 @end

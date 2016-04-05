@@ -11,6 +11,6 @@
 
 @interface MainShopService : NSObject
 
--(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *newManhua, NSMutableArray *freeManhua, NSError *error))response;
+-(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *freeManhua, NSInteger pageCount, NSError *error))response;
 
 @end

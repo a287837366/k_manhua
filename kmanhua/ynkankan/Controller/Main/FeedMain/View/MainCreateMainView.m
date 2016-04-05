@@ -164,7 +164,6 @@
 
 -(void)heightIsChange:(CGFloat)height{
     [self refreshContent:height];
-    NSLog(@">>>>>>>>>> %f ", height);
     
 }
 
