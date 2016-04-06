@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MainCreateMainViewDelegate;
+
 @interface MainCreateMainView : UIView
+
+@property (weak, nonatomic) id<MainCreateMainViewDelegate> delegate;
+
+@end
+
+
+@protocol MainCreateMainViewDelegate <NSObject>
+
+-(void)gotoSelectPhoto;
 
 @end

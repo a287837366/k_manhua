@@ -8,8 +8,9 @@
 
 #import "MainCreateNewsVC.h"
 #import "MainCreateMainView.h"
+#import "AmPhotoPikerViewController.h"
 
-@interface MainCreateNewsVC ()
+@interface MainCreateNewsVC ()<MainCreateMainViewDelegate>
 {
 
     MainCreateMainView *mainView;
@@ -32,14 +33,21 @@
     
     mainView = [[MainCreateMainView alloc] init];
     mainView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
+    mainView.delegate = self;
     [self.view addSubview:mainView];
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
+#pragma mark - MainCreateMainViewDelegate
+-(void)gotoSelectPhoto{
+    
+    AmPhotoPikerViewController *viewC = [[AmPhotoPikerViewController alloc] init];
+    
+    viewC.maxCount = 9;
+    [self presentViewController:viewC animated:YES completion:nil];
+    
 }
+
 #pragma mark - Action
 - (IBAction)clickCancle:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

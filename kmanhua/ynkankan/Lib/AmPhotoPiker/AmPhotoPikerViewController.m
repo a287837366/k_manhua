@@ -11,7 +11,7 @@
 
 
 
-@interface AmPhotoPikerViewController ()<AmPhotoGroupViewDelegate>
+@interface AmPhotoPikerViewController ()
 
 @end
 
@@ -27,7 +27,6 @@
 - (void)initNavigation{
     
     AmPhotoGroupViewController *groupVc = [[AmPhotoGroupViewController alloc] init];
-    groupVc.delegate = self;
     groupVc.selecteDelegate = self.selecteDelegate;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:groupVc];
     

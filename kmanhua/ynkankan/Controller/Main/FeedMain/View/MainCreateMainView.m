@@ -9,6 +9,8 @@
 #import "MainCreateMainView.h"
 #import "YMnineImageView.h"
 #import "AppConstant.h"
+#import "AmPhotoHeader.h"
+#import "AmPhotoPikerViewController.h"
 
 #define viewTotal 289
 
@@ -27,6 +29,8 @@
     UITextField *textPhone;
     
     YMnineImageView *chooseView;
+    
+    
 
 }
 
@@ -142,9 +146,6 @@
 
 #pragma mark 刷新可滚动位置
 -(void)refreshContent:(CGFloat)height{
-
-//    NSLog(@"  %f  ", Screen_Width - 64);
-//    NSLog(@"  %f  ", viewTotal + height);
     if (Screen_Height - 64 > viewTotal + height) {
        mainScroll.contentSize = CGSizeMake(0, Screen_Height - 63);
     } else {
@@ -156,10 +157,7 @@
 
 #pragma mark - YMnineIamgeViewDelegate
 -(void)didClickAddButton{
-
-
-    [chooseView addLocalImageWithUIimage:[UIImage imageNamed:@"nav_top_background"]];
-    [chooseView reloadYMnineView];
+    [self.delegate gotoSelectPhoto];
 }
 
 -(void)heightIsChange:(CGFloat)height{
