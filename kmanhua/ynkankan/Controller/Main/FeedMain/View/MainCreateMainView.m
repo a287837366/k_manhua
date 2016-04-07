@@ -11,6 +11,8 @@
 #import "AppConstant.h"
 #import "AmPhotoHeader.h"
 #import "AmPhotoPikerViewController.h"
+#import "AmPhotoAssets.h"
+#import "MBProgressHUD+ToastDialog.h"
 
 #define viewTotal 289
 
@@ -30,7 +32,7 @@
     
     YMnineImageView *chooseView;
     
-    
+    BOOL keyBoradrShow;
 
 }
 
@@ -41,6 +43,8 @@
 -(instancetype)init{
 
     if (self = [super init]) {
+        
+        keyBoradrShow = NO;
         
         mainScroll = [[UIScrollView alloc] init];
         mainScroll.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64);
@@ -146,6 +150,7 @@
 
 #pragma mark 刷新可滚动位置
 -(void)refreshContent:(CGFloat)height{
+    
     if (Screen_Height - 64 > viewTotal + height) {
        mainScroll.contentSize = CGSizeMake(0, Screen_Height - 63);
     } else {
@@ -155,9 +160,51 @@
     
 }
 
+#pragma mark - 添加图片
+-(void)setImageByArray:(NSMutableArray *)array{
+
+    for (AmPhotoAssets *photoAssets in array) {
+        [chooseView addLocalImageWithUIimage:photoAssets.thumbImage];
+    }
+    [chooseView reloadYMnineView];
+}
+
+
+-(void)keyBoardShow:(CGFloat)keyboardH{
+    
+    if (!keyBoradrShow) {
+        mainScroll.contentSize = CGSizeMake(0, chooseView.frame.origin.y + chooseView.frame.size.height + keyboardH + 10);
+    }
+
+    keyBoradrShow = YES;
+}
+-(void)keyBoardHide{
+    [textComment resignFirstResponder];
+    [textPhone resignFirstResponder];
+    [textTitle resignFirstResponder];
+    
+    keyBoradrShow = NO;
+}
+
+-(BOOL)checkInputFiled{
+
+    if (textTitle.text.length <= 0) {
+        
+        NSLog(@"请输入标题");
+        return false;
+    }
+    
+    if (textComment.text.length <= 0) {
+        NSLog(@"请输入内容");
+        return false;
+    }
+
+    return YES;
+}
+
 #pragma mark - YMnineIamgeViewDelegate
 -(void)didClickAddButton{
-    [self.delegate gotoSelectPhoto];
+    [self.delegate gotoSelectPhoto: 9 - [[chooseView getImageListByImageType:YMImageTypeLocalImage] count]];
 }
 
 -(void)heightIsChange:(CGFloat)height{

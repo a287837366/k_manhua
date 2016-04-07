@@ -8,7 +8,6 @@
 
 #import "MainShopCell.h"
 
-
 @interface MainShopCell()
 
 @property (strong, nonatomic) UIView *conView;

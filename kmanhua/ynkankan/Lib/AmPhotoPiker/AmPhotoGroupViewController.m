@@ -103,6 +103,7 @@
 
     AmPhotoPickerAssetsViewController *assetsVC = [[AmPhotoPickerAssetsViewController alloc] init];
     assetsVC.selecteDelegate = self.selecteDelegate;
+    assetsVC.maxCount = self.maxCount;
     assetsVC.groupModel = group;
     [self.navigationController pushViewController:assetsVC animated:animation];
 }

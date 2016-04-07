@@ -11,10 +11,13 @@
 #define page_Size 10
 
 @implementation MainShopService
-
--(void)getManhuaList:(NSInteger)page response:(void (^)(NSMutableArray *freeManhua,  NSInteger pageCount, NSError *error))response{
+/**
+ *0.全部 1.招聘信息 2. 求职信息 3.房产信息 4.宠物信息
+ *
+ */
+-(void)getManhuaList:(NSInteger)page type:(NSInteger)type response:(void (^)(NSMutableArray *freeManhua,  NSInteger pageCount, NSError *error))response{
   
-    NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld", @"/manhua/getManhuaList.php", (long)page];
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld&type=%ld", @"/manhua/getManhuaList.php", (long)page, type];
     
     [[HttpClient sharedClient] POST:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){

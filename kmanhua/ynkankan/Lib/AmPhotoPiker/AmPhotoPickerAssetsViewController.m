@@ -146,7 +146,7 @@
     
     } else {
       
-        if (self.selectArray.count >= 9) {
+        if (self.selectArray.count >= self.maxCount) {
             
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"不能超过9张" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
             

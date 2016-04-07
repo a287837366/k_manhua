@@ -46,6 +46,7 @@
     [super viewDidLoad];
     [self initData];
     [self initView];
+
     [self getManhuaList];
 }
 
@@ -139,7 +140,7 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [self.service getManhuaList:page response:^(NSMutableArray *freedata, NSInteger pageCount, NSError *error){
+    [self.service  getManhuaList:page type:[navigationView getType] response:^(NSMutableArray *freedata, NSInteger pageCount, NSError *error){
         
         if (error) {
             NSLog(@" 返回错误 ");

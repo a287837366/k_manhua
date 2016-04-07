@@ -13,6 +13,8 @@
 {
 
     NSMutableArray *titleArray;
+    
+    NewsType currentType;
 
 }
 
@@ -28,6 +30,8 @@
 
     if (self = [super init]) {
         
+        currentType = NewsTypeAll;
+        
         self.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight);
         self.hidden = YES;
         
@@ -36,7 +40,7 @@
         titleArray = [[NSMutableArray alloc] initWithObjects:@"全部", @"招聘信息", @"求职信息", @"房产信息", @"宠物信息", nil];
         
         self.cotogoryView = [[UITableView alloc] init];
-        self.cotogoryView.frame = CGRectMake(5, 5, 0, 0);
+        self.cotogoryView.frame = CGRectMake(5, 5, kScreenWidth / 3, 0);
 //        self.cotogoryView.frame = CGRectMake(5, 5, kScreenWidth / 3, (kScreenWidth / 3) * 2);
         self.cotogoryView.backgroundColor = [UIColor whiteColor];
         self.cotogoryView.delegate = self;
@@ -89,11 +93,9 @@
     
     
 }
-
-
-
-
 -(void)hideNavigation:(UIView *)superView{
+    
+    
     
     __weak typeof(self) weakSelf = self;
     
@@ -101,7 +103,7 @@
                      animations:^{
                          
                          weakSelf.blockView.alpha = 0.00;
-                         weakSelf.cotogoryView.frame = CGRectMake(5, 5, 0, 0);
+                         weakSelf.cotogoryView.frame = CGRectMake(5, 5, kScreenWidth / 3, 0);
                      }
                      completion:^(BOOL finised){
                          weakSelf.hidden = YES;
@@ -111,6 +113,10 @@
     
 
     
+}
+
+-(NewsType)getType{
+    return currentType;
 }
 
 #pragma mark - TableViewDelegate
@@ -145,6 +151,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    currentType = indexPath.row;
+    
     [self.delegate didClickTypeByType:indexPath.row];
     [self hideNavigation:nil];
     

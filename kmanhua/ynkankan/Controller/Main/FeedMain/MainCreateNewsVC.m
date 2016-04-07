@@ -9,8 +9,9 @@
 #import "MainCreateNewsVC.h"
 #import "MainCreateMainView.h"
 #import "AmPhotoPikerViewController.h"
+#import "AmPhotoHeader.h"
 
-@interface MainCreateNewsVC ()<MainCreateMainViewDelegate>
+@interface MainCreateNewsVC ()<MainCreateMainViewDelegate, AmPhotoDidSelectedDelegate>
 {
 
     MainCreateMainView *mainView;
@@ -36,21 +37,68 @@
     mainView.delegate = self;
     [self.view addSubview:mainView];
 
+    
+    [self initKeyboardListener];
 }
 
+-(void)initKeyboardListener{
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [defaultCenter addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)aNotification{
+    [mainView keyBoardShow:[self getKeyboardHeight:aNotification]];
+}
+
+-(void)keyboardWillHide:(NSNotification *)aNotification{
+    [mainView keyBoardHide];
+}
+
+
+
 #pragma mark - MainCreateMainViewDelegate
--(void)gotoSelectPhoto{
+-(void)gotoSelectPhoto:(NSInteger)maxCount{
     
     AmPhotoPikerViewController *viewC = [[AmPhotoPikerViewController alloc] init];
-    
-    viewC.maxCount = 9;
+    viewC.selecteDelegate = self;
+    viewC.maxCount = maxCount;
     [self presentViewController:viewC animated:YES completion:nil];
     
 }
 
+#pragma mark - 选择照片回调
+-(void)didSelectedAmPhoto:(NSMutableArray *)photoArray{
+    [mainView setImageByArray:photoArray];
+}
+
 #pragma mark - Action
 - (IBAction)clickCancle:(id)sender {
+    
+
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (IBAction)createNews:(id)sender {
+    
+    if (![mainView checkInputFiled])
+    {
+        return;
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - 获取键盘的高度
+-(CGFloat)getKeyboardHeight:(NSNotification *)aNotification{
+    //获取键盘的高度
+    NSDictionary *userInfo = [aNotification userInfo];
+    NSValue *aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    return keyboardRect.size.height;
+}
+
 
 @end

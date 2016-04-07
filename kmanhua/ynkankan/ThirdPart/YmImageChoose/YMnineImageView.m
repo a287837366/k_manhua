@@ -172,11 +172,11 @@
 
 #pragma mark 弹出Alert
 -(void)showDeleteAlert{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"AlertViewTest"
-                                                    message:@"message"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                    message:@"确定删除图片吗"
                                                    delegate:self
-                                          cancelButtonTitle:@"Cancel"
-                                          otherButtonTitles:@"OtherBtn",nil];
+                                          cancelButtonTitle:@"取消"
+                                          otherButtonTitles:@"确定",nil];
     
     [alert show];
 }

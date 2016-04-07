@@ -14,11 +14,18 @@
 
 @property (weak, nonatomic) id<MainCreateMainViewDelegate> delegate;
 
+-(void)setImageByArray:(NSMutableArray *)array;
+
+-(void)keyBoardShow:(CGFloat)keyboardH;
+-(void)keyBoardHide;
+
+-(BOOL)checkInputFiled;
+
 @end
 
 
 @protocol MainCreateMainViewDelegate <NSObject>
 
--(void)gotoSelectPhoto;
+-(void)gotoSelectPhoto:(NSInteger)maxCount;
 
 @end

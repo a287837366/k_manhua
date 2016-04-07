@@ -28,6 +28,7 @@
     
     AmPhotoGroupViewController *groupVc = [[AmPhotoGroupViewController alloc] init];
     groupVc.selecteDelegate = self.selecteDelegate;
+    groupVc.maxCount = self.maxCount;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:groupVc];
     
     NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:NavigationTitle_Color, NSForegroundColorAttributeName, nil];
