@@ -165,8 +165,14 @@
 
 }
 #pragma mark - MainNavigationViewDelegate
--(void)didClickTypeByType:(NSInteger)type{
+-(void)didClickTypeByType:(NewsType)type{
     NSLog(@"type >>>> %ld", (long)type);
+    [self.dataArray removeAllObjects];
+    [self.mainTable reloadData];
+    
+    page = 0;
+    
+    [self getManhuaList];
 }
 
 #pragma mark - tableview 代理
