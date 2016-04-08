@@ -16,6 +16,7 @@
 -(NSString *)userId;
 -(NSString *)userpw;
 -(NSString *)UUID;
+-(NSString *)nikeName;
 
 -(BOOL)isLogin;
 

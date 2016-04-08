@@ -83,7 +83,7 @@
     }
     
     [CustomProgressHUD showHUD:self.view];
-    [self.service requsetLogin:self.idTextFile.text loginPw:self.pwTextFile.text
+    [self.service requsetLogin:self.idTextFile.text loginPw:[ToolsClass stringToMd5:self.pwTextFile.text]
                   response:^(NSMutableDictionary *returnDic, NSError *error){
                       
                       [CustomProgressHUD hideHUD:self.view];

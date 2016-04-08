@@ -12,12 +12,10 @@
 @implementation LoginService
 
 -(void)requsetLogin:(NSString *)loginId loginPw:(NSString *)loginPw response:(void (^)(NSMutableDictionary *returnDic, NSError *error))response{
-    
-    NSDictionary *paramDic = @{@"username" : loginId , @"userpw" : [ToolsClass stringToMd5:loginPw]};
-    NSLog(@" %@ " , paramDic);
-    [[HttpClient sharedClient] POST:@"/user/getByUserId.php" parameters:paramDic
+    NSLog(@"user/getByUserId.php");
+    [[HttpClient sharedClient] POST:@"/user/getByUserId.php" parameters:@{@"username" : loginId , @"userpw" : loginPw}
         success:^(NSURLSessionTask *task, id responseObject){
-            
+            NSLog(@"  %@  ", responseObject);
             if ([[responseObject objectForKey:@"error"] integerValue] != 0) {
                 response(nil, nil);
             } else {
@@ -48,5 +46,26 @@
 
 }
 
+
+-(void)updateNikeName:(NSDictionary *)paramDic response:(void (^)(NSString *success, NSError *error))response
+{
+
+    [[HttpClient sharedClient] POST:@"/user/postupdateUser.php" parameters:paramDic
+                            success:^(NSURLSessionTask *task, id responseObject){
+                                NSLog(@" %@ ", responseObject);
+                                if ([[responseObject objectForKey:@"error"] integerValue] != 0) {
+                                    response(nil, nil);
+                                } else {
+                                    response(@"1", nil);
+                                }
+                                
+                            } failure:^(NSURLSessionTask *task, NSError *error){
+                                response(nil, error);
+
+                            }];
+
+
+
+}
 
 @end

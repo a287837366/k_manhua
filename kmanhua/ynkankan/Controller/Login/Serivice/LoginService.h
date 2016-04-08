@@ -15,4 +15,6 @@
 
 -(void)registerUser:(NSMutableDictionary *)paramDic response:(void (^)(NSString *success, NSError *error))response;
 
+-(void)updateNikeName:(NSDictionary *)paramDic response:(void (^)(NSString *success, NSError *error))response;
+
 @end

@@ -84,6 +84,8 @@
 		18EF5AFC1C1E875200A436C4 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */; };
 		18EF5B001C1E882900A436C4 /* discover_choose_cancle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */; };
 		18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */; };
+		18F51C4A1CB7566600C564DA /* MeChangNickNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F51C481CB7566600C564DA /* MeChangNickNameVC.m */; };
+		18F51C4B1CB7566600C564DA /* MeChangNickNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F51C491CB7566600C564DA /* MeChangNickNameVC.xib */; };
 		9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B6E969A1C2FF4D7008736CB /* NewsService.m */; };
 		9B7B7E821C1F04F4007EFC22 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7B7E811C1F04F4007EFC22 /* LoginService.m */; };
 		9BB969FD1CAF496100D888D7 /* MainCreateMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB969FC1CAF496100D888D7 /* MainCreateMainView.m */; };
@@ -272,6 +274,9 @@
 		18EF5AFA1C1E875200A436C4 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/Login/LoginViewController.xib; sourceTree = "<group>"; };
 		18EF5AFE1C1E882900A436C4 /* discover_choose_cancle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@2x.png"; path = "Res/Login/discover_choose_cancle@2x.png"; sourceTree = "<group>"; };
 		18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "discover_choose_cancle@3x.png"; path = "Res/Login/discover_choose_cancle@3x.png"; sourceTree = "<group>"; };
+		18F51C471CB7566600C564DA /* MeChangNickNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeChangNickNameVC.h; path = Controller/Me/MeChangNickNameVC.h; sourceTree = "<group>"; };
+		18F51C481CB7566600C564DA /* MeChangNickNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeChangNickNameVC.m; path = Controller/Me/MeChangNickNameVC.m; sourceTree = "<group>"; };
+		18F51C491CB7566600C564DA /* MeChangNickNameVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeChangNickNameVC.xib; path = Controller/Me/MeChangNickNameVC.xib; sourceTree = "<group>"; };
 		9B6E96991C2FF4D7008736CB /* NewsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsService.h; path = Controller/News/Service/NewsService.h; sourceTree = "<group>"; };
 		9B6E969A1C2FF4D7008736CB /* NewsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsService.m; path = Controller/News/Service/NewsService.m; sourceTree = "<group>"; };
 		9B7B7E801C1F04F4007EFC22 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginService.h; path = Controller/Login/Serivice/LoginService.h; sourceTree = "<group>"; };
@@ -924,6 +929,9 @@
 				18E4A6221C3E4D0100609722 /* MeContectUsViewController.h */,
 				18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */,
 				18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */,
+				18F51C471CB7566600C564DA /* MeChangNickNameVC.h */,
+				18F51C481CB7566600C564DA /* MeChangNickNameVC.m */,
+				18F51C491CB7566600C564DA /* MeChangNickNameVC.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1129,6 +1137,7 @@
 				189640EE1C1A790900657904 /* nav_login@3x.png in Resources */,
 				18E933CD1C213DF800155F9C /* loading_5@2x.png in Resources */,
 				182A9F961CACFE1000A3643F /* manage_edit_item@2x.png in Resources */,
+				18F51C4B1CB7566600C564DA /* MeChangNickNameVC.xib in Resources */,
 				18E933CA1C213DF800155F9C /* loading_2@2x.png in Resources */,
 				18EEEED21CB50368005091F7 /* amphotoseleted@2x.png in Resources */,
 				18EF5AEE1C1E674700A436C4 /* MJRefresh.bundle in Resources */,
@@ -1205,6 +1214,7 @@
 				9BEBD7D91CB01177003B6A86 /* YMnineImageView.m in Sources */,
 				9BDD3C721C3EAC96009CEC3D /* UIButton+WebCache.m in Sources */,
 				9BDD3C6C1C3EAC96009CEC3D /* SDWebImageCompat.m in Sources */,
+				18F51C4A1CB7566600C564DA /* MeChangNickNameVC.m in Sources */,
 				18EF5ADC1C1E5F7E00A436C4 /* MeHistoryViewController.m in Sources */,
 				9BBC3E201BD14ED400F15A1E /* HttpClient.m in Sources */,
 				18EEEEC91CB5035F005091F7 /* AmPhotoPikerTools.m in Sources */,

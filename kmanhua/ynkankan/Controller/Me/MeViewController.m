@@ -14,6 +14,7 @@
 #import "MeContectUsViewController.h"
 #import "MeNavigationView.h"
 #import "UserSharePrefre.h"
+#import "MeChangNickNameVC.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -37,11 +38,12 @@
 }
 
 - (void)initDate{
-    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"닉넴 수정", @"내가 쓴 글 ", @"제휴문의", nil], [[NSMutableArray alloc] initWithObjects:@"웨이씬 공유하기", nil], nil];
+    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"修改昵称", @"我收藏的 ", @"关于上传", nil], [[NSMutableArray alloc] initWithObjects:@"免责声明", nil], nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
      self.navigationController.navigationBar.alpha = 0;
+        navigation.titleLable.text = [[UserSharePrefre sharedInstance] nikeName];
 }
 
 - (void)initView{
@@ -62,7 +64,7 @@
     [self setFooterView];
     
     navigation = [[MeNavigationView alloc] init];
-    navigation.titleLable.text = @"닉넴";
+
     [navigation.backButton addTarget:self action:@selector(clickBack:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:navigation];
     [self.view addSubview:self.mainTableView];
@@ -81,6 +83,8 @@
 - (void)settingTableHeader{
     self.mainTableView.tableHeaderView = self.meHeader;
 }
+
+
 - (void)setFooterView{
     
     UIView *footerView = [[UIView alloc] init];
@@ -146,18 +150,18 @@
         
         switch (indexPath.row) {
             case 0:
-                NSLog(@"<< 방문기록 >>");
-                
+                NSLog(@"<< 닉넴수정 >>");
+                [self gotoChangeNikeName];
                 break;
                 
             case 1:
                 NSLog(@"<< 의견제출 하기 >>");
-                [self gotoFeedBackView];
+//                [self gotoFeedBackView];
                 break;
                 
             case 2:
                 NSLog(@"<< 제휴 문의 >>");
-                [self gotoContactView];
+//                [self gotoContactView];
                 break;
                 
             case 3:
@@ -210,7 +214,14 @@
     contectUsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:contectUsVC animated:YES];
 }
-
+//修改昵称
+-(void)gotoChangeNikeName{
+    
+    MeChangNickNameVC *chageVC = [[MeChangNickNameVC alloc] init];
+    self.navigationController.navigationBar.alpha = 1;
+    chageVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chageVC animated:YES];
+}
 
 #pragma mark get set
 -(UITableView *)mainTableView{
