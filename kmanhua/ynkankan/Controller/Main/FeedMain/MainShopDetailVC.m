@@ -35,6 +35,8 @@
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
     headerView = [[DetailHeaderView alloc] init];
+    headerView.frame = CGRectMake(0, 0, kScreenWidth, [headerView getContentHeight:test_Content]);
+    
     
     mainTableView = [[UITableView alloc] init];
     mainTableView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);

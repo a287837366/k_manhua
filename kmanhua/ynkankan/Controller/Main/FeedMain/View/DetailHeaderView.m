@@ -8,6 +8,7 @@
 
 #import "DetailHeaderView.h"
 #import "AppConstant.h"
+#import "ToolsClass.h"
 
 @interface DetailHeaderView()
 {
@@ -32,13 +33,13 @@
     
     if (self = [super init]) {
         
-        self.frame = CGRectMake(0, 0, kScreenWidth, Detail_Height);
-        
         [self addSubview:self.headerImageView];
         [self addSubview:self.u_NameLable];
         [self addSubview:self.u_TimeLable];
         
         [self addSubview:self.favButton];
+        
+        self.backgroundColor = [UIColor redColor];
         
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, Detail_Height - 0.5, kScreenWidth, 0.5)];
         lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -49,6 +50,15 @@
     return self;
 
 }
+
+-(CGFloat)getContentHeight:(NSString *)content{
+    
+    CGSize size = [ToolsClass boundingRectWithSize:content Font:[UIFont systemFontOfSize:13] size:CGSizeMake(kScreenWidth - 20, MAXFLOAT)];
+    
+    
+    return Detail_Height + size.height + 20;
+}
+
 
 #pragma mark - get set 
 -(UIImageView *)headerImageView
