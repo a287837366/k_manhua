@@ -21,6 +21,7 @@
 #import "MeViewController.h"
 #import "MainNavigationView.h"
 #import "MainCreateNewsVC.h"
+#import "MainShopDetailVC.h"
 
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainNavigationViewDelegate>{
@@ -202,7 +203,7 @@
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@" didSelectRowAtIndexPath ");
-
+    [self gotoDetailPage:[self.dataArray objectAtIndex:indexPath.row]];
 }
 
 
@@ -240,6 +241,13 @@
     detailVC.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:detailVC animated:YES];
+}
+-(void)gotoDetailPage:(NSMutableDictionary *)dic{
+
+    MainShopDetailVC *detailVC = [[MainShopDetailVC alloc] init];
+    detailVC.newsDic = dic;
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 #pragma mark - get set
