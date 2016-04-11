@@ -7,8 +7,14 @@
 //
 
 #import "MeHistoryViewController.h"
+#import "MainShopCell.h"
+#import "DataBaseManager.h"
 
 @interface MeHistoryViewController ()
+{
+    NSMutableArray *dataArray;
+    
+}
 
 @property (strong, nonatomic) UITableView *mainTableView;
 
@@ -18,18 +24,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initData];
     [self initView];
 }
 
-- (void)initView{
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    UIView *backgoundView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 110)];
-    backgoundView.backgroundColor = Color_Background;
-    [self.view addSubview:backgoundView];
-    
-//    [self.view addSubview:self.mainTableView];
+-(void)initData{
+    dataArray = [[NSMutableArray alloc] init];
 }
+
+- (void)initView{
+    [self setLeftButton];
+    [self setTitle:@"收藏"];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
+}
+
+#pragma mark 返回
+-(void)setLeftButton {
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_top_back"] style:UIBarButtonItemStylePlain target:self action:@selector(closeMethod)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
+}
+
+#pragma mark 返回
+-(void)closeMethod{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -41,7 +64,7 @@
     
     if (!_mainTableView) {
         _mainTableView = [[UITableView alloc] init];
-        _mainTableView.frame = CGRectMake(10, 64, kScreenWidth - 20, kScreenHeight - 64);
+        _mainTableView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
     }
 
     return _mainTableView;

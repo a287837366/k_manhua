@@ -8,6 +8,7 @@
 
 #import "MainShopService.h"
 
+
 #define page_Size 10
 
 @implementation MainShopService
@@ -31,7 +32,23 @@
                                     if ([[responseObject objectForKey:@"data"] isEqual:[NSNull null]]) {
                                         response(nil, 0, nil);
                                     } else {
-                                        response([responseObject objectForKey:@"data"], [[responseObject objectForKey:@"count"] intValue], nil);
+                                        
+                                        NSMutableArray *array = [[NSMutableArray alloc] init];
+                                        
+                                        for (NSMutableDictionary *dic in [responseObject objectForKey:@"data"]) {
+                                            
+                                            NewsModel *model = [[NewsModel alloc] init];
+                                            model.m_uid = [dic objectForKey:@"m_uid"];
+                                            model.m_fromdata = [dic objectForKey:@"m_fromdata"];
+                                            model.m_icon = [dic objectForKey:@"m_icon"];
+                                            model.m_createTime = [dic objectForKey:@"m_createTime"];
+                                            model.m_title = [dic objectForKey:@"m_title"];
+                                            
+                                            [array addObject:model];
+                                        }
+                                        
+                                        
+                                        response(array, array.count, nil);
                                     }
                                     
 

@@ -142,7 +142,7 @@
     __weak typeof(self) weakSelf = self;
     
     [self.service  getManhuaList:page type:[navigationView getType] response:^(NSMutableArray *freedata, NSInteger pageCount, NSError *error){
-        
+        NSLog(@"  >>>>> %@  ", freedata);
         if (error) {
             NSLog(@" 返回错误 ");
             return ;
@@ -167,7 +167,6 @@
 }
 #pragma mark - MainNavigationViewDelegate
 -(void)didClickTypeByType:(NewsType)type{
-    NSLog(@"type >>>> %ld", (long)type);
     [self.dataArray removeAllObjects];
     [self.mainTable reloadData];
     
@@ -193,9 +192,11 @@
 
     }
     
-    cell.titleLable.text = [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"m_title"];
-    cell.timeLable.text = [[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"m_createTime"];
+    NewsModel *model = [self.dataArray objectAtIndex:indexPath.row];
     
+    cell.titleLable.text = model.m_title;
+    cell.timeLable.text = model.m_createTime;
+
     return cell;
 
 }
@@ -242,10 +243,10 @@
     
     [self.navigationController pushViewController:detailVC animated:YES];
 }
--(void)gotoDetailPage:(NSMutableDictionary *)dic{
+-(void)gotoDetailPage:(NewsModel *)model{
 
     MainShopDetailVC *detailVC = [[MainShopDetailVC alloc] init];
-    detailVC.newsDic = dic;
+    detailVC.detailModel = model;
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }

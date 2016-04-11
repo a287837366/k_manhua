@@ -15,6 +15,7 @@
 #import "MeNavigationView.h"
 #import "UserSharePrefre.h"
 #import "MeChangNickNameVC.h"
+#import "MeHistoryViewController.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -155,7 +156,8 @@
                 break;
                 
             case 1:
-                NSLog(@"<< 의견제출 하기 >>");
+                NSLog(@"<< 我收藏的 >>");
+                [self gotoFavNewsVC];
 //                [self gotoFeedBackView];
                 break;
                 
@@ -221,6 +223,14 @@
     self.navigationController.navigationBar.alpha = 1;
     chageVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chageVC animated:YES];
+}
+//我收藏的
+-(void)gotoFavNewsVC
+{   
+    MeHistoryViewController *historyVC = [[MeHistoryViewController alloc] init];
+    self.navigationController.navigationBar.alpha = 1;
+    [self.navigationController pushViewController:historyVC animated:YES];
+
 }
 
 #pragma mark get set

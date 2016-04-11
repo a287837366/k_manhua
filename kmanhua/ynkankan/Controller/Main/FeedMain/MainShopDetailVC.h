@@ -7,9 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "NewsModel.h"
 
 @interface MainShopDetailVC : BaseViewController
 
-@property (strong, nonatomic) NSMutableDictionary *newsDic;
+@property (strong, nonatomic) NewsModel *detailModel;
 
 @end

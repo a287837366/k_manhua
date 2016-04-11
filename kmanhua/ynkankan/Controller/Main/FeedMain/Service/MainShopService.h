@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HttpClient.h"
+#import "NewsModel.h"
 
 @interface MainShopService : NSObject
 
