@@ -138,13 +138,14 @@
 
 #pragma mark - 网络请求
 -(void)getManhuaList{
-    
+    [CustomProgressHUD showHUD:self.view];
     __weak typeof(self) weakSelf = self;
     
     [self.service  getManhuaList:page type:[navigationView getType] response:^(NSMutableArray *freedata, NSInteger pageCount, NSError *error){
-        NSLog(@"  >>>>> %@  ", freedata);
+
         if (error) {
             NSLog(@" 返回错误 ");
+            [CustomProgressHUD hideHUD:weakSelf.view];
             return ;
         }
         
@@ -227,7 +228,7 @@
 }
 
 -(void)delayRefreshEnd{
-   
+    [CustomProgressHUD hideHUD:self.view];
     page++;
     
     [self.mainTable reloadData];

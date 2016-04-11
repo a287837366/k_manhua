@@ -52,7 +52,6 @@
     if (!_titleLable) {
         _titleLable = [[UILabel alloc] init];
         _titleLable.frame = CGRectMake(MainCell_Height, 30, kScreenWidth - MainCell_Height - 20, MainCell_Height - 60);
-        _titleLable.text = @"123123123123123123123123123123121231231231231231231231231231231231233123123123123123123123123123123";
         _titleLable.tintColor = [UIColor grayColor];
         _titleLable.numberOfLines = 2;
         

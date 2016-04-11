@@ -7,8 +7,15 @@
 //
 
 #import "MainShopDetailVC.h"
+#import "DetailHeaderView.h"
 
 @interface MainShopDetailVC ()
+{
+    
+    UITableView *mainTableView;
+    DetailHeaderView *headerView;
+}
+
 
 @end
 
@@ -24,6 +31,18 @@
     self.view.backgroundColor = Color_Background;
     [self setTitle:@"详情"];
     [self setLeftButton];
+  
+    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
+    
+    headerView = [[DetailHeaderView alloc] init];
+    
+    mainTableView = [[UITableView alloc] init];
+    mainTableView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
+    mainTableView.tableHeaderView = headerView;
+    
+    mainTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.view addSubview:mainTableView];
 }
 
 #pragma mark 返回

@@ -156,6 +156,7 @@
 		9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDE49C1C1EEC4A00573468 /* RegisterdDetailView.m */; };
 		9BEDE4A01C1EEC9100573468 /* RegisterdDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */; };
 		9BEDE4A41C1EFFCB00573468 /* MainShopService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDE4A31C1EFFCB00573468 /* MainShopService.m */; };
+		9BF7E35B1CBBD1CB0059AEA7 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7E35A1CBBD1CB0059AEA7 /* DetailHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -418,6 +419,8 @@
 		9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterdDetailView.xib; path = Controller/Login/View/RegisterdDetailView.xib; sourceTree = "<group>"; };
 		9BEDE4A21C1EFFCB00573468 /* MainShopService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainShopService.h; path = Controller/Main/FeedMain/Service/MainShopService.h; sourceTree = "<group>"; };
 		9BEDE4A31C1EFFCB00573468 /* MainShopService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShopService.m; path = Controller/Main/FeedMain/Service/MainShopService.m; sourceTree = "<group>"; };
+		9BF7E3591CBBD1CB0059AEA7 /* DetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailHeaderView.h; path = Controller/Main/FeedMain/View/DetailHeaderView.h; sourceTree = "<group>"; };
+		9BF7E35A1CBBD1CB0059AEA7 /* DetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailHeaderView.m; path = Controller/Main/FeedMain/View/DetailHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1012,6 +1015,8 @@
 				188FC96B1C194FFB00E85317 /* MainHeaderView.m */,
 				9BB969FB1CAF496100D888D7 /* MainCreateMainView.h */,
 				9BB969FC1CAF496100D888D7 /* MainCreateMainView.m */,
+				9BF7E3591CBBD1CB0059AEA7 /* DetailHeaderView.h */,
+				9BF7E35A1CBBD1CB0059AEA7 /* DetailHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1237,6 +1242,7 @@
 				9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */,
 				9BDD3C761C3EAC96009CEC3D /* UIImageView+HighlightedWebCache.m in Sources */,
 				18EF5AF11C1E674700A436C4 /* MJRefreshFooterView.m in Sources */,
+				9BF7E35B1CBBD1CB0059AEA7 /* DetailHeaderView.m in Sources */,
 				186511DE1C1F9BD400DD969C /* ToolsClass.m in Sources */,
 				1804B6171CBB50D40092398F /* FMDatabaseAdditions.m in Sources */,
 				18EEEEC31CB5035F005091F7 /* AmPhotoGroupModel.m in Sources */,
