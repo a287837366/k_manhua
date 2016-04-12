@@ -15,7 +15,11 @@
 
 @interface DetailHeaderView : UIView
 
+@property (nonatomic, strong) UIButton *favButton;
+
 -(CGFloat)getContentHeight:(NSString *)content;
 -(void)setContent:(NSString *)content;
+
+-(void)favButtonByUid:(NSString *)uid;
 
 @end

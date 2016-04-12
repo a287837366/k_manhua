@@ -119,10 +119,8 @@
             model.m_icon = [rs stringForColumn:@"m_icon"];
             model.m_title = [rs stringForColumn:@"m_title"];
             model.m_uid = [rs stringForColumn:@"m_uid"];
-            
             [manhuaArray addObject:model];
         }
-        
     }];
 
 

@@ -9,6 +9,7 @@
 #import "DetailHeaderView.h"
 #import "AppConstant.h"
 #import "ToolsClass.h"
+#import "DataBaseManager.h"
 
 @interface DetailHeaderView()
 {
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) UILabel *u_NameLable;
 @property (nonatomic, strong) UILabel *u_TimeLable;
 
-@property (nonatomic, strong) UIButton *favButton;
+
 @property (nonatomic, strong) UILabel *contentLable;
 
 @end
@@ -63,7 +64,16 @@
     self.contentLable.frame = CGRectMake(10, Detail_Height + 10, kScreenWidth - 20, self.frame.size.height - Detail_Height - 20 );
     self.contentLable.text = content;
 }
-
+-(void)favButtonByUid:(NSString *)uid
+{
+    
+    if ([[DataBaseManager shareInstance] isFav:uid]) {
+        [self.favButton setTitle:@"已收藏" forState:UIControlStateNormal];
+    } else {
+        [self.favButton setTitle:@"收藏" forState:UIControlStateNormal];
+    }
+    
+}
 
 #pragma mark - get set 
 -(UIImageView *)headerImageView

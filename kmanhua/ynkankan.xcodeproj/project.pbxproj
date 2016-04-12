@@ -158,6 +158,8 @@
 		9BEDE4A01C1EEC9100573468 /* RegisterdDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BEDE49F1C1EEC9100573468 /* RegisterdDetailView.xib */; };
 		9BEDE4A41C1EFFCB00573468 /* MainShopService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDE4A31C1EFFCB00573468 /* MainShopService.m */; };
 		9BF7E35B1CBBD1CB0059AEA7 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF7E35A1CBBD1CB0059AEA7 /* DetailHeaderView.m */; };
+		9BF88A8F1CBD1DD300BBAF7D /* DetailImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF88A8D1CBD1DD300BBAF7D /* DetailImageCell.m */; };
+		9BF88A901CBD1DD300BBAF7D /* DetailImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BF88A8E1CBD1DD300BBAF7D /* DetailImageCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -423,6 +425,9 @@
 		9BEDE4A31C1EFFCB00573468 /* MainShopService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShopService.m; path = Controller/Main/FeedMain/Service/MainShopService.m; sourceTree = "<group>"; };
 		9BF7E3591CBBD1CB0059AEA7 /* DetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailHeaderView.h; path = Controller/Main/FeedMain/View/DetailHeaderView.h; sourceTree = "<group>"; };
 		9BF7E35A1CBBD1CB0059AEA7 /* DetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailHeaderView.m; path = Controller/Main/FeedMain/View/DetailHeaderView.m; sourceTree = "<group>"; };
+		9BF88A8C1CBD1DD300BBAF7D /* DetailImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailImageCell.h; path = Controller/Main/FeedMain/View/Cell/DetailImageCell.h; sourceTree = "<group>"; };
+		9BF88A8D1CBD1DD300BBAF7D /* DetailImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailImageCell.m; path = Controller/Main/FeedMain/View/Cell/DetailImageCell.m; sourceTree = "<group>"; };
+		9BF88A8E1CBD1DD300BBAF7D /* DetailImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailImageCell.xib; path = Controller/Main/FeedMain/View/Cell/DetailImageCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1029,6 +1034,9 @@
 			children = (
 				9BEAB9A21BE792A200AD5A20 /* MainShopCell.h */,
 				9BEAB9A31BE792A200AD5A20 /* MainShopCell.m */,
+				9BF88A8C1CBD1DD300BBAF7D /* DetailImageCell.h */,
+				9BF88A8D1CBD1DD300BBAF7D /* DetailImageCell.m */,
+				9BF88A8E1CBD1DD300BBAF7D /* DetailImageCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1219,6 +1227,7 @@
 				182A9F921CACF80D00A3643F /* nav_top_background@3x.png in Resources */,
 				182A9F911CACF80D00A3643F /* nav_top_background@2x.png in Resources */,
 				9BBC3DF81BCAB86300F15A1E /* getIntegralBtn_selected@2x.png in Resources */,
+				9BF88A901CBD1DD300BBAF7D /* DetailImageCell.xib in Resources */,
 				18E933D31C213DF800155F9C /* loading_11@2x.png in Resources */,
 				18115C171CBCF31A0040D250 /* test_detailpage.png in Resources */,
 				186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */,
@@ -1242,6 +1251,7 @@
 			files = (
 				9BB969FD1CAF496100D888D7 /* MainCreateMainView.m in Sources */,
 				9BDD3C6D1C3EAC96009CEC3D /* SDWebImageDecoder.m in Sources */,
+				9BF88A8F1CBD1DD300BBAF7D /* DetailImageCell.m in Sources */,
 				9BDD3C711C3EAC96009CEC3D /* SDWebImagePrefetcher.m in Sources */,
 				9B6E969B1C2FF4D7008736CB /* NewsService.m in Sources */,
 				9BDD3C761C3EAC96009CEC3D /* UIImageView+HighlightedWebCache.m in Sources */,
