@@ -9,6 +9,8 @@
 #import "MainShopDetailVC.h"
 #import "DetailHeaderView.h"
 
+//480 : 640
+
 @interface MainShopDetailVC ()
 {
     
@@ -36,6 +38,8 @@
     
     headerView = [[DetailHeaderView alloc] init];
     headerView.frame = CGRectMake(0, 0, kScreenWidth, [headerView getContentHeight:test_Content]);
+    
+    [headerView setContent:test_Content];
     
     
     mainTableView = [[UITableView alloc] init];

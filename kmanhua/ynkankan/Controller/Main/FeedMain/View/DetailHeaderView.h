@@ -16,5 +16,6 @@
 @interface DetailHeaderView : UIView
 
 -(CGFloat)getContentHeight:(NSString *)content;
+-(void)setContent:(NSString *)content;
 
 @end

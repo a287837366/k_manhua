@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UILabel *u_TimeLable;
 
 @property (nonatomic, strong) UIButton *favButton;
+@property (nonatomic, strong) UILabel *contentLable;
 
 @end
 
@@ -38,8 +39,7 @@
         [self addSubview:self.u_TimeLable];
         
         [self addSubview:self.favButton];
-        
-        self.backgroundColor = [UIColor redColor];
+        [self addSubview:self.contentLable];
         
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, Detail_Height - 0.5, kScreenWidth, 0.5)];
         lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -57,6 +57,11 @@
     
     
     return Detail_Height + size.height + 20;
+}
+-(void)setContent:(NSString *)content
+{
+    self.contentLable.frame = CGRectMake(10, Detail_Height + 10, kScreenWidth - 20, self.frame.size.height - Detail_Height - 20 );
+    self.contentLable.text = content;
 }
 
 
@@ -114,7 +119,7 @@
     if (!_favButton) {
         
         _favButton = [[UIButton alloc] init];
-        _favButton.frame = CGRectMake(kScreenWidth - 90, (Detail_Height - 25) / 2, 70, 25);
+        _favButton.frame = CGRectMake(kScreenWidth - 80, (Detail_Height - 25) / 2, 70, 25);
         _favButton.titleLabel.font = [UIFont systemFontOfSize:13];
         _favButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [_favButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -122,11 +127,25 @@
         _favButton.layer.borderColor = [[UIColor redColor] CGColor];
         _favButton.layer.borderWidth = 0.5;
         _favButton.layer.cornerRadius = 3;
-        [_favButton setTitle:@"关注" forState:UIControlStateNormal];
+        [_favButton setTitle:@"收藏" forState:UIControlStateNormal];
         
     }
 
     return _favButton;
+}
+
+-(UILabel *)contentLable
+{
+    
+    if (!_contentLable) {
+        
+        _contentLable = [[UILabel alloc] init];
+        _contentLable.textColor = [UIColor darkGrayColor];
+        _contentLable.font = [UIFont systemFontOfSize:13];
+        _contentLable.numberOfLines = 0;
+    }
+
+    return _contentLable;
 }
 
 @end
