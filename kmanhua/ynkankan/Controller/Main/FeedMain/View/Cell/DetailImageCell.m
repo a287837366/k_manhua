@@ -28,7 +28,7 @@
 
 -(void)imageUrl:(NSString *)imgUrl
 {
-    self.detailPage.image = [UIImage imageNamed:@"test_detailpage"];
+    self.detailPage.image = [UIImage imageNamed:@"detailpage.jpg"];
 //    [self.detailPage sd_setImageWithURL:[NSURL URLWithString:imgUrl]];
 }
 

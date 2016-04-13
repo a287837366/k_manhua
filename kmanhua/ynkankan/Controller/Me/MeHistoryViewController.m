@@ -8,6 +8,7 @@
 
 #import "MeHistoryViewController.h"
 #import "MainShopCell.h"
+#import "MainShopDetailVC.h"
 #import "DataBaseManager.h"
 
 @interface MeHistoryViewController ()<UITableViewDataSource, UITableViewDelegate>
@@ -92,6 +93,21 @@
     return 100;
 }
 
+//点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@" didSelectRowAtIndexPath ");
+    [self gotoDetailPage:[dataArray objectAtIndex:indexPath.row]];
+}
+
+#pragma mark - goto
+-(void)gotoDetailPage:(NewsModel *)model{
+    
+    MainShopDetailVC *detailVC = [[MainShopDetailVC alloc] init];
+    detailVC.detailModel = model;
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
+
 
 
 #pragma mark - get set
@@ -102,6 +118,7 @@
         _mainTableView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;
+        _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     }
 

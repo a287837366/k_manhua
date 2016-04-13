@@ -16,6 +16,7 @@
 #import "UserSharePrefre.h"
 #import "MeChangNickNameVC.h"
 #import "MeHistoryViewController.h"
+#import "MeNoResponsibilityVC.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -163,7 +164,7 @@
                 
             case 2:
                 NSLog(@"<< 제휴 문의 >>");
-//                [self gotoContactView];
+                [self gotoContactView];
                 break;
                 
             case 3:
@@ -179,6 +180,7 @@
         switch (indexPath.row) {
             case 0:
                 NSLog(@"<< 웨이씬 공요하기  >>");
+                [self gotoNoResponVC];
                 break;
                 
             case 1:
@@ -213,6 +215,7 @@
 //제휴문의
 -(void)gotoContactView{
     MeContectUsViewController *contectUsVC = [[MeContectUsViewController alloc] init];
+    self.navigationController.navigationBar.alpha = 1;
     contectUsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:contectUsVC animated:YES];
 }
@@ -231,6 +234,14 @@
     self.navigationController.navigationBar.alpha = 1;
     [self.navigationController pushViewController:historyVC animated:YES];
 
+}
+
+//免责声明
+-(void)gotoNoResponVC
+{
+    MeNoResponsibilityVC *responseVC = [[MeNoResponsibilityVC alloc] init];
+    self.navigationController.navigationBar.alpha = 1;
+    [self.navigationController pushViewController:responseVC animated:YES];
 }
 
 #pragma mark get set

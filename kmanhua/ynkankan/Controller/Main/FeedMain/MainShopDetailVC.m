@@ -51,6 +51,7 @@
     mainTableView.tableHeaderView = headerView;
     mainTableView.dataSource = self;
     mainTableView.delegate = self;
+    mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     mainTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -74,7 +75,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   return 640.0f * kScreenWidth / 480.0f;
+   return 525.0f * kScreenWidth / 700.0f;
 }
 
 #pragma mark 返回

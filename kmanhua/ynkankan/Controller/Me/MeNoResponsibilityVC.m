@@ -1,23 +1,23 @@
 //
-//  MeContectUsViewController.m
+//  MeNoResponsibilityVC.m
 //  ynkankan
 //
-//  Created by apple on 16/1/7.
+//  Created by apple on 16/4/13.
 //  Copyright © 2016年 cn.com.km.kankan. All rights reserved.
 //
 
-#import "MeContectUsViewController.h"
+#import "MeNoResponsibilityVC.h"
 
-@interface MeContectUsViewController ()
+@interface MeNoResponsibilityVC ()
 
 @end
 
-@implementation MeContectUsViewController
+@implementation MeNoResponsibilityVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initView];
 
+    [self initView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,10 +25,12 @@
 
 }
 
--(void)initView{
-    self.view.backgroundColor = Color_Background;
+-(void)initView
+{
+    
     [self setLeftButton];
-    [self setTitle:@"关于上传"];
+    [self setTitle:@"免责声明"];
+    
 }
 
 #pragma mark 返回
@@ -42,7 +44,6 @@
 -(void)closeMethod{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 
 @end
