@@ -14,4 +14,6 @@
 
 -(void)getManhuaList:(NSInteger)page type:(NSInteger)type response:(void (^)(NSMutableArray *freeManhua, NSInteger pageCount, NSError *error))response;
 
+-(void)getManhuaById:(NSString *)manhuaId response:(void (^)(NSMutableDictionary *manhuaDic, NSError *error))response;
+
 @end

@@ -10,14 +10,17 @@
 #import "DetailHeaderView.h"
 #import "DetailImageCell.h"
 #import "DataBaseManager.h"
+#import "MainShopService.h"
 
 //480 : 640
 
-@interface MainShopDetailVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface MainShopDetailVC ()
 {
     
-    UITableView *mainTableView;
     DetailHeaderView *headerView;
+    UIScrollView *mainScollView;
+    MainShopService *service;
+    
 }
 
 
@@ -27,8 +30,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    [self initData];
     [self initView];
+    
+    [self getManhuaDetail];
+}
+
+- (void)initData{
+    service = [[MainShopService alloc] init];
 }
 
 - (void)initView{
@@ -41,41 +51,25 @@
     headerView = [[DetailHeaderView alloc] init];
     headerView.frame = CGRectMake(0, 0, kScreenWidth, [headerView getContentHeight:test_Content]);
     [headerView.favButton addTarget:self action:@selector(checkFav:) forControlEvents:UIControlEventTouchUpInside];
-//    [headerView.favButton addTarget:self action:@selector(checkFav:) forControlEvents:UIControlEventTouchUpInside];
     [headerView setContent:test_Content];
     [headerView favButtonByUid:self.detailModel.m_uid];
     
+    mainScollView = [[UIScrollView alloc] init];
+    mainScollView.backgroundColor = [UIColor whiteColor];
+    mainScollView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
+    [mainScollView addSubview:headerView];
     
-    mainTableView = [[UITableView alloc] init];
-    mainTableView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
-    mainTableView.tableHeaderView = headerView;
-    mainTableView.dataSource = self;
-    mainTableView.delegate = self;
-    mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    mainTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
-    [self.view addSubview:mainTableView];
-    
+    [self.view addSubview:mainScollView];
+
 }
 
-#pragma mark - 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(void)getManhuaDetail{
 
-    return 5;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+    [service getManhuaById:self.detailModel.m_uid response:^(NSMutableDictionary *manhuaDic, NSError *error){
     
-    DetailImageCell *cell = [DetailImageCell initCell:tableView];
-    [cell imageUrl:@""];
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   return 525.0f * kScreenWidth / 700.0f;
+    
+    }];
+    
 }
 
 #pragma mark 返回

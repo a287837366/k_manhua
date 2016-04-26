@@ -12,6 +12,32 @@
 #define page_Size 10
 
 @implementation MainShopService
+
+
+-(void)getManhuaById:(NSString *)manhuaId response:(void (^)(NSMutableDictionary *manhuaDic, NSError *error))response{
+
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@?manhuaid=%@", @"/manhua/getManhuaById.php", manhuaId];
+    
+    [[HttpClient sharedClient] GET:requsetUrl parameters:nil
+                            success:^(NSURLSessionTask *task, id responseObject){
+                                NSLog(@" %@ ", responseObject);
+                                if ([[responseObject objectForKey:@"error"] intValue] != 0) {
+      
+                                } else {
+                                
+            
+                                    
+                                }
+                                
+                                
+                            } failure:^(NSURLSessionTask *task, NSError *error){
+
+                                
+                            }];
+    
+    
+}
+
 /**
  *0.全部 1.招聘信息 2. 求职信息 3.房产信息 4.宠物信息
  *

@@ -197,6 +197,7 @@
     
     cell.titleLable.text = model.m_title;
     cell.timeLable.text = model.m_createTime;
+    [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:nil];
 
     return cell;
 
