@@ -10,6 +10,7 @@
 #import "MainShopCell.h"
 #import "MainShopDetailVC.h"
 #import "DataBaseManager.h"
+#import "UIImageView+WebCache.h"
 
 @interface MeHistoryViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -84,6 +85,7 @@
     
     cell.titleLable.text = model.m_title;
     cell.timeLable.text = model.m_createTime;
+    [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon]];
     
     return cell;
     

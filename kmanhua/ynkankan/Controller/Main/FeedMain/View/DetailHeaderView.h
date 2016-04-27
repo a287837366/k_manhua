@@ -11,14 +11,15 @@
 
 #define Detail_Height   60
 
-#define test_Content @"我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我"
 
 @interface DetailHeaderView : UIView
 
 @property (nonatomic, strong) UIButton *favButton;
+@property (nonatomic, strong) UILabel *u_NameLable;
+@property (nonatomic, strong) UILabel *u_TimeLable;
 
--(CGFloat)getContentHeight:(NSString *)content;
--(void)setContent:(NSString *)content;
+-(CGFloat)getContentHeight:(NSMutableDictionary *)detailDic;
+-(void)setContent:(NSMutableDictionary *)detailDic;
 
 -(void)favButtonByUid:(NSString *)uid;
 

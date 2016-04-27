@@ -10,18 +10,17 @@
 #import "AppConstant.h"
 #import "ToolsClass.h"
 #import "DataBaseManager.h"
+#import "UIImageView+WebCache.h"
+#import "UIImageView+MJWebCache.h"
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 
 @interface DetailHeaderView()
 {
-
-
+    NSMutableArray *imageArray;
 }
 
 @property (nonatomic, strong) UIImageView * headerImageView;
-@property (nonatomic, strong) UILabel *u_NameLable;
-@property (nonatomic, strong) UILabel *u_TimeLable;
-
-
 @property (nonatomic, strong) UILabel *contentLable;
 
 @end
@@ -46,24 +45,81 @@
         lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         
         [self addSubview:lineView];
+        
+        imageArray = [[NSMutableArray alloc] init];
     }
 
     return self;
 
 }
 
--(CGFloat)getContentHeight:(NSString *)content{
+-(CGFloat)getContentHeight:(NSMutableDictionary *)detailDic{
     
-    CGSize size = [ToolsClass boundingRectWithSize:content Font:[UIFont systemFontOfSize:13] size:CGSizeMake(kScreenWidth - 20, MAXFLOAT)];
-    
+    CGSize size = [ToolsClass boundingRectWithSize:detailDic[@"mcontent"] Font:[UIFont systemFontOfSize:13] size:CGSizeMake(kScreenWidth - 20, MAXFLOAT)];
     
     return Detail_Height + size.height + 20;
 }
--(void)setContent:(NSString *)content
+-(void)setContent:(NSMutableDictionary *)detailDic
 {
     self.contentLable.frame = CGRectMake(10, Detail_Height + 10, kScreenWidth - 20, self.frame.size.height - Detail_Height - 20 );
-    self.contentLable.text = content;
+    self.contentLable.text = detailDic[@"mcontent"];
+    
+    NSArray * arr = [detailDic[@"imagelist"] componentsSeparatedByString:@","];
+    
+    NSInteger lineNum = 0;
+    CGFloat weightX = 0.0f;
+    CGFloat heightY = 20.0f + self.contentLable.frame.size.height + self.contentLable.frame.origin.y;
+    
+    for (int i = 0; i < arr.count; i++) {
+
+        if (lineNum != i / 4) {
+            weightX = 0.0f;
+            heightY += 10.0f + ((kScreenWidth - 50.0f) / 4.0f);
+        }
+        
+        lineNum = i / 4;
+        weightX += 10.0f;
+        
+        
+        NSString *image = arr[i];
+        
+        UIImageView *imgeView = [[UIImageView alloc] init];
+        imgeView.frame = CGRectMake( weightX,
+                                    heightY,
+                                    ((kScreenWidth - 50.0f) / 4.0f) ,
+                                    ((kScreenWidth - 50.0f) / 4.0f) );
+        
+        UIButton *clickButton = [[UIButton alloc] init];
+        clickButton.frame = imgeView.frame;
+        clickButton.tag = 100 + i;
+        [clickButton addTarget:self action:@selector(clickImage:) forControlEvents:UIControlEventTouchUpInside];
+        
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.url = [NSURL URLWithString:image];
+        [photo.srcImageView sd_setImageWithURL:[NSURL URLWithString:image]];
+        [imageArray addObject:photo];
+        
+      
+        [imgeView sd_setImageWithURL:[NSURL URLWithString:image]];
+        [self addSubview:imgeView];
+        [self addSubview:clickButton];
+        
+        weightX += ((kScreenWidth - 50.0f) / 4.0f);
+        
+    }
+    
+    self.frame = CGRectMake(0, 0, kScreenWidth, heightY + 20.0f + ((kScreenWidth - 50.0f) / 4.0f));
 }
+
+-(void)clickImage:(UIButton *)button{
+
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = button.tag - 100; // 弹出相册时显示的第一张图片是？
+    browser.photos = imageArray; // 设置所有的图片
+    [browser show];
+    
+}
+
 -(void)favButtonByUid:(NSString *)uid
 {
     

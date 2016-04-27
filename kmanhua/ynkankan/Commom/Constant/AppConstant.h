@@ -14,7 +14,7 @@
 #define kScreenWidth  [[UIScreen mainScreen] bounds].size.width
 
 //----- Color ------
-#define Color_Main [UIColor colorWithRed:252/255.0f green:21/255.0f blue:115/255.0f alpha:1];
+#define Color_Main [UIColor colorWithRed:252/255.0f green:21/255.0f blue:115/255.0f alpha:1]
 //#define Color_Background [UIColor colorWithRed:245.0/255.0f green:245.0/255.0f blue:240.0/255.0f alpha:1]
 
 #define Color_Background [UIColor groupTableViewBackgroundColor]

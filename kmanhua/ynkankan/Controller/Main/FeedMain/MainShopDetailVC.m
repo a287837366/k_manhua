@@ -11,18 +11,21 @@
 #import "DetailImageCell.h"
 #import "DataBaseManager.h"
 #import "MainShopService.h"
+#import "MJPhotoBrowser.h"
+#import "UserSharePrefre.h"
+#import "LoginViewController.h"
 
 //480 : 640
 
-@interface MainShopDetailVC ()
+@interface MainShopDetailVC ()<UIAlertViewDelegate>
 {
-    
-    DetailHeaderView *headerView;
-    UIScrollView *mainScollView;
     MainShopService *service;
     
 }
 
+
+@property (strong, nonatomic) DetailHeaderView *headerView;
+@property (strong, nonatomic) UIScrollView *mainScollView;
 
 @end
 
@@ -48,28 +51,60 @@
   
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
-    headerView = [[DetailHeaderView alloc] init];
-    headerView.frame = CGRectMake(0, 0, kScreenWidth, [headerView getContentHeight:test_Content]);
-    [headerView.favButton addTarget:self action:@selector(checkFav:) forControlEvents:UIControlEventTouchUpInside];
-    [headerView setContent:test_Content];
-    [headerView favButtonByUid:self.detailModel.m_uid];
+    self.headerView = [[DetailHeaderView alloc] init];
+    [self.headerView.favButton addTarget:self action:@selector(checkFav:) forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView favButtonByUid:self.detailModel.m_uid];
+    self.headerView.u_NameLable.text = self.detailModel.m_fromdata;
+    self.headerView.u_TimeLable.text = self.detailModel.m_createTime;
     
-    mainScollView = [[UIScrollView alloc] init];
-    mainScollView.backgroundColor = [UIColor whiteColor];
-    mainScollView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
-    [mainScollView addSubview:headerView];
+    self.mainScollView = [[UIScrollView alloc] init];
+    self.mainScollView.backgroundColor = [UIColor whiteColor];
+    self.mainScollView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
     
-    [self.view addSubview:mainScollView];
+    
+    [self.view addSubview:self.mainScollView];
+    
+
+    
+
 
 }
 
 -(void)getManhuaDetail{
+    
+    __weak typeof(self) weakSelf = self;
 
     [service getManhuaById:self.detailModel.m_uid response:^(NSMutableDictionary *manhuaDic, NSError *error){
     
+        if (manhuaDic !=nil) {
+
+            weakSelf.headerView.frame = CGRectMake(0, 0, kScreenWidth, [weakSelf.headerView getContentHeight:manhuaDic]);
+            [weakSelf.headerView setContent:manhuaDic];
+            
+            weakSelf.mainScollView.contentSize = CGSizeMake(0, weakSelf.headerView.frame.origin.y + weakSelf.headerView.frame.size.height + 60.0f);
+            [weakSelf.mainScollView addSubview:weakSelf.headerView];
+            [weakSelf setCallButton];
+        }
+        
+       
     
     }];
     
+}
+
+-(void)setCallButton{
+
+    UIButton *callButton = [[UIButton alloc] init];
+    callButton.frame = CGRectMake(20, kScreenHeight - 49, kScreenWidth - 40, 40);
+    callButton.backgroundColor = [UIColor whiteColor];
+    callButton.layer.borderColor = [[UIColor redColor] CGColor];
+    callButton.layer.borderWidth = 0.5;
+    callButton.layer.cornerRadius = 5;
+    [callButton setTitle:@"拨打电话" forState:UIControlStateNormal];
+    callButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    [callButton setTitleColor:Color_Main forState:UIControlStateNormal];
+    
+    [self.view addSubview:callButton];
 }
 
 #pragma mark 返回
@@ -85,18 +120,44 @@
     
 }
 
+
+#pragma mark - AlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex == 0) {
+        return;
+    }
+    
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:nil];
+}
+
 #pragma mark - Action
 -(void)checkFav:(UIButton *)button
 {
-    NSLog(@">>>>>>>>>");
-    if ([[DataBaseManager shareInstance] isFav:self.detailModel.m_uid]) {
-        [[DataBaseManager shareInstance] deleteManhua:self.detailModel.m_uid];
+    
+    
+    if ([[UserSharePrefre sharedInstance] isLogin]) {
+        
+        if ([[DataBaseManager shareInstance] isFav:self.detailModel.m_uid]) {
+            [[DataBaseManager shareInstance] deleteManhua:self.detailModel.m_uid];
+            
+        } else {
+            [[DataBaseManager shareInstance] insertManhua:self.detailModel];
+        }
+        
+        [self.headerView favButtonByUid:self.detailModel.m_uid];
+        
         
     } else {
-        [[DataBaseManager shareInstance] insertManhua:self.detailModel];
+        
+        UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"收藏需要登入" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登入", nil];
+        [alerView show];
+        
     }
+    
+    
 
-    [headerView favButtonByUid:self.detailModel.m_uid];
 }
 
 
