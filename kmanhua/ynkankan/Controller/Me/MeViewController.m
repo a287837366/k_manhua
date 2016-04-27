@@ -17,6 +17,7 @@
 #import "MeChangNickNameVC.h"
 #import "MeHistoryViewController.h"
 #import "MeNoResponsibilityVC.h"
+#import "DataBaseManager.h"
 
 @interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
 
@@ -110,6 +111,7 @@
 #pragma mark - 点击注销按钮
 -(void)clickLogout:(UIButton *)button{
     [[UserSharePrefre sharedInstance] clearUser];
+    [[DataBaseManager shareInstance] deleteAllManhua];
     self.navigationController.navigationBar.alpha = 1;
     [self.navigationController popViewControllerAnimated:YES];
 }

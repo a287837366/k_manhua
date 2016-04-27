@@ -34,7 +34,7 @@
     [queue inDatabase:^(FMDatabase *db) {
         if (![DBHelper isTableOK: @"T_MANHUA" withDB:db]) {
             
-            NSString *createTableSQL = @"CREATE TABLE T_MANHUA (key_id integer PRIMARY KEY autoincrement, m_uid varchar, m_title text, m_icon text, m_createTime text, m_fromdata text)";
+            NSString *createTableSQL = @"CREATE TABLE T_MANHUA (key_id integer PRIMARY KEY autoincrement, m_uid varchar, m_title text, m_icon text, m_createTime text, m_fromdata text, u_phoneno text)";
             [db executeUpdate:createTableSQL];
             
         }
@@ -45,7 +45,7 @@
 
 -(void)insertManhua:(NewsModel *)model{
 
-    NSString *sql_Insert = [NSString stringWithFormat:@"insert into T_MANHUA (m_uid, m_title, m_icon, m_createTime, m_fromdata) values ('%@', '%@', '%@', '%@', '%@')", model.m_uid, model.m_title,model.m_icon ,model.m_createTime , model.m_fromdata];
+    NSString *sql_Insert = [NSString stringWithFormat:@"insert into T_MANHUA (m_uid, m_title, m_icon, m_createTime, m_fromdata, u_phoneno) values ('%@', '%@', '%@', '%@', '%@', '%@')", model.m_uid, model.m_title,model.m_icon ,model.m_createTime , model.m_fromdata, model.u_phoneno];
     
     FMDatabaseQueue *queue = [DBHelper getDatabaseQueue];
     
@@ -75,6 +75,24 @@
     }];
     
     [queue close];
+}
+
+-(void)deleteAllManhua{
+
+    FMDatabaseQueue *queue = [DBHelper getDatabaseQueue];
+    
+    if (queue==nil) {
+        return;
+    }
+    
+    NSString *sql_delelte = @"delete from T_MANHUA";
+    
+    [queue inDatabase:^(FMDatabase *db) {
+        [db executeUpdate:sql_delelte];
+    }];
+    
+    [queue close];
+    
 }
 
 -(BOOL)isFav:(NSString *)manhuaId{
@@ -119,6 +137,7 @@
             model.m_icon = [rs stringForColumn:@"m_icon"];
             model.m_title = [rs stringForColumn:@"m_title"];
             model.m_uid = [rs stringForColumn:@"m_uid"];
+            model.u_phoneno = [rs stringForColumn:@"u_phoneno"];
             [manhuaArray addObject:model];
         }
     }];

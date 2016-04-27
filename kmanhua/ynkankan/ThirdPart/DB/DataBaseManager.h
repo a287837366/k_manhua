@@ -23,4 +23,6 @@
 
 -(NSMutableArray *)getManhuaHistroy;
 
+-(void)deleteAllManhua;
+
 @end

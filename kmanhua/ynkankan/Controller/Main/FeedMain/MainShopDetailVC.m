@@ -14,12 +14,14 @@
 #import "MJPhotoBrowser.h"
 #import "UserSharePrefre.h"
 #import "LoginViewController.h"
+#import "MBProgressHUD+ToastDialog.h"
 
 //480 : 640
 
-@interface MainShopDetailVC ()<UIAlertViewDelegate>
+@interface MainShopDetailVC ()<UIAlertViewDelegate, UIActionSheetDelegate>
 {
     MainShopService *service;
+    NSArray *phoneArray;
     
 }
 
@@ -41,7 +43,10 @@
 }
 
 - (void)initData{
+    
+    phoneArray = [self.detailModel.u_phoneno componentsSeparatedByString:@";"];
     service = [[MainShopService alloc] init];
+
 }
 
 - (void)initView{
@@ -84,11 +89,22 @@
             weakSelf.mainScollView.contentSize = CGSizeMake(0, weakSelf.headerView.frame.origin.y + weakSelf.headerView.frame.size.height + 60.0f);
             [weakSelf.mainScollView addSubview:weakSelf.headerView];
             [weakSelf setCallButton];
+        } else {
+            
+            [weakSelf showDeleteAlert];
         }
         
        
     
     }];
+    
+}
+
+-(void)showDeleteAlert{
+
+    UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"改消息已被删除" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles: nil];
+    [alerView show];
+
     
 }
 
@@ -100,11 +116,43 @@
     callButton.layer.borderColor = [[UIColor redColor] CGColor];
     callButton.layer.borderWidth = 0.5;
     callButton.layer.cornerRadius = 5;
+    [callButton addTarget:self action:@selector(clickCallButton:) forControlEvents:UIControlEventTouchUpInside];
     [callButton setTitle:@"拨打电话" forState:UIControlStateNormal];
     callButton.titleLabel.font = [UIFont systemFontOfSize:15];
     [callButton setTitleColor:Color_Main forState:UIControlStateNormal];
     
     [self.view addSubview:callButton];
+}
+
+-(void)clickCallButton:(UIButton *)button{
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:nil];
+
+    for (NSString *btnString in phoneArray) {
+        [actionSheet addButtonWithTitle:btnString];
+    }
+    
+    
+    
+    [actionSheet showInView:self.view];
+
+
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    
+    if (buttonIndex == 0) {
+        return;
+    }
+    
+    NSLog(@">>>>>>>>%@", phoneArray[buttonIndex - 1]);
+
 }
 
 #pragma mark 返回
@@ -151,7 +199,7 @@
         
     } else {
         
-        UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"收藏需要登入" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登入", nil];
+        UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"收藏需要登入" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登入", nil];
         [alerView show];
         
     }

@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *m_icon;
 @property (strong, nonatomic) NSString *m_title;
 @property (strong, nonatomic) NSString *m_createTime;
+@property (strong, nonatomic) NSString *u_phoneno;
 
 @end

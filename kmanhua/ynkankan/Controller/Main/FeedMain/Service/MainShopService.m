@@ -20,12 +20,18 @@
     
     [[HttpClient sharedClient] GET:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
-
+                                NSLog(@"  >>>>> %@ ", responseObject);
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
                                     response(nil, nil);
                                     
                                 } else {
-                                    response(responseObject[@"data"][0], nil);
+                                    
+                                    if ([responseObject[@"data"] isEqual:[NSNull null]]) {
+                                        response(nil, nil);
+                                    } else{
+                                        response(responseObject[@"data"][0], nil);
+                                    }
+                                    
                                     
                                 }
                                 
@@ -47,7 +53,7 @@
     
     [[HttpClient sharedClient] POST:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
-                                
+//                                NSLog(@"%@", responseObject);
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
 
                                     response(nil, 0, nil);
@@ -68,12 +74,13 @@
                                             model.m_icon = [dic objectForKey:@"m_icon"];
                                             model.m_createTime = [dic objectForKey:@"m_createTime"];
                                             model.m_title = [dic objectForKey:@"m_title"];
+                                            model.u_phoneno = [dic objectForKey:@"u_phoneno"];
                                             
                                             [array addObject:model];
                                         }
                                         
                                         
-                                        response(array, array.count, nil);
+                                        response(array, [[responseObject objectForKey:@"count"] intValue], nil);
                                     }
                                     
 

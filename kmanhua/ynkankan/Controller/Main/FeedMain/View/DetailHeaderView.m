@@ -152,7 +152,7 @@
     if (!_u_NameLable) {
         
         _u_NameLable = [[UILabel alloc] init];
-        _u_NameLable.frame = CGRectMake(Detail_Height, 10, kScreenWidth - Detail_Height - 20, 14);
+        _u_NameLable.frame = CGRectMake(Detail_Height, 10, kScreenWidth - 180, 14);
         _u_NameLable.font = [UIFont systemFontOfSize:13];
         _u_NameLable.textColor = [UIColor darkGrayColor];
         
