@@ -42,7 +42,7 @@
     if (!_leftImage) {
         _leftImage = [[UIImageView alloc] init];
         _leftImage.frame = CGRectMake(10, 10, MainCell_Height - 20, MainCell_Height - 20);
-        _leftImage.backgroundColor = [UIColor groupTableViewBackgroundColor];
+//        _leftImage.backgroundColor = [UIColor groupTableViewBackgroundColor];
     }
     
     return _leftImage;

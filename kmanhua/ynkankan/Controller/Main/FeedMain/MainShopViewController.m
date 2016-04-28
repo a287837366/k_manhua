@@ -36,6 +36,7 @@
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainShopService *service;
 @property (weak, nonatomic) IBOutlet UIButton *btnCreate;
+@property (strong, nonatomic) UIButton *refreshButton;
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
 
@@ -63,6 +64,16 @@
     
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
+    self.refreshButton = [[UIButton alloc] init];
+    self.refreshButton.frame = CGRectMake((kScreenWidth - 100) / 2, (kScreenHeight - 30) / 2, 100, 30);
+    self.refreshButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.refreshButton.layer.cornerRadius = 5;
+    [self.refreshButton addTarget:self action:@selector(clickRefresh:) forControlEvents:UIControlEventTouchUpInside];
+    [self.refreshButton setTitle:@"重新加载" forState:UIControlStateNormal];
+    self.refreshButton.backgroundColor = Color_666666;
+    
+    [self.view addSubview:self.refreshButton];
+    
     self.view.backgroundColor = Color_Background;
     
     [self.view addSubview:self.mainTable];
@@ -73,6 +84,11 @@
     
     navigationView = [[MainNavigationView alloc] init];
     navigationView.delegate = self;
+}
+
+-(void)clickRefresh:(UIButton *)button{
+    self.mainTable.hidden = NO;
+    [self getManhuaList];
 }
 
 -(void)setLeftButton{
@@ -146,11 +162,23 @@
         if (error) {
             NSLog(@" 返回错误 ");
             [CustomProgressHUD hideHUD:weakSelf.view];
+            
+            if (weakSelf.dataArray.count <= 0) {
+                weakSelf.mainTable.hidden = YES;
+            }
+            
             return ;
         }
         
         if (freedata == nil) {
             [weakSelf.mainTable footerEndRefreshing];
+            [CustomProgressHUD hideHUD:weakSelf.view];
+            
+            if (weakSelf.dataArray.count <= 0) {
+                weakSelf.mainTable.hidden = YES;
+            }
+            
+            
             return;
         }
         
@@ -197,7 +225,28 @@
     
     cell.titleLable.text = model.m_title;
     cell.timeLable.text = model.m_createTime;
-    [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:nil];
+    
+    NSInteger type = [model.m_type intValue];
+    
+    
+    if (type == 1) {
+        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"zhanpin_defualt_img"]];
+
+    } else if(type == 2){
+        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"qiuzhi_defualt_img"]];
+    
+    } else if(type == 3){
+        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"fangcan_defualt_img"]];
+        
+    } else if(type == 4){
+        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"congwu_defualt_img"]];
+    
+    } else {
+        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"qita_defualt_img"]];
+    
+    }
+    
+    
 
     return cell;
 

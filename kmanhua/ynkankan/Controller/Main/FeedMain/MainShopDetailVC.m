@@ -50,7 +50,7 @@
 }
 
 - (void)initView{
-    self.view.backgroundColor = Color_Background;
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setTitle:@"详情"];
     [self setLeftButton];
   
@@ -64,7 +64,7 @@
     
     self.mainScollView = [[UIScrollView alloc] init];
     self.mainScollView.backgroundColor = [UIColor whiteColor];
-    self.mainScollView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
+    self.mainScollView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 120);
     
     
     [self.view addSubview:self.mainScollView];

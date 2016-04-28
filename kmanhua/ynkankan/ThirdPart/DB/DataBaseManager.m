@@ -34,7 +34,7 @@
     [queue inDatabase:^(FMDatabase *db) {
         if (![DBHelper isTableOK: @"T_MANHUA" withDB:db]) {
             
-            NSString *createTableSQL = @"CREATE TABLE T_MANHUA (key_id integer PRIMARY KEY autoincrement, m_uid varchar, m_title text, m_icon text, m_createTime text, m_fromdata text, u_phoneno text)";
+            NSString *createTableSQL = @"CREATE TABLE T_MANHUA (key_id integer PRIMARY KEY autoincrement, m_uid varchar, m_title text, m_icon text, m_createTime text, m_fromdata text, u_phoneno text, m_type text)";
             [db executeUpdate:createTableSQL];
             
         }
@@ -45,7 +45,7 @@
 
 -(void)insertManhua:(NewsModel *)model{
 
-    NSString *sql_Insert = [NSString stringWithFormat:@"insert into T_MANHUA (m_uid, m_title, m_icon, m_createTime, m_fromdata, u_phoneno) values ('%@', '%@', '%@', '%@', '%@', '%@')", model.m_uid, model.m_title,model.m_icon ,model.m_createTime , model.m_fromdata, model.u_phoneno];
+    NSString *sql_Insert = [NSString stringWithFormat:@"insert into T_MANHUA (m_uid, m_title, m_icon, m_createTime, m_fromdata, u_phoneno, m_type) values ('%@', '%@', '%@', '%@', '%@', '%@', '%@')", model.m_uid, model.m_title,model.m_icon ,model.m_createTime , model.m_fromdata, model.u_phoneno, model.m_type];
     
     FMDatabaseQueue *queue = [DBHelper getDatabaseQueue];
     
@@ -138,6 +138,7 @@
             model.m_title = [rs stringForColumn:@"m_title"];
             model.m_uid = [rs stringForColumn:@"m_uid"];
             model.u_phoneno = [rs stringForColumn:@"u_phoneno"];
+            model.m_type = [rs stringForColumn:@"m_type"];
             [manhuaArray addObject:model];
         }
     }];

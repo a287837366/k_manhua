@@ -50,7 +50,7 @@
 -(void)getManhuaList:(NSInteger)page type:(NSInteger)type response:(void (^)(NSMutableArray *freeManhua,  NSInteger pageCount, NSError *error))response{
   
     NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld&type=%ld", @"/manhua/getManhuaList.php", (long)page, type];
-    
+    NSLog(@" >>>>>>>>> %@  ", requsetUrl);
     [[HttpClient sharedClient] POST:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
 //                                NSLog(@"%@", responseObject);
@@ -75,12 +75,15 @@
                                             model.m_createTime = [dic objectForKey:@"m_createTime"];
                                             model.m_title = [dic objectForKey:@"m_title"];
                                             model.u_phoneno = [dic objectForKey:@"u_phoneno"];
+                                            model.m_type = [dic objectForKey:@"m_type"];
                                             
                                             [array addObject:model];
                                         }
                                         
                                         
                                         response(array, [[responseObject objectForKey:@"count"] intValue], nil);
+
+                                    
                                     }
                                     
 
