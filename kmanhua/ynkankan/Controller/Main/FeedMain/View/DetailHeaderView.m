@@ -93,6 +93,8 @@
         clickButton.frame = imgeView.frame;
         clickButton.tag = 100 + i;
         [clickButton addTarget:self action:@selector(clickImage:) forControlEvents:UIControlEventTouchUpInside];
+        clickButton.layer.borderWidth = 0.5;
+        clickButton.layer.borderColor = [[UIColor groupTableViewBackgroundColor] CGColor];
         
         MJPhoto *photo = [[MJPhoto alloc] init];
         photo.url = [NSURL URLWithString:image];

@@ -39,6 +39,7 @@
 @property (strong, nonatomic) UIButton *refreshButton;
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
+@property (assign, nonatomic) NSInteger refreshType;
 
 @end
 
@@ -55,6 +56,7 @@
 -(void)initData{
     isNoPage = NO;
     page = 0;
+    self.refreshType = -1;
 
     self.dataArray = [[NSMutableArray alloc] init];
 }
@@ -182,13 +184,18 @@
             return;
         }
         
+
         if (page + 1 >= pageCount) {
             isNoPage = YES;
         }
 
+        if (weakSelf.refreshType == -1 || weakSelf.refreshType == 0) {
+            [weakSelf.dataArray removeAllObjects];
+        }
+        
         [weakSelf.dataArray addObjectsFromArray:freedata];
         
-        [self performSelector:@selector(delayRefreshEnd) withObject:nil afterDelay:0.5f];
+        [self performSelector:@selector(delayRefreshEnd) withObject:nil afterDelay:0.1f];
 
         
     }];
@@ -268,6 +275,8 @@
 //上啦刷新
 -(void)footerRereshing{
     
+    self.refreshType = 1;
+    
     if (isNoPage)
     {
         [self.mainTable footerEndRefreshing];
@@ -277,12 +286,25 @@
     [self getManhuaList];
 }
 
+-(void)headerRereshing{
+    
+    self.refreshType = 0;
+    isNoPage = NO;
+    
+    page = 0;
+    
+    [self getManhuaList];
+}
+
 -(void)delayRefreshEnd{
     [CustomProgressHUD hideHUD:self.view];
     page++;
     
+    self.refreshType = -1;
+    
     [self.mainTable reloadData];
     [self.mainTable footerEndRefreshing];
+    [self.mainTable headerEndRefreshing];
 }
 
 #pragma mark goto
@@ -317,6 +339,7 @@
         _mainTable.dataSource = self;
         _mainTable.backgroundColor = Color_Background;
         [_mainTable addFooterWithTarget:self action:@selector(footerRereshing)];
+        [_mainTable addHeaderWithTarget:self action:@selector(headerRereshing)];
     }
 
     return _mainTable;
