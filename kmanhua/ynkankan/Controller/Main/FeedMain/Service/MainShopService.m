@@ -20,7 +20,7 @@
     
     [[HttpClient sharedClient] GET:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
-                                NSLog(@"  >>>>> %@ ", responseObject);
+//                                NSLog(@"  >>>>> %@ ", responseObject);
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
                                     response(nil, nil);
                                     

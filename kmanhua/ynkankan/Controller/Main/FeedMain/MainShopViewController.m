@@ -206,6 +206,7 @@
     [self.dataArray removeAllObjects];
     [self.mainTable reloadData];
     
+    isNoPage = NO;
     page = 0;
     
     [self getManhuaList];
