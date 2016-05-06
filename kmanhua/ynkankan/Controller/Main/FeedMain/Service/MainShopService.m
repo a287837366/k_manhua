@@ -15,8 +15,11 @@
 
 
 -(void)getManhuaById:(NSString *)manhuaId response:(void (^)(NSMutableDictionary *manhuaDic, NSError *error))response{
-
-    NSString *requsetUrl = [NSString stringWithFormat:@"%@?manhuaid=%@", @"/manhua/getManhuaById.php", manhuaId];
+    
+    /* manhua/getManhuaById.php*/
+    
+    
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@?manhuaid=%@", @"/kankanAdmin/GetManhuaById", manhuaId];
     
     [[HttpClient sharedClient] GET:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
@@ -48,10 +51,10 @@
  *
  */
 -(void)getManhuaList:(NSInteger)page type:(NSInteger)type response:(void (^)(NSMutableArray *freeManhua,  NSInteger pageCount, NSError *error))response{
-  
-    NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld&type=%ld", @"/manhua/getManhuaList.php", (long)page, type];
+    /* /manhua/getManhuaList.php  */
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld&type=%ld", @"/kankanAdmin/GetManhuaListByType", (long)page, type];
     NSLog(@" >>>>>>>>> %@  ", requsetUrl);
-    [[HttpClient sharedClient] POST:requsetUrl parameters:nil
+    [[HttpClient sharedClient] GET:requsetUrl parameters:nil
                             success:^(NSURLSessionTask *task, id responseObject){
 //                                NSLog(@"%@", responseObject);
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {

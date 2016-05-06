@@ -8,8 +8,8 @@
 
 #import "HttpClient.h"
 
-#define KANKAN_HTTP_BASEURL @"http://1.85kankan.sinaapp.com/"
-//#define KANKAN_HTTP_BASEURL @"https://api.app.net/"
+//#define KANKAN_HTTP_BASEURL @"http://1.85kankan.sinaapp.com/"
+#define KANKAN_HTTP_BASEURL @"http://192.168.1.106:8080/"
 
 @implementation HttpClient
 
@@ -24,7 +24,7 @@
         _sharedClient = [[HttpClient alloc] initWithBaseURL:[NSURL URLWithString:KANKAN_HTTP_BASEURL]];
         
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+//        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
         
     });
