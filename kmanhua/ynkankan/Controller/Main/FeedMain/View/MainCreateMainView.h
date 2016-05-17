@@ -12,6 +12,8 @@
 
 @interface MainCreateMainView : UIView
 
+@property(strong, nonatomic) NSMutableDictionary *inputParam;
+
 @property (weak, nonatomic) id<MainCreateMainViewDelegate> delegate;
 
 -(void)setImageByArray:(NSMutableArray *)array;
@@ -20,6 +22,8 @@
 -(void)keyBoardHide;
 
 -(BOOL)checkInputFiled;
+
+-(NSMutableArray *)getImageArray;
 
 @end
 

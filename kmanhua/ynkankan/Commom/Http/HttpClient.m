@@ -9,7 +9,7 @@
 #import "HttpClient.h"
 
 //#define KANKAN_HTTP_BASEURL @"http://1.85kankan.sinaapp.com/"
-#define KANKAN_HTTP_BASEURL @"http://192.168.1.106:8080/"
+#define KANKAN_HTTP_BASEURL @"http://192.168.1.104:8080/"
 
 @implementation HttpClient
 
@@ -24,6 +24,7 @@
         _sharedClient = [[HttpClient alloc] initWithBaseURL:[NSURL URLWithString:KANKAN_HTTP_BASEURL]];
         
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+//        [_sharedClient.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-type"];
 //        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
         
@@ -31,6 +32,27 @@
     
     return _sharedClient;
 
+
+}
+
++ (instancetype) sharedClientUpdateImage{
+    
+    static HttpClient *_sharedClientImage = nil;
+    
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        
+        _sharedClientImage = [[HttpClient alloc] initWithBaseURL:[NSURL URLWithString:KANKAN_HTTP_BASEURL]];
+        
+        _sharedClientImage.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+        [_sharedClientImage.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-type"];
+        //        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        
+        
+    });
+    
+    return _sharedClientImage;
 
 }
 

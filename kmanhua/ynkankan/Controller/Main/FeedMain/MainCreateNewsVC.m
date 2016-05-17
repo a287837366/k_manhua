@@ -10,11 +10,13 @@
 #import "MainCreateMainView.h"
 #import "AmPhotoPikerViewController.h"
 #import "AmPhotoHeader.h"
+#import "MainShopService.h"
 
 @interface MainCreateNewsVC ()<MainCreateMainViewDelegate, AmPhotoDidSelectedDelegate>
 {
 
     MainCreateMainView *mainView;
+    MainShopService *service;
 
 }
 
@@ -37,6 +39,7 @@
     mainView.delegate = self;
     [self.view addSubview:mainView];
 
+    service = [[MainShopService alloc] init];
     
     [self initKeyboardListener];
 }
@@ -87,8 +90,30 @@
     {
         return;
     }
+
+    __weak typeof(self) weakSelf = self;
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [service updateImage:[mainView getImageArray] response:^(NSMutableDictionary * dic, NSError *error){
+    
+        if (error == nil) {
+            [weakSelf updateContent:dic[@"data"]];
+        }
+        
+        
+    }];
+
+}
+
+-(void)updateContent:(NSString *)imageList{
+    
+
+    [mainView.inputParam setObject:@"2" forKey:@"m_type"];
+    [mainView.inputParam setObject:imageList forKey:@"imageList"];
+    [service updateManhuaContent:mainView.inputParam response:^(NSMutableDictionary *dic, NSError *error){
+    
+    
+    }];
 }
 
 #pragma mark - 获取键盘的高度

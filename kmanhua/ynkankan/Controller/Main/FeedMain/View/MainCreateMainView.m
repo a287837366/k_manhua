@@ -169,7 +169,10 @@
     [chooseView reloadYMnineView];
 }
 
+-(NSMutableArray *)getImageArray{
 
+    return [chooseView getImageListByImageType:YMImageTypeLocalImage];
+}
 -(void)keyBoardShow:(CGFloat)keyboardH{
     
     if (!keyBoradrShow) {
@@ -202,6 +205,22 @@
     return YES;
 }
 
+
+-(NSMutableDictionary *)inputParam{
+
+    if (!_inputParam) {
+        
+        _inputParam = [[NSMutableDictionary alloc] init];
+        
+    }
+
+    [_inputParam setObject:textTitle.text forKey:@"manhuaName"];
+    [_inputParam setObject:textPhone.text forKey:@"u_phoneno"];
+    [_inputParam setObject:textComment.text forKey:@"mcontent"];
+
+    
+    return _inputParam;
+}
 #pragma mark - YMnineIamgeViewDelegate
 -(void)didClickAddButton{
     [self.delegate gotoSelectPhoto: 9 - [[chooseView getImageListByImageType:YMImageTypeLocalImage] count]];

@@ -15,4 +15,6 @@
 
 + (instancetype) sharedClient;
 
++ (instancetype) sharedClientUpdateImage;
+
 @end

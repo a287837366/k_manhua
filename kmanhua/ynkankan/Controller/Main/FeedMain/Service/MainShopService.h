@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "HttpClient.h"
 #import "NewsModel.h"
+#import "YMImage.h"
 
 @interface MainShopService : NSObject
 
 -(void)getManhuaList:(NSInteger)page type:(NSInteger)type response:(void (^)(NSMutableArray *freeManhua, NSInteger pageCount, NSError *error))response;
 
 -(void)getManhuaById:(NSString *)manhuaId response:(void (^)(NSMutableDictionary *manhuaDic, NSError *error))response;
+
+-(void)updateManhuaContent:(NSMutableDictionary *)dic response:(void (^)(NSMutableDictionary *freeManhua, NSError *error))response;
+
+-(void)updateImage:(NSMutableArray *)imageArray response:(void (^)(NSMutableDictionary *freeManhua, NSError *error))response;
 
 @end

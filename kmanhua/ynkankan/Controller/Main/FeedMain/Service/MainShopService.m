@@ -7,6 +7,7 @@
 //
 
 #import "MainShopService.h"
+#import "UserSharePrefre.h"
 
 
 #define page_Size 10
@@ -20,8 +21,11 @@
     
     
     NSString *requsetUrl = [NSString stringWithFormat:@"%@?manhuaid=%@", @"/kankanAdmin/GetManhuaById", manhuaId];
-    
+
     [[HttpClient sharedClient] GET:requsetUrl parameters:nil
+                          progress:^(NSProgress *downLoadProcess){
+                          
+                          }
                             success:^(NSURLSessionTask *task, id responseObject){
 //                                NSLog(@"  >>>>> %@ ", responseObject);
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
@@ -55,6 +59,9 @@
     NSString *requsetUrl = [NSString stringWithFormat:@"%@?page=%ld&type=%ld", @"/kankanAdmin/GetManhuaListByType", (long)page, type];
     NSLog(@" >>>>>>>>> %@  ", requsetUrl);
     [[HttpClient sharedClient] GET:requsetUrl parameters:nil
+                          progress:^(NSProgress *downLoadProcess){
+                              
+                          }
                             success:^(NSURLSessionTask *task, id responseObject){
 //                                NSLog(@"%@", responseObject);
                                 if ([[responseObject objectForKey:@"error"] intValue] != 0) {
@@ -97,6 +104,95 @@
                                 response(nil, 0, error);
                             }];
 
+}
+
+
+-(void)updateManhuaContent:(NSMutableDictionary *)dic response:(void (^)(NSMutableDictionary *freeManhua, NSError *error))response{
+    
+//    NSDictionary *paramDic = @{@"manhuaName" : dic[@"manhuaName"] ,
+//                               @"m_fromdata" : [[UserSharePrefre sharedInstance] nikeName] ,
+//                               @"m_type" : dic[@"m_type"] ,
+//                               @"u_phoneno" : dic[@"u_phoneno"] ,
+//                               @"mcontent" : dic[@"mcontent"] ,
+//                               @"imageList" : dic[@"imageList"] ,
+//                               @"username" : [[UserSharePrefre sharedInstance] userId]};
+    
+    NSDictionary *paramDic = @{@"manhuaName" : dic[@"manhuaName"] ,
+                               @"m_fromdata" : [[UserSharePrefre sharedInstance] nikeName] ,
+                               @"m_type" : dic[@"m_type"] ,
+                               @"u_phoneno" : dic[@"u_phoneno"] ,
+                               @"mcontent" : dic[@"mcontent"] ,
+                               @"imageList" : dic[@"imageList"] ,
+                               @"username" : [[UserSharePrefre sharedInstance] userId]};
+    
+    NSLog(@" %@ ", paramDic);
+    [[HttpClient sharedClient] POST:@"/kankanAdmin/UpdateManhuaContent" parameters:paramDic progress:nil
+     
+                            success:^(NSURLSessionTask *task, id responseObject){
+                                
+                                if ([[responseObject objectForKey:@"data"] isEqual:[NSNull null]]) {
+                                    response(nil , nil);
+                                } else {
+                                    response(responseObject , nil);
+                                }
+                                
+        
+                            } failure:^(NSURLSessionTask *task, NSError *error){
+    
+    
+    }];
+    
+}
+
+-(void)updateImage:(NSMutableArray *)imageArray response:(void (^)(NSMutableDictionary *freeManhuaNSError, NSError *error))response{
+    
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval a=[dat timeIntervalSince1970]*1000;
+    
+    __block NSString *timeString = [NSString stringWithFormat:@"%f", a];
+
+    
+    
+    [[HttpClient sharedClientUpdateImage] POST:@"/kankanAdmin/UploadImage"
+                         parameters:@{@"imagetag" : timeString ,
+                                      @"imagecout" : [NSString stringWithFormat:@"%lu", (unsigned long)imageArray.count] ,
+                                      @"username" : [[UserSharePrefre sharedInstance] userId],
+                                      @"deveice_id" : [[UserSharePrefre sharedInstance] UUID]}
+                        constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                            
+                            for (int i = 0; i < imageArray.count; i++) {
+                                YMImage *ymimage = [imageArray objectAtIndex:i];
+                             
+                                NSString *stringtag = [NSString stringWithFormat:@"%@_%d", timeString, i];
+                                
+                                [formData appendPartWithFileData:UIImageJPEGRepresentation(ymimage.image, 1.0)
+                                                            name:stringtag
+                                                        fileName:[NSString stringWithFormat:@"%@.png",stringtag] mimeType:@"image/jpeg"];
+                            }
+                            
+
+                        }
+     
+                        progress:^(NSProgress *downLoadProcess){
+                            NSLog(@">>>>>>>>>");
+                        }
+     
+                        success:^(NSURLSessionTask *task, id responseObject){
+                     
+                            if ([[responseObject objectForKey:@"data"] isEqual:[NSNull null]]) {
+                                response(nil , nil);
+                            } else {
+                                response(responseObject , nil);
+                            }
+                        }
+     
+                        failure:^(NSURLSessionTask *task, NSError *error){
+    
+                            response(nil , error);
+                        }];
+    
+
+    
 }
 
 @end
