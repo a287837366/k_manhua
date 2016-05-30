@@ -86,6 +86,13 @@
                                             model.m_title = [dic objectForKey:@"m_title"];
                                             model.u_phoneno = [dic objectForKey:@"u_phoneno"];
                                             model.m_type = [dic objectForKey:@"m_type"];
+                                            model.t_images = [dic objectForKey:@"t_images"];
+                                            
+                                            if ([model.t_images componentsSeparatedByString:NSLocalizedString(@",", nil)].count >= 3) {
+                                                model.extendArray = [model.t_images componentsSeparatedByString:NSLocalizedString(@",", nil)];
+                                            }
+                                            
+                                            
                                             
                                             [array addObject:model];
                                         }

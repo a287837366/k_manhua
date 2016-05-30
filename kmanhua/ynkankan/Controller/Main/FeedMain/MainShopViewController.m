@@ -22,6 +22,7 @@
 #import "MainNavigationView.h"
 #import "MainCreateNewsVC.h"
 #import "MainShopDetailVC.h"
+#import "MainShioThreeCell.h"
 
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainNavigationViewDelegate>{
@@ -221,43 +222,41 @@
 //自定义Cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *cellIndentifier = @"MainShopCell";
-    MainShopCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-    
-    if (cell == nil) {
-        cell = [[MainShopCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
-
-    }
-    
     NewsModel *model = [self.dataArray objectAtIndex:indexPath.row];
     
-    cell.titleLable.text = model.m_title;
-    cell.timeLable.text = model.m_createTime;
+//    NSLog(@"%ld >>>>> %@",(long)indexPath.row , model.extendArray);
     
-    NSInteger type = [model.m_type intValue];
-    
-    
-    if (type == 1) {
-        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"zhanpin_defualt_img"]];
-
-    } else if(type == 2){
-        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"qiuzhi_defualt_img"]];
-    
-    } else if(type == 3){
-        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"fangcan_defualt_img"]];
+    if (model.extendArray == nil) {
+      
+        static NSString *cellIndentifier = @"MainShopCell";
+        MainShopCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
         
-    } else if(type == 4){
-        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"congwu_defualt_img"]];
-    
+        if (cell == nil) {
+            cell = [[MainShopCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+            
+        }
+        
+        [cell setModel:model];
+        
+        return cell;
+
     } else {
-        [cell.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"qita_defualt_img"]];
-    
+      
+        static NSString *cellIndentifier = @"MainShioThreeCell";
+        MainShioThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+        
+        if (cell == nil) {
+            cell = [[MainShioThreeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+            
+        }
+        
+        [cell setModel:model];
+        
+        return cell;
+
     }
     
-    
-
-    return cell;
-
+  
 }
 
 //点击事件
@@ -269,7 +268,16 @@
 
 //返回高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return MainCell_Height;
+    
+    NewsModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    
+    if (model.extendArray == nil) {
+        return MainCell_Height;
+    } else {
+        return MainShioThreeCellHeight;
+    }
+    
+    
 }
 
 

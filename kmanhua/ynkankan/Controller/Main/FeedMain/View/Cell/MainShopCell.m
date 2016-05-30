@@ -7,6 +7,7 @@
 //
 
 #import "MainShopCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface MainShopCell()
 
@@ -35,6 +36,34 @@
     return self;
 }
 
+-(void)setModel:(NewsModel *)model{
+    
+    self.titleLable.text = model.m_title;
+    self.timeLable.text = model.m_createTime;
+    
+    NSInteger type = [model.m_type intValue];
+    
+    
+    if (type == 1) {
+        [self.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"zhanpin_defualt_img"]];
+        
+    } else if(type == 2){
+        [self.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"qiuzhi_defualt_img"]];
+        
+    } else if(type == 3){
+        [self.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"fangcan_defualt_img"]];
+        
+    } else if(type == 4){
+        [self.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"congwu_defualt_img"]];
+        
+    } else {
+        [self.leftImage sd_setImageWithURL:[NSURL URLWithString:model.m_icon] placeholderImage:[UIImage imageNamed:@"qita_defualt_img"]];
+        
+    }
+
+    
+
+}
 
 #pragma mark - get set
 -(UIImageView *)leftImage{

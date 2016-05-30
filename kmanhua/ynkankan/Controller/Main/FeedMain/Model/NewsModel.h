@@ -17,5 +17,7 @@
 @property (strong, nonatomic) NSString *m_createTime;
 @property (strong, nonatomic) NSString *u_phoneno;
 @property (strong, nonatomic) NSString *m_type;
+@property (strong, nonatomic) NSString *t_images;
+@property (strong, nonatomic) NSArray *extendArray;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppConstant.h"
+#import "NewsModel.h"
 
 #define MainCell_Height 100
 
@@ -17,5 +18,7 @@
 @property (strong, nonatomic) UILabel *titleLable;
 @property (strong, nonatomic) UILabel *levelLable;
 @property (strong, nonatomic) UILabel *timeLable;
+
+-(void)setModel:(NewsModel *)model;
 
 @end
