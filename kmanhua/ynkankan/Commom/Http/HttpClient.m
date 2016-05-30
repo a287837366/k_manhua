@@ -8,8 +8,8 @@
 
 #import "HttpClient.h"
 
-#define KANKAN_HTTP_BASEURL @"http://180.76.151.128:8080/"
-//#define KANKAN_HTTP_BASEURL @"http://192.168.1.104:8080/"
+//#define KANKAN_HTTP_BASEURL @"http://180.76.151.128:8080/"
+#define KANKAN_HTTP_BASEURL @"http://192.168.1.102:8080/"
 
 @implementation HttpClient
 
@@ -23,8 +23,9 @@
 
         _sharedClient = [[HttpClient alloc] initWithBaseURL:[NSURL URLWithString:KANKAN_HTTP_BASEURL]];
         
-        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-//        [_sharedClient.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-type"];
+        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+//        _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain; charset=utf-8"];
+        [_sharedClient.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=UTF-8" forHTTPHeaderField:@"Content-type"];
 //        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
         

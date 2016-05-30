@@ -14,6 +14,10 @@
 -(void)requsetLogin:(NSString *)loginId loginPw:(NSString *)loginPw response:(void (^)(NSMutableDictionary *returnDic, NSError *error))response{
     NSLog(@"user/getByUserId.php");
     [[HttpClient sharedClient] POST:@"/kankanAdmin/PostgetUserByid" parameters:@{@"username" : loginId , @"userpw" : loginPw}
+                           progress:^(NSProgress *downLoadProcess){
+                               
+                           }
+     
         success:^(NSURLSessionTask *task, id responseObject){
             NSLog(@"  %@  ", responseObject);
             if ([[responseObject objectForKey:@"error"] integerValue] != 0) {
@@ -34,6 +38,10 @@
     /* /user/postUserInfo.php */
     
     [[HttpClient sharedClient] POST:@"/kankanAdmin/ResisterUser" parameters:paramDic
+                           progress:^(NSProgress *downLoadProcess){
+                               
+                           }
+     
                             success:^(NSURLSessionTask *task, id responseObject){
                                 NSLog(@" %@ ", responseObject);
                                 if ([[responseObject objectForKey:@"error"] integerValue] != 0) {
@@ -54,6 +62,11 @@
     /* user/postupdateUser.php */
     
     [[HttpClient sharedClient] POST:@"/kankanAdmin/UpdateNikeNameByUser" parameters:paramDic
+     
+                           progress:^(NSProgress *downLoadProcess){
+                               
+                           }
+     
                             success:^(NSURLSessionTask *task, id responseObject){
                                 NSLog(@" %@ ", responseObject);
                                 if ([[responseObject objectForKey:@"error"] integerValue] != 0) {

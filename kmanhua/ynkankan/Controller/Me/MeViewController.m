@@ -114,6 +114,8 @@
     [[DataBaseManager shareInstance] deleteAllManhua];
     self.navigationController.navigationBar.alpha = 1;
     [self.navigationController popViewControllerAnimated:YES];
+    
+    
 }
 
 #pragma mark - tableView Delegate

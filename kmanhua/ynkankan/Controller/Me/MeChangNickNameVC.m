@@ -109,7 +109,7 @@
                           
                           [CustomProgressHUD hideHUD:weakself.view];
                           [[UserSharePrefre sharedInstance] refreshUserByDic:returnDic];
-                          
+                          [self.navigationController popViewControllerAnimated:YES];
                           
                           [MBProgressHUD Toast:nil withText:@"修改成功"];
                       }];
