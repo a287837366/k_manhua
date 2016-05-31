@@ -23,4 +23,5 @@
 #define Color_meheader [UIColor colorWithRed:245/255.0 green:245/255.0 blue:245/255.0 alpha:1.00f]
 #define Color_888888 [UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:1.0f]
 #define Color_f5f5f2 [UIColor colorWithRed:245/255.0 green:245/255.0 blue:242/255.0 alpha:1.0f]
+#define Color_ButtonColor [UIColor colorWithRed:197/255.0 green:11/255.0 blue:38/255.0 alpha:1.00f]
 #endif

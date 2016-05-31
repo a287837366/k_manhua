@@ -8,9 +8,19 @@
 
 #import "BaseViewController.h"
 
-@interface MainCreateNewsVC : BaseViewController
+@protocol MainCreateNewsVCDelegate ;
+
+@interface MainCreateNewsVC : BaseViewController 
+
+@property (assign, nonatomic) NSInteger newsType;
+
+@property (weak, nonatomic) id<MainCreateNewsVCDelegate> delegate;
+
+@end
 
 
+@protocol MainCreateNewsVCDelegate <NSObject>
 
+-(void)didSuccessCreate;
 
 @end

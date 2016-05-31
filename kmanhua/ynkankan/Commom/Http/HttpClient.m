@@ -8,8 +8,8 @@
 
 #import "HttpClient.h"
 
-//#define KANKAN_HTTP_BASEURL @"http://180.76.151.128:8080/"
-#define KANKAN_HTTP_BASEURL @"http://192.168.1.102:8080/"
+#define KANKAN_HTTP_BASEURL @"http://180.76.151.128:8080/"
+//#define KANKAN_HTTP_BASEURL @"http://192.168.1.102:8080/"
 
 @implementation HttpClient
 

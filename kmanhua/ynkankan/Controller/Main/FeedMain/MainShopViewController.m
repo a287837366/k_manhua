@@ -23,6 +23,7 @@
 #import "MainCreateNewsVC.h"
 #import "MainShopDetailVC.h"
 #import "MainShioThreeCell.h"
+#import "ChooseTypeVC.h"
 
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainNavigationViewDelegate>{
@@ -140,8 +141,9 @@
         return;
     }
     
-    MainCreateNewsVC *createVC = [[MainCreateNewsVC alloc] init];
-    [self presentViewController:createVC animated:YES completion:nil];
+    [self gotoChooseTypeVC];
+//    MainCreateNewsVC *createVC = [[MainCreateNewsVC alloc] init];
+//    [self presentViewController:createVC animated:YES completion:nil];
 
 }
 
@@ -317,6 +319,15 @@
 }
 
 #pragma mark goto
+/*
+ * 跳转到选择类别
+ */
+-(void)gotoChooseTypeVC{
+
+    ChooseTypeVC *chooseType = [[ChooseTypeVC alloc] init];
+    [self.navigationController pushViewController:chooseType animated:YES];
+}
+
 -(void)gotoNewsDetailView:(NSString *)openUrl title:(NSString *)title{
     NewsWebDetialViewController *detailVC = [[NewsWebDetialViewController alloc] init];
     detailVC.title = title;

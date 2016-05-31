@@ -136,7 +136,7 @@
     [[HttpClient sharedClient] POST:@"/kankanAdmin/UpdateManhuaContent" parameters:paramDic progress:nil
      
                             success:^(NSURLSessionTask *task, id responseObject){
-                                
+                                NSLog(@" %@ ", responseObject);
                                 if ([[responseObject objectForKey:@"data"] isEqual:[NSNull null]]) {
                                     response(nil , nil);
                                 } else {
@@ -145,7 +145,7 @@
                                 
         
                             } failure:^(NSURLSessionTask *task, NSError *error){
-    
+                                    response(nil , error);
     
     }];
     

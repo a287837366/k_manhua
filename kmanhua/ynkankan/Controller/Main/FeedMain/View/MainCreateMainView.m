@@ -192,13 +192,14 @@
 -(BOOL)checkInputFiled{
 
     if (textTitle.text.length <= 0) {
-        
+        [MBProgressHUD Toast:nil withText:@"请输入标题"];
         NSLog(@"请输入标题");
         return false;
     }
     
     if (textComment.text.length <= 0) {
         NSLog(@"请输入内容");
+        [MBProgressHUD Toast:nil withText:@"请输入内容"];
         return false;
     }
 

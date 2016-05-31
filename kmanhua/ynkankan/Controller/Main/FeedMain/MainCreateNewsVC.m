@@ -11,6 +11,8 @@
 #import "AmPhotoPikerViewController.h"
 #import "AmPhotoHeader.h"
 #import "MainShopService.h"
+#import "MBProgressHUD+ToastDialog.h"
+#import "CustomProgressHUD.h"
 
 @interface MainCreateNewsVC ()<MainCreateMainViewDelegate, AmPhotoDidSelectedDelegate>
 {
@@ -42,6 +44,9 @@
     service = [[MainShopService alloc] init];
     
     [self initKeyboardListener];
+    [self setLeftButton];
+    [self setRigthButton];
+    [self setTitle:@"创建"];
 }
 
 -(void)initKeyboardListener{
@@ -58,7 +63,43 @@
     [mainView keyBoardHide];
 }
 
+#pragma mark 返回
+-(void)setLeftButton {
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_top_back"] style:UIBarButtonItemStylePlain target:self action:@selector(closeMethod)];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    
+}
 
+#pragma mark 返回
+-(void)closeMethod{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+#pragma mark Navagation 右侧按钮
+- (void)setRigthButton{
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"确认", nil) style:UIBarButtonItemStylePlain target:self action:@selector(clickRightButton)];
+    
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
+
+#pragma mark 右侧action
+-(void)clickRightButton{
+    
+    if ([mainView checkInputFiled]){
+    
+        if ([mainView getImageArray].count == 0) {
+            [CustomProgressHUD showHUD:mainView];
+            
+            [self updateContent:@""];
+        } else {
+            [CustomProgressHUD showHUD:mainView];
+            [self createNews:nil];
+        }
+        
+    }
+    
+}
 
 #pragma mark - MainCreateMainViewDelegate
 -(void)gotoSelectPhoto:(NSInteger)maxCount{
@@ -77,9 +118,7 @@
 
 #pragma mark - Action
 - (IBAction)clickCancle:(id)sender {
-    
 
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -107,12 +146,22 @@
 
 -(void)updateContent:(NSString *)imageList{
     
+    __weak typeof(self) weakSelf = self;
 
-    [mainView.inputParam setObject:@"2" forKey:@"m_type"];
+    [mainView.inputParam setObject:[NSString stringWithFormat:@"%ld", (long)self.newsType] forKey:@"m_type"];
     [mainView.inputParam setObject:imageList forKey:@"imageList"];
     [service updateManhuaContent:mainView.inputParam response:^(NSMutableDictionary *dic, NSError *error){
     
     
+        if (error == NULL) {
+            
+//            [weakSelf.delegate didSuccessCreate];
+            [MBProgressHUD Toast:nil withText:@"创建成功"];
+            [CustomProgressHUD hideHUD:weakSelf.view];
+            [weakSelf.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
+        
     }];
 }
 
