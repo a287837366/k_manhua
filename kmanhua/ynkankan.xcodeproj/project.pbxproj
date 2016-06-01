@@ -39,6 +39,7 @@
 		183BC9A41CBE112500A13378 /* detailpage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 183BC9A31CBE112500A13378 /* detailpage.jpg */; };
 		183BC9A81CBE1C9A00A13378 /* MeNoResponsibilityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BC9A61CBE1C9A00A13378 /* MeNoResponsibilityVC.m */; };
 		183BC9A91CBE1C9A00A13378 /* MeNoResponsibilityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183BC9A71CBE1C9A00A13378 /* MeNoResponsibilityVC.xib */; };
+		1842D91C1CFE90D700672086 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1842D91B1CFE90D700672086 /* Default-568h@2x.png */; };
 		184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */; };
 		186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511D71C1EB75B00DD969C /* RegisterViewController.m */; };
 		186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186511D81C1EB75B00DD969C /* RegisterViewController.xib */; };
@@ -235,6 +236,7 @@
 		183BC9A51CBE1C9A00A13378 /* MeNoResponsibilityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeNoResponsibilityVC.h; path = Controller/Me/MeNoResponsibilityVC.h; sourceTree = "<group>"; };
 		183BC9A61CBE1C9A00A13378 /* MeNoResponsibilityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeNoResponsibilityVC.m; path = Controller/Me/MeNoResponsibilityVC.m; sourceTree = "<group>"; };
 		183BC9A71CBE1C9A00A13378 /* MeNoResponsibilityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeNoResponsibilityVC.xib; path = Controller/Me/MeNoResponsibilityVC.xib; sourceTree = "<group>"; };
+		1842D91B1CFE90D700672086 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Res/Main/Default-568h@2x.png"; sourceTree = "<group>"; };
 		184FAC7E1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+ToastDialog.h"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.h"; sourceTree = "<group>"; };
 		184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+ToastDialog.m"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.m"; sourceTree = "<group>"; };
 		186511D61C1EB75B00DD969C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/Login/RegisterViewController.h; sourceTree = "<group>"; };
@@ -851,6 +853,7 @@
 		9BBC3DF21BCAA84E00F15A1E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1842D91B1CFE90D700672086 /* Default-568h@2x.png */,
 				1884BB4D1CFD387A001F6EAC /* icon_data_select.png */,
 				182FBAD51CD1F0D5007750EF /* qita_defualt_img.png */,
 				182FBACD1CD1E4F0007750EF /* congwu_defualt_img.png */,
@@ -1215,6 +1218,7 @@
 				TargetAttributes = {
 					9BCA70311BAB0BA60095D9BA = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 9EB9AQ8K5Z;
 					};
 					9BCA704D1BAB0BA60095D9BA = {
 						CreatedOnToolsVersion = 6.4;
@@ -1269,6 +1273,7 @@
 				182FBAD11CD1E4F0007750EF /* congwu_defualt_img.png in Resources */,
 				182A9F9D1CAD089500A3643F /* friend_setting@3x.png in Resources */,
 				182FBAD61CD1F0D5007750EF /* qita_defualt_img.png in Resources */,
+				1842D91C1CFE90D700672086 /* Default-568h@2x.png in Resources */,
 				18E933D01C213DF800155F9C /* loading_8@2x.png in Resources */,
 				9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */,
 				182A9F901CACF80D00A3643F /* nav_top_background.png in Resources */,
@@ -1555,6 +1560,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ynkankan/Info.plist;
@@ -1569,6 +1575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ynkankan/Info.plist;
