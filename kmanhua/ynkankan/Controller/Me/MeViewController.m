@@ -41,7 +41,7 @@
 }
 
 - (void)initDate{
-    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"修改昵称", @"我收藏的 ", @"关于上传", nil], [[NSMutableArray alloc] initWithObjects:@"免责声明", nil], nil];
+    dataArray = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] initWithObjects:@"修改昵称", @"我收藏的 ", @"关于我们", nil], [[NSMutableArray alloc] initWithObjects:@"免责声明", nil], nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

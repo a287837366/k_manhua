@@ -28,7 +28,7 @@
 -(void)initView{
     self.view.backgroundColor = Color_Background;
     [self setLeftButton];
-    [self setTitle:@"关于上传"];
+    [self setTitle:@"关于我们"];
 }
 
 #pragma mark 返回

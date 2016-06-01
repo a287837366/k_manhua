@@ -64,7 +64,7 @@
 }
 
 -(void)initView{
-    [self setTitle:@"看看"];
+    [self setTitle:@"首页"];
     
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
