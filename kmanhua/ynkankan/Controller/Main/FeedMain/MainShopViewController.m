@@ -341,6 +341,7 @@
 
     MainShopDetailVC *detailVC = [[MainShopDetailVC alloc] init];
     detailVC.detailModel = model;
+    detailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }
@@ -351,7 +352,7 @@
     if (!_mainTable) {
         
         _mainTable = [[UITableView alloc] init];
-        _mainTable.frame = CGRectMake(1, 64, kScreenWidth - 2, kScreenHeight - 65);
+        _mainTable.frame = CGRectMake(1, 64, kScreenWidth - 2, kScreenHeight - 116);
         _mainTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _mainTable.delegate = self;
         _mainTable.showsVerticalScrollIndicator = NO;

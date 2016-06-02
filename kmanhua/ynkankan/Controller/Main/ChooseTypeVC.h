@@ -6,8 +6,8 @@
 //  Copyright © 2016年 cn.com.km.kankan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ChooseTypeVC : UIViewController
+@interface ChooseTypeVC : BaseViewController
 
 @end

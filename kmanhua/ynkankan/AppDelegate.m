@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTabViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,15 @@
     // Override point for customization after application launch.
     //[TestCommit]
     [NSThread sleepForTimeInterval:1.5];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; 
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    self.window = [[UIWindow alloc]init];
+    
+    self.window.frame = [UIScreen mainScreen].bounds;
+    
+    self.window.rootViewController = [[MainTabViewController alloc]init];
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

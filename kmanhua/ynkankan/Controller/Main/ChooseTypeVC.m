@@ -12,14 +12,12 @@
 #import "MainCreateNewsVC.h"
 
 
-@interface ChooseTypeVC () <UITableViewDataSource, UITableViewDelegate, MainCreateNewsVCDelegate>
+@interface ChooseTypeVC () <MainCreateNewsVCDelegate>
 {
 
     NSInteger selctionIndex;
     
 }
-
-@property (strong, nonatomic) UITableView *chooseTable;
 
 @end
 
@@ -39,12 +37,13 @@
 
 - (void)initView{
     
-    [self setTitle:@"选择类别"];
+    self.navigationItem.title = @"发布";
+    
+//    [self setTitle:@"选择类别"];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
-    [self initTableView];
-    [self initBottomButton];
-    [self setLeftButton];
+//    [self initBottomButton];
+//    [self setLeftButton];
     
 }
 
@@ -82,18 +81,6 @@
     
 }
 
-- (void)initTableView {
-    
-    self.chooseTable = [[UITableView alloc] init];
-    self.chooseTable.frame = CGRectMake((kScreenWidth - 200) / 2, 64.0f + 30.0f , 200, TABLE_CELL_HEIGHT * 4.0f + 5.0f);
-    self.chooseTable.delegate = self;
-    self.chooseTable.dataSource = self;
-    self.chooseTable.bounces = NO;
-    
-    self.chooseTable.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:self.chooseTable];
-    
-}
 
 #pragma mark - didCreate
 -(void)didSuccessCreate{
@@ -101,34 +88,6 @@
 }
 
 #pragma mark - tableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return 4;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *cellIndentifier = @"ChooseTypeCell";
-    ChooseTypeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-    
-    if (cell == nil) {
-        cell = [[ChooseTypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
-        
-    }
-    
-    [cell setModel:indexPath selection:selctionIndex];
-
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    return TABLE_CELL_HEIGHT;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    selctionIndex = indexPath.row;
-    [self.chooseTable reloadData];
-}
 
 #pragma mark - goto
 -(void)gotoCreateVC{
