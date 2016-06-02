@@ -48,6 +48,7 @@
 @implementation MainShopViewController
 
 - (void)viewDidLoad {
+   
     [super viewDidLoad];
     [self initData];
     [self initView];
