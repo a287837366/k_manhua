@@ -39,6 +39,7 @@
 		182D5ABD1CAE6D9400F8D6E8 /* MainNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D5ABC1CAE6D9400F8D6E8 /* MainNavigationView.m */; };
 		182D5AC01CAE714E00F8D6E8 /* me_right_arraw@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182D5ABE1CAE714E00F8D6E8 /* me_right_arraw@2x.png */; };
 		182D5AC11CAE714E00F8D6E8 /* me_right_arraw@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 182D5ABF1CAE714E00F8D6E8 /* me_right_arraw@3x.png */; };
+		182DD66F1D01298700CE4743 /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182DD66E1D01298700CE4743 /* EmptyView.m */; };
 		182FBAD11CD1E4F0007750EF /* congwu_defualt_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 182FBACD1CD1E4F0007750EF /* congwu_defualt_img.png */; };
 		182FBAD21CD1E4F0007750EF /* fangcan_defualt_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 182FBACE1CD1E4F0007750EF /* fangcan_defualt_img.png */; };
 		182FBAD31CD1E4F0007750EF /* qiuzhi_defualt_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 182FBACF1CD1E4F0007750EF /* qiuzhi_defualt_img.png */; };
@@ -149,7 +150,6 @@
 		9B7B7E821C1F04F4007EFC22 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B7B7E811C1F04F4007EFC22 /* LoginService.m */; };
 		9BB969FD1CAF496100D888D7 /* MainCreateMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB969FC1CAF496100D888D7 /* MainCreateMainView.m */; };
 		9BB96A011CAF4F0000D888D7 /* MainCreateNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB969FF1CAF4F0000D888D7 /* MainCreateNewsVC.m */; };
-		9BB96A021CAF4F0000D888D7 /* MainCreateNewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BB96A001CAF4F0000D888D7 /* MainCreateNewsVC.xib */; };
 		9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC81C19A2CC0000F312 /* tab_home.png */; };
 		9BBBDDCC1C19A2CC0000F312 /* tab_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDC91C19A2CC0000F312 /* tab_me.png */; };
 		9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */; };
@@ -256,6 +256,8 @@
 		182D5ABC1CAE6D9400F8D6E8 /* MainNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNavigationView.m; path = Controller/Main/FeedMain/View/PopView/MainNavigationView.m; sourceTree = "<group>"; };
 		182D5ABE1CAE714E00F8D6E8 /* me_right_arraw@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "me_right_arraw@2x.png"; path = "Res/Me/me_right_arraw@2x.png"; sourceTree = "<group>"; };
 		182D5ABF1CAE714E00F8D6E8 /* me_right_arraw@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "me_right_arraw@3x.png"; path = "Res/Me/me_right_arraw@3x.png"; sourceTree = "<group>"; };
+		182DD66D1D01298700CE4743 /* EmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmptyView.h; path = Controller/Main/FeedMain/View/EmptyView.h; sourceTree = "<group>"; };
+		182DD66E1D01298700CE4743 /* EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmptyView.m; path = Controller/Main/FeedMain/View/EmptyView.m; sourceTree = "<group>"; };
 		182FBACD1CD1E4F0007750EF /* congwu_defualt_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = congwu_defualt_img.png; path = Res/Main/congwu_defualt_img.png; sourceTree = "<group>"; };
 		182FBACE1CD1E4F0007750EF /* fangcan_defualt_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fangcan_defualt_img.png; path = Res/Main/fangcan_defualt_img.png; sourceTree = "<group>"; };
 		182FBACF1CD1E4F0007750EF /* qiuzhi_defualt_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qiuzhi_defualt_img.png; path = Res/Main/qiuzhi_defualt_img.png; sourceTree = "<group>"; };
@@ -426,7 +428,6 @@
 		9BB969FC1CAF496100D888D7 /* MainCreateMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCreateMainView.m; path = Controller/Main/FeedMain/View/MainCreateMainView.m; sourceTree = "<group>"; };
 		9BB969FE1CAF4F0000D888D7 /* MainCreateNewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCreateNewsVC.h; path = Controller/Main/FeedMain/MainCreateNewsVC.h; sourceTree = "<group>"; };
 		9BB969FF1CAF4F0000D888D7 /* MainCreateNewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCreateNewsVC.m; path = Controller/Main/FeedMain/MainCreateNewsVC.m; sourceTree = "<group>"; };
-		9BB96A001CAF4F0000D888D7 /* MainCreateNewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainCreateNewsVC.xib; path = Controller/Main/FeedMain/MainCreateNewsVC.xib; sourceTree = "<group>"; };
 		9BBBDDC81C19A2CC0000F312 /* tab_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_home.png; path = Res/Tab/tab_home.png; sourceTree = "<group>"; };
 		9BBBDDC91C19A2CC0000F312 /* tab_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_me.png; path = Res/Tab/tab_me.png; sourceTree = "<group>"; };
 		9BBBDDCA1C19A2CC0000F312 /* tab_weixin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_weixin.png; path = Res/Tab/tab_weixin.png; sourceTree = "<group>"; };
@@ -1100,7 +1101,6 @@
 				9BEAB99E1BE78B3300AD5A20 /* MainShopViewController.m */,
 				9BB969FE1CAF4F0000D888D7 /* MainCreateNewsVC.h */,
 				9BB969FF1CAF4F0000D888D7 /* MainCreateNewsVC.m */,
-				9BB96A001CAF4F0000D888D7 /* MainCreateNewsVC.xib */,
 				1804B5FF1CBB3B050092398F /* MainShopDetailVC.h */,
 				1804B6001CBB3B050092398F /* MainShopDetailVC.m */,
 				1884BB471CFD2597001F6EAC /* ChooseTypeVC.h */,
@@ -1160,6 +1160,8 @@
 				9BF7E35A1CBBD1CB0059AEA7 /* DetailHeaderView.m */,
 				1800A3381D002AF400D50D5A /* ChooseTypeMainView.h */,
 				1800A3391D002AF400D50D5A /* ChooseTypeMainView.m */,
+				182DD66D1D01298700CE4743 /* EmptyView.h */,
+				182DD66E1D01298700CE4743 /* EmptyView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1353,7 +1355,6 @@
 				182A9F901CACF80D00A3643F /* nav_top_background.png in Resources */,
 				18E4A6261C3E4D0100609722 /* MeContectUsViewController.xib in Resources */,
 				18E933CF1C213DF800155F9C /* loading_7@2x.png in Resources */,
-				9BB96A021CAF4F0000D888D7 /* MainCreateNewsVC.xib in Resources */,
 				18E933CB1C213DF800155F9C /* loading_3@2x.png in Resources */,
 				9BCA70491BAB0BA60095D9BA /* LaunchScreen.xib in Resources */,
 				18E933B61C213A1600155F9C /* MBProgressHUD.bundle in Resources */,
@@ -1429,6 +1430,7 @@
 				18AA25441CD05DF700954C5A /* MJPhotoLoadingView.m in Sources */,
 				9BEDE49D1C1EEC4A00573468 /* RegisterdDetailView.m in Sources */,
 				9BDD3C751C3EAC96009CEC3D /* UIImage+WebP.m in Sources */,
+				182DD66F1D01298700CE4743 /* EmptyView.m in Sources */,
 				1884BB491CFD2597001F6EAC /* ChooseTypeVC.m in Sources */,
 				18C72A491CFBE42E007EF280 /* MainShioThreeCell.m in Sources */,
 				186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */,

@@ -31,10 +31,12 @@
     // Do any additional setup after loading the view from its nib.
     
     [self initView];
- 
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 -(void)initView{
+
+    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
     mainView = [[MainCreateMainView alloc] init];
     mainView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);

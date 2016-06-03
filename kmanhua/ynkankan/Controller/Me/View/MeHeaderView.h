@@ -16,7 +16,8 @@
 
 @property (strong, nonatomic) UIButton *iconButton;
 @property (strong, nonatomic) UILabel *nikeName;
-@property (strong, nonatomic) UILabel *contentLable;
+@property (strong, nonatomic) UILabel *userId;
+//@property (strong, nonatomic) UILabel *contentLable;
 
 
 @end
