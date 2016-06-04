@@ -10,13 +10,16 @@
 #import "AppConstant.h"
 #import "ChooseTypeCell.h"
 #import "MainCreateNewsVC.h"
+#import "ChooseTypeMainView.h"
+#import "MainShopDetailVC.h"
+#import "UserSharePrefre.h"
+#import "EmptyView.h"
+#import "LoginViewController.h"
 
-
-@interface ChooseTypeVC () <MainCreateNewsVCDelegate>
+@interface ChooseTypeVC () <MainCreateNewsVCDelegate, ChooseTypeMainViewDelegate, EmptyViewDelegate>
 {
-
-    NSInteger selctionIndex;
-    
+    ChooseTypeMainView *mainView;
+    EmptyView *emptyView;
 }
 
 @end
@@ -31,47 +34,66 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+
+    if (![[UserSharePrefre sharedInstance] isLogin]) {
+
+        if (emptyView == nil) {
+            [self initEmptyView];
+        }
+        
+    } else {
+        
+        if (mainView == nil) {
+            [self initMainView];
+        }
+    
+    }
+    
+}
+
 - (void)initData{
-    selctionIndex = 0;
+
 }
 
 - (void)initView{
     
     self.navigationItem.title = @"发布";
-    
-//    [self setTitle:@"选择类别"];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
-//    [self initBottomButton];
-//    [self setLeftButton];
+
+//    [self initMainView];
+}
+
+-(void)initMainView{
+
+    mainView = [[ChooseTypeMainView alloc] init];
+    mainView.delegate = self;
+    mainView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 114);
+    [self.view addSubview:mainView];
+
+    if (emptyView != nil) {
+        
+        [emptyView removeFromSuperview];
+        emptyView = nil;
+        
+    }
     
 }
 
+-(void)initEmptyView{
 
-#pragma mark 返回
--(void)setLeftButton {
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_top_back"] style:UIBarButtonItemStylePlain target:self action:@selector(closeMethod)];
-    self.navigationItem.leftBarButtonItem = leftButton;
+    emptyView = [[EmptyView alloc] init];
+    emptyView.delegate = self;
+    [self.view addSubview:emptyView];
     
-}
+    if (mainView != nil) {
+        
+        [mainView removeFromSuperview];
+        mainView = nil;
+        
+    }
 
-#pragma mark 返回
--(void)closeMethod{
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
-
-- (void)initBottomButton {
-
-    UIButton *button = [[UIButton alloc] init];
-    button.frame = CGRectMake(15, kScreenHeight - 50, kScreenWidth - 30, 40);
-    button.backgroundColor = Color_ButtonColor;
-    button.layer.cornerRadius = 5.0f;
-    button.titleLabel.textColor = [UIColor whiteColor];
-    button.titleLabel.font = [UIFont systemFontOfSize:14];
-    [button setTitle:@"确认" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(clickBotton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
 }
 
 #pragma mark - 确认按钮
@@ -84,17 +106,39 @@
 
 #pragma mark - didCreate
 -(void)didSuccessCreate{
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
-#pragma mark - tableViewDelegate
+#pragma mark - MainViewDelegate
+-(void)didClickConfrim{
+
+    [self gotoCreateVC];
+}
+
+#pragma mark - EmptyDelegate
+-(void)didClickEmpty{
+    [self gotoLogin];
+}
 
 #pragma mark - goto
 -(void)gotoCreateVC{
+    
+//    MainShopDetailVC *detailVC = [[MainShopDetailVC alloc] init];
+//    detailVC.detailModel = nil;
+//    detailVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:detailVC animated:YES];
+    
     MainCreateNewsVC *createVC = [[MainCreateNewsVC alloc] init];
     createVC.delegate = self;
-    createVC.newsType = selctionIndex + 1;
+    createVC.newsType = [mainView getCurrentIndex];
+    createVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:createVC animated:YES];
+}
+
+-(void)gotoLogin{
+
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

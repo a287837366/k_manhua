@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ChooseTypeMainViewDelegate;
+
 @interface ChooseTypeMainView : UIView
 
+@property (weak, nonatomic) id<ChooseTypeMainViewDelegate> delegate;
+
+-(NSInteger)getCurrentIndex;
+
+@end
+
+@protocol ChooseTypeMainViewDelegate <NSObject>
+
+-(void)didClickConfrim;
 
 @end

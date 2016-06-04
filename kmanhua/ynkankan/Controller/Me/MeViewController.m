@@ -18,12 +18,18 @@
 #import "MeHistoryViewController.h"
 #import "MeNoResponsibilityVC.h"
 #import "DataBaseManager.h"
+#import "EmptyView.h"
+#import "LoginViewController.h"
+#import "MBProgressHUD+ToastDialog.h"
 
-@interface MeViewController ()<UITableViewDataSource, UITableViewDelegate>{
+
+@interface MeViewController ()<UITableViewDataSource, UITableViewDelegate, EmptyViewDelegate>{
 
     NSMutableArray *dataArray;
     MeNavigationView *navigation;
-
+    
+    UIButton *footerButton;
+    EmptyView *emptyView;
 }
 
 @property (strong, nonatomic) UITableView *mainTableView;
@@ -37,6 +43,7 @@
     [super viewDidLoad];
     [self initDate];
     [self initView];
+    [self initEmptyView];
 
 }
 
@@ -45,22 +52,39 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-     self.navigationController.navigationBar.alpha = 0;
-        navigation.titleLable.text = [[UserSharePrefre sharedInstance] nikeName];
+    [self reloadView];
+}
+
+-(void)reloadView{
+    if (![[UserSharePrefre sharedInstance] isLogin]) {
+        
+        self.mainTableView.hidden = YES;
+        emptyView.hidden = NO;
+        
+        [self.view setBackgroundColor:[UIColor whiteColor]];
+        
+    } else {
+        
+        self.mainTableView.hidden = NO;
+        emptyView.hidden = YES;
+        
+        self.meHeader.userId.text = [[UserSharePrefre sharedInstance] userId];
+        self.meHeader.nikeName.text = [[UserSharePrefre sharedInstance] nikeName];
+        
+        [self.view setBackgroundColor:Color_Background];
+        
+    }
+    
+    [self.mainTableView reloadData];
 }
 
 - (void)initView{
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    self.navigationItem.title = @"我";
    
     UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
     
-    UIButton *button = [[UIButton alloc] init];
-    button.frame = background.bounds;
-    [button setBackgroundImage:[UIImage imageNamed:@"nav_top_background@3x"] forState:UIControlStateNormal];
-    [background addSubview:button];
-    button.userInteractionEnabled = NO;
     
-    [self.view setBackgroundColor:Color_Background];
     [self.view addSubview:background];
     
     [self settingTableHeader];
@@ -75,10 +99,22 @@
     
 }
 
+-(void)initEmptyView{
+    
+    emptyView = [[EmptyView alloc] init];
+    [emptyView setEmptyMsg:@"您还没有登入"];
+    emptyView.delegate = self;
+    [self.view addSubview:emptyView];
+    
+}
 
+
+#pragma mark - EmptyDelegate
+-(void)didClickEmpty{
+    [self gotoLogin];
+}
 
 -(void)clickBack:(UIButton *)button{
-    self.navigationController.navigationBar.alpha = 1;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -93,16 +129,16 @@
     UIView *footerView = [[UIView alloc] init];
     footerView.frame = CGRectMake(0, 0, kScreenWidth, 75);
     
-    UIButton *button = [[UIButton alloc] init];
-    button.frame = CGRectMake(30, 15, kScreenWidth - 80, 35);
-    button.backgroundColor = [UIColor whiteColor];
-    button.titleLabel.font = [UIFont systemFontOfSize:14];
-    button.layer.cornerRadius = 5;
-    [button addTarget:self action:@selector(clickLogout:) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"注销" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    button.alpha = 0.7;
-    [footerView addSubview:button];
+    footerButton = [[UIButton alloc] init];
+    footerButton.frame = CGRectMake(40, 15, kScreenWidth - 80, 35);
+    footerButton.backgroundColor = Color_ButtonColor;
+    footerButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    footerButton.layer.cornerRadius = 5;
+    [footerButton addTarget:self action:@selector(clickLogout:) forControlEvents:UIControlEventTouchUpInside];
+    [footerButton setTitle:@"注销" forState:UIControlStateNormal];
+    [footerButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    [footerView addSubview:footerButton];
     
     self.mainTableView.tableFooterView = footerView;
     
@@ -112,10 +148,8 @@
 -(void)clickLogout:(UIButton *)button{
     [[UserSharePrefre sharedInstance] clearUser];
     [[DataBaseManager shareInstance] deleteAllManhua];
-    self.navigationController.navigationBar.alpha = 1;
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    
+    [MBProgressHUD Toast:nil withText:@"注销成功"];
+    [self reloadView];
 }
 
 #pragma mark - tableView Delegate
@@ -219,7 +253,6 @@
 //제휴문의
 -(void)gotoContactView{
     MeContectUsViewController *contectUsVC = [[MeContectUsViewController alloc] init];
-    self.navigationController.navigationBar.alpha = 1;
     contectUsVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:contectUsVC animated:YES];
 }
@@ -227,7 +260,6 @@
 -(void)gotoChangeNikeName{
     
     MeChangNickNameVC *chageVC = [[MeChangNickNameVC alloc] init];
-    self.navigationController.navigationBar.alpha = 1;
     chageVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chageVC animated:YES];
 }
@@ -235,7 +267,7 @@
 -(void)gotoFavNewsVC
 {   
     MeHistoryViewController *historyVC = [[MeHistoryViewController alloc] init];
-    self.navigationController.navigationBar.alpha = 1;
+    historyVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:historyVC animated:YES];
 
 }
@@ -244,21 +276,29 @@
 -(void)gotoNoResponVC
 {
     MeNoResponsibilityVC *responseVC = [[MeNoResponsibilityVC alloc] init];
-    self.navigationController.navigationBar.alpha = 1;
+    responseVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:responseVC animated:YES];
 }
+
+-(void)gotoLogin{
+    
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:nil];
+}
+
 
 #pragma mark get set
 -(UITableView *)mainTableView{
     
     if (!_mainTableView) {
         _mainTableView = [[UITableView alloc] init];
-        _mainTableView.frame = CGRectMake(10, 64, kScreenWidth - 20, kScreenHeight - 64);
+        _mainTableView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64);
         _mainTableView.backgroundColor = [UIColor clearColor];
         _mainTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;
+        _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     }
     
     return _mainTableView;

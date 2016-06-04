@@ -26,11 +26,11 @@
     if (self){
       
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor groupTableViewBackgroundColor];
 
         [self.contentView addSubview:self.conView];
         [self.conView addSubview:self.titleLable];
-        [self.conView addSubview:self.rightImage];
+//        [self.conView addSubview:self.rightImage];
         
     }
     
@@ -43,11 +43,9 @@
     if (!_conView) {
         
         _conView = [[UIView alloc] init];
-        _conView.frame = CGRectMake(0, 2, kScreenWidth - 20, 46);
-        _conView.backgroundColor = [UIColor clearColor];
-        _conView.layer.borderColor = [[UIColor whiteColor] CGColor];
-        _conView.layer.borderWidth = 1;
-        _conView.layer.cornerRadius = 6;
+        _conView.frame = CGRectMake(0, 2, kScreenWidth, 46);
+        _conView.backgroundColor = [UIColor whiteColor];
+
         
     }
     
@@ -72,7 +70,7 @@
         _titleLable = [[UILabel alloc] init];
         _titleLable.frame = CGRectMake(15, 9, kScreenWidth - 70, 26);
         _titleLable.font = [UIFont systemFontOfSize:14];
-        _titleLable.textColor = [UIColor whiteColor];
+        _titleLable.textColor = Color_888888;
     }
     
     return _titleLable;

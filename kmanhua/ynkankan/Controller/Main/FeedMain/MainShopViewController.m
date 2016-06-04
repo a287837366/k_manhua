@@ -85,7 +85,7 @@
     [self.view bringSubviewToFront:self.btnCreate];
     
     [self setLeftButton];
-    [self setRightButton];
+//    [self setRightButton];
     
     navigationView = [[MainNavigationView alloc] init];
     navigationView.delegate = self;
