@@ -45,7 +45,7 @@
 }
 
 - (void)clickResiger{
-    NSLog(@"  %@ ", [self.detailView getUserInfo]);
+//    NSLog(@"  %@ ", [self.detailView getUserInfo]);
     
     __weak typeof(self) weakSelf = self;
     
@@ -80,7 +80,7 @@
     if (!_mainScollView) {
         
         _mainScollView = [[UIScrollView alloc] init];
-        _mainScollView.frame = CGRectMake(0, 66, kScreenWidth, kScreenWidth - 66);
+        _mainScollView.frame = CGRectMake(0, 66, kScreenWidth, kScreenHeight - 66);
         
     }
 
