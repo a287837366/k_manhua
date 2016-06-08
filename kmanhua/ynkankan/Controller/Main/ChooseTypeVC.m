@@ -15,11 +15,16 @@
 #import "UserSharePrefre.h"
 #import "EmptyView.h"
 #import "LoginViewController.h"
+#import "MainShopService.h"
+#import "CustomProgressHUD.h"
+#import "MBProgressHUD+ToastDialog.h"
 
 @interface ChooseTypeVC () <MainCreateNewsVCDelegate, ChooseTypeMainViewDelegate, EmptyViewDelegate>
 {
     ChooseTypeMainView *mainView;
     EmptyView *emptyView;
+    
+    MainShopService *mainService;
 }
 
 @end
@@ -54,6 +59,8 @@
 
 - (void)initData{
 
+    mainService = [[MainShopService alloc] init];
+    
 }
 
 - (void)initView{
@@ -98,6 +105,8 @@
 
 #pragma mark - 确认按钮
 -(void)clickBotton:(UIButton *)button{
+    
+    
 
     [self gotoCreateVC];
     
@@ -111,8 +120,34 @@
 
 #pragma mark - MainViewDelegate
 -(void)didClickConfrim{
+    
+    [CustomProgressHUD showHUD:self.view];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [mainService checkUpPermisson:^(NSString *returnCode, NSError *error){
+    
+        [CustomProgressHUD hideHUD:self.view];
+        
+        if (error == nil){
+        
+            if ([returnCode isEqualToString:@"0"]) {
 
-    [self gotoCreateVC];
+                [weakSelf gotoCreateVC];
+           
+            } else {
+            
+                [MBProgressHUD Toast:nil withText:@"该手机今天已上传过消息"];
+            }
+            
+        } else {
+        
+            [MBProgressHUD Toast:nil withText:@"服务器请求错误"];
+        }
+        
+    }];
+
+    
 }
 
 #pragma mark - EmptyDelegate

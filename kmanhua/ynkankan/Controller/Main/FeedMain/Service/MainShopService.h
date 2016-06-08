@@ -21,4 +21,6 @@
 
 -(void)updateImage:(NSMutableArray *)imageArray response:(void (^)(NSMutableDictionary *freeManhua, NSError *error))response;
 
+-(void)checkUpPermisson:(void (^)(NSString *returnCode, NSError *error))response;
+
 @end

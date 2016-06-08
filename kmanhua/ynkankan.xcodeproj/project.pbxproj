@@ -1648,13 +1648,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dongyan Jin (6LLF48TUL9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dongyan Jin (6LLF48TUL9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dongyan Jin (R86CKYM257)";
 				INFOPLIST_FILE = ynkankan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ha.yutun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abb098f3-2f4f-44be-a814-64064d55f601";
+				PROVISIONING_PROFILE = "deb04d47-b32e-4890-ba15-91d7057dddef";
 			};
 			name = Debug;
 		};
@@ -1670,7 +1670,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ha.yutun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "abb098f3-2f4f-44be-a814-64064d55f601";
+				PROVISIONING_PROFILE = "deb04d47-b32e-4890-ba15-91d7057dddef";
 			};
 			name = Release;
 		};

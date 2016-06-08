@@ -151,6 +151,32 @@
     
 }
 
+-(void)checkUpPermisson:(void (^)(NSString *returnCode, NSError *error))response{
+  
+    [[HttpClient sharedClient] POST:@"/kankanAdmin/CheckUpdatePermission"
+                                    parameters:@{@"username" : [[UserSharePrefre sharedInstance] userId],
+                                                 @"deveice_id" : [[UserSharePrefre sharedInstance] UUID]}
+
+                                      progress:^(NSProgress *downLoadProcess){
+                           
+                                      }
+     
+                                       success:^(NSURLSessionTask *task, id responseObject){
+                                           NSLog(@" >>>>>> %@ ", responseObject[@"data"]);
+                                           
+                                           
+                                           response([responseObject objectForKey:@"data"] , nil);
+                                           
+                                       }
+     
+                                       failure:^(NSURLSessionTask *task, NSError *error){
+                                           NSLog(@" %@ ", error);
+                                           response(nil , error);
+                                   
+                                       }];
+    
+}
+
 -(void)updateImage:(NSMutableArray *)imageArray response:(void (^)(NSMutableDictionary *freeManhuaNSError, NSError *error))response{
     
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
