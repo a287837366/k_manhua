@@ -9,10 +9,9 @@
 #import "MainHeaderView.h"
 #import "AppConstant.h"
 
-@interface MainHeaderView()
+#define Item_W (kScreenWidth / 4.0f)
 
-@property (strong, nonatomic) UIImageView *mainImageView;
-@property (strong, nonatomic) UIView *imageListView;
+@interface MainHeaderView()
 
 @end
 
@@ -23,152 +22,110 @@
     self = [super init];
     
     if(self){
-        self.viewHeight = 0;
-        self.backgroundColor = Color_Background;
-        self.layer.cornerRadius = 5;
+
+        self.frame = CGRectMake(0, 0, kScreenWidth, 30 + Item_W + 7.0f);
+        [self initTitleView];
+        [self initChooseView];
+        
     }
     
     return self;
 }
 
 -(void)setDate:(NSMutableArray *)newDataArray{
-    
-    [self addSubview:self.mainImageView];
-    [self addSubview:self.imageListView];
-    
-    [self createImageList:newDataArray];
+
 }
 
-#pragma mark - private
--(void)createImageList:(NSMutableArray *)newDataArray{
+
+-(void)initChooseView{
     
-    for (int i = 0; i < 3; i++) {
+    CGFloat viewX = 0.0f;
+
+    for (int i = 0; i < 4; i++) {
+       
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor whiteColor];
-        view.frame = CGRectMake(0, 5 + self.viewHeight +  i * (70 + 1), kScreenWidth, 70);
-        view.tag = 100 + i + 1;
+        view.frame = CGRectMake(viewX, 30.50f, Item_W, Item_W);
         
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick:)];
-        [view addGestureRecognizer:singleTap];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.frame = CGRectMake(20, 20, Item_W - 40.0f, Item_W - 40.0f);
         
-        [view addSubview:[self createSimpleImage:[NSString stringWithFormat:@"test_%d", i + 1]]];
-        [view addSubview:[self createLable:@"19"]];
-        [view addSubview:[self createTitleLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_name"]]];
-        [view addSubview:[self createTimeLable:[[newDataArray objectAtIndex:(i + 1)] objectForKey:@"m_createTime"]]];
+        switch (i) {
+            case 0:
+                imageView.image = [UIImage imageNamed:@"zhanpin_defualt_img"];
+                break;
+                
+            case 1:
+                imageView.image = [UIImage imageNamed:@"qiuzhi_defualt_img"];
+                break;
+                
+            case 2:
+                imageView.image = [UIImage imageNamed:@"fangcan_defualt_img"];
+                break;
+                
+            case 3:
+                imageView.image = [UIImage imageNamed:@"congwu_defualt_img"];
+                break;
+                
+            default:
+                break;
+        }
         
+        
+
+        UIButton *button = [[UIButton alloc] init];
+        button.frame = CGRectMake(10, 10, Item_W - 20.0f, Item_W - 20.0f);
+        button.layer.borderWidth = 1.4f;
+        button.layer.borderColor = [Color_ButtonColor CGColor];
+        button.layer.cornerRadius = (Item_W - 20.0f) / 2.0f;
+        button.tag = 100 + i;
+        [button addTarget:self action:@selector(didClickType:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [view addSubview:button];
+        [view addSubview:imageView];
         [self addSubview:view];
+        viewX += Item_W;
     }
     
-    self.viewHeight += 71 *3 + 5;
+
 }
 
-#pragma mark 图片Image
--(UIImageView *)createSimpleImage:(NSString *)imagUrl{
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.frame = CGRectMake(10, 10, 45, 45);
-    imageView.image = [UIImage imageNamed:imagUrl];
-    imageView.contentMode = UIViewContentModeRedraw;
+-(void)didClickType:(UIButton *)button{
+
+    if (self.delegate == nil) {
+        
+        return;
+    }
     
+    [self.delegate didClickHeader:button.tag - 100 + 1];
+}
 
+/**
+ * 创建标题
+ */
+-(void)initTitleView{
     
-    return imageView;
-}
-
-#pragma mark 图片点击事件
-- (void)imageClick:(UITapGestureRecognizer *)recognizer{
-    [self.delegate didClickHeader:recognizer.view.tag - 100];
-}
-
-#pragma mark 点击头部
-- (void)imageTitleClick{
-    [self.delegate didClickHeader:0];
-}
-
-#pragma mark 等级Level
--(UILabel *)createLable:(NSString *)level{
+    UIView *titleView = [[UIView alloc] init];
+    titleView.frame = CGRectMake(0, 0, kScreenWidth, 30);
     
+    UIView *leftView = [[UIView alloc] init];
+    leftView.frame = CGRectMake(0, 7, 3, 16);
+    leftView.backgroundColor = Color_ButtonColor;
+    titleView.backgroundColor = [UIColor whiteColor];
+   
     UILabel *lable = [[UILabel alloc] init];
-    lable.frame = CGRectMake(45, 5, 20, 20);
-    lable.backgroundColor = Color_Main;
-    lable.font = [UIFont systemFontOfSize:14];
-    lable.textAlignment = NSTextAlignmentCenter;
-    lable.layer.cornerRadius = 10;
-    lable.layer.masksToBounds = YES;
-    lable.textColor = [UIColor whiteColor];
-    lable.text = level;
-    return lable;
-}
-
-#pragma mark 文本信息
--(UILabel *)createTitleLable:(NSString *)title{
-
-    UILabel *titleLable = [[UILabel alloc] init];
-    titleLable.frame = CGRectMake(65, 10, kScreenWidth - 115, 45);
-    titleLable.tintColor = [UIColor grayColor];
-    titleLable.font = [UIFont systemFontOfSize:14];
-    titleLable.text = title;
-    return titleLable;
-}
-
-#pragma mark 时间文本
--(UILabel *)createTimeLable:(NSString *)time{
-
+    lable.frame = CGRectMake(10, 0, kScreenWidth - 18, 30);
+    lable.font = [UIFont systemFontOfSize:13];
+    lable.textColor = Color_888888;
+    lable.text = @"类别";
     
-    UILabel *timeLable = [[UILabel alloc] init];
-    timeLable.frame = CGRectMake(10, 50, kScreenWidth - 35, 15);
-    timeLable.font = [UIFont systemFontOfSize:12];
-    timeLable.textColor = [UIColor lightGrayColor];
-    timeLable.textAlignment = NSTextAlignmentRight;
-    timeLable.text = time;
+    [titleView addSubview:lable];
+    [titleView addSubview:leftView];
+    [self addSubview:titleView];
     
-    return timeLable;
+//    UIView *lineView = [[UIView alloc] init];
+//    lineView.frame = c
 }
-
-#pragma - get set
--(UIImageView *)mainImageView{
-
-    if (!_mainImageView) {
-        
-        UILabel *titleLable = [[UILabel alloc] init];
-        titleLable.frame = CGRectMake(0, 5, kScreenWidth, 20);
-        titleLable.font = [UIFont systemFontOfSize:13];
-        titleLable.textColor = Color_Main;
-        titleLable.text = @"---  최신 이야기  ---";
-        titleLable.textAlignment = NSTextAlignmentCenter;
-
-        UIView *cornorView = [[UIView alloc] init];
-        cornorView.frame = CGRectMake((kScreenWidth - 150) / 2, 5, 150, 20);
-        cornorView.backgroundColor = [UIColor whiteColor];
-        cornorView.layer.cornerRadius = 5;
-        [self addSubview:cornorView];
-        [self addSubview:titleLable];
-        
-        _mainImageView = [[UIImageView alloc] init];
-        _mainImageView.frame = CGRectMake(0, 30, kScreenWidth - 20, 150);
-        _mainImageView.image = [UIImage imageNamed:@"test_10"];
-        _mainImageView.contentMode = UIViewContentModeRedraw;
-        _mainImageView.layer.cornerRadius = 5;
-        _mainImageView.tag = 100;
-    
-        UIButton *tltleButton = [[UIButton alloc] init];
-        tltleButton.frame = CGRectMake(10, 20, kScreenWidth - 20, 150);
-        [tltleButton addTarget:self action:@selector(imageTitleClick) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:tltleButton];
-        self.viewHeight += 180;
-    }
-    
-    return _mainImageView;
-}
-
--(UIView *)imageListView{
-
-    if (!_imageListView) {
-        _imageListView = [[UIView alloc] init];
-    }
-    
-    return _imageListView;
-}
-
 
 
 @end

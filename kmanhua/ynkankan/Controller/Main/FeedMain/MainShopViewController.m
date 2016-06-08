@@ -26,13 +26,10 @@
 #import "ChooseTypeVC.h"
 
 
-@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainNavigationViewDelegate>{
+@interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate>{
 
     NSInteger page;
     BOOL isNoPage;
-    
-    MainNavigationView *navigationView;
-
 }
 
 @property (strong, nonatomic) UITableView *mainTable;
@@ -65,10 +62,22 @@
 }
 
 -(void)initView{
+    self.view.backgroundColor = Color_Background;
+    
     [self setTitle:@"首页"];
     
     [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
+    [self initRefreshView];
+    [self initTableHeader];
+    [self initRefreshView];
+    
+    [self.view addSubview:self.mainTable];
+}
+
+
+-(void) initRefreshView {
+  
     self.refreshButton = [[UIButton alloc] init];
     self.refreshButton.frame = CGRectMake((kScreenWidth - 100) / 2, (kScreenHeight - 30) / 2, 100, 30);
     self.refreshButton.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -78,17 +87,13 @@
     self.refreshButton.backgroundColor = Color_666666;
     
     [self.view addSubview:self.refreshButton];
-    
-    self.view.backgroundColor = Color_Background;
-    
-    [self.view addSubview:self.mainTable];
-    [self.view bringSubviewToFront:self.btnCreate];
-    
-    [self setLeftButton];
-//    [self setRightButton];
-    
-    navigationView = [[MainNavigationView alloc] init];
-    navigationView.delegate = self;
+}
+
+-(void) initTableHeader {
+
+    MainHeaderView *headerView = [[MainHeaderView alloc] init];
+    headerView.delegate = self;
+    self.mainTable.tableHeaderView = headerView;
 }
 
 -(void)clickRefresh:(UIButton *)button{
@@ -96,45 +101,11 @@
     [self getManhuaList];
 }
 
--(void)setLeftButton{
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"shop_title_left_menu"] style:UIBarButtonItemStylePlain target:self action:@selector(clickMenu:)];
-    leftButton.tag = 100;
-    self.navigationItem.leftBarButtonItem = leftButton;
-}
-
-#pragma mark 导航条右侧侧
--(void)setRightButton{
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"friend_setting"] style:UIBarButtonItemStylePlain target:self action:@selector(clickMenu:)];
-    rightButton.tag = 200;
-    self.navigationItem.rightBarButtonItem = rightButton;
-}
-#pragma mark - Action
-- (void)clickMenu:(UIButton *)btn{
-    
-    if (btn.tag == 200) {
-
-        if ([[UserSharePrefre sharedInstance] isLogin]) {
-           
-            MeViewController *meVC = [[MeViewController alloc] init];
-            [self.navigationController pushViewController:meVC animated:YES];
-            
-            
-        } else {
-         
-            LoginViewController *loginVC = [[LoginViewController alloc] init];
-            [self presentViewController:loginVC animated:YES completion:nil];
-        
-        }
-        
-
-        
-    } else {
-        
-        [navigationView showNavigation:self.view];
-    }
-
+#pragma mark -
+-(void)didClickHeader:(NSInteger)index{
 
 }
+
 - (IBAction)clickCreate:(id)sender {
     
     if (![[UserSharePrefre sharedInstance] isLogin]) {
@@ -143,8 +114,6 @@
     }
     
     [self gotoChooseTypeVC];
-//    MainCreateNewsVC *createVC = [[MainCreateNewsVC alloc] init];
-//    [self presentViewController:createVC animated:YES completion:nil];
 
 }
 
@@ -163,7 +132,7 @@
     [CustomProgressHUD showHUD:self.view];
     __weak typeof(self) weakSelf = self;
     
-    [self.service  getManhuaList:page type:[navigationView getType] response:^(NSMutableArray *freedata, NSInteger pageCount, NSError *error){
+    [self.service  getManhuaList:page type:0 response:^(NSMutableArray *freedata, NSInteger pageCount, NSError *error){
 
         if (error) {
             NSLog(@" 返回错误 ");
@@ -362,6 +331,8 @@
         _mainTable.backgroundColor = Color_Background;
         [_mainTable addFooterWithTarget:self action:@selector(footerRereshing)];
         [_mainTable addHeaderWithTarget:self action:@selector(headerRereshing)];
+        
+        
     }
 
     return _mainTable;
