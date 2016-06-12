@@ -63,6 +63,7 @@
 		1845F9A21D0011FE0051FC32 /* tabBar_publish_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1845F9901D0011FE0051FC32 /* tabBar_publish_icon@2x.png */; };
 		1845F9A31D0011FE0051FC32 /* tabBar_publish_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1845F9911D0011FE0051FC32 /* tabBar_publish_icon@3x.png */; };
 		184FAC801C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */; };
+		185BE5901D0D114300E604C0 /* TypeManhuaListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 185BE58F1D0D114300E604C0 /* TypeManhuaListVC.m */; };
 		186511D91C1EB75B00DD969C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511D71C1EB75B00DD969C /* RegisterViewController.m */; };
 		186511DA1C1EB75B00DD969C /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186511D81C1EB75B00DD969C /* RegisterViewController.xib */; };
 		186511DE1C1F9BD400DD969C /* ToolsClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 186511DD1C1F9BD400DD969C /* ToolsClass.m */; };
@@ -284,6 +285,8 @@
 		1845F9911D0011FE0051FC32 /* tabBar_publish_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tabBar_publish_icon@3x.png"; path = "Res/Tab/tabBar_publish_icon@3x.png"; sourceTree = "<group>"; };
 		184FAC7E1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+ToastDialog.h"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.h"; sourceTree = "<group>"; };
 		184FAC7F1C27A9E700D85C32 /* MBProgressHUD+ToastDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+ToastDialog.m"; path = "ThirdPart/MBProgressHUD/MBProgressHUD+ToastDialog.m"; sourceTree = "<group>"; };
+		185BE58E1D0D114300E604C0 /* TypeManhuaListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeManhuaListVC.h; path = Controller/Main/FeedMain/TypeManhuaListVC.h; sourceTree = "<group>"; };
+		185BE58F1D0D114300E604C0 /* TypeManhuaListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeManhuaListVC.m; path = Controller/Main/FeedMain/TypeManhuaListVC.m; sourceTree = "<group>"; };
 		186511D61C1EB75B00DD969C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controller/Login/RegisterViewController.h; sourceTree = "<group>"; };
 		186511D71C1EB75B00DD969C /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Controller/Login/RegisterViewController.m; sourceTree = "<group>"; };
 		186511D81C1EB75B00DD969C /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RegisterViewController.xib; path = Controller/Login/RegisterViewController.xib; sourceTree = "<group>"; };
@@ -1105,6 +1108,8 @@
 				1804B6001CBB3B050092398F /* MainShopDetailVC.m */,
 				1884BB471CFD2597001F6EAC /* ChooseTypeVC.h */,
 				1884BB481CFD2597001F6EAC /* ChooseTypeVC.m */,
+				185BE58E1D0D114300E604C0 /* TypeManhuaListVC.h */,
+				185BE58F1D0D114300E604C0 /* TypeManhuaListVC.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1482,6 +1487,7 @@
 				1884BB4C1CFD2A07001F6EAC /* ChooseTypeCell.m in Sources */,
 				9BEBD7D91CB01177003B6A86 /* YMnineImageView.m in Sources */,
 				1804B6141CBB50D40092398F /* DataBaseManager.m in Sources */,
+				185BE5901D0D114300E604C0 /* TypeManhuaListVC.m in Sources */,
 				9BDD3C721C3EAC96009CEC3D /* UIButton+WebCache.m in Sources */,
 				9B3662E71CDCCA6000FB04D7 /* AFURLRequestSerialization.m in Sources */,
 				9BDD3C6C1C3EAC96009CEC3D /* SDWebImageCompat.m in Sources */,

@@ -47,24 +47,43 @@
         view.backgroundColor = [UIColor whiteColor];
         view.frame = CGRectMake(viewX, 30.50f, Item_W, Item_W);
         
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.frame = CGRectMake(20, 20, Item_W - 40.0f, Item_W - 40.0f);
+        
+
+        UIButton *button = [[UIButton alloc] init];
+        button.frame = CGRectMake(10, 10, Item_W - 20.0f, Item_W - 20.0f);
+        button.backgroundColor = Color_ButtonColor;
+        button.layer.cornerRadius = (Item_W - 20.0f) / 2.0f;
+        button.tag = 100 + i;
+        [button addTarget:self action:@selector(didClickType:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        UILabel *fontLable = [[UILabel alloc] init];
+        fontLable.frame = button.frame;
+        
+        fontLable.font = [UIFont boldSystemFontOfSize:28];
+        fontLable.textColor = [UIColor whiteColor];
+        fontLable.textAlignment = NSTextAlignmentCenter;
+        
         
         switch (i) {
             case 0:
-                imageView.image = [UIImage imageNamed:@"zhanpin_defualt_img"];
+                fontLable.text = @"招";
+                button.backgroundColor = Color_zhaopin;
                 break;
                 
             case 1:
-                imageView.image = [UIImage imageNamed:@"qiuzhi_defualt_img"];
+                fontLable.text = @"职";
+                button.backgroundColor = Color_qiuzhi;
                 break;
                 
             case 2:
-                imageView.image = [UIImage imageNamed:@"fangcan_defualt_img"];
+                fontLable.text = @"房";
+                button.backgroundColor = Color_fangcan;
                 break;
                 
             case 3:
-                imageView.image = [UIImage imageNamed:@"congwu_defualt_img"];
+                fontLable.text = @"宠";
+                button.backgroundColor = Color_chongwu;
                 break;
                 
             default:
@@ -72,17 +91,8 @@
         }
         
         
-
-        UIButton *button = [[UIButton alloc] init];
-        button.frame = CGRectMake(10, 10, Item_W - 20.0f, Item_W - 20.0f);
-        button.layer.borderWidth = 1.4f;
-        button.layer.borderColor = [Color_ButtonColor CGColor];
-        button.layer.cornerRadius = (Item_W - 20.0f) / 2.0f;
-        button.tag = 100 + i;
-        [button addTarget:self action:@selector(didClickType:) forControlEvents:UIControlEventTouchUpInside];
-        
         [view addSubview:button];
-        [view addSubview:imageView];
+        [view addSubview:fontLable];
         [self addSubview:view];
         viewX += Item_W;
     }

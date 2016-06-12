@@ -24,4 +24,13 @@
 #define Color_888888 [UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:1.0f]
 #define Color_f5f5f2 [UIColor colorWithRed:245/255.0 green:245/255.0 blue:242/255.0 alpha:1.0f]
 #define Color_ButtonColor [UIColor colorWithRed:197/255.0 green:11/255.0 blue:38/255.0 alpha:1.00f]
+
+
+//首页上面的4个颜色代码
+#define Color_zhaopin [UIColor colorWithRed:176/255.0 green:0/255.0 blue:57/255.0 alpha:1.00f]
+#define Color_qiuzhi [UIColor colorWithRed:242/255.0 green:183/255.0 blue:5/255.0 alpha:1.00f]
+#define Color_fangcan [UIColor colorWithRed:217/255.0 green:142/255.0 blue:4/255.0 alpha:1.00f]
+#define Color_chongwu [UIColor colorWithRed:242/255.0 green:93/255.0 blue:7/255.0 alpha:1.00f]
+
+
 #endif

@@ -24,6 +24,7 @@
 #import "MainShopDetailVC.h"
 #import "MainShioThreeCell.h"
 #import "ChooseTypeVC.h"
+#import "TypeManhuaListVC.h"
 
 
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate>{
@@ -101,9 +102,10 @@
     [self getManhuaList];
 }
 
-#pragma mark -
+#pragma mark - 店家
 -(void)didClickHeader:(NSInteger)index{
-
+    NSLog(@" 点击 %ld ", (long)index);
+    [self gotoTypeListVC:index];
 }
 
 - (IBAction)clickCreate:(id)sender {
@@ -174,17 +176,6 @@
     }];
 
 }
-#pragma mark - MainNavigationViewDelegate
--(void)didClickTypeByType:(NewsType)type{
-    [self.dataArray removeAllObjects];
-    [self.mainTable reloadData];
-    
-    isNoPage = NO;
-    page = 0;
-    
-    [self getManhuaList];
-}
-
 #pragma mark - tableview 代理
 //返回数量
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -312,6 +303,15 @@
     detailVC.detailModel = model;
     detailVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
+
+- (void)gotoTypeListVC:(NSInteger)type {
+
+    TypeManhuaListVC *listVC = [[TypeManhuaListVC alloc] init];
+    listVC.type = type;
+    listVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:listVC animated:YES];
     
 }
 
