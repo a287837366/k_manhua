@@ -141,6 +141,7 @@
 		18EF5B011C1E882900A436C4 /* discover_choose_cancle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EF5AFF1C1E882900A436C4 /* discover_choose_cancle@3x.png */; };
 		18F51C4A1CB7566600C564DA /* MeChangNickNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F51C481CB7566600C564DA /* MeChangNickNameVC.m */; };
 		18F51C4B1CB7566600C564DA /* MeChangNickNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F51C491CB7566600C564DA /* MeChangNickNameVC.xib */; };
+		18F585461D0E8D4000603E75 /* MainShopDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F585451D0E8D4000603E75 /* MainShopDetailView.m */; };
 		9B3662E41CDCCA6000FB04D7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3662D81CDCCA6000FB04D7 /* AFHTTPSessionManager.m */; };
 		9B3662E51CDCCA6000FB04D7 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3662DB1CDCCA6000FB04D7 /* AFNetworkReachabilityManager.m */; };
 		9B3662E61CDCCA6000FB04D7 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3662DD1CDCCA6000FB04D7 /* AFSecurityPolicy.m */; };
@@ -410,6 +411,8 @@
 		18F51C471CB7566600C564DA /* MeChangNickNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeChangNickNameVC.h; path = Controller/Me/MeChangNickNameVC.h; sourceTree = "<group>"; };
 		18F51C481CB7566600C564DA /* MeChangNickNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeChangNickNameVC.m; path = Controller/Me/MeChangNickNameVC.m; sourceTree = "<group>"; };
 		18F51C491CB7566600C564DA /* MeChangNickNameVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeChangNickNameVC.xib; path = Controller/Me/MeChangNickNameVC.xib; sourceTree = "<group>"; };
+		18F585441D0E8D4000603E75 /* MainShopDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainShopDetailView.h; path = Controller/Main/FeedMain/View/MainShopDetailView.h; sourceTree = "<group>"; };
+		18F585451D0E8D4000603E75 /* MainShopDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShopDetailView.m; path = Controller/Main/FeedMain/View/MainShopDetailView.m; sourceTree = "<group>"; };
 		9B3662D71CDCCA6000FB04D7 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = ThirdPart/AFnetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		9B3662D81CDCCA6000FB04D7 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = ThirdPart/AFnetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		9B3662D91CDCCA6000FB04D7 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = ThirdPart/AFnetworking/AFNetworking.h; sourceTree = "<group>"; };
@@ -1167,6 +1170,8 @@
 				1800A3391D002AF400D50D5A /* ChooseTypeMainView.m */,
 				182DD66D1D01298700CE4743 /* EmptyView.h */,
 				182DD66E1D01298700CE4743 /* EmptyView.m */,
+				18F585441D0E8D4000603E75 /* MainShopDetailView.h */,
+				18F585451D0E8D4000603E75 /* MainShopDetailView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1444,6 +1449,7 @@
 				182D5ABA1CAE4E5200F8D6E8 /* MeNavigationView.m in Sources */,
 				9BBC3DF11BCAA62600F15A1E /* BaseTableViewCell.m in Sources */,
 				1804B6011CBB3B050092398F /* MainShopDetailVC.m in Sources */,
+				18F585461D0E8D4000603E75 /* MainShopDetailView.m in Sources */,
 				18EEEECB1CB5035F005091F7 /* AmToolBarView.m in Sources */,
 				1804B61E1CBB55020092398F /* NewsModel.m in Sources */,
 				182D5ABD1CAE6D9400F8D6E8 /* MainNavigationView.m in Sources */,

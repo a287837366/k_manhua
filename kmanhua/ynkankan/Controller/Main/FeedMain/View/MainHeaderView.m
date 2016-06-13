@@ -9,9 +9,16 @@
 #import "MainHeaderView.h"
 #import "AppConstant.h"
 
-#define Item_W (kScreenWidth / 4.0f)
 
-@interface MainHeaderView()
+#define Item_W          (kScreenWidth / 4.0f)   //一个类别的 所用的空间为 屏幕的 4分之一
+#define Item_Ads_H      (kScreenWidth / 5.0f)   //广告高度 宽:高  3:1
+
+@interface MainHeaderView(){
+
+    UIImageView *adsImage;
+    UIView *chooseView;
+
+}
 
 @end
 
@@ -24,6 +31,8 @@
     if(self){
 
         self.frame = CGRectMake(0, 0, kScreenWidth, 30 + Item_W + 7.0f);
+        chooseView = [[UIView alloc] init];
+        chooseView.frame = CGRectMake(0, 0, kScreenWidth, 30 + Item_W + 7.0f);
         [self initTitleView];
         [self initChooseView];
         
@@ -41,13 +50,13 @@
     
     CGFloat viewX = 0.0f;
 
+    
+    
     for (int i = 0; i < 4; i++) {
        
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor whiteColor];
         view.frame = CGRectMake(viewX, 30.50f, Item_W, Item_W);
-        
-        
 
         UIButton *button = [[UIButton alloc] init];
         button.frame = CGRectMake(10, 10, Item_W - 20.0f, Item_W - 20.0f);
@@ -93,10 +102,12 @@
         
         [view addSubview:button];
         [view addSubview:fontLable];
-        [self addSubview:view];
+       
+        [chooseView addSubview:view];
+        
         viewX += Item_W;
     }
-    
+    [self addSubview:chooseView];
 
 }
 
@@ -131,10 +142,26 @@
     
     [titleView addSubview:lable];
     [titleView addSubview:leftView];
-    [self addSubview:titleView];
+    [chooseView addSubview:titleView];
+
+}
+
+
+-(void)addAds:(NSMutableDictionary *)adsDic{
     
-//    UIView *lineView = [[UIView alloc] init];
-//    lineView.frame = c
+    
+    adsImage = [[UIImageView alloc] init];
+    adsImage.frame = CGRectMake(0, 0, kScreenWidth, Item_Ads_H);
+
+    [self addSubview:adsImage];
+    
+    //移动 选择View的
+    CGRect chooseFrame = chooseView.frame;
+    chooseFrame.origin.y += 3.0f + Item_Ads_H;
+    chooseView.frame = chooseFrame;
+//
+//    //重新定义
+    self.frame = CGRectMake(0, 0, kScreenWidth, 30 + Item_W + 7.0f + 3.0f + Item_Ads_H);
 }
 
 

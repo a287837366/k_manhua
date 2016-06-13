@@ -35,8 +35,8 @@
 
 @property (strong, nonatomic) UITableView *mainTable;
 @property (strong, nonatomic) MainShopService *service;
-@property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 @property (strong, nonatomic) UIButton *refreshButton;
+@property (strong, nonatomic) MainHeaderView *headerView;
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
 @property (assign, nonatomic) NSInteger refreshType;
@@ -92,9 +92,9 @@
 
 -(void) initTableHeader {
 
-    MainHeaderView *headerView = [[MainHeaderView alloc] init];
-    headerView.delegate = self;
-    self.mainTable.tableHeaderView = headerView;
+    self.headerView = [[MainHeaderView alloc] init];
+    self.headerView.delegate = self;
+    
 }
 
 -(void)clickRefresh:(UIButton *)button{
@@ -108,16 +108,10 @@
     [self gotoTypeListVC:index];
 }
 
-- (IBAction)clickCreate:(id)sender {
-    
-    if (![[UserSharePrefre sharedInstance] isLogin]) {
-        [MBProgressHUD Toast:self.view withText:@"请登入"];
-        return;
-    }
-    
-    [self gotoChooseTypeVC];
-
+- (void)didClickAds:(NSString *)jumpUrl{
+    NSLog(@" 跳转网址 %@ ", jumpUrl);
 }
+
 
 #pragma mark 返回
 -(void)loginMethod{
@@ -166,6 +160,12 @@
 
         if (weakSelf.refreshType == -1 || weakSelf.refreshType == 0) {
             [weakSelf.dataArray removeAllObjects];
+        }
+        
+        if (weakSelf.mainTable.tableHeaderView == nil) {
+          
+//            [weakSelf.headerView addAds:nil];
+            weakSelf.mainTable.tableHeaderView = weakSelf.headerView;
         }
         
         [weakSelf.dataArray addObjectsFromArray:freedata];

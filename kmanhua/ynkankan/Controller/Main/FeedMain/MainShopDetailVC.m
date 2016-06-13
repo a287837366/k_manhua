@@ -7,7 +7,7 @@
 //
 
 #import "MainShopDetailVC.h"
-#import "DetailHeaderView.h"
+#import "MainShopDetailView.h"
 #import "DetailImageCell.h"
 #import "DataBaseManager.h"
 #import "MainShopService.h"
@@ -25,9 +25,7 @@
     
 }
 
-
-@property (strong, nonatomic) DetailHeaderView *headerView;
-@property (strong, nonatomic) UIScrollView *mainScollView;
+@property (strong, nonatomic) MainShopDetailView *detailView;
 
 @end
 
@@ -50,29 +48,20 @@
 }
 
 - (void)initView{
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self setTitle:@"详情"];
-    [self setLeftButton];
-  
-    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectZero]];
     
-    self.headerView = [[DetailHeaderView alloc] init];
-    [self.headerView.favButton addTarget:self action:@selector(checkFav:) forControlEvents:UIControlEventTouchUpInside];
-    [self.headerView favButtonByUid:self.detailModel.m_uid];
-    self.headerView.u_NameLable.text = self.detailModel.m_fromdata;
-    self.headerView.u_TimeLable.text = self.detailModel.m_createTime;
-    
-    self.mainScollView = [[UIScrollView alloc] init];
-    self.mainScollView.backgroundColor = [UIColor whiteColor];
-    self.mainScollView.frame = CGRectMake(0, 64, kScreenWidth, kScreenHeight - 120);
-    
-    
-    [self.view addSubview:self.mainScollView];
-    
+    [self initBackButton];
+    [self initMainView];
+}
 
+- (void)initMainView {
+
+    self.detailView = [[MainShopDetailView alloc] init];
     
-
-
+    [self.view addSubview:self.detailView];
 }
 
 -(void)getManhuaDetail{
@@ -82,15 +71,11 @@
     [service getManhuaById:self.detailModel.m_uid response:^(NSMutableDictionary *manhuaDic, NSError *error){
     
         if (manhuaDic !=nil) {
-
-            weakSelf.headerView.frame = CGRectMake(0, 0, kScreenWidth, [weakSelf.headerView getContentHeight:manhuaDic]);
-            [weakSelf.headerView setContent:manhuaDic];
             
-            weakSelf.mainScollView.contentSize = CGSizeMake(0, weakSelf.headerView.frame.origin.y + weakSelf.headerView.frame.size.height + 60.0f);
-            [weakSelf.mainScollView addSubview:weakSelf.headerView];
-            [weakSelf setCallButton];
+            NSLog(@" %@ ", manhuaDic);
+            
+            [weakSelf.detailView setContentByDic:manhuaDic];
         } else {
-            
             [weakSelf showDeleteAlert];
         }
         
@@ -108,22 +93,6 @@
     
 }
 
--(void)setCallButton{
-
-    UIButton *callButton = [[UIButton alloc] init];
-    callButton.frame = CGRectMake(20, kScreenHeight - 49, kScreenWidth - 40, 40);
-    callButton.backgroundColor = [UIColor whiteColor];
-    callButton.layer.borderColor = [[UIColor redColor] CGColor];
-    callButton.layer.borderWidth = 0.5;
-    callButton.layer.cornerRadius = 5;
-    [callButton addTarget:self action:@selector(clickCallButton:) forControlEvents:UIControlEventTouchUpInside];
-    [callButton setTitle:@"拨打电话" forState:UIControlStateNormal];
-    callButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    [callButton setTitleColor:Color_Main forState:UIControlStateNormal];
-    
-    [self.view addSubview:callButton];
-}
-
 -(void)clickCallButton:(UIButton *)button{
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
@@ -136,8 +105,6 @@
     for (NSString *btnString in phoneArray) {
         [actionSheet addButtonWithTitle:btnString];
     }
-    
-    
     
     [actionSheet showInView:self.view];
 
@@ -156,7 +123,7 @@
 }
 
 #pragma mark 返回
--(void)setLeftButton {
+- (void)initBackButton {
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"nav_top_back"] style:UIBarButtonItemStylePlain target:self action:@selector(closeMethod)];
     self.navigationItem.leftBarButtonItem = leftButton;
     
@@ -193,10 +160,7 @@
         } else {
             [[DataBaseManager shareInstance] insertManhua:self.detailModel];
         }
-        
-        [self.headerView favButtonByUid:self.detailModel.m_uid];
-        
-        
+
     } else {
         
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"收藏需要登入" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登入", nil];
