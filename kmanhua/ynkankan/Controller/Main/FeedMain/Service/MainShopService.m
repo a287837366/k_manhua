@@ -14,6 +14,38 @@
 
 @implementation MainShopService
 
+- (void)checkVersionUpdate:(void (^)(NSMutableDictionary *responseDic, NSError *error))response{
+
+    NSString *requsetUrl = [NSString stringWithFormat:@"%@?deviceType=%@&appVersion=%@", @"/kankanAdmin/CheckVersionUpdate", @"IOS", APP_VERSION ];
+   
+    [[HttpClient sharedClient] GET:requsetUrl parameters:nil
+     
+                        progress:^(NSProgress *downLoadProcess){
+                              
+                        }
+     
+                        success:^(NSURLSessionTask *task, id responseObject){
+                            
+                            if (responseObject == nil) {
+                            
+                                response(nil, nil);
+                           
+                            } else {
+                                
+                                response(responseObject, nil);
+                            
+                            }
+                            
+                            
+                            
+                               
+                        } failure:^(NSURLSessionTask *task, NSError *error){
+                               response(nil, error);
+                    
+                        
+                        }];
+    
+}
 
 -(void)getManhuaById:(NSString *)manhuaId response:(void (^)(NSMutableDictionary *manhuaDic, NSError *error))response{
     

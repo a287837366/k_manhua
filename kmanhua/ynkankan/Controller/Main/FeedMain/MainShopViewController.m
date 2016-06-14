@@ -27,6 +27,7 @@
 #import "TypeManhuaListVC.h"
 
 
+
 @interface MainShopViewController ()<UITableViewDataSource, UITableViewDelegate, MainHeaderDelegate>{
 
     NSInteger page;
@@ -52,6 +53,7 @@
     [self initView];
 
     [self getManhuaList];
+    [self getCheckVersion];
 }
 
 -(void)initData{
@@ -110,6 +112,13 @@
 
 - (void)didClickAds:(NSString *)jumpUrl{
     NSLog(@" 跳转网址 %@ ", jumpUrl);
+    
+    if ([jumpUrl isEqualToString:@""]) {
+        
+        return;
+    }
+    
+    [self gotoNewsDetailView:jumpUrl title:@"详情"];
 }
 
 
@@ -122,6 +131,23 @@
     
 }
 
+/*
+ *  detailImage, mainImage, splashImage
+ *  endData, image, jumpUrl
+ */
+- (void)getCheckVersion{
+    
+    __weak typeof(self) weakSelf = self;
+
+    [self.service checkVersionUpdate:^(NSMutableDictionary *responseDic, NSError *error){
+    
+        if ([weakSelf.headerView addAds:[responseDic objectForKey:@"mainImage"]]) {
+            weakSelf.mainTable.tableHeaderView = weakSelf.headerView;
+        }
+    
+    }];
+
+}
 
 #pragma mark - 网络请求
 -(void)getManhuaList{

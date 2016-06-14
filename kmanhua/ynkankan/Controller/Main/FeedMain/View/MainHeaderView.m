@@ -8,15 +8,18 @@
 
 #import "MainHeaderView.h"
 #import "AppConstant.h"
+#import "UIImageView+WebCache.h"
 
 
 #define Item_W          (kScreenWidth / 4.0f)   //一个类别的 所用的空间为 屏幕的 4分之一
-#define Item_Ads_H      (kScreenWidth / 5.0f)   //广告高度 宽:高  3:1
+#define Item_Ads_H      (kScreenWidth / 5.0f)   //广告高度 宽:高  5:1
 
 @interface MainHeaderView(){
 
     UIImageView *adsImage;
     UIView *chooseView;
+    
+    NSMutableDictionary *imageDic;
 
 }
 
@@ -147,13 +150,26 @@
 }
 
 
--(void)addAds:(NSMutableDictionary *)adsDic{
+-(BOOL)addAds:(NSMutableDictionary *)adsDic{
     
+    if ([[adsDic objectForKey:@"image"] isEqualToString:@""]) {
+        
+        return false;
+    }
+    
+    imageDic = adsDic;
     
     adsImage = [[UIImageView alloc] init];
     adsImage.frame = CGRectMake(0, 0, kScreenWidth, Item_Ads_H);
+    
+    UIButton *button = [[UIButton alloc] init];
+    button.frame = adsImage.frame;
+    [button addTarget:self action:@selector(clickImage:) forControlEvents:UIControlEventTouchUpInside];
 
+    [adsImage sd_setImageWithURL:[NSURL URLWithString:[adsDic objectForKey:@"image"]]];
+    
     [self addSubview:adsImage];
+    [self addSubview:button];
     
     //移动 选择View的
     CGRect chooseFrame = chooseView.frame;
@@ -162,6 +178,19 @@
 //
 //    //重新定义
     self.frame = CGRectMake(0, 0, kScreenWidth, 30 + Item_W + 7.0f + 3.0f + Item_Ads_H);
+    
+    return true;
+}
+
+- (void)clickImage:(UIButton *)button{
+
+    
+    if (self.delegate == nil) {
+        return;
+    }
+    
+    [self.delegate didClickAds:[imageDic objectForKey:@"jumpUrl"]];
+    
 }
 
 

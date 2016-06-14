@@ -22,7 +22,7 @@
  * 添加广告
  * @param:广告属性 key -> jumpurl:跳转, imageUrl:首页图片
  */
--(void)addAds:(NSMutableDictionary *)adsDic;
+-(BOOL)addAds:(NSMutableDictionary *)adsDic;
 
 @property (nonatomic, weak) id<MainHeaderDelegate> delegate;
 

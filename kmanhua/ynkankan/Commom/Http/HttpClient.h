@@ -11,6 +11,8 @@
 
 #define kankanAppId @"dca70580006271475a9d6c04c8219d3c"
 
+#define APP_VERSION         @"1.0.3"
+
 @interface HttpClient : AFHTTPSessionManager
 
 + (instancetype) sharedClient;
