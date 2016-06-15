@@ -16,6 +16,7 @@
 #import "LoginViewController.h"
 #import "MBProgressHUD+ToastDialog.h"
 
+
 //480 : 640
 
 @interface MainShopDetailVC ()<UIAlertViewDelegate, UIActionSheetDelegate>
@@ -205,9 +206,11 @@
         if ([[DataBaseManager shareInstance] isFav:self.detailModel.m_uid]) {
           
             [[DataBaseManager shareInstance] deleteManhua:self.detailModel.m_uid];
+            [MBProgressHUD Toast:nil withText:@"已取消收藏"];
             
         } else {
            
+            [MBProgressHUD Toast:nil withText:@"收藏成功"];
             [[DataBaseManager shareInstance] insertManhua:self.detailModel];
         }
         
