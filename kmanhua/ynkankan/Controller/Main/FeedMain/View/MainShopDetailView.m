@@ -9,6 +9,7 @@
 #import "MainShopDetailView.h"
 #import "AppConstant.h"
 #import "UIImageView+WebCache.h"
+#import "ToolsClass.h"
 
 #define Item_Image_H    (kScreenWidth / 1.7f)
 
@@ -18,6 +19,9 @@
 @property (strong, nonatomic) UIScrollView *pictureScollView;
 @property (strong, nonatomic) UILabel *countLable;
 @property (strong, nonatomic) NSArray * arr;
+
+@property (strong, nonatomic) UILabel *titleLable;
+@property (strong, nonatomic) UILabel *detailLable;
 
 
 @end
@@ -86,7 +90,7 @@
     self.countLable.text = [NSString stringWithFormat:@"%d/%lu", (int)(scrollView.contentOffset.x/ kScreenWidth) + 1, (unsigned long)self.arr.count];
 }
 
-- (void)setContentByDic:(NSMutableDictionary *)contentDic{
+- (void)setContentByDic:(NSMutableDictionary *)contentDic newsModel:(NewsModel *)model{
 
     CGFloat viewY = 0.0f;
     
@@ -99,8 +103,44 @@
     }
     //--------]]]
     
+    [self initTitleLable:viewY title:model.m_title];
+    viewY += 50;
     
+    [self initDetailLable:viewY content:contentDic[@"mcontent"]];
+    viewY += self.detailLable.frame.size.height + 30;
     
+    self.mainScollView.contentSize = CGSizeMake(0, viewY);
+}
+
+- (void)initTitleLable:(CGFloat)viewY title:(NSString *)title{
+    
+    self.titleLable = [[UILabel alloc] init];
+    self.titleLable.frame = CGRectMake(10, viewY + 10, kScreenWidth - 20, 40);
+    self.titleLable.textColor = Color_666666;
+    self.titleLable.font = [UIFont systemFontOfSize:15];
+    self.titleLable.text = title;
+    
+    [self addSubview:self.titleLable];
+    
+    UIView *lineView = [[UIView alloc] init];
+    lineView.frame = CGRectMake(10, viewY + 51, kScreenWidth - 20, 1);
+    lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    [self addSubview:lineView];
+}
+
+- (void)initDetailLable:(CGFloat)viewY content:(NSString *)content {
+  
+    CGSize stringSize = [ToolsClass boundingRectWithSize:content Font:[UIFont systemFontOfSize:14] size:CGSizeMake(kScreenWidth - 20, MAXFLOAT)];
+    
+    self.detailLable = [[UILabel alloc] init];
+    self.detailLable.frame = CGRectMake(10, viewY + 10, kScreenWidth - 20, stringSize.height + 20);
+    self.detailLable.textColor = Color_888888;
+    self.detailLable.font = [UIFont systemFontOfSize:14];
+    self.detailLable.text = content;
+    self.detailLable.numberOfLines = 0;
+    
+    [self addSubview:self.detailLable];
 }
 
 @end

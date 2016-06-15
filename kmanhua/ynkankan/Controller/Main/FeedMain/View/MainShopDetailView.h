@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsModel.h"
 
 @interface MainShopDetailView : UIView
 
 /*
  *  添加内容
  */
-- (void)setContentByDic:(NSMutableDictionary *)contentDic;
+- (void)setContentByDic:(NSMutableDictionary *)contentDic newsModel:(NewsModel *)model;
 
 @end

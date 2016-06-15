@@ -26,6 +26,8 @@
 }
 
 @property (strong, nonatomic) MainShopDetailView *detailView;
+@property (strong, nonatomic) UIView *bottomView;
+@property (strong, nonatomic) UIButton *saveButton;
 
 @end
 
@@ -55,13 +57,37 @@
     
     [self initBackButton];
     [self initMainView];
+    [self initBottomView];
 }
 
 - (void)initMainView {
 
     self.detailView = [[MainShopDetailView alloc] init];
-    
     [self.view addSubview:self.detailView];
+}
+
+- (void)initBottomView {
+
+    self.bottomView = [[UIView alloc] init];
+    self.bottomView.frame = CGRectMake(0, kScreenHeight - 50, kScreenWidth, 50);
+    
+    self.saveButton = [[UIButton alloc] init];
+    self.saveButton.frame = CGRectMake(0, 0, kScreenWidth/ 2.0f, 50);
+    [self.saveButton setBackgroundColor:Color_zhaopin];
+    self.saveButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.saveButton setTitle:@"收藏" forState:UIControlStateNormal];
+    [self.saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+    UIButton *callButton = [[UIButton alloc] init];
+    callButton.frame = CGRectMake(kScreenWidth / 2.0f, 0, kScreenWidth/ 2.0f, 50);
+    [callButton setBackgroundColor:Color_qiuzhi];
+    callButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [callButton setTitle:@"拨打电话" forState:UIControlStateNormal];
+    [callButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self.bottomView addSubview:self.saveButton];
+    [self.bottomView addSubview:callButton];
+    [self.view addSubview:self.bottomView];
 }
 
 -(void)getManhuaDetail{
@@ -74,9 +100,12 @@
             
             NSLog(@" %@ ", manhuaDic);
             
-            [weakSelf.detailView setContentByDic:manhuaDic];
+            [weakSelf.detailView setContentByDic:manhuaDic newsModel:self.detailModel];
+        
         } else {
+        
             [weakSelf showDeleteAlert];
+        
         }
         
        
@@ -155,9 +184,11 @@
     if ([[UserSharePrefre sharedInstance] isLogin]) {
         
         if ([[DataBaseManager shareInstance] isFav:self.detailModel.m_uid]) {
+          
             [[DataBaseManager shareInstance] deleteManhua:self.detailModel.m_uid];
             
         } else {
+           
             [[DataBaseManager shareInstance] insertManhua:self.detailModel];
         }
 
