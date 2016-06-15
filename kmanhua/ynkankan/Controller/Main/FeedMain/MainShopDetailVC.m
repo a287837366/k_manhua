@@ -76,6 +76,7 @@
     [self.saveButton setBackgroundColor:Color_zhaopin];
     self.saveButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [self.saveButton setTitle:@"收藏" forState:UIControlStateNormal];
+    [self.saveButton addTarget:self action:@selector(checkFav:) forControlEvents:UIControlEventTouchUpInside];
     [self.saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
     UIButton *callButton = [[UIButton alloc] init];
@@ -83,11 +84,27 @@
     [callButton setBackgroundColor:Color_qiuzhi];
     callButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [callButton setTitle:@"拨打电话" forState:UIControlStateNormal];
+    [callButton addTarget:self action:@selector(clickCallButton:) forControlEvents:UIControlEventTouchUpInside];
     [callButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [self.bottomView addSubview:self.saveButton];
     [self.bottomView addSubview:callButton];
     [self.view addSubview:self.bottomView];
+}
+
+-(void)favButtonByUid:(NSString *)uid
+{
+    
+    if ([[DataBaseManager shareInstance] isFav:uid]) {
+       
+        [self.saveButton setTitle:@"取消收藏" forState:UIControlStateNormal];
+    
+    } else {
+      
+        [self.saveButton setTitle:@"收藏" forState:UIControlStateNormal];
+    
+    }
+    
 }
 
 -(void)getManhuaDetail{
@@ -100,7 +117,9 @@
             
             NSLog(@" %@ ", manhuaDic);
             
-            [weakSelf.detailView setContentByDic:manhuaDic newsModel:self.detailModel];
+            [weakSelf.detailView setContentByDic:manhuaDic newsModel:weakSelf.detailModel];
+         
+            [weakSelf favButtonByUid:weakSelf.detailModel.m_uid];
         
         } else {
         
@@ -191,7 +210,9 @@
            
             [[DataBaseManager shareInstance] insertManhua:self.detailModel];
         }
-
+        
+        [self favButtonByUid:self.detailModel.m_uid];
+        
     } else {
         
         UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"收藏需要登入" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"登入", nil];
