@@ -46,6 +46,7 @@
 
 - (void)initScollView {
 
+    self.mainScollView = [[UIScrollView alloc] init];
     self.mainScollView.frame = self.bounds;
     [self addSubview:self.mainScollView];
 }
@@ -84,7 +85,7 @@
     }
     
     self.pictureScollView.contentSize = CGSizeMake(imageArray.count * kScreenWidth, 0);
-    [self addSubview:self.pictureScollView];
+    [self.mainScollView addSubview:self.pictureScollView];
     
     self.countLable = [[UILabel alloc] init];
     self.countLable.frame = CGRectMake(kScreenWidth - 45, Item_Image_H - 30, 35, 20);
@@ -97,7 +98,7 @@
     self.countLable.text = [NSString stringWithFormat:@"1/%lu", (unsigned long)self.arr.count];
     self.countLable.alpha = 0.5;
     
-    [self addSubview:self.countLable];
+    [self.mainScollView addSubview:self.countLable];
 }
 
 - (void)clickDetailImage:(UIButton *)button{
@@ -119,14 +120,20 @@
 
     CGFloat viewY = 0.0f;
     
-    //--------[[[查看是否有 图片存在
-    self.arr = [contentDic[@"imagelist"] componentsSeparatedByString:@","];
-    
-    if (self.arr.count > 0) {
-        [self initPictureView:self.arr];
-        viewY += Item_Image_H;
+    if (![contentDic[@"imagelist"] isEqualToString:@""]) {
+
+        //--------[[[查看是否有 图片存在
+        self.arr = [contentDic[@"imagelist"] componentsSeparatedByString:@","];
+        
+        if (self.arr.count > 0) {
+            [self initPictureView:self.arr];
+            viewY += Item_Image_H;
+        }
+        //--------]]]
+        
     }
-    //--------]]]
+    
+
     
     [self initTitleLable:viewY title:model.m_title];
     viewY += 50;
@@ -146,13 +153,13 @@
     self.titleLable.text = title;
     self.titleLable.numberOfLines = 2;
     
-    [self addSubview:self.titleLable];
+    [self.mainScollView addSubview:self.titleLable];
     
     UIView *lineView = [[UIView alloc] init];
     lineView.frame = CGRectMake(10, viewY + 51, kScreenWidth - 20, 1);
     lineView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
-    [self addSubview:lineView];
+    [self.mainScollView addSubview:lineView];
 }
 
 - (void)initDetailLable:(CGFloat)viewY content:(NSString *)content {
@@ -166,7 +173,7 @@
     self.detailLable.text = content;
     self.detailLable.numberOfLines = 0;
     
-    [self addSubview:self.detailLable];
+    [self.mainScollView addSubview:self.detailLable];
 }
 
 @end
