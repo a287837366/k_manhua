@@ -89,6 +89,13 @@
 		18AA25471CD05DF700954C5A /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA253E1CD05DF700954C5A /* MJPhotoView.m */; };
 		18AA25481CD05DF700954C5A /* UIImageView+MJWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA25401CD05DF700954C5A /* UIImageView+MJWebCache.m */; };
 		18AA254B1CD05F6400954C5A /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AA254A1CD05F6400954C5A /* SDWebImageManager+MJ.m */; };
+		18C24EE51D1E249A0006C55B /* share_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C24EE31D1E249A0006C55B /* share_btn@2x.png */; };
+		18C24EE61D1E249A0006C55B /* share_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C24EE41D1E249A0006C55B /* share_btn@3x.png */; };
+		18C24EEC1D1E265B0006C55B /* wechat_friend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C24EE81D1E265B0006C55B /* wechat_friend@2x.png */; };
+		18C24EED1D1E265B0006C55B /* wechat_friend@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C24EE91D1E265B0006C55B /* wechat_friend@3x.png */; };
+		18C24EEE1D1E265B0006C55B /* wechat_group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C24EEA1D1E265B0006C55B /* wechat_group@2x.png */; };
+		18C24EEF1D1E265B0006C55B /* wechat_group@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C24EEB1D1E265B0006C55B /* wechat_group@3x.png */; };
+		18C24EF21D1E27500006C55B /* WeixinShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C24EF11D1E27500006C55B /* WeixinShareView.m */; };
 		18C72A491CFBE42E007EF280 /* MainShioThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C72A481CFBE42E007EF280 /* MainShioThreeCell.m */; };
 		18E4A6251C3E4D0100609722 /* MeContectUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4A6231C3E4D0100609722 /* MeContectUsViewController.m */; };
 		18E4A6261C3E4D0100609722 /* MeContectUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E4A6241C3E4D0100609722 /* MeContectUsViewController.xib */; };
@@ -331,6 +338,14 @@
 		18AA25401CD05DF700954C5A /* UIImageView+MJWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+MJWebCache.m"; path = "Lib/MJPhotoBrowser/UIImageView+MJWebCache.m"; sourceTree = "<group>"; };
 		18AA25491CD05F6400954C5A /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SDWebImageManager+MJ.h"; path = "Lib/MJPhotoBrowser/SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
 		18AA254A1CD05F6400954C5A /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SDWebImageManager+MJ.m"; path = "Lib/MJPhotoBrowser/SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		18C24EE31D1E249A0006C55B /* share_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_btn@2x.png"; path = "Res/Navigation/share_btn@2x.png"; sourceTree = "<group>"; };
+		18C24EE41D1E249A0006C55B /* share_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_btn@3x.png"; path = "Res/Navigation/share_btn@3x.png"; sourceTree = "<group>"; };
+		18C24EE81D1E265B0006C55B /* wechat_friend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechat_friend@2x.png"; path = "Res/Main/wechat_friend@2x.png"; sourceTree = "<group>"; };
+		18C24EE91D1E265B0006C55B /* wechat_friend@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechat_friend@3x.png"; path = "Res/Main/wechat_friend@3x.png"; sourceTree = "<group>"; };
+		18C24EEA1D1E265B0006C55B /* wechat_group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechat_group@2x.png"; path = "Res/Main/wechat_group@2x.png"; sourceTree = "<group>"; };
+		18C24EEB1D1E265B0006C55B /* wechat_group@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wechat_group@3x.png"; path = "Res/Main/wechat_group@3x.png"; sourceTree = "<group>"; };
+		18C24EF01D1E27500006C55B /* WeixinShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeixinShareView.h; path = Controller/Main/FeedMain/View/ShareView/WeixinShareView.h; sourceTree = "<group>"; };
+		18C24EF11D1E27500006C55B /* WeixinShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeixinShareView.m; path = Controller/Main/FeedMain/View/ShareView/WeixinShareView.m; sourceTree = "<group>"; };
 		18C72A471CFBE42E007EF280 /* MainShioThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainShioThreeCell.h; path = Controller/Main/FeedMain/View/Cell/MainShioThreeCell.h; sourceTree = "<group>"; };
 		18C72A481CFBE42E007EF280 /* MainShioThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainShioThreeCell.m; path = Controller/Main/FeedMain/View/Cell/MainShioThreeCell.m; sourceTree = "<group>"; };
 		18E4A6221C3E4D0100609722 /* MeContectUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeContectUsViewController.h; path = Controller/Me/MeContectUsViewController.h; sourceTree = "<group>"; };
@@ -613,6 +628,8 @@
 		189640EA1C1A77A500657904 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				18C24EE31D1E249A0006C55B /* share_btn@2x.png */,
+				18C24EE41D1E249A0006C55B /* share_btn@3x.png */,
 				182A9F9A1CAD089500A3643F /* friend_setting@2x.png */,
 				182A9F9B1CAD089500A3643F /* friend_setting@3x.png */,
 				182A9F981CAD084E00A3643F /* shop_title_left_menu@2x.png */,
@@ -707,6 +724,15 @@
 				18AA25401CD05DF700954C5A /* UIImageView+MJWebCache.m */,
 			);
 			name = MJPhotoBrowser;
+			sourceTree = "<group>";
+		};
+		18C24EE71D1E25770006C55B /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				18C24EF01D1E27500006C55B /* WeixinShareView.h */,
+				18C24EF11D1E27500006C55B /* WeixinShareView.m */,
+			);
+			name = ShareView;
 			sourceTree = "<group>";
 		};
 		18E933B01C2139F900155F9C /* MBProgressHUD */ = {
@@ -920,6 +946,10 @@
 		9BBC3DF21BCAA84E00F15A1E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				18C24EE81D1E265B0006C55B /* wechat_friend@2x.png */,
+				18C24EE91D1E265B0006C55B /* wechat_friend@3x.png */,
+				18C24EEA1D1E265B0006C55B /* wechat_group@2x.png */,
+				18C24EEB1D1E265B0006C55B /* wechat_group@3x.png */,
 				1842D91B1CFE90D700672086 /* Default-568h@2x.png */,
 				1884BB4D1CFD387A001F6EAC /* icon_data_select.png */,
 				182FBAD51CD1F0D5007750EF /* qita_defualt_img.png */,
@@ -1158,6 +1188,7 @@
 		9BEAB9A01BE78ED600AD5A20 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18C24EE71D1E25770006C55B /* ShareView */,
 				189640EF1C1A917400657904 /* PopView */,
 				9BEAB9A11BE78F0300AD5A20 /* Cell */,
 				188FC96A1C194FFB00E85317 /* MainHeaderView.h */,
@@ -1331,9 +1362,11 @@
 				18E933D21C213DF800155F9C /* loading_10@2x.png in Resources */,
 				18E933CE1C213DF800155F9C /* loading_6@2x.png in Resources */,
 				183BC9A41CBE112500A13378 /* detailpage.jpg in Resources */,
+				18C24EED1D1E265B0006C55B /* wechat_friend@3x.png in Resources */,
 				9BEDE4A01C1EEC9100573468 /* RegisterdDetailView.xib in Resources */,
 				1845F9951D0011FE0051FC32 /* tabBar_essence_icon.png in Resources */,
 				1845F9A31D0011FE0051FC32 /* tabBar_publish_icon@3x.png in Resources */,
+				18C24EEC1D1E265B0006C55B /* wechat_friend@2x.png in Resources */,
 				9BBBDDCB1C19A2CC0000F312 /* tab_home.png in Resources */,
 				1800A3341D001BE500D50D5A /* tabBar_me_click_icon@3x.png in Resources */,
 				1800A3351D001BE500D50D5A /* tabBar_me_icon.png in Resources */,
@@ -1341,8 +1374,10 @@
 				1845F99F1D0011FE0051FC32 /* tabBar_publish_click_icon@2x.png in Resources */,
 				183BC9A91CBE1C9A00A13378 /* MeNoResponsibilityVC.xib in Resources */,
 				1845F99E1D0011FE0051FC32 /* tabBar_publish_click_icon.png in Resources */,
+				18C24EE61D1E249A0006C55B /* share_btn@3x.png in Resources */,
 				1845F9A21D0011FE0051FC32 /* tabBar_publish_icon@2x.png in Resources */,
 				182A9F931CACF80D00A3643F /* nav_top_background1@3x.png in Resources */,
+				18C24EEF1D1E265B0006C55B /* wechat_group@3x.png in Resources */,
 				18EEEED11CB50368005091F7 /* amphotosdefualt@3x.png in Resources */,
 				1845F9941D0011FE0051FC32 /* tabBar_essence_click_icon@3x.png in Resources */,
 				9BEBD7E51CB01180003B6A86 /* YMnineImageCell.xib in Resources */,
@@ -1353,6 +1388,7 @@
 				1896410A1C1BF7B600657904 /* nav_top_back@2x.png in Resources */,
 				182D5AC01CAE714E00F8D6E8 /* me_right_arraw@2x.png in Resources */,
 				182D5AC11CAE714E00F8D6E8 /* me_right_arraw@3x.png in Resources */,
+				18C24EE51D1E249A0006C55B /* share_btn@2x.png in Resources */,
 				18EEEED31CB50368005091F7 /* amphotoseleted@3x.png in Resources */,
 				182FBAD11CD1E4F0007750EF /* congwu_defualt_img.png in Resources */,
 				182A9F9D1CAD089500A3643F /* friend_setting@3x.png in Resources */,
@@ -1362,6 +1398,7 @@
 				9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */,
 				1845F9931D0011FE0051FC32 /* tabBar_essence_click_icon@2x.png in Resources */,
 				1845F9961D0011FE0051FC32 /* tabBar_essence_icon@2x.png in Resources */,
+				18C24EEE1D1E265B0006C55B /* wechat_group@2x.png in Resources */,
 				182A9F901CACF80D00A3643F /* nav_top_background.png in Resources */,
 				18E4A6261C3E4D0100609722 /* MeContectUsViewController.xib in Resources */,
 				18E933CF1C213DF800155F9C /* loading_7@2x.png in Resources */,
@@ -1484,6 +1521,7 @@
 				18E4A6251C3E4D0100609722 /* MeContectUsViewController.m in Sources */,
 				188FC96C1C194FFB00E85317 /* MainHeaderView.m in Sources */,
 				18AA25471CD05DF700954C5A /* MJPhotoView.m in Sources */,
+				18C24EF21D1E27500006C55B /* WeixinShareView.m in Sources */,
 				18EF5AF01C1E674700A436C4 /* MJRefreshConst.m in Sources */,
 				9BB96A011CAF4F0000D888D7 /* MainCreateNewsVC.m in Sources */,
 				1800A33A1D002AF400D50D5A /* ChooseTypeMainView.m in Sources */,

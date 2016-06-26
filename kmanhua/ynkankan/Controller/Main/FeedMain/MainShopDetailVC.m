@@ -15,6 +15,7 @@
 #import "UserSharePrefre.h"
 #import "LoginViewController.h"
 #import "MBProgressHUD+ToastDialog.h"
+#import "WeixinShareView.h"
 
 
 //480 : 640
@@ -23,6 +24,8 @@
 {
     MainShopService *service;
     NSArray *phoneArray;
+    
+    WeixinShareView *shareView;
     
 }
 
@@ -48,6 +51,7 @@
     phoneArray = [self.detailModel.u_phoneno componentsSeparatedByString:@";"];
     service = [[MainShopService alloc] init];
 
+    shareView = [[WeixinShareView alloc] init];
 }
 
 - (void)initView{
@@ -59,12 +63,23 @@
     [self initBackButton];
     [self initMainView];
     [self initBottomView];
+    [self initRightButton];
 }
 
 - (void)initMainView {
 
     self.detailView = [[MainShopDetailView alloc] init];
     [self.view addSubview:self.detailView];
+}
+
+- (void)initRightButton {
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(clickShare)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
+
+-(void)clickShare {
+    [shareView showShare];
 }
 
 - (void)initBottomView {
@@ -159,6 +174,7 @@
 
 
 }
+
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
