@@ -55,6 +55,14 @@
     return _size;
 }
 
++(BOOL)isWechatInstalled{
+    if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
 
 
 @end

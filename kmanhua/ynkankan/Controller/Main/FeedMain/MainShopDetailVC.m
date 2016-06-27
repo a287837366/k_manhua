@@ -16,11 +16,11 @@
 #import "LoginViewController.h"
 #import "MBProgressHUD+ToastDialog.h"
 #import "WeixinShareView.h"
-
+#import "WeiXin.h"
 
 //480 : 640
 
-@interface MainShopDetailVC ()<UIAlertViewDelegate, UIActionSheetDelegate>
+@interface MainShopDetailVC ()<UIAlertViewDelegate, UIActionSheetDelegate, WeixinShareViewDelegate>
 {
     MainShopService *service;
     NSArray *phoneArray;
@@ -52,6 +52,7 @@
     service = [[MainShopService alloc] init];
 
     shareView = [[WeixinShareView alloc] init];
+    shareView.delegate = self;
 }
 
 - (void)initView{
@@ -175,6 +176,30 @@
 
 }
 
+#pragma mark - 分享点击
+-(void)didClickShareItem:(NSInteger)index{
+    
+    
+    if (![ToolsClass isWechatInstalled]) {
+        [MBProgressHUD Toast:self.view withText:@"您的手机没有安装微信"];
+        return;
+    }
+    
+    
+    NSString *shareUrl = [NSString stringWithFormat:@"%@manhuaid=%@", @"http://1.85kankan.sinaapp.com/manhua/sharemanhuaById.php?", self.detailModel.m_uid];
+    
+    NSString *shareImage = @"";
+    
+    if ([self.detailModel.t_images isEqualToString:@""]) {
+        shareImage = @"shareappicon";
+    } else {
+         NSArray *arrWriterPos =[self.detailModel.t_images componentsSeparatedByString:NSLocalizedString(@",", nil)];
+        shareImage = arrWriterPos[0];
+    }
+    
+    
+    [WeiXin WeixinShare:self.detailModel.m_title andDesc:self.detailModel.m_title  andUrl:shareUrl withImgUrl:shareImage isGroup:index == 1];
+}
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     

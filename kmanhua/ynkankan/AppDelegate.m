@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabViewController.h"
+#import "WXApi.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,10 @@
     //[TestCommit]
     [NSThread sleepForTimeInterval:1.5];
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //向微信注册
+    [WXApi registerApp:@"wx831d2a408f9fd4f2" withDescription:@"YBTUN"];
+    
     
     self.window = [[UIWindow alloc]init];
     

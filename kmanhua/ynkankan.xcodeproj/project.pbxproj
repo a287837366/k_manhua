@@ -48,6 +48,17 @@
 		183BC9A41CBE112500A13378 /* detailpage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 183BC9A31CBE112500A13378 /* detailpage.jpg */; };
 		183BC9A81CBE1C9A00A13378 /* MeNoResponsibilityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BC9A61CBE1C9A00A13378 /* MeNoResponsibilityVC.m */; };
 		183BC9A91CBE1C9A00A13378 /* MeNoResponsibilityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 183BC9A71CBE1C9A00A13378 /* MeNoResponsibilityVC.xib */; };
+		183D61AE1D20D50B00CDD7AF /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61AA1D20D50B00CDD7AF /* libWeChatSDK.a */; };
+		183D61B01D20E38500CDD7AF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61AF1D20E38500CDD7AF /* Security.framework */; };
+		183D61B21D20E8B200CDD7AF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61B11D20E8B200CDD7AF /* CoreTelephony.framework */; };
+		183D61B41D20E8BE00CDD7AF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61B31D20E8BE00CDD7AF /* SystemConfiguration.framework */; };
+		183D61B61D20E8DC00CDD7AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61B51D20E8DC00CDD7AF /* UIKit.framework */; };
+		183D61B81D20E8E800CDD7AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61B71D20E8E800CDD7AF /* Foundation.framework */; };
+		183D61BA1D20E9F600CDD7AF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61B91D20E9F600CDD7AF /* libsqlite3.0.tbd */; };
+		183D61BC1D20EA0100CDD7AF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61BB1D20EA0100CDD7AF /* libz.tbd */; };
+		183D61BE1D20EA3700CDD7AF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 183D61BD1D20EA3700CDD7AF /* libc++.tbd */; };
+		183D61C11D20EDB100CDD7AF /* WeiXin.m in Sources */ = {isa = PBXBuildFile; fileRef = 183D61C01D20EDB100CDD7AF /* WeiXin.m */; };
+		183D61C31D21006200CDD7AF /* shareappicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 183D61C21D21006200CDD7AF /* shareappicon.png */; };
 		1842D91C1CFE90D700672086 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1842D91B1CFE90D700672086 /* Default-568h@2x.png */; };
 		1845F97F1D000F7D0051FC32 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845F97E1D000F7D0051FC32 /* MainTabViewController.m */; };
 		1845F9921D0011FE0051FC32 /* tabBar_essence_click_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1845F9801D0011FE0051FC32 /* tabBar_essence_click_icon.png */; };
@@ -276,6 +287,21 @@
 		183BC9A51CBE1C9A00A13378 /* MeNoResponsibilityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeNoResponsibilityVC.h; path = Controller/Me/MeNoResponsibilityVC.h; sourceTree = "<group>"; };
 		183BC9A61CBE1C9A00A13378 /* MeNoResponsibilityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeNoResponsibilityVC.m; path = Controller/Me/MeNoResponsibilityVC.m; sourceTree = "<group>"; };
 		183BC9A71CBE1C9A00A13378 /* MeNoResponsibilityVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MeNoResponsibilityVC.xib; path = Controller/Me/MeNoResponsibilityVC.xib; sourceTree = "<group>"; };
+		183D61AA1D20D50B00CDD7AF /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = Lib/Weixinshare/libWeChatSDK.a; sourceTree = "<group>"; };
+		183D61AB1D20D50B00CDD7AF /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatAuthSDK.h; path = Lib/Weixinshare/WechatAuthSDK.h; sourceTree = "<group>"; };
+		183D61AC1D20D50B00CDD7AF /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = Lib/Weixinshare/WXApi.h; sourceTree = "<group>"; };
+		183D61AD1D20D50B00CDD7AF /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = Lib/Weixinshare/WXApiObject.h; sourceTree = "<group>"; };
+		183D61AF1D20E38500CDD7AF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		183D61B11D20E8B200CDD7AF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		183D61B31D20E8BE00CDD7AF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		183D61B51D20E8DC00CDD7AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		183D61B71D20E8E800CDD7AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		183D61B91D20E9F600CDD7AF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		183D61BB1D20EA0100CDD7AF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		183D61BD1D20EA3700CDD7AF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		183D61BF1D20EDB100CDD7AF /* WeiXin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeiXin.h; path = Lib/Weixinshare/WeiXin.h; sourceTree = "<group>"; };
+		183D61C01D20EDB100CDD7AF /* WeiXin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeiXin.m; path = Lib/Weixinshare/WeiXin.m; sourceTree = "<group>"; };
+		183D61C21D21006200CDD7AF /* shareappicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shareappicon.png; path = Res/Main/shareappicon.png; sourceTree = "<group>"; };
 		1842D91B1CFE90D700672086 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Res/Main/Default-568h@2x.png"; sourceTree = "<group>"; };
 		1845F97D1D000F7D0051FC32 /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		1845F97E1D000F7D0051FC32 /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
@@ -541,6 +567,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				183D61BE1D20EA3700CDD7AF /* libc++.tbd in Frameworks */,
+				183D61BC1D20EA0100CDD7AF /* libz.tbd in Frameworks */,
+				183D61BA1D20E9F600CDD7AF /* libsqlite3.0.tbd in Frameworks */,
+				183D61B81D20E8E800CDD7AF /* Foundation.framework in Frameworks */,
+				183D61B61D20E8DC00CDD7AF /* UIKit.framework in Frameworks */,
+				183D61B41D20E8BE00CDD7AF /* SystemConfiguration.framework in Frameworks */,
+				183D61B21D20E8B200CDD7AF /* CoreTelephony.framework in Frameworks */,
+				183D61B01D20E38500CDD7AF /* Security.framework in Frameworks */,
+				183D61AE1D20D50B00CDD7AF /* libWeChatSDK.a in Frameworks */,
 				1804B6031CBB50A50092398F /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +624,7 @@
 		182D5AB31CAE138600F8D6E8 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				183D61A91D20D4E900CDD7AF /* Weixinshare */,
 				18AA25311CD05DAA00954C5A /* MJPhotoBrowser */,
 				18EEEEA71CB4FED7005091F7 /* AmPhotoPiker */,
 				182D5AB41CAE140B00F8D6E8 /* ShareUtils */,
@@ -603,6 +639,19 @@
 				182D5AB61CAE14F300F8D6E8 /* UserSharePrefre.m */,
 			);
 			name = ShareUtils;
+			sourceTree = "<group>";
+		};
+		183D61A91D20D4E900CDD7AF /* Weixinshare */ = {
+			isa = PBXGroup;
+			children = (
+				183D61BF1D20EDB100CDD7AF /* WeiXin.h */,
+				183D61C01D20EDB100CDD7AF /* WeiXin.m */,
+				183D61AA1D20D50B00CDD7AF /* libWeChatSDK.a */,
+				183D61AB1D20D50B00CDD7AF /* WechatAuthSDK.h */,
+				183D61AC1D20D50B00CDD7AF /* WXApi.h */,
+				183D61AD1D20D50B00CDD7AF /* WXApiObject.h */,
+			);
+			name = Weixinshare;
 			sourceTree = "<group>";
 		};
 		186511D51C1EB6E300DD969C /* View */ = {
@@ -946,6 +995,7 @@
 		9BBC3DF21BCAA84E00F15A1E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				183D61C21D21006200CDD7AF /* shareappicon.png */,
 				18C24EE81D1E265B0006C55B /* wechat_friend@2x.png */,
 				18C24EE91D1E265B0006C55B /* wechat_friend@3x.png */,
 				18C24EEA1D1E265B0006C55B /* wechat_group@2x.png */,
@@ -1051,6 +1101,14 @@
 		9BCA70291BAB0BA60095D9BA = {
 			isa = PBXGroup;
 			children = (
+				183D61BD1D20EA3700CDD7AF /* libc++.tbd */,
+				183D61BB1D20EA0100CDD7AF /* libz.tbd */,
+				183D61B91D20E9F600CDD7AF /* libsqlite3.0.tbd */,
+				183D61B71D20E8E800CDD7AF /* Foundation.framework */,
+				183D61B51D20E8DC00CDD7AF /* UIKit.framework */,
+				183D61B31D20E8BE00CDD7AF /* SystemConfiguration.framework */,
+				183D61B11D20E8B200CDD7AF /* CoreTelephony.framework */,
+				183D61AF1D20E38500CDD7AF /* Security.framework */,
 				1804B6021CBB50A50092398F /* libsqlite3.tbd */,
 				9BCA70341BAB0BA60095D9BA /* ynkankan */,
 				9BCA70511BAB0BA60095D9BA /* ynkankanTests */,
@@ -1393,6 +1451,7 @@
 				182FBAD11CD1E4F0007750EF /* congwu_defualt_img.png in Resources */,
 				182A9F9D1CAD089500A3643F /* friend_setting@3x.png in Resources */,
 				182FBAD61CD1F0D5007750EF /* qita_defualt_img.png in Resources */,
+				183D61C31D21006200CDD7AF /* shareappicon.png in Resources */,
 				1842D91C1CFE90D700672086 /* Default-568h@2x.png in Resources */,
 				18E933D01C213DF800155F9C /* loading_8@2x.png in Resources */,
 				9BBBDDCD1C19A2CC0000F312 /* tab_weixin.png in Resources */,
@@ -1545,6 +1604,7 @@
 				9BEBD7E31CB01180003B6A86 /* YMImage.m in Sources */,
 				9BCA706A1BAB0EF20095D9BA /* MeViewController.m in Sources */,
 				9BCA70671BAB0ED80095D9BA /* NewsMainViewController.m in Sources */,
+				183D61C11D20EDB100CDD7AF /* WeiXin.m in Sources */,
 				18EEEEC61CB5035F005091F7 /* AmPhotoPikerCollection.m in Sources */,
 				9BDD3C6E1C3EAC96009CEC3D /* SDWebImageDownloader.m in Sources */,
 				9B7B7E821C1F04F4007EFC22 /* LoginService.m in Sources */,
@@ -1699,9 +1759,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = ynkankan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ynkankan/Lib/Weixinshare",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ha.yutun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1715,9 +1785,19 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = ynkankan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ynkankan/Lib/Weixinshare",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ha.yutun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

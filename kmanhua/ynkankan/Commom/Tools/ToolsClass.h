@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "AppConstant.h"
-
+#import "WXApi.h"
 @interface ToolsClass : NSObject
 
 #pragma mark 转MD5
@@ -20,5 +20,7 @@
 
 #pragma mark 根据内容拿到 控件宽度
 + (CGSize)boundingRectWithSize:(NSString*) txt Font:(UIFont*) font size:(CGSize)size;
+
++(BOOL)isWechatInstalled;
 
 @end
