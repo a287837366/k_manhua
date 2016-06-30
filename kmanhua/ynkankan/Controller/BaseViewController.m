@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     
     [self initNavigation];
+    [self initGestureRecognizer];
+    
 }
 
 - (void)initNavigation{
@@ -45,6 +47,15 @@
     [self.navigationController.navigationBar setTitleTextAttributes:dict];
     [self.navigationController.navigationBar setTintColor:Color_666666];
 }
+
+#pragma mark 开启关闭手势
+-(void)initGestureRecognizer{
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

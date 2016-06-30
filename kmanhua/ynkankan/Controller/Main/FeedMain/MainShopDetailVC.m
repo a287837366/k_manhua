@@ -184,8 +184,7 @@
         [MBProgressHUD Toast:self.view withText:@"您的手机没有安装微信"];
         return;
     }
-    
-    
+
     NSString *shareUrl = [NSString stringWithFormat:@"%@manhuaid=%@", @"http://1.85kankan.sinaapp.com/manhua/sharemanhuaById.php?", self.detailModel.m_uid];
     
     NSString *shareImage = @"";
